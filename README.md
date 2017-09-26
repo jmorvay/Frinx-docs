@@ -29,6 +29,6 @@ The microservices architecture enables control of protocols, plug-ins and applic
 [SBE intro](FRINX_Smart_Build_Engine/SBE_intro.md)  
 [link-tst](testfolder/SBE intro.md)  
 [link-tst](testfolder/SBEintro.md)  
-[link-tst](docs/SBEintro.md)  
+[link-tst](docs/SBEintro.md)   
 [link-tst](docs/SBE intro.md)  
   

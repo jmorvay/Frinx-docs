@@ -15,3 +15,19 @@ MD-SAL allows any application to be bundled as a service and loaded into the con
 #### Extensible
 
 The microservices architecture enables control of protocols, plug-ins and applications and the connection of external consumers and providers. More than 50 OpenDaylight projects extend Frinx’s network functionality by bundling services and functionality as Karaf features. Karaf features are a hierarchy of OSGI bundles, ready for plugin to Frinx‘s OSGI container.
+
+# Table of contents
+
+- [Usage](#usage)
+- [Installation](#installation)
+- [Recommended configurations](#recommended-configurations)
+- [Updating](#updating)
+- [Uninstallation](#uninstallation)
+- [Contributing](#contributing)
+- [License](#license)
+
+# Usage
+
+[(Back to top)](#table-of-contents)
+
+- With `-a` : `lc` prints all directories, files and dotfiles in current directory.

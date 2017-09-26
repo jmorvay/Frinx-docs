@@ -26,8 +26,9 @@ The microservices architecture enables control of protocols, plug-ins and applic
 
 - With `-a` : `lc` prints all directories, files and dotfiles in current directory.
 
-[SBE intro](FRINX Smart Build Engine/SBE intro.md)
-[link-tst](testfolder/SBE intro.md)
-[link-tst](testfolder/SBEintro.md)
-[link-tst](docs/SBEintro.md)
-[link-tst](docs/SBE intro.md)
+[SBE intro](FRINX Smart Build Engine/SBE intro.md)  
+[link-tst](testfolder/SBE intro.md)  
+[link-tst](testfolder/SBEintro.md)  
+[link-tst](docs/SBEintro.md)  
+[link-tst](docs/SBE intro.md)  
+  

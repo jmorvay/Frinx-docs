@@ -20,14 +20,12 @@ The microservices architecture enables control of protocols, plug-ins and applic
 
 - [Usage](#usage)
 - [Installation](#installation)
-- [Recommended configurations](#recommended-configurations)
-- [Updating](#updating)
-- [Uninstallation](#uninstallation)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 # Usage
 
 [(Back to top)](#table-of-contents)
 
 - With `-a` : `lc` prints all directories, files and dotfiles in current directory.
+
+[SBE intro](FRINX Smart Build Engine/SBE intro.md)

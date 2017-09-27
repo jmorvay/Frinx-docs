@@ -1,14 +1,3 @@
----
-ID: 2222
-post_title: API bundle
-author: ngray@frinx.io
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/using-the-frinx-api-bundle.html
-published: true
-post_date: 2016-08-31 13:41:48
----
 To use this functionality, run the following command in the karaf console:
 
     feature:install frinx-installer-backend

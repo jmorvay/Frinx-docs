@@ -1,36 +1,23 @@
 # Frinx documentation pages
 
-put toc up here
-
 ## FRINX ODL Distribution
-[Operations Manual]FRINX_ODL_Distribution/Operations_manual.md)  
-[Running the FRINX ODL Distribution](FRINX_ODL_Distribution/SBE_intro.md)  
-[Running after activation](FRINX_ODL_Distribution/Operations_Manual/) 
-### FRINX Features: User Guide
-
-### FRINX Features: Developer Guide
-
-### Troubleshooting Guide
-
-### Release Notes
-
+[Operations Manual](FRINX_ODL_Distribution/Operations_manual.md)  
+[FRINX Features: User Guide](FRINX_ODL_Distribution/User_guide.md)  
+[FRINX Features: Developer Guide](FRINX_ODL_Distribution/Developer_guide) 
+[Troubelshooting Guide](FRINX_ODL_Distribution/Troubleshooting_guide) 
+[Release Notes](FRINX_ODL_Distribution/Developer_guide) 
 
 ## FRINX Smart Build Engine (SBE)
 [Introduction](FRINX_Smart_Build_Engine/SBE_intro.md)
-### Operations Manual
+[Operations Manual](FRINX_Smart_Build_Engine/Operations_manual.md)
+[Troubleshooting Guide](FRINX_Smart_Build_Engine/Troubleshooting_guide.md)
+[Developer Guide](FRINX_Smart_Build_Engine/Developer_guide.md)
+[Additional Info](FRINX_Smart_Build_Engine/Additional_info.md)
 
-### Troubleshooting Guide
+## FRINX VPP Distribution
+[Introduction](FRINX_VPP_Distribution/VPP_intro.md)
+[Operations Manual](FRINX_VPP_Distribution/Operations_manual.md)
+[Troubleshooting Guide](FRINX_VPP_Distribution/Troubleshooting_guide.md)
 
-### Developer's Guide
-[Running after activation](FRINX_ODL_Distribution/Operations_Manual/) 
-
-### Additional Info
-
-
-
-[SBE Operations Manual](FRINX_Smart_Build_Engine/Operations_Manual/) 
-[SBE Installation](FRINX_Smart_Build_Engine/Operations_Manual/Installation.md)
-
-## Frinx Smart Build Engine (SBE)
 
 

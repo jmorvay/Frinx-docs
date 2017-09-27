@@ -1,14 +1,3 @@
----
-ID: 772
-post_title: Karaf CLI
-author: frinxeditor
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/using-the-frinx-odl-distribution-cli.html
-published: true
-post_date: 2016-06-01 14:45:50
----
 The Apache Karaf container used by the Frinx ODL Distribution supports three different start modes:
 
 1.  ***regular*** mode starts Apache Karaf in the foreground, including the shell console.

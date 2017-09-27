@@ -1,14 +1,3 @@
----
-ID: 4975
-post_title: CLI Service Module Developer Guide
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/cli-service-module-devguide.html
-published: true
-post_date: 2017-07-12 10:32:45
----
 This document provides developer-level details for the FRINX CLI southbound plugin, both for the framework itself as well as for the pluggable translation units.
 
 Pre-requisite reading: - Honeycomb design documentation:  

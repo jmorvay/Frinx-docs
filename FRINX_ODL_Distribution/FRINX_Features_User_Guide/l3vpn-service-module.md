@@ -1,14 +1,3 @@
----
-ID: 4776
-post_title: L3VPN Service Module User Guide
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/l3vpn-service-module.html
-published: true
-post_date: 2017-06-26 10:10:28
----
 *The postman collection and YANG files can be accessed [here][1]*
 
 The goal of this project is to automate provisioning of Layer 3 Virtual Private Network (L3VPN) on Service Provider (SP) routers.

@@ -1,14 +1,3 @@
----
-ID: 4561
-post_title: General
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-vpp-distribution/vpp-operations-manual/howto-general.html
-published: true
-post_date: 2017-05-29 13:03:15
----
 **Dump VPP message table**
 
 Vpp APIs work with messages, to check all the available messages and their indices use in VAT:

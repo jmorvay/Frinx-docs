@@ -1,14 +1,3 @@
----
-ID: 762
-post_title: Connecting to an OpenFlow switch
-author: frinxeditor
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/using-the-frinx-odl-distribution-to-program-a-switch.html
-published: true
-post_date: 2016-06-01 14:43:08
----
 In OpenDaylight, OpenFlow is implemented by the following features: odl-l2switch (and dependencies), openflowplugin and openflowjava. These can be installed in one of the following two ways:
 
 **Option A: Installing Openflow features using the karaf console**  

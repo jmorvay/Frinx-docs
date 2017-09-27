@@ -1,14 +1,3 @@
----
-ID: 3951
-post_title: Frinx ODL distribution 2.2.0
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/frinx-odl-distribution-2-2-0.html
-published: true
-post_date: 2017-02-23 13:07:55
----
 This document describes the latest changes, additions, known issues, and fixes for the Frinx Controller.<!--more-->[wpmem_form login]
 
 **Note that FRINX ODL distribution 2.2.0 requires Java 8**

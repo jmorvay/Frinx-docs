@@ -17,7 +17,7 @@
 ## FRINX VPP Distribution  
 [Introduction](FRINX_VPP_Distribution/Introduction/Introduction.md)  
 [Operations Manual](FRINX_VPP_Distribution/Operations_manual.md)  
-[Troubleshooting Guide](FRINX_VPP_Distribution/Troubleshooting_guide.md)  
+[Troubleshooting Guide](FRINX_VPP_Distribution/Troubleshooting_Guide/troubleshooting-guide.md)  
 
 
 

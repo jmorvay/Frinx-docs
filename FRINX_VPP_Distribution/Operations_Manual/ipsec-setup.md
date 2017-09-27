@@ -1,16 +1,3 @@
----
-ID: 4596
-post_title: IPsec Setup
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-vpp-distribution/vpp-operations-manual/ipsec-setup.html
-published: true
-post_date: 2017-05-29 15:24:04
----
-<img src="https://frinx.io/wp-content/uploads/2017/05/ipsec.png" alt="" width="611" height="542" class="alignleft size-full wp-image-4598" />
-
 ### Configure VPP from the console using the following commands:
 
 **VPP1 (hub)**

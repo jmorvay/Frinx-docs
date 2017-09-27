@@ -1,14 +1,3 @@
----
-ID: 5275
-post_title: Frinx ODL distribution 1.4.7
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-odl-distribution-1-4-7/frinx-odl-distribution-1-4-7.html
-published: true
-post_date: 2017-08-02 13:30:09
----
 This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution. <!--more-->
 
 **Note that FRINX ODL Distribution 1.4.7 requires Java 8**

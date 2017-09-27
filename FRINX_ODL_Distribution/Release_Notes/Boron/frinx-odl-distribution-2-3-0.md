@@ -1,14 +1,3 @@
----
-ID: 5004
-post_title: Frinx ODL distribution 2.3.0
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/frinx-odl-distribution-2-3-0.html
-published: true
-post_date: 2017-07-12 13:54:06
----
 This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.<!--more-->
 
 **Note that FRINX ODL distribution 2.3.0 requires Java 8**

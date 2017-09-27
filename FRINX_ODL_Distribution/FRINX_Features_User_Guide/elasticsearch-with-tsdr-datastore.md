@@ -1,14 +1,3 @@
----
-ID: 5696
-post_title: 'Elasticsearch: with TSDR datastore'
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/elasticsearch-with-tsdr-datastore.html
-published: true
-post_date: 2017-09-06 11:34:53
----
 *This feature was deprecated in FRINX 2.3.1. For using Elasticsearch with FRINX ODL logs see [here][1]*
 
 **Setting Up the environment**  

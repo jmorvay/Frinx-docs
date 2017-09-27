@@ -24,7 +24,6 @@ After docker is installed start a centos7 container:
 
     sudo docker run -ti --privileged centos7 /bin/bash
     
-
 Then in the container install vpp, configure and start it:
 
      yum install install apt-transport-https vim net-tools inetutils-ping telnet

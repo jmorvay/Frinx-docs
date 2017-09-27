@@ -1,14 +1,3 @@
----
-ID: 764
-post_title: RESTCONF
-author: frinxeditor
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/restconf.html
-published: true
-post_date: 2016-06-01 14:43:45
----
 **Flow operations using RESTCONF**  
 To use RESTCONF, a RESTful API client is needed.
 

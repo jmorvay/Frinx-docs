@@ -1,14 +1,3 @@
----
-ID: 3404
-post_title: 'Elasticsearch: with FRINX ODL logs'
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/elastic-search.html
-published: true
-post_date: 2017-01-03 08:19:00
----
 **Installation**
 
 1\. If you have not already done so, [Download the FRINX ODL distribution][1] and [install it][2]  

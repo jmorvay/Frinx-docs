@@ -1,14 +1,3 @@
----
-ID: 3704
-post_title: Updating SBE components
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/component-guide.html
-published: true
-post_date: 2017-01-23 13:59:36
----
 This guide explains how to update the SBE - both in its entirety and on a component-by-component basis.
 
 ### Updating SBE core

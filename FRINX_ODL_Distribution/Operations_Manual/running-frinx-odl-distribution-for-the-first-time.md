@@ -1,14 +1,3 @@
----
-ID: 1650
-post_title: Running the FRINX ODL Distribution
-author: frinxeditor
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/running-frinx-odl-distribution-for-the-first-time.html
-published: true
-post_date: 2016-06-20 08:13:07
----
 This guide explains how to run the distribution for the first time. If you have run it previously, please see [this guide][1]
 
 ***System requirements***  

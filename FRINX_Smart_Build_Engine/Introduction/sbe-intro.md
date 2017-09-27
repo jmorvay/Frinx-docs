@@ -1,14 +1,3 @@
----
-ID: 2392
-post_title: Introduction
-author: ngray@frinx.io
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/sbe-intro.html
-published: true
-post_date: 2016-10-28 10:27:41
----
 *   What is FRINX SBE?
 *   Components Overview
 *   Components Description

@@ -1,14 +1,3 @@
----
-ID: 1236
-post_title: 'NETCONF: Mounting a device'
-author: frinxeditor
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/setting-up-a-simple-netconf-session-by-mounting-a-device-2.html
-published: true
-post_date: 2016-06-03 11:33:08
----
 In this example we connect the controller to itself to verify that that NETCONF features were installed correctly. It is similar to loopback but done over a NETCONF session. After mounting itself, the YANG model of the Frinx ODL Distribution is exposed by RESTCONF and is an interesting point to begin exploring.
 
 **Step 1 Install Features**

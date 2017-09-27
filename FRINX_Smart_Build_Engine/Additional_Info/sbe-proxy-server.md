@@ -1,14 +1,3 @@
----
-ID: 3342
-post_title: Proxy server
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/sbe-proxy-server.html
-published: true
-post_date: 2016-12-16 12:06:51
----
 ### Proxy server configuration
 
 This part describe how to setup SBE proxy server, if you provide more SBE instances on more hosts. SBE proxy server is reverse proxy server provided by NGINX.

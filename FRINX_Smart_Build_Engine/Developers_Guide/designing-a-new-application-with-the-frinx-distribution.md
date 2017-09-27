@@ -1,14 +1,3 @@
----
-ID: 3449
-post_title: Adding a new application to FRINX ODL
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/designing-a-new-application-with-the-frinx-distribution.html
-published: true
-post_date: 2017-01-03 14:13:32
----
 #### 1\. Project structure
 
 Each project or plugin using ODL should have the same directory structure. This has several advantages. For a programmer, jumping from one project to another is very easy, because he knows where all the key files are (features.xml, controller-config, etc.). For this purpose, ODL developed a maven archetype (template) to automatically create project structure with POM files, base wiring and configuration.

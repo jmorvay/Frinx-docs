@@ -1,14 +1,3 @@
----
-ID: 3452
-post_title: Troubleshooting Guide
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/troubleshooting-guide.html
-published: true
-post_date: 2017-01-03 14:25:27
----
 The troubleshooting guide is based around a [flow chart][1].
 
 This guide can be used in two ways:

@@ -15,7 +15,7 @@
 [Additional Info](FRINX_Smart_Build_Engine/Additional_info.md)   
   
 ## FRINX VPP Distribution   
-[Introduction](FRINX_VPP_Distribution/VPP_intro.md)   
+[Introduction](FRINX_VPP_Distribution/Introduction.md)   
 [Operations Manual](FRINX_VPP_Distribution/Operations_manual.md)   
 [Troubleshooting Guide](FRINX_VPP_Distribution/Troubleshooting_guide.md)   
 

@@ -3,9 +3,9 @@
 ## FRINX ODL Distribution   
 [Operations Manual](FRINX_ODL_Distribution/Operations_manual.md)   
 [FRINX Features: User Guide](FRINX_ODL_Distribution/User_guide.md)   
-[FRINX Features: Developer Guide](FRINX_ODL_Distribution/Developer_guide)   
-[Troubleshooting Guide](FRINX_ODL_Distribution/Troubleshooting_guide)    
-[Release Notes](FRINX_ODL_Distribution/Developer_guide)    
+[FRINX Features: Developer Guide](FRINX_ODL_Distribution/Developer_guide.md)   
+[Troubleshooting Guide](FRINX_ODL_Distribution/Troubleshooting_guide.md)    
+[Release Notes](FRINX_ODL_Distribution/Release_notes.md)    
   
   
  sss 

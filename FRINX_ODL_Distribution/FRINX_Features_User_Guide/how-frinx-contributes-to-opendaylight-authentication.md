@@ -1,14 +1,3 @@
----
-ID: 2562
-post_title: RADIUS
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/how-frinx-contributes-to-opendaylight-authentication.html
-published: true
-post_date: 2016-11-14 07:44:22
----
 Within OpenDaylight, authentication and authorization is handled by the AAA feature, of which Apache Shiro is the core component. Apache Shiro can itself cooperate with third party authentication and authorization tools. However, in its current implementation within OpenDaylight it supports only LDAP.
 
 FRINX has extended the functionality of the AAA feature by adding Apache Shiro interaction with RADIUS. RADIUS is a network protocol which authenticates a user who connects and uses a network service. The user sends a request to a Network Access Server (NAS) to gain access to a particular network resource using access credentials.

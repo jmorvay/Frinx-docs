@@ -1,14 +1,3 @@
----
-ID: 4552
-post_title: Troubleshooting Guide
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/troubleshooting-guide-2.html
-published: true
-post_date: 2017-05-29 12:46:05
----
 This guide shows how to run VPP in debug mode. It enables you to:
 
 *   Collect trace if VPP crashes 

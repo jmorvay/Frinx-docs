@@ -1,14 +1,3 @@
----
-ID: 4242
-post_title: 'SBE example: hello world project'
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/sbe-hello-world.html
-published: true
-post_date: 2017-03-29 08:43:21
----
 This section explains how to mirror the hello-world-samples repository from github to SBE's gerrit and build it in the SBE.
 
 ### Start SBE

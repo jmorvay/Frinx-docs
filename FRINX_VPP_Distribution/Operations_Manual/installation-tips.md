@@ -1,14 +1,3 @@
----
-ID: 4583
-post_title: Installation
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-vpp-distribution/vpp-operations-manual/installation-tips.html
-published: true
-post_date: 2017-05-29 14:38:33
----
 ### VPP Installation
 
 Described at: [VPP install packages][1]

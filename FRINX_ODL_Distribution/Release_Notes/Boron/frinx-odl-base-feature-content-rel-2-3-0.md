@@ -1,14 +1,3 @@
----
-ID: 5137
-post_title: 'Base Feature Content: FRINX Boron 2.3.0'
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/frinx-odl-base-feature-content-rel-2-3-0.html
-published: true
-post_date: 2017-07-19 10:12:55
----
 | Name                                             | Version                         |
 | ------------------------------------------------ | ------------------------------- |
 | odl-mdsal-models                                 | 0\.9.3-Boron-SR3.2_3_0-frinxodl |

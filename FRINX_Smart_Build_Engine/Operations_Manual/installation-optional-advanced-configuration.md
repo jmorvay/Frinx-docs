@@ -1,14 +1,3 @@
----
-ID: 3608
-post_title: 'Installation &#8211; Optional advanced configuration'
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/installation-optional-advanced-configuration.html
-published: true
-post_date: 2017-01-09 13:31:51
----
 The following are optional steps and not required for a standard installation.
 
 ### Setting up Multiple SBE Instances

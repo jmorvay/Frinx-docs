@@ -1,12 +1,36 @@
 # Frinx documentation pages
 
-#### Vendor Agnostic
+put toc up here
 
-By design the Frinx ODL Distribution is vendor agnostic. The ability to model data and to dynamically load java classes means that any protocol modellable in YANG is supportable. Example implementations of protocols include OpenFlow, PCEP and SNMP.
+## FRINX ODL Distribution
+[Operations Manual]FRINX_ODL_Distribution/Operations_manual.md)  
+[Running the FRINX ODL Distribution](FRINX_ODL_Distribution/SBE_intro.md)  
+[Running after activation](FRINX_ODL_Distribution/Operations_Manual/) 
+### FRINX Features: User Guide
 
-#### Model-driven
+### FRINX Features: Developer Guide
 
-The Frinx ODL Distribution is model-driven, the network and operations performed on it are modeled in YANG. The YANG data structures are shared using operational and config datastores. The datastores are accessible via RESTCONF and NETCONF.
+### Troubleshooting Guide
 
-[SBE intro](FRINX_Smart_Build_Engine/SBE_intro.md)  
+### Release Notes
+
+
+## FRINX Smart Build Engine (SBE)
+[Introduction](FRINX_Smart_Build_Engine/SBE_intro.md)
+### Operations Manual
+
+### Troubleshooting Guide
+
+### Developer's Guide
+[Running after activation](FRINX_ODL_Distribution/Operations_Manual/) 
+
+### Additional Info
+
+
+
+[SBE Operations Manual](FRINX_Smart_Build_Engine/Operations_Manual/) 
+[SBE Installation](FRINX_Smart_Build_Engine/Operations_Manual/Installation.md)
+
+## Frinx Smart Build Engine (SBE)
+
 

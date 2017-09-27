@@ -1,14 +1,3 @@
----
-ID: 3350
-post_title: Project definition
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/sbe-project-definition.html
-published: true
-post_date: 2016-12-16 12:28:12
----
 The build project has its project definition as one yaml file in the "projects/" folder. Projects which you will build using the SBE have a definition file (yaml document). Such a yaml file is required for each project.
 
 SBE project definition file e.g.: sbe/projects/hello-world-samples.yaml

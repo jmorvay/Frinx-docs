@@ -1,14 +1,3 @@
----
-ID: 4232
-post_title: FRINX Daexim
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/daexim.html
-published: true
-post_date: 2017-03-28 12:58:24
----
 **daexim - datastore export import**
 
 # Overview

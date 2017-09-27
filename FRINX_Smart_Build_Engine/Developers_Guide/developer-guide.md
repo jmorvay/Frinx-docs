@@ -1,14 +1,3 @@
----
-ID: 3480
-post_title: Developer Guide
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/developer-guide.html
-published: true
-post_date: 2017-01-04 08:18:36
----
 The FRINX SBE uses Git and Gerrit to manage version control. Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later.
 
 Gerrit is a code review project developed by Google. It is intended to provide a lightweight framework for working with Git, and makes it easy to review every commit before it is accepted into the code base. Changes are uploaded to Gerrit but are not applied to the project until they’ve been reviewed and accepted.

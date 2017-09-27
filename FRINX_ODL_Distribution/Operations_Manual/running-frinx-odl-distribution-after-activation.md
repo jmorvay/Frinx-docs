@@ -1,14 +1,3 @@
----
-ID: 752
-post_title: Running after activation
-author: frinxeditor
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/running-frinx-odl-distribution-after-activation.html
-published: true
-post_date: 2016-06-01 14:40:57
----
 Running the FRINX ODL distribution after initial activation.
 
 After running for the first time and generating a local license file, you no longer need to provide a token when starting karaf.

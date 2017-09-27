@@ -1,15 +1,3 @@
----
-ID: 1625
-post_title: 'Frinx ODL Base Feature Content &#8211; Rel. 1.2.3'
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/frinx-odl-base-feature-content-rel-1-2-3.html
-published: true
-post_date: 2016-06-17 15:26:05
----
-[wpmem_form login] 
     Name                                           Version
     
     application-without-isolation                  1.0.0

@@ -1,14 +1,3 @@
----
-ID: 1234
-post_title: 'NETCONF: Intro'
-author: frinxeditor
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/what-is-netconf-and-how-does-frinx-odl-distribution-use-netconf.html
-published: true
-post_date: 2016-06-03 11:31:07
----
 #### What is NETCONF?
 
 NETCONF is an Internet Engineering Task Force (IETF) protocol used to “create, recover, update, and delete configurations of network devices”.

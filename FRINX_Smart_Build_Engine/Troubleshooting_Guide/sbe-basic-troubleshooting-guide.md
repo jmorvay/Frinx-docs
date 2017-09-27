@@ -1,14 +1,3 @@
----
-ID: 3331
-post_title: Basic troubleshooting guide
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/sbe-basic-troubleshooting-guide.html
-published: true
-post_date: 2016-12-16 11:57:06
----
 You can use this guide to help you identify and resolve basic problems you may experience with your SBE instance.
 
 Each SBE container has the following pre-installed tools:

@@ -1,14 +1,3 @@
----
-ID: 760
-post_title: Out of the box features
-author: frinxeditor
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/frinx-features.html
-published: true
-post_date: 2016-06-01 14:42:18
----
 The FRINX distribution offers the following features:
 
      odlparent

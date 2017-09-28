@@ -1,3 +1,5 @@
+# SBE Project Definition
+
 The build project has its project definition as one yaml file in the "projects/" folder. Projects which you will build using the SBE have a definition file (yaml document). Such a yaml file is required for each project.
 
 SBE project definition file e.g.: sbe/projects/hello-world-samples.yaml

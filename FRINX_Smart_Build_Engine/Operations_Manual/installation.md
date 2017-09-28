@@ -1,3 +1,5 @@
+SBE: Installation
+
 The FRINX SBE runs on one or multiple hosts. The following instructions explain how to install it on one host. For installations across multiple hosts please contact info@frinx.io.
 
 *   Prepare the host

@@ -1,3 +1,5 @@
+# FRINX ODL Distribution: Troubleshooting Guide
+
 The troubleshooting guide is based around a [flow chart][1].
 
 This guide can be used in two ways:

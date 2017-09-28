@@ -1,3 +1,5 @@
+# SBE Installation: Optional advanced configuration
+
 The following are optional steps and not required for a standard installation.
 
 ### Setting up Multiple SBE Instances

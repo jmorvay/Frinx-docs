@@ -1,3 +1,5 @@
+# Clustering: Overview
+
 Clustering is a mechanism that enables multiple processes and programs to work together as one entity. For example, a Google Web search is in fact processed by thousands of web servers connected in a cluster. Similarly, you can have multiple instances of the OpenDaylight controller working together as one entity. There are a number of uses for clustering:
 
 **Scaling**  

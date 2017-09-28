@@ -1,3 +1,5 @@
+# SBE: Gerrit access
+
 The FRINX SBE uses Git and Gerrit for code review and version control.
 
 Git is a distributed version control system. Once a user clones a Git repository, he has a fully functioning copy of the source code, with all the branches and tagged releases at his disposal. Git supports ssh and http.

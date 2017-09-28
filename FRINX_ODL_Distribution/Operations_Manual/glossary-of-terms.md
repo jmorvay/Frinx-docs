@@ -1,3 +1,5 @@
+# Glossary of Terms
+
 KARAF <http://karaf.apache.org/manual/latest/#_osgi>- Lightweight OSGI container used to dynamically load java classes
 
 MD-SAL <https://wiki.opendaylight.org/view/OpenDaylight_Controller:MD-SAL:FAQ>- Model driven service application layer

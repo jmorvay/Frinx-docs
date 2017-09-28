@@ -1,3 +1,5 @@
+# Connecting to an OpenFlow Switch
+
 In OpenDaylight, OpenFlow is implemented by the following features: odl-l2switch (and dependencies), openflowplugin and openflowjava. These can be installed in one of the following two ways:
 
 **Option A: Installing Openflow features using the karaf console**  

@@ -1,4 +1,4 @@
-Running the FRINX ODL distribution after initial activation.
+# Running the FRINX ODL distribution after initial activation
 
 After running for the first time and generating a local license file, you no longer need to provide a token when starting karaf.
 

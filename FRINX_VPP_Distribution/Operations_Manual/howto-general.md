@@ -1,3 +1,5 @@
+# VPP Distribution: General how-to
+
 **Dump VPP message table**
 
 Vpp APIs work with messages, to check all the available messages and their indices use in VAT:

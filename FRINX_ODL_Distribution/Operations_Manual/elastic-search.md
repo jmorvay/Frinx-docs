@@ -1,3 +1,5 @@
+# Elasticsearch
+
 **Installation**
 
 1\. If you have not already done so, [Download the FRINX ODL distribution][1] and [install it][2]  

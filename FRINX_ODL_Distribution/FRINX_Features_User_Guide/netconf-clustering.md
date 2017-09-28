@@ -1,3 +1,5 @@
+# NETCONF Clustering
+
 Follow the steps below in order to configure NETCONF. Note that it doesn't matter whether you are running on a single node or a cluster - the steps are the same. If you are running a cluster then simply enter these commands on ogene of the cluster nodes and that node will pass the information to the other nodes.
 
 **Netconf mount**  

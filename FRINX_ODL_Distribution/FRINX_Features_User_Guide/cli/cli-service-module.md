@@ -1,4 +1,4 @@
-# L2VPN Service Module User Guide
+# CLI Service Module User Guide
 
 *The Postman collection for the CLI service module can be accessed [here][1]. **(latest version: FRINX CLI 2.3.1.postman_collection.json)**. It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). We refer to the postman collection in the usage section below*
 

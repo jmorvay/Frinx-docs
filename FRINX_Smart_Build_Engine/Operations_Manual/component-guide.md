@@ -1,4 +1,4 @@
-SBE: Component Guide
+# SBE: Component Guide
 
 This guide explains how to update the SBE - both in its entirety and on a component-by-component basis.
 

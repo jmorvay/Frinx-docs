@@ -1,3 +1,5 @@
+# SBE example: Hello world project
+
 This section explains how to mirror the hello-world-samples repository from github to SBE's gerrit and build it in the SBE.
 
 ### Start SBE

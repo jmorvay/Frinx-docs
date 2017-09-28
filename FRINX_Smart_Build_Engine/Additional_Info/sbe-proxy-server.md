@@ -1,4 +1,4 @@
-### Proxy server configuration
+# SBE: Proxy server configuration
 
 This part describe how to setup SBE proxy server, if you provide more SBE instances on more hosts. SBE proxy server is reverse proxy server provided by NGINX.
 

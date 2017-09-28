@@ -6,4 +6,3 @@
 [Updating SBE components](Operations_Manual/component-guide.md)  
 [Gerrit access and administration](Operations_Manual/gerrit-access.md)  
 [SBE example: Hello world project](Operations_Manual/sbe-hello-world.md)  
-[Developer Guide](Operations_Manual/sbe-installation.md)  

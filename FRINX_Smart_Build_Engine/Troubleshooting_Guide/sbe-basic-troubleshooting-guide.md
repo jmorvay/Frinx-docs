@@ -1,3 +1,5 @@
+# SBE: Basic troubleshooting guide
+
 You can use this guide to help you identify and resolve basic problems you may experience with your SBE instance.
 
 Each SBE container has the following pre-installed tools:

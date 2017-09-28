@@ -10,7 +10,7 @@
 ## FRINX Smart Build Engine (SBE)  
 [Introduction](FRINX_Smart_Build_Engine/SBE_intro.md)  
 [Operations Manual](FRINX_Smart_Build_Engine/Operations_manual.md)  
-[Troubleshooting Guide](FRINX_Smart_Build_Engine/Troubleshooting_guide.md)  
+[Troubleshooting Guide](FRINX_Smart_Build_Engine/Troubleshooting_Guide/troubleshooting_guide.md)  
 [Developer Guide](FRINX_Smart_Build_Engine/Developer_guide.md)    
 [Additional Info](FRINX_Smart_Build_Engine/Additional_info.md)    
   

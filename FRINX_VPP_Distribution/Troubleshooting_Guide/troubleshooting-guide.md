@@ -1,3 +1,5 @@
+# VPP Distribution: Troubleshooting Guide
+
 This guide shows how to run VPP in debug mode. It enables you to:
 
 *   Collect trace if VPP crashes 

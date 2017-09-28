@@ -1,3 +1,5 @@
+# FRINX Smart Build Engine (SBE): Introduction
+
 *   What is FRINX SBE?
 *   Components Overview
 *   Components Description

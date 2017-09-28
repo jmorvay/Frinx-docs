@@ -1,3 +1,5 @@
+# Using the FRINX API Bundle
+
 To use this functionality, run the following command in the karaf console:
 
     feature:install frinx-installer-backend

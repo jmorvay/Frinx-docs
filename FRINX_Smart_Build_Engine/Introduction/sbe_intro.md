@@ -78,6 +78,6 @@ Gerrit is a free, Web-based team code collaboration tool. Software developers in
 **SonarQube** Provides an overview of the overall health of your source code and even more importantly, it highlights issues found with new code. With a Quality Gate set on your project, you can simply fix the Leak and start mechanically improving.
 
  [1]: https://www.useloom.com/share/f4ce6cc0e96011e69309454fac1abeab
- [2]: https://frinx.io/wp-content/uploads/2016/10/layers.png "Figure 1: Layers"
- [3]: https://frinx.io/wp-content/uploads/2016/10/containers.png "Figure 2: Containers"
- [4]: https://frinx.io/wp-content/uploads/2016/10/ci_flow.png "Figure 2: Continuous Integration"
+ [2]: layers.png "Figure 1: Layers"
+ [3]: containers.png "Figure 2: Containers"
+ [4]: ci_flow.png "Figure 2: Continuous Integration"

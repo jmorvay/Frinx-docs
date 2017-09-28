@@ -1,3 +1,5 @@
+# Designing a new application with the FRINX ODL distribution
+
 #### 1\. Project structure
 
 Each project or plugin using ODL should have the same directory structure. This has several advantages. For a programmer, jumping from one project to another is very easy, because he knows where all the key files are (features.xml, controller-config, etc.). For this purpose, ODL developed a maven archetype (template) to automatically create project structure with POM files, base wiring and configuration.

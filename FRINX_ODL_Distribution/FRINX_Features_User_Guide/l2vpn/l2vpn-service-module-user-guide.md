@@ -2,7 +2,7 @@
 
 ## Overview
 
-The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service][l2vpn_service3.png]
+The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service3.png)
 
 ## A bit about L2VPN
 
@@ -10,9 +10,9 @@ The goal of this project is to automate provisioning of Layer 2 Virtual Private 
 
 A company needs to reconnect multiple sites with each other via an SP which provides L2 services to the company. The company's sites needs to see each other as directly connected on L3. L2VPN offers a solution for those requirements.
 
-The company has two different sites and they are both connected to the Service Provider using an L2 connection. They need to interconnect two of their sites. ![Two company's sites connected to SP][problem3.png]
+The company has two different sites and they are both connected to the Service Provider using an L2 connection. They need to interconnect two of their sites. ![Two company's sites connected to SP](problem3.png)
 
-In this case L2VPN provides site-to-site connectivity and the SP network behaves as a wire between the company’s sites. The company’s routes are exchanged via the SP network. ![Solution with L2VPN between sites.][problem_solution3.png]
+In this case L2VPN provides site-to-site connectivity and the SP network behaves as a wire between the company’s sites. The company’s routes are exchanged via the SP network. ![Solution with L2VPN between sites.](problem_solution3.png)
 
 ### Terminology
 
@@ -22,7 +22,7 @@ These terms are usually used in the L2VPN domain:
 *   **Provider Edge (PE)** device – router at the edge of the SP network which provides connectivity for CE
 *   **Provider (P)** device – core router on the SP network providing connectivity among PE routers
 
-![Terminology in picture][terminology3.png]
+![Terminology in picture](terminology3.png)
 
 ### L2VPN types
 
@@ -37,7 +37,7 @@ These types have many implementations. The Frinx ODL distribution supports Virtu
 
 VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet services over MPLS. It is also known as ETHoMPLS (Ethernet over MPLS), or VLL (Virtual Leased Line). VPWS is point-to-point L2VPN which usually uses MPLS in core networks for signaling and creates pseudo-wires on PE routers for separation of L2 connections. L2 connections are identified by interface or VLAN. The picture below shows an MPLS core network with pseudo-wires on PEs for each VPN which are identified by VLAN. 
 
-![VPWS example][vpws_topology3.png]
+![VPWS example](vpws_topology3.png)
 
 ## L2VPN Provider
 
@@ -51,13 +51,13 @@ L2VPN Provider can be used on a network where:
 *   VLAN is used for pseudo-wire selection
 *   MPLS encapsulation is used in SP core
 
-![Use case example][use-case3.png]
+![Use case example](use-case3.png)
 
 ### Architecture
 
 L2VPN Provider is composed of multiple components. The high level architecture is shown in the picture below.
 
-![Architecture][architecture3.png]
+![Architecture](architecture3.png)
 
 An external application modifies *ietf-l2vpn* in CONF DS. L2VPN can be configured on nodes which are read from *l2vpn-provider-edge-topology*. When all changes are done, the external application calls RPC *commit-l2vpn*. The RPC reads *ietf-l2vpn* from CONF DS (the intended state) and from OPER DS (the actual state). Diff is created based on intended and actual state. This diff is configured inside network wide transaction on the necessary PE routers by using particular Network Element Plugins. If configuration of routers is successful then a new *ietf-l2vpn* is stored to OPER DS and RPC output is returned with status "complete". In case configuration on one of the devices fails, the rollback of the network wide transaction starts and if the rollback is successful then RPC output has status "commit-failed-rollback-complete", otherwise the status is "inconsistent". The architecture can be extended very easily because Network Element Plugin needs to implement only NEP SPI, rollback, and network element registration. IOS NEP from the picture is not yet implemented.
 

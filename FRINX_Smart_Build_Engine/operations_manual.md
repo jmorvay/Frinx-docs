@@ -1,4 +1,4 @@
-# FRINX Smart Build Engine(SBE): Operations Manual
+# FRINX Smart Build Engine (SBE): Operations Manual
 
 [Installation](Operations_Manual/sbe-installation.md)  
 [Installation: Optional advanced configuration](Operations_Manual/installation-optional-advanced-configuration.md)  

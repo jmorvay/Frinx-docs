@@ -35,7 +35,9 @@ These types have many implementations. The Frinx ODL distribution supports Virtu
 
 #### VPWS
 
-VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet services over MPLS. It is also known as ETHoMPLS (Ethernet over MPLS), or VLL (Virtual Leased Line). VPWS is point-to-point L2VPN which usually uses MPLS in core networks for signaling and creates pseudo-wires on PE routers for separation of L2 connections. L2 connections are identified by interface or VLAN. The picture below shows an MPLS core network with pseudo-wires on PEs for each VPN which are identified by VLAN. ![VPWS example][6]
+VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet services over MPLS. It is also known as ETHoMPLS (Ethernet over MPLS), or VLL (Virtual Leased Line). VPWS is point-to-point L2VPN which usually uses MPLS in core networks for signaling and creates pseudo-wires on PE routers for separation of L2 connections. L2 connections are identified by interface or VLAN. The picture below shows an MPLS core network with pseudo-wires on PEs for each VPN which are identified by VLAN. 
+
+![VPWS example][6]
 
 ## L2VPN Provider
 
@@ -215,13 +217,13 @@ Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for
 </table>
 
  [1]: https://github.com/FRINXio/postman-collections
- [2]: https://frinx.io/wp-content/uploads/2017/08/l2vpn_service3.png "L2VPN Service"
- [3]: https://frinx.io/wp-content/uploads/2017/08/problem3.png "Example of of problem"
- [4]: https://frinx.io/wp-content/uploads/2017/08/problem_solution3.png "L2VPN between sites"
- [5]: https://frinx.io/wp-content/uploads/2017/08/terminology3.png "Terminology in picture"
- [6]: https://frinx.io/wp-content/uploads/2017/08/vpws_topology3.png "VPWS example"
- [7]: https://frinx.io/wp-content/uploads/2017/08/use-case3.png "Use case example"
- [8]: https://frinx.io/wp-content/uploads/2017/08/architecture3.png "Architecture"
+ [2]: l2vpn_service3.png "L2VPN Service"
+ [3]: problem3.png "Example of of problem"
+ [4]: problem_solution3.png "L2VPN between sites"
+ [5]: terminology3.png "Terminology in picture"
+ [6]: vpws_topology3.png "VPWS example"
+ [7]: use-case3.png "Use case example"
+ [8]: architecture3.png "Architecture"
  [9]: https://tools.ietf.org/html/draft-ietf-bess-l2vpn-yang-05
- [10]: https://frinx.io/wp-content/uploads/2017/08/nep_ios-xrv3.png "IOS-XRv NEP"
- [11]: https://frinx.io/wp-content/uploads/2017/08/nep_mock3.png "Mock NEP"
+ [10]: nep_ios-xrv3.png "IOS-XRv NEP"
+ [11]: nep_mock3.png "Mock NEP"

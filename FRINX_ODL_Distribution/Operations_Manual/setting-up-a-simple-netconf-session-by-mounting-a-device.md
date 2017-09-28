@@ -1,3 +1,5 @@
+# NETCONF: Mounting a device
+
 In this example we connect the controller to itself to verify that that NETCONF features were installed correctly. It is similar to loopback but done over a NETCONF session. After mounting itself, the YANG model of the Frinx ODL Distribution is exposed by RESTCONF and is an interesting point to begin exploring.
 
 **Step 1 Install Features**

@@ -4,7 +4,7 @@ This section explains how to mirror the hello-world-samples repository from gith
 
 ### Start SBE
 
-Read [the documentation][1] on how to start the SBE.
+Read [the documentation](sbe-operations-maintenance.md) on how to start the SBE.
 
 ### Enable insecure docker registry
 
@@ -117,5 +117,5 @@ If you see errors while pushing the docker image, containing message `server gav
 
 Note that when creating a job from the Jenkins GUI, the repository URL should simply be the SBE component name e.g. gerrit, jenkins, nexus. If you include http the hostname will not resolve.
 
- [1]: https://frinx.io/frinx-documents/sbe-operations-maintenance.html
+
  [2]: https://github.com/FRINXio/hello-world-samples/blob/beryllium/development/jobs/README

@@ -1,3 +1,5 @@
+# Developer Guide: CLI
+
 This document provides developer-level details for the FRINX CLI southbound plugin, both for the framework itself as well as for the pluggable translation units.
 
 Pre-requisite reading: - Honeycomb design documentation:  

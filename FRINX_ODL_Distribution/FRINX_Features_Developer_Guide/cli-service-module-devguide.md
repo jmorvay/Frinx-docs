@@ -161,11 +161,10 @@ And finally DataBroker service can be used to manage the device:
 
 In this case *Version* operational data is being read from the device. In order to be able to do so, make sure to add a maven dependency on the IOS unit containing the appropriate YANG model.
 
- [1]: https://frinx.io/wp-content/uploads/2017/07/ODL.png "ODL"
- [2]: https://frinx.io/wp-content/uploads/2017/08/HC1.png.png "HC"
- [3]: https://frinx.io/wp-content/uploads/2017/07/HCsMdsal.png "Honeycomb's core"
- [4]: https://frinx.io/wp-content/uploads/2017/07/cliMountpoint.png "Honeycomb's core as Mountpoint"
- [5]: https://frinx.io/wp-content/uploads/2017/07/cliInComponents.png "CLI plugin components"
- [6]: https://frinx.io/wp-content/uploads/2017/07/projectComponents.png "CLI plugin modules"
- [7]: https://frinx.io/frinx-documents/cli-service-module.html
- [8]: http://https://frinx.io/frinx-documents/cli-service-module.html
+ [1]: ODL.png "ODL"
+ [2]: HC1.png "HC"
+ [3]: HCsMdsal.png "Honeycomb's core"
+ [4]: cliMountpoint.png "Honeycomb's core as Mountpoint"
+ [5]: cliInComponents.png "CLI plugin components"
+ [6]: projectComponents.png "CLI plugin modules"
+ [7]: ../../FRINX_Features_User_Guide/cli/cli-service-module.md

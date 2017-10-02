@@ -1,4 +1,4 @@
-This document describes the latest changes, additions, known issues, and fixes for the Frinx Controller. <!--more-->[wpmem_form login]
+This document describes the latest changes, additions, known issues, and fixes for the Frinx Controller. 
 
 #### New Features, Improvements
 

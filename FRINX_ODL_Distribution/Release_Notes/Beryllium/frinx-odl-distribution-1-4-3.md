@@ -1,4 +1,4 @@
-This document describes the latest changes, additions, known issues, and fixes for the Frinx Controller.  
+This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.  
 
 **Note that FRINX ODL distribution 1.4.3 requires Java 8**
 

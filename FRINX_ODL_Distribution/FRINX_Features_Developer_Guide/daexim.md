@@ -1,10 +1,12 @@
+# Developer Guide: Daexim
+
 **daexim - datastore export import**
 
-# Overview
+## Overview
 
 Frinx daexim is a fork from ODL's daexim project. It contains several modifications aimed at improved import and export:
 
-# Import
+## Import
 
 Originally, import was done anytime during runtime. The drawback of this approach is that applications can listen on changes in the datastore and start writing to it while import is still in progress.
 
@@ -62,7 +64,7 @@ This can be automated by changing a line in the file
     karaf.clean.cache=true
     
 
-# Export
+## Export
 
 Daexim export was changed so that it is executed only on the node which was contacted via restconf:
 
@@ -71,7 +73,7 @@ Daexim export was changed so that it is executed only on the node which was cont
 
 In this case, the export will be executed on ODL_NODE_1. Note that the RPC is slightly different than what Daexim supports by default - simple-export does not need time and date to be supplied, export will start immediately. For advanced use, operator can specify list of excluded tuples: model,data store (config, operational). This behavior is the same as with ODL's daexim project.
 
-## Exporting from leader node
+### Exporting from leader node
 
 Reading the whole datastore within a cluster can be slow and can cause pressure on the system leading to intermittent node failures. Therefore it is advised to run the export on shard leader. This way all data will be read from local memory. To determine the node that contains leaders of both shards (default-operational, default-config), call the following:
 
@@ -129,7 +131,7 @@ Details about each of both shards can be obtained by calling
     curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-${ID}-shard-${SHARD_NAME},type=${TYPE}
     
 
-# General info on daexim
+## General info on daexim
 
 [OpenDaylight Wiki page on daexim][1]  
 Data Export/Import (daexim) is a project introduced in the OpenDaylight Carbon release. However, daexim has been back ported to FRINX distributions and is available from Beryllium 1.4.6 and Boron 2.3.0 and subsequent releases.

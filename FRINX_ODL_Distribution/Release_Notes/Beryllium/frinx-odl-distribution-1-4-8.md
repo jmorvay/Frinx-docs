@@ -1,9 +1,16 @@
-This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.
-**Note that FRINX ODL Distribution 1.4.4 requires Java 8**
+This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution. <!--more-->
+
+**Note that FRINX ODL Distribution 1.4.8 requires Java 8**
 
 #### New Features, Improvements
 
-1.  GBP: Implemented unregister l3-prefix endpoint.
+**Improvements in daexim and clustering:**  
+1\. Reduced number of shards to 2 (default-config, default-operational)  
+2\. Modified raft election mechanism to move shard leaders to the same node  
+3\. Introduced odlFeaturesBoot in order to enable daexim import on startup  
+4\. Daexim export now runs only on one node 5. Feature:odl-daexim-all is now installed by default
+
+Documentation to new daexim can be found at <https://frinx.io/frinx-documents/daexim.html>
 
 #### Known Issues
 
@@ -12,7 +19,7 @@ This document describes the latest changes, additions, known issues, and fixes f
 
 #### Opendaylight Beryllium SR4 Release Notes
 
-The Frinx controller 1.4.4 is based on Opendaylight Beryllium SR4. Where a feature is present in both controllers, the same Release Notes apply
+The Frinx controller 1.4.8 is based on Opendaylight Beryllium SR4. Where a feature is present in both controllers, the same Release Notes apply
 
 <https://wiki.opendaylight.org/view/Simultaneous_Release/Beryllium/SR4/Release_Notes>  
 odlparent <https://wiki.opendaylight.org/view/Simultaneous_Release/Beryllium/SR4/Release_Notes#ODL_Root_Parent>  
@@ -30,7 +37,7 @@ ovsdb (without netvirt) <https://wiki.opendaylight.org/view/Simultaneous_Release
 gbp [https://wiki.opendaylight.org/view/Simultaneous*Release/Beryllium/SR4/Release_Notes#Group_Based_Policy*.28][3]  
 l2switch <https://wiki.opendaylight.org/view/Simultaneous_Release/Beryllium/SR4/Release_Notes#L2_Switch>  
 bgpcep <https://wiki.opendaylight.org/view/Simultaneous_Release/Beryllium/SR4/Release_Notes#BGP_PCEP>  
-lispflowmapping <https://wiki.opendaylight.org/view/Simultaneous_Release/Beryllium/SR4/Release_Notes#LISP_Flow_Mapping> [/wpmem_form]
+lispflowmapping <https://wiki.opendaylight.org/view/Simultaneous_Release/Beryllium/SR4/Release_Notes#LISP_Flow_Mapping>
 
  [1]: https://wiki.opendaylight.org/view/Simultaneous_Release/Beryllium/SR4/Release_Notes#Authentication.2C_Authorization_and_Accounting_.28AAA.29
  [2]: https://wiki.opendaylight.org/view/Simultaneous_Release/Beryllium/SR4/Release_Notes#OpenFlow_Plugin

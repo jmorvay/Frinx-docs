@@ -1,15 +1,4 @@
----
-ID: 3002
-post_title: Frinx ODL distribution 1.4.1
-author: ngray@frinx.io
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/frinx-odl-distribution-1-4-1.html
-published: true
-post_date: 2016-11-22 09:12:33
----
-This document describes the latest changes, additions, known issues, and fixes for the Frinx Controller. <!--more-->[wpmem_form login]
+This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.  
 
 #### New Features, Improvements
 

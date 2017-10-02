@@ -1,15 +1,4 @@
----
-ID: 2243
-post_title: 'Frinx ODL Base Feature Content &#8211; Rel. 1.2.6'
-author: ngray@frinx.io
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/frinx-odl-base-feature-content-rel-1-2-6.html
-published: true
-post_date: 2016-08-31 14:48:43
----
-[wpmem_form login] <table width="446">
+
   <tbody>
     <tr>
       <td width="294">

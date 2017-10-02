@@ -1,14 +1,3 @@
----
-ID: 5353
-post_title: 'Base Feature Content: FRINX Boron 2.3.1'
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/base-feature-content-frinx-boron-2-3-1.html
-published: true
-post_date: 2017-08-09 08:40:59
----
 | Name                                             | Version                         |
 | ------------------------------------------------ | ------------------------------- |
 | odl-openflowjava-all                             | 0\.0.0                          |

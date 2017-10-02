@@ -1,4 +1,4 @@
-This document describes the latest changes, additions, known issues, and fixes for the Frinx Controller.<!--more-->[wpmem_form login]
+This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.  
 
 **Note that FRINX ODL distribution 2.2.1 requires Java 8**
 
@@ -25,4 +25,3 @@ The Frinx controller 2.2.1 is based on Opendaylight Boron.
 
 <https://wiki.opendaylight.org/view/Simultaneous_Release/Boron/Release_Notes>
 
-[/wpmem_form]

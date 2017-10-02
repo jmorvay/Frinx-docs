@@ -1,15 +1,4 @@
----
-ID: 1482
-post_title: Frinx ODL distribution 1.2.2.
-author: frinxeditor
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/frinx-odl-distribution-1-2-2.html
-published: true
-post_date: 2016-06-08 10:02:14
----
-This document describes the latest changes, additions, known issues, and fixes for the Frinx Controller. In the first section, issues found during testing the Frinx controller are described together with their workarounds. The causes of both issues are present in  the upstream Opendaylight Beryllium SR2. In the second section we provide links to the relevant Opendaylight Beryllium SR2 release notes. <!--more-->[wpmem_form login] 
+This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution. In the first section, issues found during testing the Frinx controller are described together with their workarounds. The causes of both issues are present in  the upstream Opendaylight Beryllium SR2. In the second section we provide links to the relevant Opendaylight Beryllium SR2 release notes.  
 
 ## No features loaded in GUI and Karaf clean fails to remove all configuration changes After resetting the frinx controller by running karaf clean, you may see in the GUI that no features are loaded. The netconf XML used to configure ODL is in a file called etc/opendaylight/current/controller.currentconfig.xml. But karaf clean starts only features mentioned in etc/org.apache.karaf.features.cfg (featuresBoot), the required features (odl-netconf-client and more) are not found and thus startup fails. 
 

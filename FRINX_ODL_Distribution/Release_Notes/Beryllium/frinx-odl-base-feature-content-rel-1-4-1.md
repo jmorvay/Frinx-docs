@@ -1,16 +1,3 @@
----
-ID: 3003
-post_title: >
-  Frinx ODL Base Feature Content – Rel.
-  1.4.1
-author: ngray@frinx.io
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/frinx-odl-base-feature-content-rel-1-4-1.html
-published: true
-post_date: 2016-11-22 09:09:15
----
 | Name                                          | Version                         |
 | --------------------------------------------- | ------------------------------- |
 | application-without-isolation                 | 1\.0.0                          |

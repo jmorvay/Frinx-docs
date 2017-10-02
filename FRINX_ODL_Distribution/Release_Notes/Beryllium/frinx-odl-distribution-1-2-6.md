@@ -1,17 +1,4 @@
----
-ID: 2227
-post_title: Frinx ODL distribution 1.2.6
-author: ngray@frinx.io
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/frinx-odl-distribution-1-2-6.html
-published: true
-post_date: 2016-08-31 13:49:58
----
-This document describes the latest changes, additions, known issues, and fixes for the Frinx Controller.
-
-<!--more-->[wpmem_form login]
+This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.
 
 ## Additions
 

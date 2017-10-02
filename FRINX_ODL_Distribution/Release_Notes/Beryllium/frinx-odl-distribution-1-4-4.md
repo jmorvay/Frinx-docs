@@ -1,15 +1,4 @@
----
-ID: 4030
-post_title: Frinx ODL distribution 1.4.4
-author: frinxadmin
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/frinx-odl-distribution-1-4-4.html
-published: true
-post_date: 2017-03-08 14:49:32
----
-This document describes the latest changes, additions, known issues, and fixes for the Frinx Controller. <!--more-->[wpmem_form login]
+This document describes the latest changes, additions, known issues, and fixes for the Frinx Controller.  
 
 **Note that FRINX ODL distribution 1.4.4 requires Java 8**
 

@@ -3,35 +3,3 @@
 
 @import "{{ site.theme }}";
 
-body, h1, h2, h3, h4, h5, h6, p {
-	font-weight:normal;
-	letter-spacing:0 !important;
-}
-body, body.arial-websave {
-	font-family: 'GothamLight';
-	font-size:16px;
-}
-strong {
-	font-family: 'GothamBold';
-	font-weight:normal;
-}
-
-#top form {
-    margin-bottom: 0px;
-}
-#top fieldset {
-    margin-bottom: 0px;
-}
-
-.header_bg {
-	background-image:url('img/xx_structure.gif');
-	background-position:center 84px;
-	background-repeat:repeat-x;
-	opacity:1 !important;
-}
-#top .av_header_transparency .header_bg {
-	background-color:#054c9d;
-}
-div .logo {
-    z-index: 101;
-}

@@ -2,34 +2,6 @@
 ---
 
 @import "{{ site.theme }}";
-/*
-Theme Name: Enfold Child
-Description: A <a href='http://codex.wordpress.org/Child_Themes'>Child Theme</a> for the Enfold Wordpress Theme. If you plan to do a lot of file modifications we recommend to use this Theme instead of the original Theme. Updating wil be much easier then.
-Version: 1.0
-Author: Kriesi
-Author URI: http://www.kriesi.at
-Template: enfold
-
-dark blue		color:#054da2;
-light blue	color:#00aaff;
-grey				color:#adafb2;
-txt (grey)	color:#696969;
----------------------------
-font-family: 'GothamBold';
-font-family: 'GothamBook';
-font-family: 'GothamBookItalic';
-font-family: 'GothamLight';
-font-family: 'GothamLightItalic';
-font-family: 'GothamMedium';
-font-family: 'GothamMediumItalic';
-*/
-
-
-/*  CUSTOM FONTS  */
-@import 'fonts.css';
-
-
-/*  GLOBAL STYLES  */
 
 body, h1, h2, h3, h4, h5, h6, p {
 	font-weight:normal;
@@ -43,80 +15,13 @@ strong {
 	font-family: 'GothamBold';
 	font-weight:normal;
 }
-a {
-	transition: all .2s ease-in-out;
-	-webkit-transition: all .2s ease-in-out;
-	-moz-transition: all .2s ease-in-out;
-}
+
 #top form {
     margin-bottom: 0px;
 }
 #top fieldset {
     margin-bottom: 0px;
 }
-#top .avia_ajax_form .text_input,
-#top .avia_ajax_form .select,
-#top .avia_ajax_form .text_area {
-	-webkit-border-radius:25px;
-	-moz-border-radius:25px;
-	border-radius:25px;
-}
-#top input[type="text"],
-#top input[type="password"],
-#top input[type="email"],
-#top input[type="number"],
-#top input[type="url"],
-#top input[type="tel"],
-#top input[type="search"],
-#top textarea {
-	border-width:2px;
-}
-#top input[type="text"]:focus,
-#top input[type="password"]:focus,
-#top input[type="email"]:focus,
-#top input[type="number"]:focus,
-#top input[type="url"]:focus,
-#top input[type="tel"]:focus,
-#top input[type="search"]:focus,
-#top textarea:focus {
-	border-color:#00aaff;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	}
-#top .avia_ajax_form input[type="checkbox"], #top .avia_ajax_form input[type="radio"] {
-	top:8px;
-}
-#top input[type="radio"] {
-		display: inline; }
-#top #wrap_all .valid  .input_radio_label{color:#9AA600;}
-#top #wrap_all .error  .input_radio_label{color:#DF653E;}
-#top .avia_ajax_form input[type="radio"] {
-	float: left;
-	margin-right: 8px;
-	position: relative;
-	cursor:pointer;
-	cursor:hand;
-}
-.avia_ajax_form p .input_radio_label{
--webkit-transition: all 0.3s ease-in-out;
-transition: 		all 0.3s ease-in-out;
-	cursor:pointer;
-	cursor:hand;
-}
-#top .av-centered-form input[type="radio"]{float:none;}
-#top .av-centered-form .input_radio_label{display: inline-block;}
-@media (max-width:767px) {
-	#top .form_element_half {
-		width:100%;
-	}
-}
-@media (max-width:989px) {
-	.html_header_top.html_header_sticky #header {
-		position:absolute;
-	}
-}
-
 
 .header_bg {
 	background-image:url('img/xx_structure.gif');

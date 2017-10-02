@@ -1,4 +1,4 @@
-This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL distribution. In the first section, issues found during testing of the Frinx controller are described, together with their workarounds. The causes of both issues are present in  the upstream Opendaylight Beryllium SR2. In the second section we provide links to the relevant Opendaylight Beryllium SR2 release notes. <!--more-->[wpmem_form login] 
+This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution. In the first section, issues found during testing of the Frinx controller are described, together with their workarounds. The causes of both issues are present in  the upstream Opendaylight Beryllium SR2. In the second section we provide links to the relevant Opendaylight Beryllium SR2 release notes.  
 
 ## Additions Minor bug fixes Removed hawt.io Extended licensing logging 
 

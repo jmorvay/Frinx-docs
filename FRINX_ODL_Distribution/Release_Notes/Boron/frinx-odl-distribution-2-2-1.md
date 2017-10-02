@@ -25,4 +25,3 @@ The Frinx controller 2.2.1 is based on Opendaylight Boron.
 
 <https://wiki.opendaylight.org/view/Simultaneous_Release/Boron/Release_Notes>
 
-[/wpmem_form]

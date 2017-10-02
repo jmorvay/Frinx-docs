@@ -1,14 +1,3 @@
----
-ID: 1602
-post_title: Frinx ODL distribution 1.2.3.
-author: frinxeditor
-post_excerpt: ""
-layout: post
-permalink: >
-  https://frinx.io/frinx-documents/frinx-odl-distribution-1-2-3.html
-published: true
-post_date: 2016-06-17 13:24:30
----
 This document describes the latest changes, additions, known issues, and fixes for the Frinx Controller. In the first section, issues found during testing the Frinx controller are described together with their workarounds. The causes of both issues are present in  the upstream Opendaylight Beryllium SR2. In the second section we provide links to the relevant Opendaylight Beryllium SR2 release notes. <!--more-->[wpmem_form login] 
 
 ## Additions

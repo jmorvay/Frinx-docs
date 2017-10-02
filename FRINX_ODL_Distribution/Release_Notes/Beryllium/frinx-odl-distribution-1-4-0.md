@@ -1,4 +1,4 @@
-This document describes the latest changes, additions, known issues, and fixes for the Frinx Controller. 
+This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution. 
 
 #### New Features, Improvements
 

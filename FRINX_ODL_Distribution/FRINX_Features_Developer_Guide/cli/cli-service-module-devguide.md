@@ -169,4 +169,4 @@ In this case *Version* operational data is being read from the device. In order 
  [4]: cliMountpoint.png "Honeycomb's core as Mountpoint"
  [5]: cliInComponents.png "CLI plugin components"
  [6]: projectComponents.png "CLI plugin modules"
- [7]: ../../FRINX_Features_User_Guide/cli/cli-service-module.md
+ [7]: https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/FRINX_Features_User_Guide/cli/cli-service-module.html

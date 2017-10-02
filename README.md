@@ -4,7 +4,7 @@
 [Operations Manual](FRINX_ODL_Distribution/operations_manual.md)  
 [FRINX Features: User Guide](FRINX_ODL_Distribution/user_guide.md)  
 [FRINX Features: Developer Guide](FRINX_ODL_Distribution/developer_guide.md)  
-[Troubleshooting Guide](FRINX_ODL_Distribution/troubleshooting_guide.md)   
+[Troubleshooting Guide](FRINX_ODL_Distribution/Troubleshooting_Guide/troubleshooting_guide.md)   
 [Release Notes](FRINX_ODL_Distribution/release_notes.md)   
 
 ## FRINX Smart Build Engine (SBE)  

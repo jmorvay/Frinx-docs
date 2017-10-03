@@ -43,7 +43,7 @@ The format should be as follows:
     userpassword: passwd
     
 
-More instructions on the format can be found in Step 6 here: <installation/sbe_installation.html>
+More instructions on the format can be found in Step 6 here: <installation/sbe_installation.md>
 
 Then, from within your sbe directory, run:
 

@@ -1,5 +1,17 @@
 # SBE: Installation
 
+- [SBE: Installation](#sbe--installation)
+  * [1\. Prepare the host](#1--prepare-the-host)
+  * [2\. Install prerequisites](#2--install-prerequisites)
+  * [3\. Get project sources](#3--get-project-sources)
+    + [3\.1 Update the project (Optional)](#3-1-update-the-project--optional-)
+  * [4\. Pull Docker images](#4--pull-docker-images)
+  * [5\. Run the container suite](#5--run-the-container-suite)
+  * [6\. Create LDAP users](#6--create-ldap-users)
+    + [Import the LDIF file into the Apache Directory server](#import-the-ldif-file-into-the-apache-directory-server)
+    + [Add additional users](#add-additional-users)
+  * [7\. Verify installation](#7--verify-installation)
+
 The FRINX SBE runs on one or multiple hosts. The following instructions explain how to install it on one host. For installations across multiple hosts please contact info@frinx.io.
 
 *   Prepare the host

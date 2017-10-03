@@ -1,5 +1,3 @@
-# Frinx documentation pages  
-
 ## FRINX ODL Distribution 
 [Operations Manual](FRINX_ODL_Distribution/operations_manual.md)  
 [FRINX Features: User Guide](FRINX_ODL_Distribution/user_guide.md)  

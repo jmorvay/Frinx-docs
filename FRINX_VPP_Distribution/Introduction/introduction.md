@@ -22,13 +22,13 @@ This page contains the details about the FRINX fd.io distribution.
 There is a custom CI/CD pipeline for the FRINX fd.io distribution. It is based on [<span class="confluence-link">SBE</span> ][2].  
 The following diagram shows the relationships between FD.io and FD.FRINX.io:
 
-<img src="https://frinx.io/wp-content/uploads/2017/05/fdio.png" alt="" width="1031" height="991" class="alignleft size-full wp-image-4458" />
+![fdio](fdio.png)
 
 ### Jenkins jobs
 
 The following diagrams list the jenkins jobs imported from opensource FD.io (green marks imported):
 
-<img src="https://frinx.io/wp-content/uploads/2017/05/vpp.png" alt="" width="1143" height="461" class="alignleft size-full wp-image-4459" />
+![vpp](vpp.png)
 
  [1]: http://fd.io
- [2]: https://frinx.io/frinx-documents/sbe-intro.html
+ [2]: ../../FRINX_Smart_Build_Engine/Introduction/sbe_intro.md

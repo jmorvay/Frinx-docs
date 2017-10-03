@@ -10,7 +10,7 @@ The FRINX SBE runs on one or multiple hosts. The following instructions explain 
 *   Create LDAP users
 *   Verify installation
 
-## 1\. Prepare the host
+## 1. Prepare the host
 
 Create a VM or a physical machine with the following specifications:
 
@@ -30,7 +30,7 @@ Note - if you are installing the SBE on a virtual machine, ensure its network ad
 Ubuntu 16.04.1 LTS server  
 Fedora 24
 
-## 2\. Install prerequisites
+## 2. Install prerequisites
 
 In the following steps we will take you through the installation of the prerequisites on the host that will run the FRINX SBE.
 
@@ -120,7 +120,7 @@ The next steps enable you to manage Docker as a non-root user, so that you no lo
     sudo usermod -aG docker [username]
     
 
-## 3\. Get project sources
+## 3. Get project sources
 
 In this step you clone the configuration files and operational scripts from our git repository onto your host.
 
@@ -140,7 +140,7 @@ The following command can be run from any directory on the VM host machine and w
 
 When prompted for a password enter the [customerpassword] provided by FRINX.
 
-### 3\.1 Update the project (Optional)
+### 3-1 Update the project (Optional)
 
 Whenever you want to update the local repository with a newer version of the content from FRINX, run the following command in the directory sbe/
 
@@ -150,7 +150,7 @@ Whenever you want to update the local repository with a newer version of the con
 
 ***where [version] is e.g. x4***
 
-## 4\. Pull Docker images
+## 4. Pull Docker images
 
 Run the script that downloads all FRINX SBE Docker containers onto your host. The script is located in the directory sbe/
 
@@ -159,7 +159,7 @@ Run the script that downloads all FRINX SBE Docker containers onto your host. Th
 
 This step can take tens of minutes depending on your download speeds.
 
-## 5\. Run the container suite
+## 5. Run the container suite
 
 Use the command below to run the container suite. The script (located in 'sbe') runs the containers in persistent mode and creates the Docker network.
 
@@ -179,7 +179,7 @@ You can check if all containers are up with the following command:
     ./sbe ls
     
 
-## 6\. Create LDAP users
+## 6. Create LDAP users
 
 ### Import the LDIF file into the Apache Directory server
 
@@ -224,7 +224,7 @@ Click on Finish.
 
 Repeat the process for any additional users you wish to add.
 
-## 7\. Verify installation
+## 7. Verify installation
 
 **Edit your hosts file to add host names**
 

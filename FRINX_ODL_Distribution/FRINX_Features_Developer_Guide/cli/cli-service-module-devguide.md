@@ -91,7 +91,9 @@ Please see the [user guide][7] for how to mount a CLI device. If there is a new 
 
 ### Choosing the right YANG models
 
-Before writing a custom YANG model for a unit, it is important to check whether such a model doesn't already exist. There are plenty of YANG models available, modeling many aspects of network device management. The biggest groups of models are: - Openconfig https://github.com/openconfig/public/tree/master/release/models - IETF <https://github.com/YangModels/yang/tree/master/standard/ietf>
+Before writing a custom YANG model for a unit, it is important to check whether such a model doesn't already exist. There are plenty of YANG models available, modeling many aspects of network device management. The biggest groups of models are: 
+- Openconfig https://github.com/openconfig/public/tree/master/release/models  
+- IETF https://github.com/YangModels/yang/tree/master/standard/ietf  
 
 It is usually wiser to choose an existing YANG model instead of developing a custom one. Also, it is very important to check for existing units already implemented for a device. If there are any, the best approach will most likely be to use YANG models from the same family as existing units use.
 
@@ -169,4 +171,4 @@ In this case *Version* operational data is being read from the device. In order 
  [4]: cliMountpoint.png "Honeycomb's core as Mountpoint"
  [5]: cliInComponents.png "CLI plugin components"
  [6]: projectComponents.png "CLI plugin modules"
- [7]: https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/FRINX_Features_User_Guide/cli/cli-service-module.html
+ [7]: ../../FRINX_Features_User_Guide/cli/cli-service-module.html

@@ -143,8 +143,8 @@ You are allowed to change the design of your Redmine, set up new modules, organi
 [Redmine overview][18]  
 [List of features][18]  
 [Installation, administration, user & developer guide][19]  
-[Translated guide to Japanese language][20]  
-[Recomended literature][21]
+[Guide in Japanese][20]  
+[Recommended literature][21]
 
  [1]: fig1.jpg "Figure 1: Redmine registration"
  [2]: fig2.jpg "Figure 2: Completion of registration form"

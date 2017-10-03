@@ -369,5 +369,5 @@ It is possible to check a current list of units and thus a current list of suppo
  [10]: /mount-ssh1.jpg
  [11]: ../../Frinx_Features_Developer_Guide/cli-service-module-devguide.html
  [12]: linux-mount.jpg
- [13]: frinx-cli-supported-devices.md
+ [13]: cli_supported_devices.md
  [14]: http://46.229.232.136:8888/

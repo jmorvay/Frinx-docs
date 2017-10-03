@@ -1,6 +1,4 @@
-# L2VPN Service Module User Guide
-
-*The postman collection and YANG files can be accessed [here][1]*
+# L3VPN Service Module User Guide
 
 The goal of this project is to automate provisioning of Layer 3 Virtual Private Network (L3VPN) on Service Provider (SP) routers.
 
@@ -260,7 +258,7 @@ Installs L3VPN Provider with Mock NEP and RESTCONF. This feature can be used for
   </tbody>
 </table>
 
- [1]: https://github.com/FRINXio/postman-collections
+ [1]: L3VPN_IOS-XRv_public.postman_collection.json
  [2]: l3vpn_service3.png "L3VPN Service"
  [3]: problem3.png "Example of problem"
  [4]: problem_solution3.png "L3VPN between sites"
@@ -269,10 +267,10 @@ Installs L3VPN Provider with Mock NEP and RESTCONF. This feature can be used for
  [7]: topo_hub-and-spoke3.png "Hub and Spoke topology"
  [8]: use-case3.png "Use case example"
  [9]: architecture3.png "Architecture"
- [10]: https://github.com/FRINXio/postman-collections/blob/master/ietf-l3vpn-svc%402017-05-02.yang
+ [10]: ietf-l3vpn-svc@2017-05-02.yang
  [11]: https://tools.ietf.org/html/rfc8049
  [12]: ietf-l3vpn-svc_uml.png "IETF UML"
- [13]: https://github.com/FRINXio/postman-collections/blob/master/l3vpn-svc-aug@2017-05-02.yang
+ [13]: l3vpn-svc-aug@2017-05-02.yang
  [14]: nep_ios-xrv3.png "IOS-XRv NEP"
  [15]: nep_mock3.png "Mock NEP"
  [16]: https://tools.ietf.org/html/rfc8049#section-6.3.2.3

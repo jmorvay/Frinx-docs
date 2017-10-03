@@ -51,4 +51,4 @@ Restart proxy server
 
     ./sbe proxy-restart
 
- [1]: https://gerrit.frinx.io/plugins/gitblit/raw/sbe-doc.git/master/3-multi-host.png
+ [1]: 3-multi-host.png

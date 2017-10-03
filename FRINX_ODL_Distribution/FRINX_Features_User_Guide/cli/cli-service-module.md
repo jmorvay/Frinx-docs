@@ -359,15 +359,15 @@ It is possible to check a current list of units and thus a current list of suppo
 
  [1]: https://github.com/FRINXio/postman-collections
  [2]: https://www.getpostman.com/postman
- [3]: https://frinx.io/wp-content/uploads/2017/08/cliSouthPlugin5.png "CLI southbound plugin"
- [4]: https://frinx.io/wp-content/uploads/2017/08/cliMountpoint2.png "CLI mountpoint"
- [5]: https://frinx.io/wp-content/uploads/2017/06/iosUnits.png "IOS translation plugin"
- [6]: https://frinx.io/wp-content/uploads/2017/08/readCfg2.png "Config data"
- [7]: https://frinx.io/wp-content/uploads/2017/08/readOper2.png "Operational data"
+ [3]: cliSouthPlugin5.png "CLI southbound plugin"
+ [4]: cliMountpoint2.png "CLI mountpoint"
+ [5]: iosUnits.png "IOS translation plugin"
+ [6]: readCfg2.png "Config data"
+ [7]: readOper2.png "Operational data"
  [8]: https://frinx.io/frinx-documents/running-frinx-odl-distribution-for-the-first-time.html
- [9]: https://frinx.io/wp-content/uploads/2017/08/mount-telnet1.jpg
- [10]: https://frinx.io/wp-content/uploads/2017/08/mount-ssh1.jpg
+ [9]: mount-telnet1.jpg
+ [10]: /mount-ssh1.jpg
  [11]: https://frinx.io/frinx-documents/cli-service-module-devguide.html
- [12]: https://frinx.io/wp-content/uploads/2017/08/linux-mount.jpg
+ [12]: linux-mount.jpg
  [13]: https://frinx.io/frinx-feature-guide/frinx-cli-supported-devices.html
  [14]: http://46.229.232.136:8888/

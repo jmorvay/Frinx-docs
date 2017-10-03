@@ -150,4 +150,4 @@ The elasticseach_ip is the IP address of the server where the elasticsearch 
   </tbody>
 </table>
 
- [1]: ../Operations_Manual/elastic-search.html
+ [1]: ../Operations_Manual/elastic-search.md

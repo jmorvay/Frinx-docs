@@ -261,18 +261,18 @@ Installs L3VPN Provider with Mock NEP and RESTCONF. This feature can be used for
 </table>
 
  [1]: https://github.com/FRINXio/postman-collections
- [2]: https://frinx.io/wp-content/uploads/2017/08/l3vpn_service3.png "L3VPN Service"
- [3]: https://frinx.io/wp-content/uploads/2017/08/problem3.png "Example of problem"
- [4]: https://frinx.io/wp-content/uploads/2017/08/problem_solution3.png "L3VPN between sites"
- [5]: https://frinx.io/wp-content/uploads/2017/08/terminology3.png "Terminology in picture"
- [6]: https://frinx.io/wp-content/uploads/2017/08/topo_any-to-any3.png "Any to Any topology"
- [7]: https://frinx.io/wp-content/uploads/2017/08/topo_hub-and-spoke3.png "Hub and Spoke topology"
- [8]: https://frinx.io/wp-content/uploads/2017/08/use-case3.png "Use case example"
- [9]: https://frinx.io/wp-content/uploads/2017/08/architecture3.png "Architecture"
+ [2]: l3vpn_service3.png "L3VPN Service"
+ [3]: problem3.png "Example of problem"
+ [4]: problem_solution3.png "L3VPN between sites"
+ [5]: hterminology3.png "Terminology in picture"
+ [6]: topo_any-to-any3.png "Any to Any topology"
+ [7]: topo_hub-and-spoke3.png "Hub and Spoke topology"
+ [8]: use-case3.png "Use case example"
+ [9]: architecture3.png "Architecture"
  [10]: https://github.com/FRINXio/postman-collections/blob/master/ietf-l3vpn-svc%402017-05-02.yang
  [11]: https://tools.ietf.org/html/rfc8049
- [12]: https://frinx.io/wp-content/uploads/2017/06/ietf-l3vpn-svc_uml.png "IETF UML"
+ [12]: ietf-l3vpn-svc_uml.png "IETF UML"
  [13]: https://github.com/FRINXio/postman-collections/blob/master/l3vpn-svc-aug@2017-05-02.yang
- [14]: https://frinx.io/wp-content/uploads/2017/08/nep_ios-xrv3.png "IOS-XRv NEP"
- [15]: https://frinx.io/wp-content/uploads/2017/08/nep_mock3.png "Mock NEP"
+ [14]: nep_ios-xrv3.png "IOS-XRv NEP"
+ [15]: nep_mock3.png "Mock NEP"
  [16]: https://tools.ietf.org/html/rfc8049#section-6.3.2.3

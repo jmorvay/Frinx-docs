@@ -4,7 +4,7 @@ This section explains how to mirror the hello-world-samples repository from gith
 
 ### Start SBE
 
-Read [the documentation](sbe-operations-maintenance.md) on how to start the SBE.
+Read [the documentation](sbe_operations_maintenance.md) on how to start the SBE.
 
 ### Enable insecure docker registry
 

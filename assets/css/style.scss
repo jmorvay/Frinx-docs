@@ -2,18 +2,16 @@
 ---
 ---
 
-$section-headings-color: #00aaff;
+
 
 @import "{{ site.theme }}";
-
+section-headings-color: #00aaff;
 .header-container-wrapper{
 background-color: #054da2;
 }
-
 body {
 background-color: #054da2;
 }
-
 h1 {
 color:#054da2;
 }

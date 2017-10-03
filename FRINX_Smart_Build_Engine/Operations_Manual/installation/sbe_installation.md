@@ -413,4 +413,4 @@ In order to enable LDAP authentication for Nexus, do the following (Note - these
  [7]: 4.png "fourth"
  [8]: 5.png "fifth"
  [9]: 6.png "new"
- [10]: https://frinx.io/wp-content/uploads/2016/11/nginx.png "Figure 4: SBE Access verification"
+ [10]: nginx.png "Figure 4: SBE Access verification"

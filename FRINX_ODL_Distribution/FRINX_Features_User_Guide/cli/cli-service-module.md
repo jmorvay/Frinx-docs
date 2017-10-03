@@ -364,10 +364,10 @@ It is possible to check a current list of units and thus a current list of suppo
  [5]: iosUnits.png "IOS translation plugin"
  [6]: readCfg2.png "Config data"
  [7]: readOper2.png "Operational data"
- [8]: https://frinx.io/frinx-documents/running-frinx-odl-distribution-for-the-first-time.html
+ [8]: ../../Operations_Manual/running-frinx-odl-distribution-for-the-first-time.html
  [9]: mount-telnet1.jpg
  [10]: /mount-ssh1.jpg
- [11]: https://frinx.io/frinx-documents/cli-service-module-devguide.html
+ [11]: ../../Frinx_Features_Developer_Guide/cli-service-module-devguide.html
  [12]: linux-mount.jpg
- [13]: https://frinx.io/frinx-feature-guide/frinx-cli-supported-devices.html
+ [13]: frinx-cli-supported-devices.md
  [14]: http://46.229.232.136:8888/

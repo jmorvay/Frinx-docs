@@ -43,7 +43,7 @@ The format should be as follows:
     userpassword: passwd
     
 
-More instructions on the format can be found in Step 6 here: <https://frinx.io/frinx-documents/sbe-installation.html>
+More instructions on the format can be found in Step 6 here: <installation/sbe_installation.html>
 
 Then, from within your sbe directory, run:
 

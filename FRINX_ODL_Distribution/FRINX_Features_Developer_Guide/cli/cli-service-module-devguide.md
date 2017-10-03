@@ -7,7 +7,7 @@ Pre-requisite reading: - Honeycomb design documentation:
 <https://docs.fd.io/honeycomb/1.17.04/release-notes-aggregator/release_notes.html>  
 CLI plugin available presentations:  
 <https://frinxhelpdesk.atlassian.net/wiki/display/~mmarsalek/CLI+southbound+plugin+docs>  
-[CLU plugin user guide][7]  
+[CLI plugin user guide][7]  
 
 
 ## Building on honeycomb

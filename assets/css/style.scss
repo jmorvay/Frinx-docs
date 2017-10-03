@@ -1,17 +1,8 @@
-
 ---
 ---
-
-
+dark blue		color:#054da2;
+light blue	color:#00aaff;
+grey				color:#adafb2;
+txt (grey)	color:#696969;
 
 @import "{{ site.theme }}";
-section-headings-color: #00aaff;
-.header-container-wrapper{
-background-color: #054da2;
-}
-body {
-background-color: #054da2;
-}
-h1 {
-color:#054da2;
-}

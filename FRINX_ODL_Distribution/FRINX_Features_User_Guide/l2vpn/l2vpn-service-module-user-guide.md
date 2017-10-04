@@ -69,7 +69,7 @@ The API is described using YANG modules. An external application can consume the
 
 ##### ietf-l2vpn@2017-08-02.yang
 
-Original YANG is from [RFC draft - YANG Data Model for MPLS-based L2VPN][9]. This YANG module is modified due to compatibility with OpenDaylight and is extended with L2VPN Provider elements - see the modified YANG module ietf-l2vpn@2017-08-02.yang ![here][1]
+Original YANG is from [RFC draft - YANG Data Model for MPLS-based L2VPN][9]. This YANG module is modified due to compatibility with OpenDaylight and is extended with L2VPN Provider elements - see the modified YANG module [ietf-l2vpn@2017-08-02.yang](ietf-l2vpn@2017-08-02.yang)
 
 The YANG module contains 2 root statements and one RPC:
 
@@ -77,7 +77,7 @@ The YANG module contains 2 root statements and one RPC:
 *   **container l2vpn-state** – not used in current implementation
 *   **rpc commit-l2vpn** – configures intent of L2VPN service. The output of RPC is the result of service configuration.
 
-The following YANGs are modified due to compatibility with OpenDaylight: ietf-mpls, ietf-routing, ietf-routing-types, all accessible [here][1].
+The following YANGs are modified due to compatibility with OpenDaylight: [ietf-mpls](ietf-mpls@2017-08-02_new.yang), [ietf-routing](ietf-routing@2017-08-02_new.yang), [ietf-routing-types](ietf-routing-types@2017-08-02_new.yang).
 
 ### Network Element Plugin
 
@@ -216,7 +216,7 @@ Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for
   </tbody>
 </table>
 
- [1]: https://github.com/FRINXio/postman-collections
+ [1]: L2VPN_IOS-XRv_public.postman_collection.json
  [9]: https://tools.ietf.org/html/draft-ietf-bess-l2vpn-yang-05
  [10]: nep_ios-xrv3.png "IOS-XRv NEP"
  [11]: nep_mock3.png "Mock NEP"

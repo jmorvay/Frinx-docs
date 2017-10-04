@@ -1,6 +1,6 @@
 # CLI Service Module User Guide
 
-*The Postman collection for the CLI service module can be accessed [here][1]. **(latest version: FRINX CLI 2.3.1.postman_collection.json)**. It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). We refer to the postman collection in the usage section below*
+*The Postman collection for the CLI service module can be accessed [here][1]. It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). We refer to the postman collection in the usage section below*
 
 **Postman can be downloaded for free [here][2]**
 
@@ -357,7 +357,7 @@ It is possible to check a current list of units and thus a current list of suppo
   </tbody>
 </table>
 
- [1]: https://github.com/FRINXio/postman-collections
+ [1]: FRINX_CLI_2.3.1.postman_collection.json
  [2]: https://www.getpostman.com/postman
  [3]: cliSouthPlugin5.png "CLI southbound plugin"
  [4]: cliMountpoint2.png "CLI mountpoint"

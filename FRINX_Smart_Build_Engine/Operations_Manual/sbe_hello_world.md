@@ -8,7 +8,7 @@ Read [the documentation](sbe_operations_maintenance.md) on how to start the SBE.
 
 ### Enable insecure docker registry
 
-To be able to push docker images to Nexus, you need to enable insecure docker registry - Read Deploying a plain HTTP registry [here](sbe_operations_maintenance) and Configuring Docker [here][2].
+To be able to push docker images to Nexus, you need to enable insecure docker registry - Read Deploying a plain HTTP registry [here](https://docs.docker.com/registry/insecure/) and Configuring Docker [here](https://docs.docker.com/engine/admin/).
 
 Open the docker daemon configuration ( /etc/systemd/system/docker.service ), find  
 `--insecure-registry nexus.YOUR-SBE-FQDN:8082`.  

@@ -367,7 +367,7 @@ It is possible to check a current list of units and thus a current list of suppo
  [8]: ../../Operations_Manual/running-frinx-odl-distribution-for-the-first-time.html
  [9]: mount-telnet1.jpg
  [10]: /mount-ssh1.jpg
- [11]: ../../Frinx_Features_Developer_Guide/cli/cli-service-module-devguide.html
+ [11]: ../../FRINX_Features_Developer_Guide/cli/cli-service-module-devguide.html
  [12]: linux-mount.jpg
  [13]: cli_supported_devices.md
  [14]: http://46.229.232.136:8888/

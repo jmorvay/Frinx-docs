@@ -69,7 +69,7 @@ The API is described using YANG modules. An external application can consume the
 
 ##### ietf-l2vpn@2017-08-02.yang
 
-Original YANG is from [RFC draft - YANG Data Model for MPLS-based L2VPN][9]. This YANG module is modified due to compatibility with OpenDaylight and is extended with L2VPN Provider elements - see the modified YANG module [ietf-l2vpn@2017-08-02.yang](ietf-l2vpn@2017-08-02.yang)
+Original YANG is from [RFC draft - YANG Data Model for MPLS-based L2VPN][9]. This YANG module is modified due to compatibility with OpenDaylight and is extended with L2VPN Provider elements - see the modified YANG module [ietf-l2vpn@2017-08-02.yang](ietf-l2vpn@2017-08-02_new.yang)
 
 The YANG module contains 2 root statements and one RPC:
 
@@ -161,6 +161,8 @@ Installs L2VPN Provider with IOS-XRv NEP and NETCONF connector. This feature is 
 
 **Description:**  
 Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for testing and demonstration purposes where real PE devices are not available.
+
+*The postman collection for the L2VPN service module can be accessed [here][1]*
 
 <table>
   <thead>

@@ -1,5 +1,7 @@
 # SBE example: Hello world project
 
+This section explains how to mirror the hello-world-samples repository from github to SBE's gerrit and build it in the SBE.
+
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [SBE example: Hello world project](#sbe-example-hello-world-project)
     - [Start SBE](#start-sbe)
@@ -15,8 +17,6 @@
 - [Troubleshooting](#troubleshooting)
 
 <!-- TOC END -->
-
-This section explains how to mirror the hello-world-samples repository from github to SBE's gerrit and build it in the SBE.
 
 ### Start SBE
 

@@ -1,6 +1,21 @@
 # Designing a new application with the FRINX ODL distribution
 
-####1\. Project structure
+<!-- TOC START min:1 max:4 link:true update:true -->
+- [Designing a new application with the FRINX ODL distribution](#designing-a-new-application-with-the-frinx-odl-distribution)
+      - [1\. Project structure](#1-project-structure)
+      - [2\. POM (Project Object Model) files](#2-pom-project-object-model-files)
+      - [3\. Features module](#3-features-module)
+      - [4\. Configuration module](#4-configuration-module)
+      - [5\. Integration with the FRINX distribution](#5-integration-with-the-frinx-distribution)
+      - [6\. Building the application](#6-building-the-application)
+      - [7\. Checkstyle, naming schemes, Javadoc](#7-checkstyle-naming-schemes-javadoc)
+      - [8\. Logging](#8-logging)
+      - [9\. SonarQube](#9-sonarqube)
+      - [10\. Developing and testing with a distribution](#10-developing-and-testing-with-a-distribution)
+
+<!-- TOC END -->
+
+#### 1\. Project structure
 
 Each project or plugin using ODL should have the same directory structure. This has several advantages. For a programmer, jumping from one project to another is very easy, because he knows where all the key files are (features.xml, controller-config, etc.). For this purpose, ODL developed a maven archetype (template) to automatically create project structure with POM files, base wiring and configuration.
 

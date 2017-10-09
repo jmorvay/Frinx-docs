@@ -1,5 +1,7 @@
 # SBE Installation: Optional advanced configuration
 
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [SBE Installation: Optional advanced configuration](#sbe-installation-optional-advanced-configuration)
     - [Setting up Multiple SBE Instances](#setting-up-multiple-sbe-instances)
     - [Generating new SSH keys](#generating-new-ssh-keys)
     - [Using Apache Directory Studio](#using-apache-directory-studio)

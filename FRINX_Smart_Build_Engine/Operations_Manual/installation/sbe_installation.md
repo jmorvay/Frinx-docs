@@ -2,14 +2,6 @@
 
 The FRINX SBE runs on one or multiple hosts. The following instructions explain how to install it on one host. For installations across multiple hosts please contact info@frinx.io.
 
-*   Prepare-the-host
-*   Install prerequisites
-*   Get project sources
-*   Pull Docker containers
-*   Run container suite
-*   Create LDAP users
-*   Verify installation
-
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [SBE: Installation](#sbe-installation)
   - [1. Prepare the host](#1-prepare-the-host)

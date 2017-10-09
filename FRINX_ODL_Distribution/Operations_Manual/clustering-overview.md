@@ -10,8 +10,8 @@
   - [Data Persistence](#data-persistence-1)
   - [Multiple Node Clustering](#multiple-node-clustering)
     - [a. Deployment Considerations](#a-deployment-considerations)
-    - [b. Setting Up a Multiple Node Cluster##](#b-setting-up-a-multiple-node-cluster)
-    - [c. Deploying a cluster automatically##](#c-deploying-a-cluster-automatically)
+    - [b. Setting Up a Multiple Node Cluster](#b-setting-up-a-multiple-node-cluster)
+    - [c. Deploying a cluster automatically](#c-deploying-a-cluster-automatically)
 
 <!-- TOC END -->
 
@@ -73,7 +73,7 @@ We recommend that you have multiple seed nodes configured. After a cluster membe
 
 After a node becomes unreachable, it remains down for a configurable period of time (10 seconds by default). Once a node goes down, you need to restart it so that it can rejoin the cluster. Once a restarted node joins a cluster, it will synchronize with the lead node automatically. You can run a two node cluster for functional testing, but for HA testing you need to run all three nodes.
 
-### b. Setting Up a Multiple Node Cluster##  
+### b. Setting Up a Multiple Node Cluster  
 To run an OpenDaylight controller in a three node cluster, do the following:  
 1\. Determine the three machines that will make up the cluster and copy the controller distribution to each of those machines.  
 2\. Unzip the controller distribution.  
@@ -142,7 +142,7 @@ The key thing here is the name of the shard. Shard names are structured as follo
 
 Here are a couple of sample data short names: • member-1-shard-topology-config • member-2-shard-default-operational Content of this section provided from under *Apache 2.0 license* from [https://nexus.opendaylight.org/content/sites/site/org.opendaylight.docs/master/userguide/manuals/userguide/bk-user-guide/content/\_setting\_up_clustering_on_an_opendaylight_controller.html ][1]
 
-### c. Deploying a cluster automatically##  
+### c. Deploying a cluster automatically  
 The cluster can be also deployed automatically using a script developed by the OpenDaylight integration project. The script is available from their Git repository.
 
     git clone

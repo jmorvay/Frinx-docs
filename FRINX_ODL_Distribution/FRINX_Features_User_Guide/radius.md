@@ -1,17 +1,17 @@
-# Radius
+# RADIUS
 
 <!-- TOC START min:1 max:3 link:true update:true -->
-- [Radius](#radius)
+- [RADIUS](#radius)
     - [Quick Start](#quick-start)
     - [To download the freeRADIUS image](#to-download-the-freeradius-image)
-    - [Radius configuration](#radius-configuration)
+    - [RADIUS configuration](#radius-configuration)
     - [Prepare the environment](#prepare-the-environment)
     - [Change RADIUS credentials](#change-radius-credentials)
     - [What is Apache Shiro?](#what-is-apache-shiro)
 
 <!-- TOC END -->
 
-**Radius - How FRINX contributes to OpenDaylight authentication**
+**RADIUS - How FRINX contributes to OpenDaylight authentication**
 
 Within OpenDaylight, authentication and authorization is handled by the AAA feature, of which Apache Shiro is the core component. Apache Shiro can itself cooperate with third party authentication and authorization tools. However, in its current implementation within OpenDaylight it supports only LDAP.
 
@@ -35,7 +35,7 @@ To run the freeRADIUS server:
     docker run -it docker.io/unico/freeradius
 
 
-### Radius configuration  
+### RADIUS configuration  
 Within your FRINX distribution directory structure, go to the /etc directory and edit the *shiro.ini* file. Under "[main]" enter the following four lines of text:
 
 > radiusRealm = org.opendaylight.aaa.shiro.realm.RadiusRealm securityManager.realms = $radiusRealm  
@@ -87,7 +87,7 @@ A Java Security Framework that performs authentication, authorization, cryptogra
 • Cryptography - Keeping data secure using a cryptographic algorithm  
 • Session management - Managing user-specific sessions, even in non-Web or EJB applications  
 • Easy to use - It has a long history (5 years), previously known as the JSecurity project. Detailed documentation is available and the API is easy to use  
-• It can use many connectors, for example LDAP, Radius, TACAS, Diameter
+• It can use many connectors, for example LDAP, RADIUS, TACAS, Diameter
 
 <table>
   <thead>

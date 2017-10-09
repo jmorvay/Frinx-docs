@@ -7,7 +7,7 @@
 
 <!-- TOC END -->
 
-This part describe how to setup SBE proxy server, if you provide more SBE instances on more hosts. SBE proxy server is reverse proxy server provided by NGINX.
+This part describes how to set up the SBE proxy server if you provide more SBE instances on more hosts. SBE proxy server is a reverse proxy server provided by NGINX.
 
 **Figure 1: Multi host provision**  
 ![Figure1: Multi host providing][1]

@@ -97,7 +97,7 @@ All logging information is now logged to an Elasticsearch node though Logstash. 
 [How To Install Elasticsearch, Logstash, and Kibana (ELK Stack) on Ubuntu 14.04][10]
 
  [1]: https://frinx.io//downloads/ "FRINX distribution"
- [2]: running-frinx-odl-distribution-for-the-first-time.md
+ [2]: running-frinx-odl-initial.md
  [3]: https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html
  [4]: https://www.elastic.co/downloads/kibana
  [5]: https://www.elastic.co/downloads/logstash

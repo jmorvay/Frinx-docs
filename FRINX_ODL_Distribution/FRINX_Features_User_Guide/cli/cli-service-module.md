@@ -376,14 +376,14 @@ It is possible to check a current list of units and thus a current list of suppo
 
  [1]: FRINX_CLI_2.3.1.postman_collection.json
  [2]: https://www.getpostman.com/postman
- [3]: cliSouthPlugin5.png "CLI southbound plugin"
- [4]: cliMountpoint2.png "CLI mountpoint"
+ [3]: cliSouthPlugin.png "CLI southbound plugin"
+ [4]: cliMountpoint.png "CLI mountpoint"
  [5]: iosUnits.png "IOS translation plugin"
- [6]: readCfg2.png "Config data"
- [7]: readOper2.png "Operational data"
+ [6]: readCfg.png "Config data"
+ [7]: readOper.png "Operational data"
  [8]: ../../Operations_Manual/running-frinx-odl-distribution-for-the-first-time.html
- [9]: mount-telnet1.jpg
- [10]: /mount-ssh1.jpg
+ [9]: mount-telnet.jpg
+ [10]: /mount-ssh.jpg
  [11]: ../../FRINX_Features_Developer_Guide/cli/cli-service-module-devguide.html
  [12]: linux-mount.jpg
  [13]: cli_supported_devices.md

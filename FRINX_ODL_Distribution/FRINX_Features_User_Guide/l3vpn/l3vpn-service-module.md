@@ -276,18 +276,18 @@ Installs L3VPN Provider with Mock NEP and RESTCONF. This feature can be used for
 </table>
 
  [1]: L3VPN_IOS-XRv_public.postman_collection.json
- [2]: l3vpn_service3.png "L3VPN Service"
- [3]: problem3.png "Example of problem"
- [4]: problem_solution3.png "L3VPN between sites"
- [5]: hterminology3.png "Terminology in picture"
- [6]: topo_any-to-any3.png "Any to Any topology"
- [7]: topo_hub-and-spoke3.png "Hub and Spoke topology"
- [8]: use-case3.png "Use case example"
- [9]: architecture3.png "Architecture"
+ [2]: l3vpn_service.png "L3VPN Service"
+ [3]: problem.png "Example of problem"
+ [4]: problem_solution.png "L3VPN between sites"
+ [5]: terminology.png "Terminology in picture"
+ [6]: topo_any-to-any.png "Any to Any topology"
+ [7]: topo_hub-and-spoke.png "Hub and Spoke topology"
+ [8]: use-case.png "Use case example"
+ [9]: architecture.png "Architecture"
  [10]: ietf-l3vpn-svc@2017-05-02.yang
  [11]: https://tools.ietf.org/html/rfc8049
  [12]: ietf-l3vpn-svc_uml.png "IETF UML"
  [13]: l3vpn-svc-aug@2017-05-02.yang
- [14]: nep_ios-xrv3.png "IOS-XRv NEP"
- [15]: nep_mock3.png "Mock NEP"
+ [14]: nep_ios-xrv.png "IOS-XRv NEP"
+ [15]: nep_mock.png "Mock NEP"
  [16]: https://tools.ietf.org/html/rfc8049#section-6.3.2.3

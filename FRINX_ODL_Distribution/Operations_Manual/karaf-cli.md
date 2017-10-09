@@ -163,7 +163,7 @@ Hit `<ctrl-d>` or type `logout` to disconnect the shell from the current session
 ~~~~
 b. On Windows:
 ~~~~
-     binclient.bat -u karaf`
+     binclient.bat -u karaf
 
 
 Logging in as karaf 360 [pool-2-thread-3] WARN org.apache.sshd.client.keyverifier.AcceptAllServerKeyVerifier - Server at /0.0.0.0:8101 presented unverified key:
@@ -185,8 +185,8 @@ Type `system:shutdown` to shutdown Karaf.
 
 Hit `<ctrl-d>` or type `logout` to disconnect shell from current session.
 
-    karaf@root()>`
-~~~~ 
+    karaf@root()>
+~~~~
 
 By default, client tries to connect on localhost, on port 8101 (the default Apache Karaf SSH port). Client accepts different options to let you connect on a remote Apache Karaf instance. You can use --help to get details about these options.
 

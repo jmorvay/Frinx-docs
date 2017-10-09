@@ -2,7 +2,7 @@
 
 ## Overview
 
-The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service3.png)
+The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
 
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [L2VPN Service Module User Guide](#l2vpn-service-module-user-guide)
@@ -26,9 +26,9 @@ The goal of this project is to automate provisioning of Layer 2 Virtual Private 
 
 A company needs to reconnect multiple sites with each other via an SP which provides L2 services to the company. The company's sites needs to see each other as directly connected on L3. L2VPN offers a solution for those requirements.
 
-The company has two different sites and they are both connected to the Service Provider using an L2 connection. They need to interconnect two of their sites. ![Two company's sites connected to SP](problem3.png)
+The company has two different sites and they are both connected to the Service Provider using an L2 connection. They need to interconnect two of their sites. ![Two company's sites connected to SP](problem.png)
 
-In this case L2VPN provides site-to-site connectivity and the SP network behaves as a wire between the company’s sites. The company’s routes are exchanged via the SP network. ![Solution with L2VPN between sites.](problem_solution3.png)
+In this case L2VPN provides site-to-site connectivity and the SP network behaves as a wire between the company’s sites. The company’s routes are exchanged via the SP network. ![Solution with L2VPN between sites.](problem_solution.png)
 
 ### Terminology
 
@@ -38,7 +38,7 @@ These terms are usually used in the L2VPN domain:
 *   **Provider Edge (PE)** device – router at the edge of the SP network which provides connectivity for CE
 *   **Provider (P)** device – core router on the SP network providing connectivity among PE routers
 
-![Terminology in picture](terminology3.png)
+![Terminology in picture](terminology.png)
 
 ### L2VPN types
 
@@ -53,7 +53,7 @@ These types have many implementations. The Frinx ODL distribution supports Virtu
 
 VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet services over MPLS. It is also known as ETHoMPLS (Ethernet over MPLS), or VLL (Virtual Leased Line). VPWS is point-to-point L2VPN which usually uses MPLS in core networks for signaling and creates pseudo-wires on PE routers for separation of L2 connections. L2 connections are identified by interface or VLAN. The picture below shows an MPLS core network with pseudo-wires on PEs for each VPN which are identified by VLAN.
 
-![VPWS example](vpws_topology3.png)
+![VPWS example](vpws_topology.png)
 
 ## L2VPN Provider
 
@@ -67,13 +67,13 @@ L2VPN Provider can be used on a network where:
 *   VLAN is used for pseudo-wire selection
 *   MPLS encapsulation is used in SP core
 
-![Use case example](use-case3.png)
+![Use case example](use-case.png)
 
 ### Architecture
 
 L2VPN Provider is composed of multiple components. The high level architecture is shown in the picture below.
 
-![Architecture](architecture3.png)
+![Architecture](architecture.png)
 
 An external application modifies *ietf-l2vpn* in CONF DS. L2VPN can be configured on nodes which are read from *l2vpn-provider-edge-topology*. When all changes are done, the external application calls RPC *commit-l2vpn*. The RPC reads *ietf-l2vpn* from CONF DS (the intended state) and from OPER DS (the actual state). Diff is created based on intended and actual state. This diff is configured inside network wide transaction on the necessary PE routers by using particular Network Element Plugins. If configuration of routers is successful then a new *ietf-l2vpn* is stored to OPER DS and RPC output is returned with status "complete". In case configuration on one of the devices fails, the rollback of the network wide transaction starts and if the rollback is successful then RPC output has status "commit-failed-rollback-complete", otherwise the status is "inconsistent". The architecture can be extended very easily because Network Element Plugin needs to implement only NEP SPI, rollback, and network element registration. IOS NEP from the picture is not yet implemented.
 
@@ -93,7 +93,8 @@ The YANG module contains 2 root statements and one RPC:
 *   **container l2vpn-state** – not used in current implementation
 *   **rpc commit-l2vpn** – configures intent of L2VPN service. The output of RPC is the result of service configuration.
 
-The following YANGs are modified due to compatibility with OpenDaylight: [ietf-mpls](ietf-mpls@2017-08-02_new.yang), [ietf-routing](ietf-routing@2017-08-02_new.yang), [ietf-routing-types](ietf-routing-types@2017-08-02_new.yang).
+The following YANGs are modified due to compatibility with OpenDaylight: [ietf-mpls](ietf-mpls@2017-08-02_new.yang)  
+[ietf-routing](ietf-routing@2017-08-02_new.yang)   [ietf-routing-types](ietf-routing-types@2017-08-02_new.yang)  
 
 ### Network Element Plugin
 
@@ -148,7 +149,7 @@ The Mock NEP listens on nodes from *mock-pe-topology*. When a node is created, t
 
 ### Limitations
 
-Implementation of L2VPN provider does not support all statements in ietf-l2vpn@2017-08-02.yang. All supported elements are listen in the postman collection. L2VPN Provider does not support reconciliation, therefore only L2VPNs created via L2VPN Provider are visible through API.
+Implementation of L2VPN provider does not support all statements in ietf-l2vpn@2017-08-02.yang. All supported elements are listen in the postman collection. L2VPN Provider does not support reconciliation, therefore only L2VPNs created via L2VPN Provider are visible through the API.
 
 Other limitations:
 
@@ -236,5 +237,5 @@ Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for
 
  [1]: L2VPN_IOS-XRv_public.postman_collection.json
  [9]: https://tools.ietf.org/html/draft-ietf-bess-l2vpn-yang-05
- [10]: nep_ios-xrv3.png "IOS-XRv NEP"
- [11]: nep_mock3.png "Mock NEP"
+ [10]: nep_ios-xrv.png "IOS-XRv NEP"
+ [11]: nep_mock.png "Mock NEP"

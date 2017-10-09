@@ -2,11 +2,11 @@
 
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [Running the FRINX ODL Distribution for the first time](#running-the-frinx-odl-distribution-for-the-first-time)
-    - [Download and activate the FRINX ODL Distribution###](#download-and-activate-the-frinx-odl-distribution)
-    - [Start your FRINX ODL Distribution for the first time###](#start-your-frinx-odl-distribution-for-the-first-time)
+    - [Download and activate the FRINX ODL Distribution](#download-and-activate-the-frinx-odl-distribution)
+    - [Start your FRINX ODL Distribution for the first time](#start-your-frinx-odl-distribution-for-the-first-time)
   - [Non-standard setups](#non-standard-setups)
-    - [Activating the FRINX ODL Distribution behind a proxy###](#activating-the-frinx-odl-distribution-behind-a-proxy)
-    - [Activating the FRINX ODL Distribution on a server without Internet access###](#activating-the-frinx-odl-distribution-on-a-server-without-internet-access)
+    - [Activating the FRINX ODL Distribution behind a proxy](#activating-the-frinx-odl-distribution-behind-a-proxy)
+    - [Activating the FRINX ODL Distribution on a server without Internet access](#activating-the-frinx-odl-distribution-on-a-server-without-internet-access)
 
 <!-- TOC END -->
 
@@ -17,7 +17,8 @@ This guide explains how to run the distribution for the first time. If you have 
 **Java:** Releases based on Beryllium and Boron (and subsequent releases) require Java 8.  
 **Linux:** Unless stated otherwise, this documentation assumes you are using Linux.
 
-###Download and activate the FRINX ODL Distribution  
+### Download and activate the FRINX ODL Distribution  
+
 Please click on the following link to download a zip archive of the FRINX ODL Distribution:
 
 *Boron*: [distribution-karaf-2.3.1.frinx.zip ][2]  

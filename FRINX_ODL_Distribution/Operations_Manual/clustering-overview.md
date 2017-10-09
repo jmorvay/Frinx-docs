@@ -2,31 +2,31 @@
 
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [Clustering: Overview](#clustering-overview)
-  - [Scaling##](#scaling)
-  - [High Availability##](#high-availability)
-  - [Data Persistence##](#data-persistence)
-  - [Single Node Clustering##](#single-node-clustering)
-  - [Data Sharding##:](#data-sharding)
-  - [Data Persistence##:](#data-persistence-1)
-  - [Multiple Node Clustering##](#multiple-node-clustering)
-  - [a. Deployment Considerations##](#a-deployment-considerations)
-  - [b. Setting Up a Multiple Node Cluster##](#b-setting-up-a-multiple-node-cluster)
-  - [c. Deploying a cluster automatically##](#c-deploying-a-cluster-automatically)
+  - [Scaling](#scaling)
+  - [High Availability](#high-availability)
+  - [Data Persistence](#data-persistence)
+  - [Single Node Clustering](#single-node-clustering)
+  - [Data Sharding](#data-sharding)
+  - [Data Persistence](#data-persistence-1)
+  - [Multiple Node Clustering](#multiple-node-clustering)
+    - [a. Deployment Considerations](#a-deployment-considerations)
+    - [b. Setting Up a Multiple Node Cluster##](#b-setting-up-a-multiple-node-cluster)
+    - [c. Deploying a cluster automatically##](#c-deploying-a-cluster-automatically)
 
 <!-- TOC END -->
 
 Clustering is a mechanism that enables multiple processes and programs to work together as one entity. For example, a Google Web search is in fact processed by thousands of web servers connected in a cluster. Similarly, you can have multiple instances of the OpenDaylight controller working together as one entity. There are a number of uses for clustering:
 
-##Scaling##  
+## Scaling  
 If you have multiple controllers running, you can potentially do more work with or store more data on those controllers if they are clustered. You can also break your data into smaller chunks (known as shards) and either distribute that data across the cluster or perform certain operations on certain members of the cluster.
 
-##High Availability##  
+## High Availability  
 If you have multiple controllers running and one crashes, you would still have the other instances working and available.
 
-##Data Persistence##  
+## Data Persistence  
 You will not lose any data gathered by your controller after a manual restart or a crash. The following sections describe how to set up clustering on both individual and multiple OpenDaylight controllers.
 
-##Single Node Clustering##  
+## Single Node Clustering  
 To enable clustering on a single OpenDaylight controller:  
 1\. Navigate to the /bin directory.  
 2\. Run Karaf:
@@ -51,14 +51,14 @@ To enable clustering on a single OpenDaylight controller:
 
 After enabling the DistributedDataStore feature in a single instance, you can access the following features:
 
-##Data Sharding##:  
+## Data Sharding  
 The in-memory MD-SAL tree is broken up into a number of smaller sub-trees (inventory, topology, and default).
 
-##Data Persistence##:  
+## Data Persistence  
 All of the data available on defined data shards is stored on a disk. By restarting the controller, you can use the persisted data to reinstate those shards to their previous state.
 
-##Multiple Node Clustering##  
-##a. Deployment Considerations##  
+## Multiple Node Clustering  
+### a. Deployment Considerations  
 We recommend a minimum of three machines. You can set up a cluster with just two nodes, however if one goes down, the controller will no longer be operational. Every device that belongs to a cluster needs an identifier. For this purpose, OpenDaylight uses the node’s role. After you define the first node’s role as member-1 in the akka.conf file, OpenDaylight uses member-1 to identify that node. Data shards are used to house all or a certain segment of a module’s data. For example, one shard can contain all of a module’s inventory data while another shard contains all of its topology data.
 
 If you do not specify a module in the modules.conf file and do not specify a shard in module-shards.conf, then (by default) all the data is placed onto the default shard (which must also be defined in module-shards.conf file). Each shard has replicas configured, which can be specified in the module-shards.conf file. If you have a three node cluster on which HA is enabled, a replica of every defined data shard must be running on all three cluster nodes. This is because OpenDaylight’s clustering implementation requires a majority of the defined shard replicas to be running in order to function. If you only define data shard replicas on two of the cluster nodes and one of those goes down, the corresponding data shards will not function. If you have a three node cluster and have defined replicas for a data shard on each of those nodes, that shard will still function even if only two of the cluster nodes are running. Note that if one of those two nodes go down, your controller will no longer be operational.
@@ -73,7 +73,7 @@ We recommend that you have multiple seed nodes configured. After a cluster membe
 
 After a node becomes unreachable, it remains down for a configurable period of time (10 seconds by default). Once a node goes down, you need to restart it so that it can rejoin the cluster. Once a restarted node joins a cluster, it will synchronize with the lead node automatically. You can run a two node cluster for functional testing, but for HA testing you need to run all three nodes.
 
-##b. Setting Up a Multiple Node Cluster##  
+### b. Setting Up a Multiple Node Cluster##  
 To run an OpenDaylight controller in a three node cluster, do the following:  
 1\. Determine the three machines that will make up the cluster and copy the controller distribution to each of those machines.  
 2\. Unzip the controller distribution.  
@@ -142,7 +142,7 @@ The key thing here is the name of the shard. Shard names are structured as follo
 
 Here are a couple of sample data short names: • member-1-shard-topology-config • member-2-shard-default-operational Content of this section provided from under *Apache 2.0 license* from [https://nexus.opendaylight.org/content/sites/site/org.opendaylight.docs/master/userguide/manuals/userguide/bk-user-guide/content/\_setting\_up_clustering_on_an_opendaylight_controller.html ][1]
 
-##c. Deploying a cluster automatically##  
+### c. Deploying a cluster automatically##  
 The cluster can be also deployed automatically using a script developed by the OpenDaylight integration project. The script is available from their Git repository.
 
     git clone

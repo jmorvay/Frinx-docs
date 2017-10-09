@@ -1,5 +1,12 @@
 # FRINX ODL Distribution: Karaf CLI
 
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [FRINX ODL Distribution: Karaf CLI](#frinx-odl-distribution-karaf-cli)
+  - [Regular mode](#regular-mode)
+
+<!-- TOC END -->
+
+
 The Apache Karaf container used by the Frinx ODL Distribution supports three different start modes:
 
 1.  ***regular*** mode starts Apache Karaf in the foreground, including the shell console.
@@ -24,12 +31,12 @@ a. On Linux:
     Frinx version: 1.0.0-Beryllium-SR1.2-frinx frinx-user@root>
     Hit [tab] for a list of available commands and [cmd] --help</code> for help on a specific command.</pre>
     Hit `<ctrl-d>` or type `system:shutdown` or `logout` to shutdown Karaf.
-    $karaf@root()>`
+    $karaf@root()>
 
 
 b. On Windows:
 
-      binkaraf.bat
+      bin/karaf.bat
            _________      .__                  
            __________ __|__| ____ __  ___    
              / | ___  V__  |/      /  /    

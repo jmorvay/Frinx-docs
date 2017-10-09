@@ -2,14 +2,14 @@
 
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [Elasticsearch](#elasticsearch)
-  - [Installation##](#installation)
-  - [Configuration##](#configuration)
-  - [Operation##](#operation)
-  - [Other links##](#other-links)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Operation](#operation)
+  - [Other links](#other-links)
 
 <!-- TOC END -->
 
-##Installation
+## Installation
 
 1\. If you have not already done so, [Download the FRINX ODL distribution][1] and [install it][2]  
 2\. [Install Elasticsearch][3]
@@ -36,7 +36,7 @@ For the Linuz-64 bit tar.gz download file, unpackage it with
     tar -xvf filename
 
 
-##Configuration
+## Configuration
 
 The base configuration is to use log4j socket listener for Logstash and the log4j socket appender in ODL Frinx.
 

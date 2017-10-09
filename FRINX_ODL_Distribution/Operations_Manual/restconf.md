@@ -1,6 +1,14 @@
 # RESTCONF
 
-##Flow operations using RESTCONF##  
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [RESTCONF](#restconf)
+  - [Flow operations using RESTCONF](#flow-operations-using-restconf)
+  - [Examining OpenFlow devices using RESTCONF](#examining-openflow-devices-using-restconf)
+  - [Next steps](#next-steps)
+
+<!-- TOC END -->
+
+## Flow operations using RESTCONF  
 To use RESTCONF, a RESTful API client is needed.
 
 The Frinx ODL Distribution comes with one preinstalled: the **YangUI**.
@@ -9,7 +17,7 @@ An alternative is to use the **Chrome Postman** extension: [https://www.getpostm
 
 Many OpenDaylight projects using RESTCONF have made examples of HTTP requests available as [Postman libraries][2]
 
-##Examining OpenFlow devices using RESTCONF##  
+## Examining OpenFlow devices using RESTCONF  
 The operational datastore containing the OpenFlow nodes is exposed at the URL below. ***Warning: Datastores contain a large amount of data and loading them into a web browser may cause a temporary lockup.***
 
     HTTP Method: GET  
@@ -35,7 +43,7 @@ To program the openflow:1 switch, send an HTTP POST request to the controller. T
 
 We expect any switch which implements OpenFlow versions 1.0 and 1.3.2. to be programmable by the Frinx ODL Distribution. A list of such switches is maintained [here][3] Note that if you already have one of these devices, you may need to upgrade its firmware.
 
-##Next steps##  
+## Next steps  
 The OpenDaylight [user guide][4] describes more operations which are possible using the l2switch feature.
 
  [1]: https://www.getpostman.com/

@@ -33,7 +33,6 @@ a. On Linux:
     Hit `<ctrl-d>` or type `system:shutdown` or `logout` to shutdown Karaf.
     $karaf@root()>
 
-
 b. On Windows:
 
       bin/karaf.bat

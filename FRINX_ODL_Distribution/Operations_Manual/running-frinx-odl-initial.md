@@ -26,7 +26,7 @@ Please click on the following link to download a zip archive of the FRINX ODL Di
 
 By downloading the file you accept the FRINX software agreement: [EULA][4]
 
-###Start your FRINX ODL Distribution for the first time
+### Start your FRINX ODL Distribution for the first time
 
 To activate your installation, unzip the file and open the directory. Enter the following commands in a terminal (the token is unique to your user account on frinx.io and cannot be shared with other users).
 
@@ -35,7 +35,7 @@ To activate your installation, unzip the file and open the directory. Enter th
 
 ## Non-standard setups
 
-###Activating the FRINX ODL Distribution behind a proxy  
+### Activating the FRINX ODL Distribution behind a proxy  
 Please set up java system properties as described here: <https://docs.oracle.com/javase/6/docs/technotes/guides/net/proxies.html>
 
 This means running karaf with something like this:
@@ -43,7 +43,7 @@ This means running karaf with something like this:
     JAVA_OPTS="-Dhttp.proxyHost=10.0.0.100 -Dhttp.proxyPort=8800" bin/karaf frinx.createtoken
 
 
-###Activating the FRINX ODL Distribution on a server without Internet access  
+### Activating the FRINX ODL Distribution on a server without Internet access  
 Let's call the connected computer ONLINE and the one where you want to run karaf OFFLINE.
 
     OFFLINE# TOKEN="insert your token here"

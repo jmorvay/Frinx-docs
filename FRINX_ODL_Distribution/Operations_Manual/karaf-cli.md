@@ -3,6 +3,13 @@
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [FRINX ODL Distribution: Karaf CLI](#frinx-odl-distribution-karaf-cli)
   - [Regular mode](#regular-mode)
+  - [Server mode](#server-mode)
+  - [Background mode](#background-mode)
+  - [Clean start](#clean-start)
+  - [Customize variables](#customize-variables)
+  - [Connecting](#connecting)
+  - [Help](#help)
+  - [Apache Karaf client](#apache-karaf-client)
 
 <!-- TOC END -->
 
@@ -19,7 +26,7 @@ You can also manage Apache Karaf as a system service (see [System Service][1] se
 Uses the `bin/karaf` Linux script (`binkaraf.bat` on Windows). It's the default start process. It starts Apache Karaf as a foreground process, and displays the shell console.
 
 a. On Linux:
-
+~~~~
     /bin/karaf
 
            _________      .__                  
@@ -28,14 +35,14 @@ a. On Linux:
             /  |  |   |  |  |   |          
             __| / |___|  |__>___|  /_/__   
                /                 /           
-    Frinx version: 1.0.0-Beryllium-SR1.2-frinx frinx-user@root>
-    Hit [tab] for a list of available commands and [cmd] --help</code> for help on a specific command.</pre>
+    Frinx version: 1.0.0-Beryllium-SR1.2-frinx frinx-user@root
+    Hit [tab] for a list of available commands and [cmd] --help for help on a specific command.
     Hit `<ctrl-d>` or type `system:shutdown` or `logout` to shutdown Karaf.
     $karaf@root()>
-
+~~~~
 b. On Windows:
-
-      bin/karaf.bat
+~~~~
+      binkaraf.bat
            _________      .__                  
            __________ __|__| ____ __  ___    
              / | ___  V__  |/      /  /    
@@ -55,7 +62,7 @@ Hit `<ctrl-d>` or type `system:shutdown` or `logout` to shutdown Karaf.
 
      Warning
      Closing the console or shell window will cause Apache Karaf and therefore Frinx to terminate.
-
+~~~~
 ## Server mode  
 Server mode starts Apache Karaf as a foreground process, but doesn't start the shell console. To use this mode, use the server argument to the `bin/karaf` Linux script (on Windows the script is at <span style="font-family: Courier New">binkaraf.bat</span>).  
 a. On Linux:
@@ -129,7 +136,7 @@ b. On Windows:** rem Content of binsetenv.bat**
 ## Connecting  
 Even if you start Apache Karaf without the console (using server or background modes), you can connect to the console. This connection can be local or remote, in which case you can access the Karaf console remotely. To connect to the console, you can use the `bin/client` Linux script (`binclient.bat` on Windows).  
 a. On Linux:
-
+~~~~
      /bin/client -u karaf
 
 
@@ -153,9 +160,9 @@ Type `system:shutdown` to shutdown Karaf.
 Hit `<ctrl-d>` or type `logout` to disconnect the shell from the current session.
 
 `karaf@root()>`
-
+~~~~
 b. On Windows:
-
+~~~~
      binclient.bat -u karaf`
 
 
@@ -179,7 +186,7 @@ Type `system:shutdown` to shutdown Karaf.
 Hit `<ctrl-d>` or type `logout` to disconnect shell from current session.
 
     karaf@root()>`
-
+~~~~ 
 
 By default, client tries to connect on localhost, on port 8101 (the default Apache Karaf SSH port). Client accepts different options to let you connect on a remote Apache Karaf instance. You can use --help to get details about these options.
 

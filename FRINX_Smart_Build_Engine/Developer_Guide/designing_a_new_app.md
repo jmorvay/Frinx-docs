@@ -2,20 +2,20 @@
 
 <!-- TOC START min:1 max:4 link:true update:true -->
 - [Designing a new application with the FRINX ODL distribution](#designing-a-new-application-with-the-frinx-odl-distribution)
-      - [1\. Project structure](#1-project-structure)
-      - [2\. POM (Project Object Model) files](#2-pom-project-object-model-files)
-      - [3\. Features module](#3-features-module)
-      - [4\. Configuration module](#4-configuration-module)
-      - [5\. Integration with the FRINX distribution](#5-integration-with-the-frinx-distribution)
-      - [6\. Building the application](#6-building-the-application)
-      - [7\. Checkstyle, naming schemes, Javadoc](#7-checkstyle-naming-schemes-javadoc)
-      - [8\. Logging](#8-logging)
-      - [9\. SonarQube](#9-sonarqube)
-      - [10\. Developing and testing with a distribution](#10-developing-and-testing-with-a-distribution)
+  - [1\. Project structure](#1-project-structure)
+  - [2\. POM (Project Object Model) files](#2-pom-project-object-model-files)
+  - [3\. Features module](#3-features-module)
+  - [4\. Configuration module](#4-configuration-module)
+  - [5\. Integration with the FRINX distribution](#5-integration-with-the-frinx-distribution)
+  - [6\. Building the application](#6-building-the-application)
+  - [7\. Checkstyle, naming schemes, Javadoc](#7-checkstyle-naming-schemes-javadoc)
+  - [8\. Logging](#8-logging)
+  - [9\. SonarQube](#9-sonarqube)
+  - [10\. Developing and testing with a distribution](#10-developing-and-testing-with-a-distribution)
 
 <!-- TOC END -->
 
-#### 1\. Project structure
+## 1\. Project structure
 
 Each project or plugin using ODL should have the same directory structure. This has several advantages. For a programmer, jumping from one project to another is very easy, because he knows where all the key files are (features.xml, controller-config, etc.). For this purpose, ODL developed a maven archetype (template) to automatically create project structure with POM files, base wiring and configuration.
 
@@ -59,7 +59,7 @@ The command will generate several prompts; you can enter the values according to
     [INFO] ------------------------------------------------------------------------
 
 
-#### 2\. POM (Project Object Model) files
+## 2\. POM (Project Object Model) files
 
 POM files are special maven files where we can configure plugins and declare dependencies. The latter is the most common use for an ODL application programmer. POM files are hierarchical, meaning a POM file can declare another POM file as its parent and inherit all its plugins and dependencies. Almost all plugins used in ODL are configured in odlparent POM [more info here][2] so you do not need to specify it in your POM file. However you do have to specify that your POM file parent is the odlparent POM.
 
@@ -94,17 +94,17 @@ The above command analyzes the dependencies and prints out a report stating whic
 
 After your POM files are adjusted accordingly, you should see 'Build Success'. Note: this command only recognizes the usage of the dependencies in JAVA code. Therefore it will list all dependencies in features POM file as unused.
 
-#### 3\. Features module
+## 3\. Features module
 
 Features module POM files are not inherited from odlparent or odlparent-lite, but from features-parent ([see here][3]).  
 This means that all feature dependencies need to be specified in this POM as well as the parent POM of the project. We will use the name of the features module and the version in integration with the Frinx distribution. All features within ODL should be prefixed by '**odl-**', but you can change this manually in the feature file.
 
-#### 4\. Configuration module
+## 4\. Configuration module
 
 In Beryllium, config sub-system that was used to configure the project is deprecated. All new projects and plugins are encouraged to use Blueprint.  
 However the usage of config sub-system will be supported from Boron onwards until all existing projects have migrated to Blueprint.
 
-#### 5\. Integration with the FRINX distribution
+## 5\. Integration with the FRINX distribution
 
 In order for the distribution to recognize your new application, you need to edit three files in the distribution project:
 
@@ -134,7 +134,7 @@ In features.xml we specify the feature repository:
     <repository>mvn:jp.customer.example/example-features/${feature.example.version}/xml/features</repository>
 
 
-#### 6\. Building the application
+## 6\. Building the application
 
 First, our application needs to be built in order to publish artifacts into **~/.m2/repository** . For this We use the command:
 
@@ -160,7 +160,7 @@ and install the example feature:
     feature install:odl-example
 
 
-#### 7\. Checkstyle, naming schemes, Javadoc
+## 7\. Checkstyle, naming schemes, Javadoc
 
 Checkstyle is a plugin that encourages a unified style of coding throughout all ODL applications and projects. It controls whitespaces, ordering of imports etc. You can learn more [here][4]
 
@@ -169,7 +169,7 @@ Javadoc plays an important part in public APIs. Public methods should be documen
     mvn javadoc:javadoc
 
 
-#### 8\. Logging
+## 8\. Logging
 
 The best tutorial for logging can be found here:
 
@@ -200,7 +200,7 @@ This means that if you enable a level, all levels above this one will also be di
 
 For bug reports you should always use at least DEBUG level.
 
-#### 9\. SonarQube
+## 9\. SonarQube
 
 SonarQube (or any other code analysis tool) is much needed to write and maintain clean and tested code. Sonar is used widely in ODL. There are numerous ways to check your code with Sonar.
 
@@ -217,7 +217,7 @@ It also creates a clear annotation of code coverage, marking covered and uncover
 
 It's an ideal tool for a project manager as it contains a lot of statistics and progress over time.
 
-#### 10\. Developing and testing with a distribution
+## 10\. Developing and testing with a distribution
 
 When you want to test your application with the Frinx distribution, you sometimes have to make a lot of changes/bug fixes on the fly. As such, creating a distribution each time can be very time consuming. There are a few things that can make it easier:
 

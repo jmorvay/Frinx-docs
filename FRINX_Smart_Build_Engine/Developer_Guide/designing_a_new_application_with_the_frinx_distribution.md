@@ -1,6 +1,6 @@
 # Designing a new application with the FRINX ODL distribution
 
-#### 1\. Project structure
+####1\. Project structure
 
 Each project or plugin using ODL should have the same directory structure. This has several advantages. For a programmer, jumping from one project to another is very easy, because he knows where all the key files are (features.xml, controller-config, etc.). For this purpose, ODL developed a maven archetype (template) to automatically create project structure with POM files, base wiring and configuration.
 
@@ -10,7 +10,7 @@ The project is created by issuing the following command in a terminal:
     -DarchetypeRepository=http://nexus.opendaylight.org/content/repositories/<Snapshot-Type>/ \
     -DarchetypeCatalog=http://nexus.opendaylight.org/content/repositories/<Snapshot-Type>/archetype-catalog.xml \
     -DarchetypeVersion=<Archetype-Version>
-    
+
 
 where: **Snapshot-Type** can be either **opendaylight.release** or **opendaylight.snapshot**  
 **Archetype-Version** is the latest version of maven-startup-archetype
@@ -42,7 +42,7 @@ The command will generate several prompts; you can enter the values according to
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    
+
 
 #### 2\. POM (Project Object Model) files
 
@@ -54,14 +54,14 @@ POM files are special maven files where we can configure plugins and declare dep
     <version>1.6.4-Beryllium-SR4.5-frinxodl</version>
     <relativePath/>
       </parent>
-    
+
 
 In here, you can for example turn off the enforcement of checkstyle (you can set it to NOT fail the build if the checkstyle fails -- but this is discouraged). Dependency management plays an important role in a clean project. In general, transitive dependencies shouldn't be used at all. As a project grows, from time to time it pays off to clear pom files from unused or transitive dependencies.
 
 **Very helpful command:**
 
     mvn dependency:analyze
-    
+
 
 The above command analyzes the dependencies and prints out a report stating which dependencies are unused or used but not declared. Here is an example response:
 
@@ -75,7 +75,7 @@ The above command analyzes the dependencies and prints out a report stating whic
     [WARNING] Unused declared dependencies found:
     [WARNING]commons-fileupload:commons-fileupload:jar:1.3.1:compile
     [INFO] ------------------------------------------------------------------------
-    
+
 
 After your POM files are adjusted accordingly, you should see 'Build Success'. Note: this command only recognizes the usage of the dependencies in JAVA code. Therefore it will list all dependencies in features POM file as unused.
 
@@ -96,12 +96,12 @@ In order for the distribution to recognize your new application, you need to edi
         modified:   pom.xml
         modified:   features-core/pom.xml
         modified:   features-core/src/main/resources/features.xml
-    
+
 
 In the first of the above files we need to specify a variable for the version that will be used in the distribution:
 
        <feature.example.version>1.0.0-SNAPSHOT</feature.example.version>
-    
+
 
 In the second POM file we need to add a dependency to our application artifacts:
 
@@ -112,38 +112,38 @@ In the second POM file we need to add a dependency to our application artifacts:
       <classifier>features</classifier>
       <type>xml</type>
     </dependency>
-    
+
 
 In features.xml we specify the feature repository:
 
     <repository>mvn:jp.customer.example/example-features/${feature.example.version}/xml/features</repository>
-    
+
 
 #### 6\. Building the application
 
 First, our application needs to be built in order to publish artifacts into **~/.m2/repository** . For this We use the command:
 
     mvn clean install -DskipTests
-    
+
 
 Skipping tests shouldn't be used regularly; we do it only for the purposes of this demo, as SingleFeatureTest takes about 20 minutes.
 
 The first build of the application usually takes longer, because all the artifacts and dependencies need to be downloaded. If you want to force the downloading of the artifacts even after the first build, you can use -U argument
 
     mvn -U clean install
-    
+
 
 The second step is to build the distribution project. You can build it safely without tests as you didn't change any of its code. Note: it will require a few GB of memory.
 
 After the distribution is built, move to `distribution/distribution-karaf/target/assembly` . This is the root directory from which you can run karaf. Run it with the command:
 
     ./bin/karaf
-    
+
 
 and install the example feature:
 
     feature install:odl-example
-    
+
 
 #### 7\. Checkstyle, naming schemes, Javadoc
 
@@ -152,7 +152,7 @@ Checkstyle is a plugin that encourages a unified style of coding throughout all 
 Javadoc plays an important part in public APIs. Public methods should be documented extensively. They should provide information on HOW (and sometimes WHEN) to use a given method, not what the implementation looks like. Javadoc can be generated through maven:
 
     mvn javadoc:javadoc
-    
+
 
 #### 8\. Logging
 
@@ -165,7 +165,7 @@ In ODL, the configuration file for logging is located here: `etc/org.ops4j.pax.l
 Here you can configure the size of log file, default location, enabling/disabling of rotation, overall log appearance and (the most used setting) - the specific log level for a specific namespace. The last one can be set by either issuing a command in the karaf prompt:
 
     log:set TRACE jp.customer.example
-    
+
 
 or adding the following line into the file org.ops4j.pax.logging.cfg: `log4j.logger.jp.customer.example = TRACE`
 
@@ -191,7 +191,7 @@ SonarQube (or any other code analysis tool) is much needed to write and maintain
 
 1.  run it on a server and create a special Jenkins job to do the sonar analysis (it usually takes longer than an ordinary verify job), but it can be executed nightly/weekly, depending on your team's needs.
 2.  run the server locally and do the Sonar analysis by issuing the maven command
-    
+
     mvn sonar:sonar
 
 3.  install Sonar plugins for your IDE (e.g. SonarLint in Eclipse)
@@ -211,15 +211,15 @@ When you want to test your application with the Frinx distribution, you sometime
     Restart ODL. (NOTE: We highly recommend deleting the data/ folder between restarts, as it contains cache data that may influence the result of the testing.)
 
 *   make your feature a boot feature. Instead of installing your feature everytime ODL is started, write it as a boot feature in the following file `etc/org.apache.karaf.features.cfg`
-    
+
     In this file, append your feature to the end of the comma separated list of features to install at startup - add the line:
-    
+
     `featuresBoot=config,standard,region,package,kar,ssh,management,<your_feature>`
 
 *   adjust logs to TRACE or DEBUG level for your namespace in the files instead of commandline
-    
+
     Add line to `etc/org.ops4j.pax.logging.cfg` :
-    
+
     `log4j.logger.jp.customer.example = TRACE`
 
  [1]: https://wiki.opendaylight.org/view/OpenDaylight_Controller:MD-SAL:Startup_Project_Archetype "here"

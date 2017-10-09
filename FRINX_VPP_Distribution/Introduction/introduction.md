@@ -4,11 +4,19 @@ FRINX provides an FD.io distribution.
 FD.io is an opensource project that among other things provides the Vector Packet Processor. More information can be found at [FD.io][1].  
 This page contains the details about the FRINX fd.io distribution.
 
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [FRINX VPP Distribution: Introduction](#frinx-vpp-distribution-introduction)
+    - [Features](#features)
+    - [Operations](#operations)
+    - [Jenkins jobs](#jenkins-jobs)
+
+<!-- TOC END -->
+
 ### Features
 
 **Project imported from open source:**
 
-*       VPP 
+*       VPP
     *   No changes
 
 **Internal projects:**

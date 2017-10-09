@@ -1,9 +1,5 @@
 # L2VPN Service Module User Guide
 
-## Overview
-
-The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
-
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [L2VPN Service Module User Guide](#l2vpn-service-module-user-guide)
   - [Overview](#overview)
@@ -19,6 +15,10 @@ The goal of this project is to automate provisioning of Layer 2 Virtual Private 
     - [User-facing features](#user-facing-features)
 
 <!-- TOC END -->
+
+## Overview
+
+The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
 
 ## A bit about L2VPN
 

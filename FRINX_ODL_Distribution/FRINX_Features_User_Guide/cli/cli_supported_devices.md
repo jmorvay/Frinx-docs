@@ -1,3 +1,4 @@
+~~~~
 {
     "available-cli-device-translations": {
         "available-cli-device-translation": [
@@ -199,3 +200,4 @@
         ]
     }
 }
+~~~~

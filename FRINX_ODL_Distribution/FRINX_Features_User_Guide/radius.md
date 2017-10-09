@@ -137,7 +137,7 @@ A Java Security Framework that performs authentication, authorization, cryptogra
       </td>
 
       <td>
-        Radius module
+        RADIUS module
       </td>
     </tr>
   </tbody>

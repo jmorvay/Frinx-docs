@@ -1,5 +1,15 @@
 # Developer Guide: Daexim
 
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [Developer Guide: Daexim](#developer-guide-daexim)
+  - [Overview](#overview)
+  - [Import](#import)
+  - [Export](#export)
+    - [Exporting from leader node](#exporting-from-leader-node)
+  - [General info on daexim](#general-info-on-daexim)
+
+<!-- TOC END -->
+
 **daexim - datastore export import**
 
 ## Overview
@@ -35,7 +45,7 @@ To enable automatic import, place the backed up json files into
 and execute the following on all nodes:
 
     echo 'daexim.importOnInit=true' > ${KARAF_HOME}/etc/org.opendaylight.daexim.cfg
-    
+
 
 **Karaf property files affected by the Frinx daexim changes**
 
@@ -49,7 +59,7 @@ must be split into two properties:
 
     (config,standard,region,package,kar,ssh,management,odl-jolokia),(odl-restconf),(odl-daexim-all)
     odlFeaturesBoot=odl-netconf-topology,customer-feature1
-    
+
 
 Property featuresBoot must only contain core features necessary for loading daexim, optionally with jolokia and restconf for troubleshooting. It is recommended not to modify this line. ODL features should be placed into the new odlFeaturesBoot property, where multiple features are delimited with the comma(,) sign.
 
@@ -62,14 +72,14 @@ This can be automated by changing a line in the file
 > ${karaf.home}/etc/system.properties
 
     karaf.clean.cache=true
-    
+
 
 ## Export
 
 Daexim export was changed so that it is executed only on the node which was contacted via restconf:
 
     curl -u admin:admin  "ODL_NODE_1:8181/restconf/operations/data-export-import:simple-export" -X POST -H "Content-Type: application/json" -d '{"input": {}}' -v
-    
+
 
 In this case, the export will be executed on ODL_NODE_1. Note that the RPC is slightly different than what Daexim supports by default - simple-export does not need time and date to be supplied, export will start immediately. For advanced use, operator can specify list of excluded tuples: model,data store (config, operational). This behavior is the same as with ODL's daexim project.
 
@@ -79,7 +89,7 @@ Reading the whole datastore within a cluster can be slow and can cause pressure 
 
     curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=ShardManager,name=shard-manager-config,type=DistributedConfigDatastore
     curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=ShardManager,name=shard-manager-operational,type=DistributedOperationalDatastore
-    
+
 
 Example output:
 
@@ -116,7 +126,7 @@ Example output:
             "SyncStatus": true
         }
     }
-    
+
 
 Note that leaderId points to the node containing shard leader, attributes shardReady,shardReadyWithLeaderId,shardInitialized inform that cluster is stable.
 
@@ -129,7 +139,7 @@ Details about each of both shards can be obtained by calling
     SHARD_NAME=default-config
     TYPE=DistributedConfigDatastore
     curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-${ID}-shard-${SHARD_NAME},type=${TYPE}
-    
+
 
 ## General info on daexim
 
@@ -138,11 +148,11 @@ Data Export/Import (daexim) is a project introduced in the OpenDaylight Carbon r
 
 The purpose of the project is to export/import data from files. Here are the key functions of the project:
 
-*   Export of CONF and OPER DS 
-*   Export files in JSON format 
+*   Export of CONF and OPER DS
+*   Export files in JSON format
 *   Component is controlled via RPC API [see here][2]
-*   Data can be excluded from export based on yang module and datastore type 
-*   Datastore can be cleared before data is imported 
+*   Data can be excluded from export based on yang module and datastore type
+*   Datastore can be cleared before data is imported
 *   Export can be scheduled
 
 [Video tutorial with Postman collection][2]

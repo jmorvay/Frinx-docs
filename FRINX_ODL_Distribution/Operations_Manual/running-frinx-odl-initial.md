@@ -65,7 +65,7 @@ Copy frinx.license.cfg back to OFFLINE machine, replacing the file in karaf's e
 
     OFFLINE# $KARAF_HOME/bin/karaf
 
- [1]: running-frinx-odl-after-activation.html
+ [1]: running-frinx-odl-after-activation.md
  [2]: https://license.frinx.io/download/distribution-karaf-2.3.1.frinx.zip
  [3]: https://license.frinx.io/download/distribution-karaf-1.4.8.frinx.zip
  [4]: 7793505-v7-Frinx-ODL-Distribution-Software-End-User-License-Agreement.pdf

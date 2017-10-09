@@ -1,5 +1,14 @@
 # SBE: Gerrit access
 
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [SBE: Gerrit access](#sbe-gerrit-access)
+    - [Creating a new user group in Gerrit](#creating-a-new-user-group-in-gerrit)
+    - [Creating a project in Gerrit](#creating-a-project-in-gerrit)
+    - [Configuring Gerrit Access Control Lists](#configuring-gerrit-access-control-lists)
+    - [Gerrit terminology](#gerrit-terminology)
+
+<!-- TOC END -->
+
 The FRINX SBE uses Git and Gerrit for code review and version control.
 
 Git is a distributed version control system. Once a user clones a Git repository, he has a fully functioning copy of the source code, with all the branches and tagged releases at his disposal. Git supports ssh and http.
@@ -41,15 +50,15 @@ The format should be as follows:
     givenName: Joe  
     mail: jbloggs@example-email.com  
     userpassword: passwd
-    
+
 
 More instructions on the format can be found in Step 6 [here](installation/sbe_installation.md)  
 
 Then, from within your sbe directory, run:
 
-    ./sbe instance-update 
+    ./sbe instance-update
     ./sbe run ldap-import [filename].ldif  
-    
+
 
 Now create another new group called "Contributors". The purpose of creating two groups is so that we can later assign different access rights to the two groups.
 
@@ -59,17 +68,17 @@ Alternatively, you can create new groups and add existing users to them via the 
 
 First we need to add an SSH public key to Gerrit:
 
-1.  On the right of your Gerrit screen *click on your username and then on* **Settings** 
-2.  On the left of the screen, *click on* **SSH Public Keys** 
+1.  On the right of your Gerrit screen *click on your username and then on* **Settings**
+2.  On the left of the screen, *click on* **SSH Public Keys**
 3.  *Click on the arrow beside* **How to generate an SSH key** and follow the listed steps.
 4.  Finally, in a terminal run:
-    
+
     `ssh-add`
 
 To create a new account group called Committers with initial members committer1 and committer2:
 
     ssh -p 29418 admin@[localhost] gerrit create-group --member committer1 --member committer2 Committers
-    
+
 
 *Replace `[localhost]` with whatever is set as hostname in ~/sbe/instances/default/config*
 
@@ -86,14 +95,14 @@ Optional: In **Rights Inherit From** choose a project. (see below for more info 
 This can be done as follows:
 
     ssh -p 29418 admin@[localhost] gerrit create-project example-name
-    
+
 
 *Replace `[localhost]` with whatever is set as hostname in ~/sbe/instances/default/config*
 
 It is also possible to import a project from public git:
 
     ./sbe run project-import [project name] [URL]
-    
+
 
 Projects added via the command line will be viewable in the Gerrit interface.
 

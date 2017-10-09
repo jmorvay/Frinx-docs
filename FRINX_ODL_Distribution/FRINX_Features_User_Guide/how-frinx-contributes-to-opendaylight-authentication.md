@@ -1,5 +1,18 @@
 # Radius
 
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [Radius](#radius)
+    - [Quick Start](#quick-start)
+    - [To download the freeRADIUS image:###](#to-download-the-freeradius-image)
+    - [Radius configuration###](#radius-configuration)
+    - [Prepare the environment###](#prepare-the-environment)
+    - [Change RADIUS credentials###](#change-radius-credentials)
+    - [What is Apache Shiro?###](#what-is-apache-shiro)
+
+<!-- TOC END -->
+
+
+
 Within OpenDaylight, authentication and authorization is handled by the AAA feature, of which Apache Shiro is the core component. Apache Shiro can itself cooperate with third party authentication and authorization tools. However, in its current implementation within OpenDaylight it supports only LDAP.
 
 FRINX has extended the functionality of the AAA feature by adding Apache Shiro interaction with RADIUS. RADIUS is a network protocol which authenticates a user who connects and uses a network service. The user sends a request to a Network Access Server (NAS) to gain access to a particular network resource using access credentials.
@@ -12,17 +25,17 @@ The response from the Radius server can be either: Access Accept - The user is g
 
 Within the FRINX distribution, the AAA feature extends authentication capabilities via the RADIUS protocol. In order to be able to authenticate the user it is necessary to start freeRADIUS, which acts as a RADIUS server.
 
-**To download the freeRADIUS image:**
+###To download the freeRADIUS image:###
 
     docker pull docker.io/unico/freeradius
-    
+
 
 To run the freeRADIUS server:
 
     docker run -it docker.io/unico/freeradius
-    
 
-**Radius configuration**  
+
+###Radius configuration###  
 Within your FRINX distribution directory structure, go to the /etc directory and edit the *shiro.ini* file. Under "[main]" enter the following four lines of text:
 
 > radiusRealm = org.opendaylight.aaa.shiro.realm.RadiusRealm securityManager.realms = $radiusRealm  
@@ -31,33 +44,33 @@ Within your FRINX distribution directory structure, go to the /etc directory and
 
 The final two lines set the RADIUS server ip address and shared secret string. The shared secret string is Base64 encoded.
 
-**Prepare the environment**
+###Prepare the environment###
 
 Start the controller Karaf container:
 
     bin/karaf frinx.createtoken <user token>
-    
+
 
 Check the installed bundle for RADIUS authentication. It must be in ACTIVE state:
 
     la | grep -i aaa-authn-radius
-    
+
 
 Open the browser and type the following link: http://localhost:8181/index.html#/login Enter the credentials: username: admin password: password
 
 If the credentials are correct, the RADIUS server sends \*AccessAccept\* and the user can access protected resources.
 
-**Change RADIUS credentials**
+###Change RADIUS credentials###
 
 Start the freeRADIUS docker image:
 
     docker exec -it <CONTAINER_ID> /bin/bash  
-    
+
 
 Go to /etc/freeradius and open the users file:
 
     vi /etc/freeradius/users  
-    
+
 
 Check the line where the default user is defined e.g.:
 
@@ -67,9 +80,9 @@ Change the username and password and save the file. Next, exit from the containe
 
     docker stop <CONTAINER_ID>   
     docker start <CONTAINER_ID>
-    
 
-**What is Apache Shiro?**  
+
+###What is Apache Shiro?###  
 A Java Security Framework that performs authentication, authorization, cryptography, and session management and can be used to secure any application - from command line applications through mobile applications to the largest Web and enterprise applications. Its benefits are:  
 • Cryptography - Keeping data secure using a cryptographic algorithm  
 • Session management - Managing user-specific sessions, even in non-Web or EJB applications  
@@ -82,47 +95,47 @@ A Java Security Framework that performs authentication, authorization, cryptogra
       <th>
         Feature Guide
       </th>
-      
+
       <th>
       </th>
-      
+
       <th>
       </th>
     </tr>
   </thead>
-  
+
   <tbody>
     <tr>
       <td>
       </td>
-      
+
       <td>
       </td>
-      
+
       <td>
       </td>
     </tr>
-    
+
     <tr>
       <td>
       </td>
-      
+
       <td>
       </td>
-      
+
       <td>
       </td>
     </tr>
-    
+
     <tr>
       <td>
         Feature introduced in
       </td>
-      
+
       <td>
         FRINX 2.2.1
       </td>
-      
+
       <td>
         Radius module
       </td>

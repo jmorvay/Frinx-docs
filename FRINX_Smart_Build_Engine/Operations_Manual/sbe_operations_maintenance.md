@@ -1,8 +1,13 @@
 # SBE: Operations and maintenance
 
-*   Container maintenance
-*   Build scripts description
-*   Building project
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [SBE: Operations and maintenance](#sbe-operations-and-maintenance)
+  - [1\. Container maintenance](#1-container-maintenance)
+  - [2\. Build commands description](#2-build-commands-description)
+  - [3\. Building projects](#3-building-projects)
+  - [4\. Cloning individual repositories](#4-cloning-individual-repositories)
+
+<!-- TOC END -->
 
 ## 1\. Container maintenance
 
@@ -33,14 +38,14 @@
 **To stop and remove the various containers use**
 
     ./sbe stop <container-name>
-    
+
 
 **Clean volumes**
 
 *WARNING: The following commands will result in data loss. They are NOT for normal operation and should only be run by an administrator for the purposes of system maintenance.*
 
     ./sbe volumes-remove [<volume-name>]  
-    
+
 
 ## 2\. Build commands description
 
@@ -60,19 +65,19 @@ First import the example project from the public or private repository into Gerr
 
     export PROJECT_NAME="hello-world-samples"
     export PROJECT_UPSTREAM_URL="https://github.com/frinxio/hello-world-samples.git"
-    
+
 
 Add sources from remote Git into Gerrit:
 
      ./sbe run project-import $PROJECT_NAME $PROJECT_UPSTREAM_URL
-    
+
 
 **Before you run the following command to run and build a Jenkins job, see [here][1] for information on how to define a project.**
 
 Create a Jenkins job to build and run the Jenkins job:
 
     ./sbe run project-build $PROJECT_NAME <jenkins-username> <jenkins-username-password>
-    
+
 
 ## 4\. Cloning individual repositories
 
@@ -95,7 +100,7 @@ The sbe repository is cloned as part of the standard installation procedure. How
 To clone one of the above repositories, replace xxx with the repository name in the following command:
 
     git clone https://[customername]@gerrit.frinx.io/xxx
-    
+
 
 When prompted for a password enter the [customerpassword] provided by FRINX.
 

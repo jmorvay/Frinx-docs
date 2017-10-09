@@ -1,5 +1,13 @@
 # VPP Distribution: Installation Tips
 
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [VPP Distribution: Installation Tips](#vpp-distribution-installation-tips)
+    - [VPP Installation](#vpp-installation)
+    - [Install VPP in a docker container](#install-vpp-in-a-docker-container)
+    - [Installing binary packages](#installing-binary-packages)
+
+<!-- TOC END -->
+
 ### VPP Installation
 
 Described at: [VPP install packages][1]
@@ -10,14 +18,14 @@ If VPP does not pick up interfaces, it helps to build and install it manually:
     cd build-root
     sudo dpkg -i *.deb
     sudo service vpp start
-    
+
 
 **The following resources are useful in figuring out how to do (configure) something with VPP**
 
 1.  <https://wiki.fd.io/view/VPP>
 2.  [https://docs.fd.io/vpp/17.04/][2]
-3.  Google 
-4.  **CSIT (VPP integration tests) - they use VAT tool to provide complex configuration to VPP. Each test case logs exact configuration steps. So looking at log file from latest vpp functional test run can help <https://jenkins.fd.io/view/csit/job/csit-vpp-functional-master-ubuntu1604-virl/> If log file does not open directly, download and reopen in browser). Look at a test case, list of keywords and vat command executed in every step.** 
+3.  Google
+4.  **CSIT (VPP integration tests) - they use VAT tool to provide complex configuration to VPP. Each test case logs exact configuration steps. So looking at log file from latest vpp functional test run can help <https://jenkins.fd.io/view/csit/job/csit-vpp-functional-master-ubuntu1604-virl/> If log file does not open directly, download and reopen in browser). Look at a test case, list of keywords and vat command executed in every step.**
 5.  vpp-dev@lists.fd.io
 
 ### Install VPP in a docker container
@@ -25,11 +33,11 @@ If VPP does not pick up interfaces, it helps to build and install it manually:
 After docker is installed start a centos7 container:
 
     sudo docker run -ti --privileged centos7 /bin/bash
-    
+
 Then in the container install vpp, configure and start it:
 
      yum install install apt-transport-https vim net-tools inetutils-ping telnet
-    
+
         cat <<EOT >> /etc/yum.repos.d/fdio-release.repo
         [fdio-release]
         name=fd.io release branch latest merge
@@ -37,19 +45,19 @@ Then in the container install vpp, configure and start it:
         enabled=1
         gpgcheck=0
         EOT
-    
+
         yum install vpp
-    
-    
+
+
     # More info on VPP install: https://wiki.fd.io/view/VPP/Installing_VPP_binaries_from_packages
-    
+
     vim /etc/vpp/startup.conf
     # Change DPDK configuration to add "no-pci" config attribute
     # dpdk {
     #    uio-driver uio_pci_generic
     #    no-pci
     # }
-    
+
     # And enable cli
     # unix {
     # nodaemon
@@ -57,15 +65,15 @@ Then in the container install vpp, configure and start it:
     #  full-coredump
     #  cli-listen localhost:5002
     # }
-    
+
     /usr/bin/vpp -c /etc/vpp/startup.conf &
     telnet 0 5002
-    
+
 
 To save the modified container invoke from host:
 
     sudo docker commit a4fdd4da4500 temp/vppcentos
-    
+
 
 ### Installing binary packages
 
@@ -76,7 +84,7 @@ Instructions for consuming publicly available binary packages of FD.FRINX.io dis
 In file:
 
     /etc/yum.repos.d/frinx-fdio-release.repo
-    
+
 
 Set content:
 
@@ -86,7 +94,7 @@ Set content:
     enabled=1
     gpgcheck=0
     sslverify=0
-    
+
 
 ***Make sure to change the CustomerID and password in the repository settings***
 

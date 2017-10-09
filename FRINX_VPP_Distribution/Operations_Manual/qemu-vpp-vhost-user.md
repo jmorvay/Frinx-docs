@@ -2,6 +2,20 @@
 
 This article shows you how to set up a VM or a bare metal machine with qemu and KVM and VPP handling L2 networking between VMs.
 
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [VPP Distribution: Qemu + VPP + Vhost user](#vpp-distribution-qemu--vpp--vhost-user)
+    - [Resources](#resources)
+    - [Install Qemu/KVM](#install-qemukvm)
+    - [Inside PROXMOX](#inside-proxmox)
+    - [Install VPP](#install-vpp)
+    - [Configure VPP](#configure-vpp)
+    - [Start VMs](#start-vms)
+    - [Network config in VMs](#network-config-in-vms)
+    - [Ifconfig](#ifconfig)
+    - [Troubleshooting](#troubleshooting)
+
+<!-- TOC END -->
+
 ### Resources
 
 The main resource for the setup was: <https://gist.github.com/egernst/5982ae6f0590cd83330faafacc3fd545>
@@ -24,13 +38,13 @@ The following configuration can be used to connect two VMs using VPP as the vhos
 
     sudo vppctl create vhost socket /tmp/sock0.sock server
     sudo vppctl create vhost socket /tmp/sock1.sock server
-    
+
     sudo vppctl set interface state VirtualEthernet0/0/0 up
     sudo vppctl set interface state VirtualEthernet0/0/1 up
-    
+
     sudo vppctl set interface l2 bridge VirtualEthernet0/0/0 1
     sudo vppctl set interface l2 bridge VirtualEthernet0/0/1 1
-    
+
 
 This configuration is SERVER for VPP and CLIENT for VMs and there is a bridge domain between interfaces in VPP
 
@@ -50,7 +64,7 @@ The following command starts FreeBSD VM and attaches it to the opened socket by 
         -numa node,memdev=mem -mem-prealloc \
         -debugcon file:debug.log -global isa-debugcon.iobase=0x402 \
         -vnc :1
-    
+
 
 The image was taken from: [http://ftp.freebsd.org/pub/FreeBSD/releases/VM-IMAGES/10.3-RELEASE/amd64/Latest/][2]
 
@@ -69,7 +83,7 @@ The following command starts Ubuntu14 VM and attaches it to the opened socket by
         -numa node,memdev=mem -mem-prealloc \
         -debugcon file:debug2.log -global isa-debugcon.iobase=0x402 \
         -vnc :2
-    
+
 
 The image was taken from: <https://uec-images.ubuntu.com/releases/14.04/release/> The command does not use the qcow image directly. Instead it uses the following guide to configure password login to the VM according to this guide: <https://help.ubuntu.com/community/UEC/Images> (Section: Ubuntu Cloud Guest images on 12.04 LTS (Precise) and beyond using NoCloud)
 
@@ -81,17 +95,17 @@ The image was taken from: <https://uec-images.ubuntu.com/releases/14.04/release/
 Each VM can be accessed using VNC at:
 
     <IP>:590<VNC_PORT>
-    
+
 
 so in the case of the earlier FreeBSD example and IP being e.g. 10.10.199.72 it would be:
 
     10.10.199.72:5901
-    
+
 
 Credentials:
 
 > > The default credentials for VMs are:
-> 
+>
 > **FreeBSD**: root, no password  
 > **Ubuntu**: ubuntu, passw0rd
 
@@ -102,13 +116,13 @@ The configuration for the VMs could look like:
 
     ifconfig vtnet0 10.10.55.1
     ifconfig vtnet0 inet6 add 2001:0db8:0:f101::1/64
-    
+
 
 **Ubuntu:**
 
     ifconfig eth0 10.10.55.2
     ifconfig eth0 inet6 add 2001:0db8:0:f101::2/64
-    
+
 
 Now, ping and any other traffic should be working fine between VMs.
 

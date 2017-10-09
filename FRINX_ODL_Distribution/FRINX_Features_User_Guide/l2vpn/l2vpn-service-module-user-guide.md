@@ -4,6 +4,22 @@
 
 The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service3.png)
 
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [L2VPN Service Module User Guide](#l2vpn-service-module-user-guide)
+  - [Overview](#overview)
+  - [A bit about L2VPN](#a-bit-about-l2vpn)
+    - [Problem definition and L2VPN](#problem-definition-and-l2vpn)
+    - [Terminology](#terminology)
+    - [L2VPN types](#l2vpn-types)
+  - [L2VPN Provider](#l2vpn-provider)
+    - [Use Case Specification](#use-case-specification)
+    - [Architecture](#architecture)
+    - [Network Element Plugin](#network-element-plugin)
+    - [Limitations](#limitations)
+    - [User-facing features](#user-facing-features)
+
+<!-- TOC END -->
+
 ## A bit about L2VPN
 
 ### Problem definition and L2VPN
@@ -35,7 +51,7 @@ These types have many implementations. The Frinx ODL distribution supports Virtu
 
 #### VPWS
 
-VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet services over MPLS. It is also known as ETHoMPLS (Ethernet over MPLS), or VLL (Virtual Leased Line). VPWS is point-to-point L2VPN which usually uses MPLS in core networks for signaling and creates pseudo-wires on PE routers for separation of L2 connections. L2 connections are identified by interface or VLAN. The picture below shows an MPLS core network with pseudo-wires on PEs for each VPN which are identified by VLAN. 
+VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet services over MPLS. It is also known as ETHoMPLS (Ethernet over MPLS), or VLL (Virtual Leased Line). VPWS is point-to-point L2VPN which usually uses MPLS in core networks for signaling and creates pseudo-wires on PE routers for separation of L2 connections. L2 connections are identified by interface or VLAN. The picture below shows an MPLS core network with pseudo-wires on PEs for each VPN which are identified by VLAN.
 
 ![VPWS example](vpws_topology3.png)
 
@@ -103,7 +119,7 @@ Here is an example of L2VPN configuration on IOS-XRv (parameters encapsulated in
 
 interface **GigabitEthernet0/0/0/0.3001** l2transport
  encapsulation dot1q **3001**
- rewrite ingress tag pop 1 symmetric 
+ rewrite ingress tag pop 1 symmetric
  no shutdown
 !
 
@@ -146,8 +162,8 @@ Other limitations:
 
 **Karaf installation:**
 
-    feature:install frinx-l2vpn-iosxrv 
-    
+    feature:install frinx-l2vpn-iosxrv
+
 
 **Description:**  
 Installs L2VPN Provider with IOS-XRv NEP and NETCONF connector. This feature is NEP for IOS-XRv devices.
@@ -156,8 +172,8 @@ Installs L2VPN Provider with IOS-XRv NEP and NETCONF connector. This feature is 
 
 **Karaf installation:**
 
-    feature:install frinx-l2vpn-testing 
-    
+    feature:install frinx-l2vpn-testing
+
 
 **Description:**  
 Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for testing and demonstration purposes where real PE devices are not available.
@@ -170,47 +186,47 @@ Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for
       <th>
         Feature Guide
       </th>
-      
+
       <th>
       </th>
-      
+
       <th>
       </th>
     </tr>
   </thead>
-  
+
   <tbody>
     <tr>
       <td>
       </td>
-      
+
       <td>
       </td>
-      
+
       <td>
       </td>
     </tr>
-    
+
     <tr>
       <td>
       </td>
-      
+
       <td>
       </td>
-      
+
       <td>
       </td>
     </tr>
-    
+
     <tr>
       <td>
         Feature introduced in
       </td>
-      
+
       <td>
         FRINX 2.3.1
       </td>
-      
+
       <td>
         VPN service module implementation with support for L2VPN and IOS XR (Version 6.1.2) NEP via NETCONF
       </td>

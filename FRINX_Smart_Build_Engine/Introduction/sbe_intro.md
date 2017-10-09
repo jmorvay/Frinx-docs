@@ -1,9 +1,12 @@
 # FRINX Smart Build Engine (SBE): Introduction
 
-*   What is FRINX SBE?
-*   Components Overview
-*   Components Description
-*   Known Bugs and Wishlist
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [FRINX Smart Build Engine (SBE): Introduction](#frinx-smart-build-engine-sbe-introduction)
+  - [1\. What is FRINX SBE?](#1-what-is-frinx-sbe)
+  - [2\. Components Overview](#2-components-overview)
+  - [3\. Components Description](#3-components-description)
+
+<!-- TOC END -->
 
 ## 1\. What is FRINX SBE?
 

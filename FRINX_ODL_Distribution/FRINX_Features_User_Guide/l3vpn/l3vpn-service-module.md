@@ -6,6 +6,21 @@ This is done by using the Frinx ODL controller which configures routers based on
 
 ![L3VPN Service][2]
 
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [L3VPN Service Module User Guide](#l3vpn-service-module-user-guide)
+  - [A bit about L3VPN](#a-bit-about-l3vpn)
+    - [Problem definition and L3VPN](#problem-definition-and-l3vpn)
+    - [Terminology](#terminology)
+    - [Topologies](#topologies)
+  - [L3VPN Provider](#l3vpn-provider)
+    - [Use Case Specification](#use-case-specification)
+    - [Architecture](#architecture)
+    - [Network Element Plugin](#network-element-plugin)
+    - [Limitations](#limitations)
+    - [User-facing features](#user-facing-features)
+
+<!-- TOC END -->
+
 ## A bit about L3VPN
 
 ### Problem definition and L3VPN
@@ -119,15 +134,15 @@ Here is an example of L3VPN configuration on IOS-XRv (parameters encapsulated in
       !
      !
     !
-    
-    
+
+
     interface **GigabitEthernet0/0/0/1**
      vrf **CE1**
      ipv4 address **192.168.1.1 255.255.255.0**
      no shut
     !
-    
-    
+
+
     router bgp **65000**
      !
      vrf **CE1**
@@ -143,7 +158,7 @@ Here is an example of L3VPN configuration on IOS-XRv (parameters encapsulated in
        !
       !
     !
-    
+
 
 NETCONF session configuration in IOS XR to allow ODL to connect:
 
@@ -160,7 +175,7 @@ NETCONF session configuration in IOS XR to allow ODL to connect:
     (config)#
     (config)#ssh server netconf vrf default
     end
-    
+
 
 #### Mock Network Element Plugin
 
@@ -189,7 +204,7 @@ Other limitations:
 **Karaf installation:**
 
     feature:install frinx-l3vpn-iosxrv   
-    
+
 
 **Description:**  
 Installs L3VPN Provider with IOS-XRv NEP and NETCONF connector. This feature is NEP for IOS-XRv devices.
@@ -199,7 +214,7 @@ Installs L3VPN Provider with IOS-XRv NEP and NETCONF connector. This feature is 
 **Karaf installation:**
 
     feature:install frinx-l3vpn-testing   
-    
+
 
 **Description:**  
 Installs L3VPN Provider with Mock NEP and RESTCONF. This feature can be used for testing and demonstration purposes where real PE devices are not available.
@@ -212,47 +227,47 @@ Installs L3VPN Provider with Mock NEP and RESTCONF. This feature can be used for
       <th>
         Feature Guide
       </th>
-      
+
       <th>
       </th>
-      
+
       <th>
       </th>
     </tr>
   </thead>
-  
+
   <tbody>
     <tr>
       <td>
       </td>
-      
+
       <td>
       </td>
-      
+
       <td>
       </td>
     </tr>
-    
+
     <tr>
       <td>
       </td>
-      
+
       <td>
       </td>
-      
+
       <td>
       </td>
     </tr>
-    
+
     <tr>
       <td>
         Feature introduced in
       </td>
-      
+
       <td>
         FRINX 2.3.0
       </td>
-      
+
       <td>
         VPN service module implementation with support for L3VPN and IOS XR (Version 6.1.2) NEP via NETCONF
       </td>

@@ -1,5 +1,13 @@
 # VPP Distribution: VLAN Setup
 
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [VPP Distribution: VLAN Setup](#vpp-distribution-vlan-setup)
+    - [Topology](#topology)
+    - [Config](#config)
+    - [Classifier API (ACLs)](#classifier-api-acls)
+
+<!-- TOC END -->
+
 ### Topology
 
     +-------------------------+                    +-------------------------+
@@ -13,14 +21,14 @@
     |                         |                    |                         |
     |                         |                    |                         |  
     +-------------------------+                    +-------------------------+  
-    
+
 
 ### Config
 
     ### host1
     sudo ip link set enp0s8 down
     sudo service vpp restart
-    
+
     ### VPP1
     create loopback interface mac de:ad:00:00:00:01
     set int ip address loop0 192.168.10.1/24
@@ -33,11 +41,11 @@
     set inter l2 tag-rewrite GigabitEthernet0/8/0.10 pop 1
     set ip arp GigabitEthernet0/8/0.10 192.168.10.2 de:ad:00:00:00:02
     trace add dpdk-input 50
-    
+
     ### host2
     sudo ip link set enp0s8 down
     sudo service vpp restart
-    
+
     ### VPP2
     create loopback interface mac de:ad:00:00:00:02
     set int ip address loop0 192.168.10.2/24
@@ -50,7 +58,7 @@
     set inter l2 tag-rewrite GigabitEthernet0/8/0.10 pop 1
     set ip arp GigabitEthernet0/8/0.10 192.168.10.1 de:ad:00:00:00:01
     ping 192.168.10.1 source loop0 repeat 2
-    
+
 
 ### Classifier API (ACLs)
 
@@ -62,7 +70,7 @@ To disable ICMP traffic on an interface invoke following commands in VAT:
     classify_set_interface_l2_tables sw_if_index 1 ip4-table 0
     # For l3 interface
     classify_set_interface_ip_table sw_if_index 1 table 0
-    
+
 
 Similarly to disabling traffic from a certain IP, replace the table and session creation with:
 

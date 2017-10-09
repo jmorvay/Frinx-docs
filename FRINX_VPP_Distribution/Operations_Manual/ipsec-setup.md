@@ -1,5 +1,13 @@
 # VPP Distribution: IPsec Setup
 
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [VPP Distribution: IPsec Setup](#vpp-distribution-ipsec-setup)
+    - [Configure VPP from the console using the following commands:](#configure-vpp-from-the-console-using-the-following-commands)
+    - [VPP2 (spoke1)](#vpp2-spoke1)
+    - [VPP3 (spoke2)](#vpp3-spoke2)
+
+<!-- TOC END -->
+
 ### Configure VPP from the console using the following commands:
 
 **VPP1 (hub)**
@@ -35,9 +43,9 @@
     # MATCH traffic between spoke1:loop0 and spoke2:loop0 => send it to tunnel hub O====O spoke2
     ipsec policy add spd 1 outbound  priority 10 action protect sa 30 local-ip-range 192.168.20.1 - 192.168.20.1 remote-ip-range 192.168.30.1 - 192.168.30.1
     ipsec policy add spd 1 inbound priority 10 action protect sa 40 local-ip-range 192.168.20.1 - 192.168.20.1 remote-ip-range 192.168.30.1 - 192.168.30.1
-    
+
     trace add dpdk-input 50
-    
+
 
 ### VPP2 (spoke1)
 
@@ -62,9 +70,9 @@
     # MATCH traffic between spoke1:loop0 and spoke2:loop0 => send it to tunnel
     ipsec policy add spd 1 outbound  priority 10 action protect sa 10 local-ip-range 192.168.20.1 - 192.168.20.1 remote-ip-range 192.168.30.1 - 192.168.30.1
     ipsec policy add spd 1 inbound priority 10 action protect sa 20 local-ip-range 192.168.20.1 - 192.168.20.1 remote-ip-range 192.168.30.1 - 192.168.30.1
-    
+
     ping 192.168.10.1 source loop0 repeat 2
-    
+
 
 ### VPP3 (spoke2)
 
@@ -89,7 +97,7 @@
     # MATCH traffic between spoke2:loop0 and spoke1:loop0 => send it to tunnel
     ipsec policy add spd 1 outbound  priority 10 action protect sa 10 local-ip-range 192.168.30.1 - 192.168.30.1 remote-ip-range 192.168.20.1 - 192.168.20.1
     ipsec policy add spd 1 inbound priority 10 action protect sa 20 local-ip-range 192.168.30.1 - 192.168.30.1 remote-ip-range 192.168.20.1 - 192.168.20.1
-    
+
     ping 192.168.10.1 source loop0 repeat 2
-    
+
     ping 192.168.20.1 source loop0 repeat 2

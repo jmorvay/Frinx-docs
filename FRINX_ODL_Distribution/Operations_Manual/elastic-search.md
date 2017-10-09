@@ -1,6 +1,15 @@
 # Elasticsearch
 
-**Installation**
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [Elasticsearch](#elasticsearch)
+  - [Installation##](#installation)
+  - [Configuration##](#configuration)
+  - [Operation##](#operation)
+  - [Other links##](#other-links)
+
+<!-- TOC END -->
+
+##Installation##
 
 1\. If you have not already done so, [Download the FRINX ODL distribution][1] and [install it][2]  
 2\. [Install Elasticsearch][3]
@@ -8,26 +17,26 @@
 In the unpackaged folder, start elasticsearch with
 
     bin/elasticsearch
-    
+
 
 3\. [Install Kibana][4] - download the version appropriate to your system. For the Linuz-64 bit tar.gz download file, unpackage it with
 
     tar -xvf filename
-    
+
 
 In the unpackaged folder, start kibana with
 
     bin/kibana
-    
+
 
 4\. [Install logstash][5] - which we'll use for collecting and parsing log files. It can transform an unstructured log into something meaningful and searchable.
 
 For the Linuz-64 bit tar.gz download file, unpackage it with
 
     tar -xvf filename
-    
 
-**Configuration**
+
+##Configuration##
 
 The base configuration is to use log4j socket listener for Logstash and the log4j socket appender in ODL Frinx.
 
@@ -36,12 +45,12 @@ We must now configure socket listener for Logstash:
 From your logstash folder (the folder created from unpackaging the download file at the start of this guide), move into the config folder:
 
     cd config
-    
+
 
 Create a blank file named logstash.conf
 
     touch frinx.conf
-    
+
 
 Enter the following into the file and save it. Parameters in [] are explained below:
 
@@ -55,7 +64,7 @@ Enter the following into the file and save it. Parameters in [] are explained be
     output {
       elasticsearch { hosts => ["localhost:9200"] }
     }
-    
+
 
 For more info see: [Getting started with Logstash][6] and [Log4j][7]
 
@@ -64,25 +73,25 @@ We started elasticsearch and kibana after downloading (see the start of this gui
 We now need to start logstash. Move to your main logstash folder:
 
     cd ..
-    
+
 
 The start logstash with
 
     bin/logstash -f config/frinx.conf
-    
 
-**Operation**
+
+##Operation##
 
 We have already started elasticsearch, kibana, and logstash. Now start karaf as normal by going to your FRINX ODL Distribution main directory for example distribution-karaf-2.3.0.frinx.
 
 Then type
 
     bin/karaf
-    
+
 
 All logging information is now logged to an Elasticsearch node though Logstash. This information can be analysed with Kibana. Open Kibana in a Web browser by going to <http://localhost:5601>
 
-**Other links**  
+##Other links##  
 [Elastic search products][8]  
 [Running Logstash and Elasticsearch in docker][9]  
 [How To Install Elasticsearch, Logstash, and Kibana (ELK Stack) on Ubuntu 14.04][10]

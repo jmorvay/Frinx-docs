@@ -58,4 +58,4 @@ Restart proxy server
 
     ./sbe proxy-restart
 
- [1]: 3-multi-host.png
+ [1]: 3-multi-host.png "Figure1: Multi host providing"

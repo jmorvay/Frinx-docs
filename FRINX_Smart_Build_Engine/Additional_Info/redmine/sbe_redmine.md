@@ -1,7 +1,7 @@
 # SBE: Redmine
 
 This is the Redmine manual for users to develop, track and manage tasks in the Secondary Build Environment. Redmine is a flexible project management Web application. Written using the Ruby on Rails framework, it is cross-platform and cross-database. Redmine is open source and released under the terms of the GNU General Public License v2 (GPL). It allows you to create multiple projects, assign multiple persons with the help of a local Wiki page and document storage place. Redmine can be used by managers, developers and reporters (support teams). It allows you to create a nice project hierarchy and to organize and track multiple bugs, features and support nice and smoothly.  
-The translation of the Redmine guide is available in Japanese language here: http://redmine.jp/guide/
+The translation of the Redmine guide is available in Japanese language [here](http://redmine.jp/guide/)
 
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [SBE: Redmine](#sbe-redmine)

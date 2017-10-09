@@ -12,7 +12,7 @@ This part describe how to setup SBE proxy server, if you provide more SBE instan
 **Figure 1: Multi host provision**  
 ![Figure1: Multi host providing][1]
 
-##Proxy settings
+## Proxy settings
 
 All proxy rules and options are defined in the **sbe.proxy** file in sbe project root.
 
@@ -42,7 +42,7 @@ All proxy rules and options are defined in the **sbe.proxy** file in sbe project
     )
 
 
-##Proxy control
+## Proxy control
 
 Start proxy server
 

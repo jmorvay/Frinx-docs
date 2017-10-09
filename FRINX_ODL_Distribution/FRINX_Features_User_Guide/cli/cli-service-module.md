@@ -381,7 +381,7 @@ It is possible to check a current list of units and thus a current list of suppo
  [5]: iosUnits.png "IOS translation plugin"
  [6]: readCfg.png "Config data"
  [7]: readOper.png "Operational data"
- [8]: ../../Operations_Manual/running-frinx-odl-distribution-for-the-first-time.html
+ [8]: ../../Operations_Manual/running-frinx-odl-initial.html
  [9]: mount-telnet.jpg
  [10]: /mount-ssh.jpg
  [11]: ../../FRINX_Features_Developer_Guide/cli/cli-service-module-devguide.html

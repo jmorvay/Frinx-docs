@@ -1,6 +1,4 @@
 # FRINX Smart Build Engine(SBE): Developer Guide
 
 [Developer Guide](Developer_Guide/developer_guide.md)  
-[Adding a new application to FRINX ODL](Developer_Guide/designing_a_new_application_with_the_frinx_distribution.md)  
-
-
+[Adding a new application to FRINX ODL](Developer_Guide/designing_a_new_app.md)  

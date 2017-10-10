@@ -1,2 +1,3 @@
 theme: jekyll-theme-cayman
-title: FRINX Documentation [Home](https://frinxio.github.io/Frinx-docs)
+title: FRINX Documentation
+baseurl: "Frinx-docs"

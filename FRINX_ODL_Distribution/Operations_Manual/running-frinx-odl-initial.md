@@ -21,8 +21,8 @@ This guide explains how to run the distribution for the first time. If you have 
 
 Please click on the following link to download a zip archive of the FRINX ODL Distribution:
 
-*Boron*: [distribution-karaf-2.3.1.frinx.zip ][2]  
-*Beryllium*: [distribution-karaf-1.4.8.frinx.zip ][3]
+*Boron*: [distribution-karaf-2.3.1.frinx.zip][2]  
+*Beryllium*: [distribution-karaf-1.4.8.frinx.zip][3]
 
 By downloading the file you accept the FRINX software agreement: [EULA][4]
 

@@ -1,4 +1,4 @@
 theme: jekyll-theme-cayman
 title: FRINX Documentation
-url: https://frinxio.github.io/Frinx-docs/
-description: [Main page](https://frinxio.github.io/Frinx-docs/)
+navbar-links:
+    Main Page: "https://frinxio.github.io/Frinx-docs/" 

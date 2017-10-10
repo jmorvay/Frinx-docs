@@ -10,7 +10,7 @@
 
 <!-- TOC END -->
 
-This guide explains how to run the distribution for the first time. If you have run it previously, please see [this guide][1]
+This guide explains how to run the distribution for the first time. If you have run it previously, please see [this guide](running-frinx-odl-after-activation.md)
 
 ***System requirements***  
 **RAM:** 2GB minimum; we recommend 4GB.  
@@ -21,11 +21,11 @@ This guide explains how to run the distribution for the first time. If you have 
 
 Please click on the following link to download a zip archive of the FRINX ODL Distribution:
 
-*Boron*: [distribution-karaf-2.3.1.frinx.zip][2]  
-*Beryllium*: [distribution-karaf-1.4.8.frinx.zip][3]
+*Boron*: [distribution-karaf-2.3.1.frinx.zip](https://license.frinx.io/download/distribution-karaf-2.3.1.frinx.zip)  
+*Beryllium*: [distribution-karaf-1.4.8.frinx.zip](https://license.frinx.io/download/distribution-karaf-1.4.8.frinx.zip)
 
 Older distributions can be downloaded from our [archive](https://frinx.io/archive)
-By downloading the file you accept the FRINX software agreement: [EULA][4]
+By downloading the file you accept the FRINX software agreement: [EULA](7793505-v7-Frinx-ODL-Distribution-Software-End-User-License-Agreement.pdf)
 
 ### Start your FRINX ODL Distribution for the first time
 
@@ -65,8 +65,3 @@ Now, copy fingerprint.txt to the ONLINE machine:
 Copy frinx.license.cfg back to OFFLINE machine, replacing the file in karaf's etc folder. You will be able to start karaf normally:
 
     OFFLINE# $KARAF_HOME/bin/karaf
-
- [1]: running-frinx-odl-after-activation.md
- [2]: https://license.frinx.io/download/distribution-karaf-2.3.1.frinx.zip
- [3]: https://license.frinx.io/download/distribution-karaf-1.4.8.frinx.zip
- [4]: 7793505-v7-Frinx-ODL-Distribution-Software-End-User-License-Agreement.pdf

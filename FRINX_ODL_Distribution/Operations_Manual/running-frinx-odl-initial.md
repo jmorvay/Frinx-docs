@@ -24,6 +24,7 @@ Please click on the following link to download a zip archive of the FRINX ODL Di
 *Boron*: [distribution-karaf-2.3.1.frinx.zip][2]  
 *Beryllium*: [distribution-karaf-1.4.8.frinx.zip][3]
 
+Older distributions can be downloaded from our [archive](https://frinx.io/archive)
 By downloading the file you accept the FRINX software agreement: [EULA][4]
 
 ### Start your FRINX ODL Distribution for the first time

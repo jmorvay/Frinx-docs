@@ -1,3 +1,6 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)
+[FRINX Release Notes main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/release_notes.html)
+    
 This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution. In the first section, issues found during testing the Frinx controller are described together with their workarounds. The causes of both issues are present in  the upstream Opendaylight Beryllium SR2. In the second section we provide links to the relevant Opendaylight Beryllium SR2 release notes. 
 
 ## Additions

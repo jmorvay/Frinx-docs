@@ -1,3 +1,5 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)
+[SBE Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_Smart_Build_Engine/operations_manual.html)
 # SBE: Gerrit access
 
 <!-- TOC START min:1 max:3 link:true update:true -->

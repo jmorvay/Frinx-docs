@@ -1,3 +1,5 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)
+[FRINX Features Developer Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/developer_guide.html)
 # Developer Guide: CLI
 
 <!-- TOC START min:1 max:3 link:true update:true -->

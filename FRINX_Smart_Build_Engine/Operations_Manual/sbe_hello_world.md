@@ -1,3 +1,5 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)
+[SBE Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_Smart_Build_Engine/operations_manual.html)
 # SBE example: Hello world project
 
 This section explains how to mirror the hello-world-samples repository from github to SBE's gerrit and build it in the SBE.

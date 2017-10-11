@@ -1,3 +1,4 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)
 # FRINX ODL Distribution: Troubleshooting Guide
 
 The troubleshooting guide is based around a [flow chart][1].

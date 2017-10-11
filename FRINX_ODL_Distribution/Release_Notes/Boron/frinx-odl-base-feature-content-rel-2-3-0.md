@@ -1,3 +1,6 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)
+[FRINX Release Notes main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/release_notes.html)
+    
 | Name                                             | Version                         |
 | ------------------------------------------------ | ------------------------------- |
 | odl-mdsal-models                                 | 0\.9.3-Boron-SR3.2_3_0-frinxodl |

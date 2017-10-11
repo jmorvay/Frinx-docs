@@ -1,3 +1,6 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)
+[FRINX Release Notes main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/release_notes.html)
+    
 | Name                                          | Version                        |
 |-----------------------------------------------|--------------------------------|
 | odl-netconf-all                               | 1.0.4-Beryllium-SR4.8-frinxodl |

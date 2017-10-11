@@ -1,3 +1,5 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)
+[Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_VPP_Distribution/operations_manual.html)
 # VPP Distribution: Qemu + VPP + Vhost user
 
 This article shows you how to set up a VM or a bare metal machine with qemu and KVM and VPP handling L2 networking between VMs.

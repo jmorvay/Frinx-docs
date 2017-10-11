@@ -1,3 +1,4 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)  
 # FRINX ODL Distribution: Release Notes
 
 [Boron](Release_Notes/Boron.md)  

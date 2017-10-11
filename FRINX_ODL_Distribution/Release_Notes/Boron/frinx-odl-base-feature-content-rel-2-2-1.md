@@ -1,3 +1,6 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)
+[FRINX Release Notes main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/release_notes.html)
+    
 | Name                                             | Version                        |
 |--------------------------------------------------|--------------------------------|
 | odl-neutron-service                              | 0.7.2-Boron-SR2.2_2_1-frinxodl |

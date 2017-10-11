@@ -1,3 +1,5 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)
+[SBE Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_Smart_Build_Engine/operations_manual.html)
 # SBE: Component Guide
 
 This guide explains how to update the SBE - both in its entirety and on a component-by-component basis.

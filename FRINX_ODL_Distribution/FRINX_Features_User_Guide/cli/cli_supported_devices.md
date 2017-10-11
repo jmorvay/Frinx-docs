@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-[FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/user_guide.html/)
+[FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/user_guide.html)
 ~~~~
 {
     "available-cli-device-translations": {

@@ -2,7 +2,22 @@
 
 Follow the steps below in order to configure NETCONF. Note that it doesn't matter whether you are running on a single node or a cluster - the steps are the same. If you are running a cluster then simply enter these commands on ogene of the cluster nodes and that node will pass the information to the other nodes.
 
-##Netconf mount  
+<!-- TOC -->
+
+- [NETCONF Clustering](#netconf-clustering)
+    - [Netconf mount](#netconf-mount)
+    - [Add device via mdsal's netconf topology](#add-device-via-mdsals-netconf-topology)
+    - [Getting config data from device](#getting-config-data-from-device)
+    - [Getting operational data from device](#getting-operational-data-from-device)
+    - [Getting a list of netconf devices + their connection status](#getting-a-list-of-netconf-devices--their-connection-status)
+    - [Deleting device](#deleting-device)
+    - [Vendor/device specific implementations](#vendordevice-specific-implementations)
+        - [Using SROS 13](#using-sros-13)
+        - [Using SROS 140R04](#using-sros-140r04)
+
+<!-- /TOC -->
+
+## Netconf mount  
 Before we can add the NETCONF device we must configure a set of parameters (via the command line). Enter the following commands in a terminal, using the values that are relevant for your particular case.
 
     NETCONF_NAME [Name of the NETCONF mountpoint inside OpenDaylight]  
@@ -12,7 +27,7 @@ Before we can add the NETCONF device we must configure a set of parameters (via 
     NETCONF_PASS [NETCONF device password]
 
 
-##Add device via mdsal's netconf topology  
+## Add device via mdsal's netconf topology  
 Before you can add a device you must install one of the following OpenDaylight features:
 
 odl-netconf-topology  
@@ -37,7 +52,7 @@ Now that the device has been added, you can interrogate it using the RESTCONF se
      feature:install odl-toaster
 
 
-##Getting config data from device
+## Getting config data from device
 
 To retrieve configuration data from the remote NETCONF device, use the following command in a terminal, replacing ${ODL_HOST} with the IP address of the machine on which you are running the FRINX OpenDaylight distribution.
 

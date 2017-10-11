@@ -6,10 +6,13 @@ This document describes the latest changes, additions, known issues, and fixes f
 
 ## Known Issues
 
-#### Karaf clean fails to remove all configuration changes After resetting the frinx controller by running karaf clean, you may see in the GUI that no features are loaded. The netconf XML used to configure ODL is in a file called etc/opendaylight/current/controller.currentconfig.xml. But karaf clean starts only features mentioned in etc/org.apache.karaf.features.cfg (featuresBoot), the required features (odl-netconf-client and more) are not found and thus startup fails. 
+#### Karaf clean fails to remove all configuration changes  
+After resetting the frinx controller by running karaf clean, you may see in the GUI that no features are loaded. The netconf XML used to configure ODL is in a file called etc/opendaylight/current/controller.currentconfig.xml. But karaf clean starts only features mentioned in etc/org.apache.karaf.features.cfg (featuresBoot), the required features (odl-netconf-client and more) are not found and thus startup fails. 
 
 **Typical Symptoms:** No features shown in GUI Log contains  *"Giving up (after 100 retries) on Karaf featuresService.listInstalledFeatures()"* **Workaround:** Clean install of frinx controller *>karaf clean* and removing contents of etc/opendaylight/current/controller.currentconfig.xml 
-#### Config subsystem times out while loading feature After installing SNMP feature then making an RESTCONF request via SNMP request to a node with a running SNMP client you will recieve a error HTTP 501 ERROR with the response body containing "No implementation of RPC AbsoluteSchemaPath{path=[(urn:opendaylight:snmp?revision=2014-09-22)snmp-get]} available" This is a error in the upstream opendaylight project and tracked by Bug 6018 
+
+#### Config subsystem times out while loading feature  
+After installing SNMP feature then making an RESTCONF request via SNMP request to a node with a running SNMP client you will recieve a error HTTP 501 ERROR with the response body containing "No implementation of RPC AbsoluteSchemaPath{path=[(urn:opendaylight:snmp?revision=2014-09-22)snmp-get]} available" This is a error in the upstream opendaylight project and tracked by Bug 6018 
 
 **Typical Symptoms:** Unable to make SNMP-get request because "No implementation of RPC available" Log contains  *"Caused by: org.opendaylight.controller.config.persist.impl.ConfigPusherImpl$NotEnoughCapabilitiesException:"* **Workaround:** Restart the frinx controller. Use */bin/karaf* or */bin/start*, Do not use *>karaf clean* 
 ## Opendaylight Beryllium SR2 Release Notes The Frinx controller 1.2.3 is based on Opendaylight Beryllium SR2. Where a feature is present in both controllers, the same Release Notes apply 

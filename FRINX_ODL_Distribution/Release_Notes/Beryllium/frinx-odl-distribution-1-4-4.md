@@ -1,4 +1,5 @@
 This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.
+
 **Note that FRINX ODL Distribution 1.4.4 requires Java 8**
 
 #### New Features, Improvements

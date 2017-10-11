@@ -60,7 +60,7 @@ By REST (as POST). (username: admin password: admin). This can be done in Postma
     http://[host]:[port]/restconf/operations/installer:monitor-resources
 
 
-Or typing
+Or typing:
 
     curl 'http://localhost:8181/restconf/operations/installer:monitor-resources' -H 'Host: localhost:8181' -H 'Content-Type: application/json;charset=utf-8' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X post
 

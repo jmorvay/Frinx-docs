@@ -50,11 +50,13 @@ How Honeycomb is encapsulated as a mount point in Opendaylight:
 
 ## Major components
 
-The following diagram shows the major components of the CLI southbound plugin and their relationships: ![CLI plugin components][5]
+The following diagram shows the major components of the CLI southbound plugin and their relationships:  
+![CLI plugin components][5]
 
 ## Modules
 
-The following diagram shows project modules and their dependencies: ![CLI plugin modules][6]
+The following diagram shows project modules and their dependencies:  
+![CLI plugin modules][6]
 
 ## Developing a device specific translation unit
 

@@ -25,7 +25,7 @@ The response from the Radius server can be either: Access Accept - The user is g
 
 Within the FRINX distribution, the AAA feature extends authentication capabilities via the RADIUS protocol. In order to be able to authenticate the user it is necessary to start freeRADIUS, which acts as a RADIUS server.
 
-### To download the freeRADIUS image
+To download the freeRADIUS image:
 
     docker pull docker.io/unico/freeradius
 

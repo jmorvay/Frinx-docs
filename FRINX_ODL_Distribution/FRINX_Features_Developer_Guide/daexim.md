@@ -130,7 +130,7 @@ Example output:
 
 Note that leaderId points to the node containing shard leader, attributes shardReady,shardReadyWithLeaderId,shardInitialized inform that cluster is stable.
 
-Details about each of both shards can be obtained by calling
+Details about each of both shards can be obtained by calling:
 
     ID=1
     SHARD_NAME=default-operational

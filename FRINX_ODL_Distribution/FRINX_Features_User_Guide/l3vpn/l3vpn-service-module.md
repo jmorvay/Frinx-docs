@@ -73,6 +73,61 @@ L3VPN Provider can be used on a network where:
 
 ![Use case example][8]
 
+L3VPN Provider works only with devices which have these capabilities:
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Revision
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Cisco-IOS-XR-infra-rsi-cfg
+      </td>
+      <td>
+        2015-07-30
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Cisco-IOS-XR-ifmgr-cfg
+      </td>
+      <td>
+        2015-07-30
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Cisco-IOS-XR-ipv4-bgp-cfg
+      </td>
+      <td>
+        2015-08-27
+      </td>
+    </tr>
+    <tr>
+      <td>
+        rollback-on-error
+      </td>
+      <td>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+The capabilities are sent from XR to ODL automatically during device connection via NETCONF.
+You can see the NETCONF capabilities under each node by calling: 
+GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf
+
+A ist of PE nodes can be obtained from: 
+GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/l3vpn-provider-edge-topology
+
+
 ### Architecture
 
 L3VPN Provider is composed of multiple components. The high level architecture is shown in the picture below.

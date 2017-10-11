@@ -69,6 +69,60 @@ L2VPN Provider can be used on a network where:
 
 ![Use case example](use-case.png)
 
+L2VPN Provider works only with devices which have these capabilities:
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Revision
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Cisco-IOS-XR-l2-eth-infra-cfg
+      </td>
+      <td>
+        2015-11-09
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Cisco-IOS-XR-ifmgr-cfg
+      </td>
+      <td>
+        2015-07-30
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Cisco-IOS-XR-l2vpn-cfg
+      </td>
+      <td>
+        2015-11-09
+      </td>
+    </tr>
+    <tr>
+      <td>
+        rollback-on-error
+      </td>
+      <td>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+The capabilities are sent from XR to ODL automatically during device connection via NETCONF.
+You can see the NETCONF capabilities under each node by calling: 
+GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf
+
+A list of PE nodes can be obtained from: 
+GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/l2vpn-provider-edge-topology
+
 ### Architecture
 
 L2VPN Provider is composed of multiple components. The high level architecture is shown in the picture below.

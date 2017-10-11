@@ -11,14 +11,14 @@
 
 <!-- TOC END -->
 
-##Setting Up the environment  
+## Setting Up the environment  
 To setup and run the Frinx TSDR data store elasticsearch plugin, you need to have an elasticsearch node (or a cluster of such nodes) running. We will use a customized elasticsearch docker image for this purpose.
 
 Your elasticsearch setup must have the Delete By Query Plugin installed. Without this, some of the elk functionality won't work properly.
 
 *Note: for the remainder of this document, we will use elk to refer to the TSDR data store elasticsearch plugin.*
 
-##Creating a custom elasticsearch docker image  
+## Creating a custom elasticsearch docker image  
 (You can skip this section if you already have an instance of elasticsearch running) Run the following set of commands:
 
     cat << EOF > Dockerfile
@@ -40,7 +40,7 @@ You can check whether the image was properly created by running:
 
 This should print all your container images including the elasticsearch-dd.
 
-##Running the custom elasticsearch plugin  
+## Running the custom elasticsearch plugin  
 Now we can create and run a container from our image by typing:
 
     docker run -d -p 9200:9200 -p 9300:9300 --name elk-dd elasticsearch-dd
@@ -56,7 +56,7 @@ The output should include a row with elk-dd in the NAMES column. To chec
     docker logs elk-dd
 
 
-##Setting up the Frinx distribution  
+## Setting up the Frinx distribution  
 The next step is to install all the necessary dependencies in the running Frinx distribution. To do so, in the running distribution console type:
 
     feature:install odl-tsdr-elasticsearch
@@ -68,10 +68,10 @@ All the data are stored into the tsdr index under a type. The metric data ar
 
 All the configuration files are located int the FRINX ODL **etc** directory.
 
-##Testing the setup  
+## Testing the setup  
 We can now test whether the setup is correct by downloading and installing mininet, which we use to send some data to the running elasticsearch instance.
 
-##Installing the necessary features to the Frinx distribution  
+## Installing the necessary features to the Frinx distribution  
 The distribution has to be able to process the data sent by the OpenFlow capable switch. In order to do so, we need to install two additional features:
 
     feature:install odl-tsdr-openflow-statistics-collector
@@ -84,7 +84,7 @@ We can check whether the distribution is now listening on port 6653:
 
 Note that in beryllium you will probably need to install odl-openflowplugin-all feature as well.
 
-##Setting up mininet  
+## Setting up mininet  
 Follow these instructions to download and install mininet. We recommend the VM based solution.
 
 After successfully booting up and running the mininet VM, run the following command to set up a small network:

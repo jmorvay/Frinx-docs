@@ -10,7 +10,7 @@ This document describes the latest changes, additions, known issues, and fixes f
 3\. Introduced odlFeaturesBoot in order to enable daexim import on startup  
 4\. Daexim export now runs only on one node 5. Feature:odl-daexim-all is now installed by default
 
-Documentation to new daexim can be found at <https://frinx.io/frinx-documents/daexim.html>
+Documentation to new daexim can be found at <https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/FRINX_Features_Developer_Guide/daexim.html>
 
 #### Known Issues
 

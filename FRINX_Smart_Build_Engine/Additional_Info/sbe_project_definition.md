@@ -10,7 +10,7 @@ The build project has its project definition as one yaml file in the "projects/"
 
 SBE project definition file e.g.: sbe/projects/hello-world-samples.yaml
 
-##Project definition YAML document example
+## Project definition YAML document example
 
     description: "Hello World Samples - SNAPSHOT"
 

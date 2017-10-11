@@ -1,5 +1,4 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-[FRINX Smart Build Engine main page](https://frinxio.github.io/Frinx-docs/FRINX_Smart_Build_Engine/operations_manual.html)
 # FRINX Smart Build Engine (SBE): Introduction
 
 *   What is FRINX SBE?

@@ -2,7 +2,7 @@
 
 Follow the steps below in order to configure NETCONF. Note that it doesn't matter whether you are running on a single node or a cluster - the steps are the same. If you are running a cluster then simply enter these commands on ogene of the cluster nodes and that node will pass the information to the other nodes.
 
-##Netconf mount##  
+##Netconf mount  
 Before we can add the NETCONF device we must configure a set of parameters (via the command line). Enter the following commands in a terminal, using the values that are relevant for your particular case.
 
     NETCONF_NAME [Name of the NETCONF mountpoint inside OpenDaylight]  
@@ -12,7 +12,7 @@ Before we can add the NETCONF device we must configure a set of parameters (via 
     NETCONF_PASS [NETCONF device password]
 
 
-##Add device via mdsal's netconf topology##  
+##Add device via mdsal's netconf topology  
 Before you can add a device you must install one of the following OpenDaylight features:
 
 odl-netconf-topology  
@@ -37,7 +37,7 @@ Now that the device has been added, you can interrogate it using the RESTCONF se
      feature:install odl-toaster
 
 
-##Getting config data from device##
+##Getting config data from device
 
 To retrieve configuration data from the remote NETCONF device, use the following command in a terminal, replacing ${ODL_HOST} with the IP address of the machine on which you are running the FRINX OpenDaylight distribution.
 
@@ -58,7 +58,8 @@ Toaster example response:
     }
 
 
-##Getting operational data from device## *(SROS does not support this. For SROS devices, see the end of this document)*  
+## Getting operational data from device 
+*(SROS does not support this. For SROS devices, see the end of this document)*  
 Similar to the above command, but extracts operational rather than config data. Again, replace ${ODL_HOST} with the IP address of the machine on which you are running the FRINX OpenDaylight distribution.
 
     curl --user admin:admin -v "http://${ODL_HOST}:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf/node/${NETCONF_NAME}/yang-ext:mount/?prettyPrint=true" -H "Content-Type: application/yang.data+json"
@@ -80,13 +81,13 @@ Toaster example response:
     }
 
 
-##Getting a list of netconf devices + their connection status##  
+## Getting a list of netconf devices + their connection status  
 Replace ${ODL_HOST} with the IP address of the machine on which you are running the FRINX OpenDaylight distribution.
 
     curl --user admin:admin -v "http://${ODL_HOST}:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf/?prettyPrint=true"
 
 
-##Deleting device##  
+## Deleting device  
 To delete the remote NETCONF device from OpenDaylight, enter the following command in a terminal, replacing ${ODL_HOST} with the IP address of the machine on which you are running the FRINX OpenDaylight distribution.
 
     curl --user admin:admin -X DELETE "http://${ODL_HOST}:8181/restconf/config/network-topology:network-topology/topology/topology-netconf/node/${NETCONF_NAME}" -v
@@ -94,7 +95,7 @@ To delete the remote NETCONF device from OpenDaylight, enter the following comma
 
 ## Vendor/device specific implementations
 
-##Using SROS 13##  
+### Using SROS 13  
 To configure netconf, use following restconf call. Note the first line below (which configures the IP of the machine hosting the FRINX OpenDaylight distribution) should be edited as required. Within the first line of the curl command, replace ${ODL_HOST} with the IP address of the machine on which the FRINX OpenDaylight distribution is running: :
 
     ODL_HOST=127.0.0.1 # change this accordingly
@@ -118,7 +119,7 @@ To configure netconf, use following restconf call. Note the first line below (wh
 
 The only difference between normal configuration and this is the customization factory and 2 added capabilities that are missing in hello message.
 
-##Using SROS 140R04##  
+### Using SROS 140R04  
 For this version, use `netconf-customization-alu-ignore-candidate` as customization factory. The purpose of the customization is to ensure that the response from the SROS device is in the required format.
 
 To configure the mountpoint for SROS 14, enter the following command, replacing ${ODL_HOST} with the IP address of the machine on which the FRINX OpenDaylight distribution is running:

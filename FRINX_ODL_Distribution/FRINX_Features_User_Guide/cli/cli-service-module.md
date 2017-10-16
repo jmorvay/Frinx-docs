@@ -156,7 +156,7 @@ This section provides samples for how to use the CLI southbound plugin to manage
 
 Install the following features into a running FRINX OpenDaylight instance (For running Frinx OpenDaylight, please see our [guide][8]):
 
-    feature:install cli-topology cli-southbound-unit-ios odl-restconf
+    feature:install cli-topology cli-southbound-all-units odl-restconf
 
 
 This installs the CLI topology, a baseline translation unit and an IOS essential unit.

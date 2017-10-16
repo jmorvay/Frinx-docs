@@ -1,4 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
+[VPP operations manual](https://frinxio.github.io/Frinx-docs/FRINX_VPP_Distribution/operations_manual.html)  
 # FRINX VPP Distribution: Introduction
 
 FRINX provides an FD.io distribution.  

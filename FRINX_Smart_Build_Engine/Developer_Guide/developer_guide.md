@@ -69,8 +69,6 @@ The flow of changes is: **Working directory** > **Index (stage)** > **HEAD**
 #### Cloning a repository  
 The first thing we need to do is access the source that we’re going to be modifying. As with any Git project you do this by cloning the central repository that Gerrit is hosting. e.g.
 
-link to SBE installation, take bit from there as example
-
 Format:
 
     git clone username@host:/path/to/repository

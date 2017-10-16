@@ -1,7 +1,7 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)  
 # FRINX ODL Distribution: Release Notes
 
-[Carbon](Release_Notes/Beryllium.md) 
+[Carbon](Release_Notes/Beryllium.md)  
 [Boron](Release_Notes/Boron.md)  
-[Beryllium](Release_Notes/Beryllium.md) 
+[Beryllium](Release_Notes/Beryllium.md)  
 

@@ -24,7 +24,9 @@ This document describes the latest changes, additions, known issues, and fixes f
     *   daexim import does not work.
 2.  odl-netconf-clustered-topology: 
     *   contains critical bugs and is not intended for production use, so odl-netconf-topology was modified so that it can work in cluster. Due to the fact that each node maintains its own connection to netconf devices, connection status reported in operational datastore might be overwritten and not reflect actual state.
-
+3.  restconf/operational/entity-owners:
+    *   entity-owners contains no data as entity ownership service was rewritten. Entity owners are assigned to the same node that hosts shard leaders.
+4.  Operational state of IOS device cannot be read when VRF is configured on the device and the device is mounted via SSH.
 
 
 #### Opendaylight Carbon Release Notes

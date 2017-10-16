@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-[FRINX Smart Build Engine operations manual](https://frinxio.github.io/Frinx-docs/FRINX_Smart_Build_Engine/operations_manual.html) 
+[SBE operations manual](https://frinxio.github.io/Frinx-docs/FRINX_Smart_Build_Engine/operations_manual.html) 
 # SBE: Proxy server configuration
 
 <!-- TOC START min:1 max:3 link:true update:true -->

@@ -159,7 +159,7 @@ Install the following features into a running FRINX OpenDaylight instance (For r
     feature:install cli-topology cli-southbound-all-units odl-restconf
 
 
-This installs the CLI topology, a baseline translation unit and an IOS essential unit.
+This installs the CLI topology and all supported CLI translation units for various platforms e.g. IOS and IOS-XR.
 
 ### Logs
 

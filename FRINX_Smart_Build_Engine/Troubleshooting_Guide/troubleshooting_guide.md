@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-[FRINX Smart Build Engine main page](https://frinxio.github.io/Frinx-docs/FRINX_Smart_Build_Engine/operations_manual.html)
+[FRINX Smart Build Engine operations manual](https://frinxio.github.io/Frinx-docs/FRINX_Smart_Build_Engine/operations_manual.html)
 # SBE: Basic troubleshooting guide
 
 You can use this guide to help you identify and resolve basic problems you may experience with your SBE instance.

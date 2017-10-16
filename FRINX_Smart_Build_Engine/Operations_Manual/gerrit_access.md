@@ -135,9 +135,9 @@ Go to **Projects > List** and *click on your project*
 *Click on* **Access** in the second-row menu near the top of the screen  
 *Click on* **Edit**
 
-Here you can configure, add and remove different types of access right for different groups. For example, you can add a group e.g. Committers, and allow *Push*, and allow *Label Code-Review* between -2 and +2. To see what additional permissions you can set, click on *Add Permission* and select for example *Push Merge Commit*.
+Here you can configure, add and remove different types of access right for different groups. For example, you can add a group e.g. **Committers**, and allow **Push**, and allow **Label Code-Review** between -2 and +2. To see what additional permissions you can set, *click on* **Add Permission** and *select* for example **Push Merge Commit**.
 
-For any listed permission type you can click on **Add Group**. For example *Push* is already listed. Under Push you can click on **Add Group** and select Contributors.
+For any listed permission type you can *click on* **Add Group**. For example **Push** is already listed. Under Push you can *click on* **Add Group** and select **Contributors**.
 
 *Click on* **Save Changes**
 

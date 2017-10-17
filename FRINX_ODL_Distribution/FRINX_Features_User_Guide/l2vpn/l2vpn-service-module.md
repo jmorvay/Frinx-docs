@@ -149,9 +149,6 @@ The YANG module contains 2 root statements and one RPC:
 *   **container l2vpn-state** – not used in current implementation
 *   **rpc commit-l2vpn** – configures intent of L2VPN service. The output of RPC is the result of service configuration.
 
-The following YANGs are modified due to compatibility with OpenDaylight: [ietf-mpls](ietf-mpls@2017-08-02.yang)  
-[ietf-routing](ietf-routing@2017-08-02.yang)   [ietf-routing-types](ietf-routing-types@2017-08-02.yang)  
-
 ### Network Element Plugin
 
 Network Element Plugin (NEP) is a unit which implements SPI from the L2VPN Provider. This NEP is device API specific and is responsible for:

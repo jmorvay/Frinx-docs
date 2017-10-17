@@ -278,11 +278,6 @@ Installs L3VPN Provider with Mock NEP and RESTCONF. This feature can be used for
 
 *The postman collection for the L3VPN service module can be accessed [here][1]*
 
-| Feature Guide         |             |                                                                                                     |
-|-----------------------|-------------|-----------------------------------------------------------------------------------------------------|
-| Feature introduced in | FRINX 2.3.0 | VPN service module implementation with support for L3VPN and IOS XR (Version 6.1.2) NEP via NETCONF |  
-
-
 
  [1]: L3VPN_IOS-XRv_public.postman_collection.json
  [2]: l3vpn_service.png "L3VPN Service"

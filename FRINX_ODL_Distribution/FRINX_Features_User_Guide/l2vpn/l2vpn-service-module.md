@@ -239,7 +239,7 @@ Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for
 
 | Feature Guide         |             |                                                                                                     |
 |-----------------------|-------------|-----------------------------------------------------------------------------------------------------|
-| Feature introduced in | FRINX 2.3.1 | VPN service module implementation with support for L2VPN and IOS XR (Version 6.1.2) NEP via NETCONF |
+| Feature introduced in | FRINX 2.3.1 | VPN service module implementation with support for L2VPN and IOS XR (Version 6.1.2) NEP via NETCONF |  
 
 
  [1]: L2VPN_IOS-XRv_public.postman_collection.json

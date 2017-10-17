@@ -2,17 +2,19 @@
 [VPP Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_VPP_Distribution/operations_manual.html)
 # VPP Distribution: IPsec Setup
 
-<!-- TOC START min:1 max:3 link:true update:true -->
-- [VPP Distribution: IPsec Setup](#vpp-distribution-ipsec-setup)
-    - [Configure VPP from the console using the following commands:](#configure-vpp-from-the-console-using-the-following-commands)
-    - [VPP2 (spoke1)](#vpp2-spoke1)
-    - [VPP3 (spoke2)](#vpp3-spoke2)
+<!-- TOC -->
 
-<!-- TOC END -->
+- [VPP Distribution: IPsec Setup](#vpp-distribution-ipsec-setup)
+        - [Configure VPP from the console using the following commands:](#configure-vpp-from-the-console-using-the-following-commands)
+        - [VPP1 (hub)](#vpp1-hub)
+        - [VPP2 (spoke1)](#vpp2-spoke1)
+        - [VPP3 (spoke2)](#vpp3-spoke2)
+
+<!-- /TOC -->
 
 ### Configure VPP from the console using the following commands:
 
-**VPP1 (hub)**
+### VPP1 (hub)
 
     create loopback interface
     set int ip address loop0 192.168.10.1/24

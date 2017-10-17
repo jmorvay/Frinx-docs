@@ -206,7 +206,7 @@ IOS devices can also be mounted and managed from an application. For instruction
 
 It is possible to mount any network device as a generic device. This allows invocation of any commands on the device using RPCs, which return the output back as freeform data and it is up to user/application to make sense of them.
 
-Please import the Postman collection available [here][1], into Postman, then open the folder *Linux mount*
+Please import the Postman collection available [here](FRINX_CLI_2.3.1.postman_collection.json), into Postman, then open the folder *Linux mount*
 
 Open the body of the *mount* PUT call and edit the following fields according to your specific device: *network-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
 
@@ -216,7 +216,7 @@ Open the body of the *mount* PUT call and edit the following fields according to
 
 Please see [here](cli_supported_devices.md) for a structured list of device types currently supported by the CLI southbound plugin and configuration aspects implemented for them.
 
-It is possible to check a current list of units and thus a current list of supported devices directly from OpenDaylight's REST interface. Please import the Postman collection available [here][1] into Postman and open the folder *registry* to access the GET call that displays the actual list.
+It is possible to check a current list of units and thus a current list of supported devices directly from OpenDaylight's REST interface. Please import the Postman collection available [here](FRINX_CLI_2.3.1.postman_collection.json) into Postman and open the folder *registry* to access the GET call that displays the actual list.
 
 *For a hands-on tour of the CLI service module from within your browser, please try our [playground](http://46.229.232.136:8888/)*
 

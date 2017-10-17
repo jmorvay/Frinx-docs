@@ -2,9 +2,9 @@
 [FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/user_guide.html)
 # CLI Service Module User Guide
 
-*The Postman collection for the CLI service module can be accessed [here][1]. It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). We refer to the postman collection in the usage section below*
+*The Postman collection for the CLI service module can be accessed [here](FRINX_CLI_2.3.1.postman_collection.json). It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). We refer to the postman collection in the usage section below*
 
-**Postman can be downloaded for free [here][2]**
+**Postman can be downloaded for free [here](https://www.getpostman.com/postman)**
 
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [CLI Service Module User Guide](#cli-service-module-user-guide)
@@ -31,7 +31,7 @@ Much like the NETCONF southbound plugin, the CLI southbound plugin enables fully
 
 Once we have mounted the device, we can present an abstract, model-based network device and service interface to applications and users. For example, we can parse the output of an IOS command and return structured data.
 
-![CLI southbound plugin][3]
+![CLI southbound plugin](cliSouthPlugin.png)
 
 ## Architecture
 
@@ -63,7 +63,7 @@ The plugin relies on MD-SAL and its concept of mountpoints to expose management 
 
 The following diagram shows the layers of a CLI mountpoint:
 
-![CLI mountpoint][4]
+![CLI mountpoint](cliMountpoint.png)
 
 #### APIs
 
@@ -105,7 +105,7 @@ Each unit has to be registered under a specific device type(s) e.g. an interface
 
 The following diagram shows an IOS device translation plugin split into multiple units:
 
-![IOS translation plugin][5]
+![IOS translation plugin](iosUnits.png)
 
 #### Transport layer
 
@@ -126,14 +126,14 @@ Just as there are 2 types of data, there are 2 streams of data in the CLI southb
     *   user/application intended configuration for the device
     *   translation plugins/units need to handle this configuration in data handlers as C(reate), U(pdate) and D(elete) operations - these data flow only towards the device - these data are cached in the mountpoint so when application performs read Config, it gets the cached version
 
-![Config data][6]
+![Config data](readCfg.png)
 
 *   **Operational**
     *   actual configuration on the device
     *   optionally statistics from the device
     *   translation plugins/units need to pull these data out of the device when R(ead) operation is requested
 
-![Operational data][7]
+![Operational data](readOper.png)
 
 *   **RPCs** stand on their own and can actually encapsulate any command(s) on the device.
 
@@ -154,7 +154,7 @@ This section provides samples for how to use the CLI southbound plugin to manage
 
 ### Features
 
-Install the following features into a running FRINX OpenDaylight instance (For running Frinx OpenDaylight, please see our [guide][8]):
+Install the following features into a running FRINX OpenDaylight instance (For running Frinx OpenDaylight, please see our [guide](../../Operations_Manual/running-frinx-odl-initial.html)):
 
     feature:install cli-topology cli-southbound-all-units odl-restconf
 
@@ -182,17 +182,17 @@ The following sequence of operations needs to happen from the point when Openday
 
 #### How to mount and manage IOS devices over REST
 
-Please import the Postman collection available [here][1], into Postman, then open the folder *Ios mount*.
+Please import the Postman collection available [here](FRINX_CLI_2.3.1.postman_collection.json), into Postman, then open the folder *Ios mount*.
 
 You will see there are two calls available for mounting an Ios device. *In each case, edit the following fields according to your specific device: *cli-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
 
 **Mounting by telnet**
 
-![telnet mount][9]
+![telnet mount](mount-telnet.jpg)
 
 **Mounting by ssh**
 
-![ssh mount][10]
+![ssh mount](/mount-ssh.jpg)
 
 You'll see that the *Ios mount* folder in Postman contains several other REST calls - the aspects of IOS device management they currently support are:
 
@@ -200,7 +200,7 @@ You'll see that the *Ios mount* folder in Postman contains several other REST ca
 *   VRF management
 *   Version data read
 
-IOS devices can also be mounted and managed from an application. For instructions, please see the end of the [Developer Guide][11]
+IOS devices can also be mounted and managed from an application. For instructions, please see the end of the [Developer Guide](../../FRINX_Features_Developer_Guide/cli/cli-service-module-devguide.html)
 
 #### How to mount and manage generic Linux VM devices over REST
 
@@ -210,15 +210,15 @@ Please import the Postman collection available [here][1], into Postman, then ope
 
 Open the body of the *mount* PUT call and edit the following fields according to your specific device: *network-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
 
-![linux mount][12]
+![linux mount](linux-mount.jpg)
 
 ## Supported devices
 
-Please see [here][13] for a structured list of device types currently supported by the CLI southbound plugin and configuration aspects implemented for them.
+Please see [here](cli_supported_devices.md) for a structured list of device types currently supported by the CLI southbound plugin and configuration aspects implemented for them.
 
 It is possible to check a current list of units and thus a current list of supported devices directly from OpenDaylight's REST interface. Please import the Postman collection available [here][1] into Postman and open the folder *registry* to access the GET call that displays the actual list.
 
-*For a hands-on tour of the CLI service module from within your browser, please try our [playground][14]*
+*For a hands-on tour of the CLI service module from within your browser, please try our [playground](http://46.229.232.136:8888/)*
 
 *For more information, please contact us at info@frinx.io*
 
@@ -235,17 +235,16 @@ It is possible to check a current list of units and thus a current list of suppo
 | Feature introduced in | FRINX 2.3.1 | Openconfig BGP & RIB YANG models read support                                                                                                                                                                                                                                  |
 | Feature introduced in | FRINX 2.3.1 | Initial custom interface YANG model removed                                                                                                                                                                                                                                    |
 
- [1]: FRINX_CLI_2.3.1.postman_collection.json
- [2]: https://www.getpostman.com/postman
- [3]: cliSouthPlugin.png "CLI southbound plugin"
- [4]: cliMountpoint.png "CLI mountpoint"
- [5]: iosUnits.png "IOS translation plugin"
- [6]: readCfg.png "Config data"
- [7]: readOper.png "Operational data"
- [8]: ../../Operations_Manual/running-frinx-odl-initial.html
- [9]: mount-telnet.jpg
- [10]: /mount-ssh.jpg
- [11]: ../../FRINX_Features_Developer_Guide/cli/cli-service-module-devguide.html
- [12]: linux-mount.jpg
- [13]: cli_supported_devices.md
- [14]: http://46.229.232.136:8888/
+ 
+
+
+
+
+
+
+
+
+ 
+ [12]: 
+ [13]: 
+ [14]: 

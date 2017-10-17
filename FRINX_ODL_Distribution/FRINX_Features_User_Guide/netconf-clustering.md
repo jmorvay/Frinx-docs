@@ -164,57 +164,6 @@ To configure the mountpoint for SROS 14, enter the following command, replacing 
      </node>
     '
 
-
-<table>
-  <thead>
-    <tr>
-      <th>
-        Feature Guide
-      </th>
-
-      <th>
-      </th>
-
-      <th>
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-      </td>
-
-      <td>
-      </td>
-
-      <td>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-      </td>
-
-      <td>
-      </td>
-
-      <td>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Feature introduced in
-      </td>
-
-      <td>
-        FRINX 1.4.1
-      </td>
-
-      <td>
-        NETCONF clustering module
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Feature Guide         |             |                           |
+|-----------------------|-------------|---------------------------|
+| Feature introduced in | FRINX 1.4.1 | NETCONF clustering module |

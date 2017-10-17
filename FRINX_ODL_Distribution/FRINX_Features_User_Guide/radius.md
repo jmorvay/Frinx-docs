@@ -91,56 +91,6 @@ A Java Security Framework that performs authentication, authorization, cryptogra
 • Easy to use - It has a long history (5 years), previously known as the JSecurity project. Detailed documentation is available and the API is easy to use  
 • It can use many connectors, for example LDAP, RADIUS, TACAS, Diameter
 
-<table>
-  <thead>
-    <tr>
-      <th>
-        Feature Guide
-      </th>
-
-      <th>
-      </th>
-
-      <th>
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-      </td>
-
-      <td>
-      </td>
-
-      <td>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-      </td>
-
-      <td>
-      </td>
-
-      <td>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Feature introduced in
-      </td>
-
-      <td>
-        FRINX 2.2.1
-      </td>
-
-      <td>
-        RADIUS module
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Feature Guide         |             |               |
+|-----------------------|-------------|---------------|
+| Feature introduced in | FRINX 2.2.1 | RADIUS module |

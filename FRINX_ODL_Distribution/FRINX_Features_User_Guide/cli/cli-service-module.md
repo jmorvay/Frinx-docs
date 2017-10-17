@@ -222,159 +222,18 @@ It is possible to check a current list of units and thus a current list of suppo
 
 *For more information, please contact us at info@frinx.io*
 
-<table>
-  <thead>
-    <tr>
-      <th>
-        FEATURE GUIDE
-      </th>
-
-      <th>
-      </th>
-
-      <th>
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        Feature introduced in
-      </td>
-
-      <td>
-        FRINX 2.3.0
-      </td>
-
-      <td>
-        CLI service module with support for structured and unstructured data exchange
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-      </td>
-
-      <td>
-      </td>
-
-      <td>
-        CLI plugin:
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Feature introduced in
-      </td>
-
-      <td>
-        FRINX 2.3.1
-      </td>
-
-      <td>
-        Keepalive settings of CLI connection extracted into CLI node configuration
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Feature introduced in
-      </td>
-
-      <td>
-        FRINX 2.3.1
-      </td>
-
-      <td>
-        Translate registry additional information: Actual YANG model nodes that are supported/implemented are listed for each YANG model
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Feature introduced in
-      </td>
-
-      <td>
-        FRINX 2.3.1
-      </td>
-
-      <td>
-        Dry-run and journaling capabilities for CLI mountpoint: Enables users to write/read configuration to/from device as a dry-run operation to check what commands will ODL execute. Journal captures all executed commands for a CLI mountpoint and makes them visible for users.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-      </td>
-
-      <td>
-      </td>
-
-      <td>
-        IOS support:
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Feature introduced in
-      </td>
-
-      <td>
-        FRINX 2.3.1
-      </td>
-
-      <td>
-        Openconfig interface YANG models support: Interface Configuration and State read/write support
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Feature introduced in
-      </td>
-
-      <td>
-        FRINX 2.3.1
-      </td>
-
-      <td>
-        Openconfig interface YANG models support: Interface Ipv4 read/write support
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Feature introduced in
-      </td>
-
-      <td>
-        FRINX 2.3.1
-      </td>
-
-      <td>
-        Openconfig BGP & RIB YANG models read support
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Feature introduced in
-      </td>
-
-      <td>
-        FRINX 2.3.1
-      </td>
-
-      <td>
-        Initial custom interface YANG model removed
-      </td>
-    </tr>
-  </tbody>
-</table>
+| FEATURE GUIDE         |             |                                                                                                                                                                                                                                                                                |
+|-----------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Feature introduced in | FRINX 2.3.0 | CLI service module with support for structured and unstructured data exchange                                                                                                                                                                                                  |
+| CLI plugin:           |             |                                                                                                                                                                                                                                                                                |
+| Feature introduced in | FRINX 2.3.1 | Keepalive settings of CLI connection extracted into CLI node configuration                                                                                                                                                                                                     |
+| Feature introduced in | FRINX 2.3.1 | Translate registry additional information: Actual YANG model nodes that are supported/implemented are listed for each YANG model                                                                                                                                               |
+| Feature introduced in | FRINX 2.3.1 | Dry-run and journaling capabilities for CLI mountpoint: Enables users to write/read configuration to/from device as a dry-run operation to check what commands will ODL execute. Journal captures all executed commands for a CLI mountpoint and makes them visible for users. |
+| IOS support:          |             |                                                                                                                                                                                                                                                                                |
+| Feature introduced in | FRINX 2.3.1 | Openconfig interface YANG models support: Interface Configuration and State read/write support                                                                                                                                                                                 |
+| Feature introduced in | FRINX 2.3.1 | Openconfig interface YANG models support: Interface Ipv4 read/write support                                                                                                                                                                                                    |
+| Feature introduced in | FRINX 2.3.1 | Openconfig BGP & RIB YANG models read support                                                                                                                                                                                                                                  |
+| Feature introduced in | FRINX 2.3.1 | Initial custom interface YANG model removed                                                                                                                                                                                                                                    |
 
  [1]: FRINX_CLI_2.3.1.postman_collection.json
  [2]: https://www.getpostman.com/postman

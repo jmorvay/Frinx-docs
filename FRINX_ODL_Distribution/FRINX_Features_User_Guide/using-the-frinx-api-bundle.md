@@ -97,58 +97,8 @@ This will give the following output which confirms that the file has been upload
     }
 
 
-<table>
-  <thead>
-    <tr>
-      <th>
-        Feature Guide
-      </th>
-
-      <th>
-      </th>
-
-      <th>
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-      </td>
-
-      <td>
-      </td>
-
-      <td>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-      </td>
-
-      <td>
-      </td>
-
-      <td>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Feature introduced in
-      </td>
-
-      <td>
-        FRINX 1.2.6
-      </td>
-
-      <td>
-        API bundle module
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Feature Guide         |             |                   |
+|-----------------------|-------------|-------------------|
+| Feature introduced in | FRINX 1.2.6 | API bundle module |
 
  [1]: https://tools.ietf.org/html/rfc6020#section-9.8.2

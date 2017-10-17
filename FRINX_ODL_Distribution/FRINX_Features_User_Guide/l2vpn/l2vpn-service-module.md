@@ -237,59 +237,10 @@ Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for
 
 *The postman collection for the L2VPN service module can be accessed [here][1]*
 
-<table>
-  <thead>
-    <tr>
-      <th>
-        Feature Guide
-      </th>
+| Feature Guide         |             |                                                                                                     |
+|-----------------------|-------------|-----------------------------------------------------------------------------------------------------|
+| Feature introduced in | FRINX 2.3.1 | VPN service module implementation with support for L2VPN and IOS XR (Version 6.1.2) NEP via NETCONF |
 
-      <th>
-      </th>
-
-      <th>
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-      </td>
-
-      <td>
-      </td>
-
-      <td>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-      </td>
-
-      <td>
-      </td>
-
-      <td>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Feature introduced in
-      </td>
-
-      <td>
-        FRINX 2.3.1
-      </td>
-
-      <td>
-        VPN service module implementation with support for L2VPN and IOS XR (Version 6.1.2) NEP via NETCONF
-      </td>
-    </tr>
-  </tbody>
-</table>
 
  [1]: L2VPN_IOS-XRv_public.postman_collection.json
  [9]: https://tools.ietf.org/html/draft-ietf-bess-l2vpn-yang-05

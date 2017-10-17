@@ -17,6 +17,7 @@ An introduction to the IEFT working group and a summary of relevant RFCs and dra
 The Frinx ODL Distribution's southbound APIs use a NETCONF connector to communicate with downstream devices. The northbound APIs expose the YANG models of connected devices. This makes it possible to examine the operational and config datastores and to configure devices using RPCs. RESTCONF maps a subset of these YANG models to a RESTful interface.
 
 **NETCONF – features used by the Frinx ODL Distribution include:** 
+
 | Feature name          | Port | Description                                                                | Protocol |
 |-----------------------|------|----------------------------------------------------------------------------|----------|
 | odl-netconf-mdsal     | 1830 | Northbound API used by MD-SAL and applications                             | ssh      |

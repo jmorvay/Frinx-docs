@@ -233,18 +233,4 @@ It is possible to check a current list of units and thus a current list of suppo
 | Feature introduced in | FRINX 2.3.1 | Openconfig interface YANG models support: Interface Configuration and State read/write support                                                                                                                                                                                 |
 | Feature introduced in | FRINX 2.3.1 | Openconfig interface YANG models support: Interface Ipv4 read/write support                                                                                                                                                                                                    |
 | Feature introduced in | FRINX 2.3.1 | Openconfig BGP & RIB YANG models read support                                                                                                                                                                                                                                  |
-| Feature introduced in | FRINX 2.3.1 | Initial custom interface YANG model removed                                                                                                                                                                                                                                    |
-
- 
-
-
-
-
-
-
-
-
- 
- [12]: 
- [13]: 
- [14]: 
+| Feature introduced in | FRINX 2.3.1 | Initial custom interface YANG model removed                                                                                                                                                   

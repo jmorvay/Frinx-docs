@@ -14,9 +14,7 @@ In this example we connect the controller to itself to verify that that NETCONF 
 
 ## Step 1 Install Features
 
-This can be done using either the Frinx ODL Distribution feature manager at
-
-<http://localhost:8181/index.html#/featuremgr/index> or the Karaf CLI:
+This can be done using the Karaf CLI:
 
     feature:install odl-restconf
     feature:install odl-netconf-connector-all

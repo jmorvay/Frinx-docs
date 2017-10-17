@@ -12,7 +12,7 @@
 This part describes how to set up the SBE proxy server if you provide more SBE instances on more hosts. SBE proxy server is a reverse proxy server provided by NGINX.
 
 **Figure 1: Multi host provision**  
-![Figure1: Multi host providing][1]
+![Figure1: Multi host providing](3-multi-host.png)
 
 ## Proxy settings
 
@@ -60,4 +60,4 @@ Restart proxy server
 
     ./sbe proxy-restart
 
- [1]: 3-multi-host.png "Figure1: Multi host providing"
+

@@ -29,14 +29,15 @@ Uses the `bin/karaf` Linux script (`binkaraf.bat` on Windows). It's the default 
 
 a. On Linux:
 ~~~~
-    /bin/karaf
-
-           _________      .__                  
-           __________ __|__| ____ __  ___    
-             / | ___  V__  |/      /  /    
-            /  |  |   |  |  |   |          
-            __| / |___|  |__>___|  /_/__   
-               /                 /           
+/bin/karaf
+~~~~
+~~~~
+       _________      .__                  
+       __________ __|__| ____ __  ___    
+         / | ___  V__  |/      /  /    
+        /  |  |   |  |  |   |          
+        __| / |___|  |__>___|  /_/__   
+           /                 /           
     Frinx version: 1.0.0-Beryllium-SR1.2-frinx frinx-user@root
     Hit [tab] for a list of available commands and [cmd] --help for help on a specific command.
     Hit `<ctrl-d>` or type `system:shutdown` or `logout` to shutdown Karaf.
@@ -44,39 +45,43 @@ a. On Linux:
 ~~~~
 b. On Windows:
 ~~~~
-      binkaraf.bat
-           _________      .__                  
-           __________ __|__| ____ __  ___    
-             / | ___  V__  |/      /  /    
-            /  |  |   |  |  |   |          
-            __| / |___|  |__>___|  /_/__   
-               /                 /           
-    Frinx version: 1.0.0-Beryllium-SR1.2-frinx frinx-user@root>
+binkaraf.bat
+~~~~
+~~~~      
+       _________      .__                  
+       __________ __|__| ____ __  ___    
+         / | ___  V__  |/      /  /    
+        /  |  |   |  |  |   |          
+        __| / |___|  |__>___|  /_/__   
+           /                 /           
+Frinx version: 1.0.0-Beryllium-SR1.2-frinx frinx-user@root>
+Hit [tab] for a list of available commands
 
-    Hit [tab] for a list of available commands
 
+and [cmd] --help for help on a specific command.
 
-and `[cmd] --help` for help on a specific command.
+Hit <ctrl-d> or type system:shutdown or logout to shutdown Karaf.
 
-Hit `<ctrl-d>` or type `system:shutdown` or `logout` to shutdown Karaf.
+karaf@root()>
 
-`karaf@root()>`
-
-     Warning
-     Closing the console or shell window will cause Apache Karaf and therefore Frinx to terminate.
+Warning
+Closing the console or shell window will cause Apache Karaf and therefore Frinx terminate.
 ~~~~
 ## Server mode  
 Server mode starts Apache Karaf as a foreground process, but doesn't start the shell console. To use this mode, use the server argument to the `bin/karaf` Linux script (on Windows the script is at <span style="font-family: Courier New">binkaraf.bat</span>).  
 a. On Linux:
-
-    bin/karaf server
-
+~~~~
+bin/karaf server
+~~~~
 
 b. On Windows:
-
-    binkaraf.bat server Warning  
-    Closing the console or shell window will cause Apache Karaf to terminate.
-
+~~~~
+binkaraf.bat server 
+~~~~
+~~~~
+Warning  
+Closing the console or shell window will cause Apache Karaf to terminate.
+~~~~
 
 You can connect to the shell console using SSH or client (see the Connect section in this page).
 
@@ -91,8 +96,8 @@ a. On Linux:
 b. On Windows:
 
     binstart.bat  
-    You can connect to the shell console using SSH or client (see the Connect section).
 
+You can connect to the shell console using SSH or client (see the Connect section).
 
 ## Clean start  
 Apache Karaf stores all previously installed applications and changes that you made in the data folder. If you want to start from a clean state, you can remove the data folder. For convenience, you can use the *clean* argument to the `bin/karaf` Linux script (`binkaraf.bat` on Windows).  
@@ -140,8 +145,8 @@ Even if you start Apache Karaf without the console (using server or background m
 a. On Linux:
 ~~~~
      /bin/client -u karaf
-
-
+~~~~
+~~~~
 Logging in as karaf 360 [pool-2-thread-3] WARN org.apache.sshd.client.keyverifier.AcceptAllServerKeyVerifier - Server at /0.0.0.0:8101 presented unverified key:
 
            _________      .__                  
@@ -153,21 +158,22 @@ Logging in as karaf 360 [pool-2-thread-3] WARN org.apache.sshd.client.keyverifie
     Frinx version: 1.0.0-Beryllium-SR1.2-frinx frinx-user@root>
 
 
-Hit `[tab]` for a list of available commands
+Hit [tab] for a list of available commands
 
-Type`[cmd] --help` for help on a specific command.
+Type [cmd] --help for help on a specific command.
 
-Type `system:shutdown` to shutdown Karaf.
+Type system:shutdown to shutdown Karaf.
 
-Hit `<ctrl-d>` or type `logout` to disconnect the shell from the current session.
+Hit <ctrl-d> or type logout to disconnect the shell from the current session.
 
-`karaf@root()>`
+karaf@root()>
 ~~~~
 b. On Windows:
 ~~~~
      binclient.bat -u karaf
+~~~~
 
-
+~~~~
 Logging in as karaf 360 [pool-2-thread-3] WARN org.apache.sshd.client.keyverifier.AcceptAllServerKeyVerifier - Server at /0.0.0.0:8101 presented unverified key:
 
            _________      .__                  
@@ -179,13 +185,13 @@ Logging in as karaf 360 [pool-2-thread-3] WARN org.apache.sshd.client.keyverifie
     Frinx version: 1.0.0-Beryllium-SR1.2-frinx frinx-user@root>
 
 
-Hit `[tab]` for a list of available commands
+Hit [tab] for a list of available commands
 
-Type`[cmd] --help` for help on a specific command.
+Type [cmd] --help for help on a specific command.
 
-Type `system:shutdown` to shutdown Karaf.
+Type system:shutdown to shutdown Karaf.
 
-Hit `<ctrl-d>` or type `logout` to disconnect shell from current session.
+Hit <ctrl-d> or type logout to disconnect shell from current session.
 
     karaf@root()>
 ~~~~

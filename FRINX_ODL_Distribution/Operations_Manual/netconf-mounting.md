@@ -12,7 +12,7 @@
 
 In this example we connect the controller to itself to verify that that NETCONF features were installed correctly. It is similar to loopback but done over a NETCONF session. After mounting itself, the YANG model of the Frinx ODL Distribution is exposed by RESTCONF and is an interesting point to begin exploring.
 
-## Step 1 Install Features
+## Step 1 Install features
 
 This can be done using the Karaf CLI:
 
@@ -20,7 +20,7 @@ This can be done using the Karaf CLI:
     feature:install odl-netconf-connector-all
 
 
-## Step 2 Wait Until controller-config Is Connected
+## Step 2 Wait until controller-config is connected
 
 Send a GET request to mount the controller using RESTCONF
 

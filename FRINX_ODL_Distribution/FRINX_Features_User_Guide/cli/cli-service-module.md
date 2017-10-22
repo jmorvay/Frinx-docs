@@ -1,5 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/user_guide.html)
+# CLI Service Module User Guide
 <!-- TOC -->
 
 - [CLI Service Module User Guide](#cli-service-module-user-guide)
@@ -25,8 +26,6 @@
     - [Supported devices](#supported-devices)
 
 <!-- /TOC -->
-
-# CLI Service Module User Guide
 
 *The Postman collection for the CLI service module can be accessed [here](FRINX_CLI_2.3.1.postman_collection.json). It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). We refer to the postman collection in the usage section below*
 

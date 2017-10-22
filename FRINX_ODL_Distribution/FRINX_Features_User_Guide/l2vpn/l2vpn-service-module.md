@@ -1,5 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/user_guide.html)
+# L2VPN Service Module User Guide
 <!-- TOC -->
 
 - [L2VPN Service Module User Guide](#l2vpn-service-module-user-guide)
@@ -23,7 +24,6 @@
             - [frinx-l2vpn-testing](#frinx-l2vpn-testing)
 
 <!-- /TOC -->
-# L2VPN Service Module User Guide
 
 ## Overview
 

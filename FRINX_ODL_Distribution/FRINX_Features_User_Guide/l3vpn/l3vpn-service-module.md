@@ -1,5 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/user_guide.html)
+# L3VPN Service Module User Guide
 <!-- TOC -->
 
 - [L3VPN Service Module User Guide](#l3vpn-service-module-user-guide)
@@ -24,8 +25,6 @@
             - [frinx-l3vpn-testing](#frinx-l3vpn-testing)
 
 <!-- /TOC -->
-
-# L3VPN Service Module User Guide
 
 The goal of this project is to automate provisioning of Layer 3 Virtual Private Network (L3VPN) on Service Provider (SP) routers.
 

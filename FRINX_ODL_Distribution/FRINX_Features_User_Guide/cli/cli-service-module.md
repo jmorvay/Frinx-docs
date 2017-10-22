@@ -1,27 +1,36 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/user_guide.html)
+<!-- TOC -->
+
+- [CLI Service Module User Guide](#cli-service-module-user-guide)
+    - [Introduction](#introduction)
+    - [Architecture](#architecture)
+        - [CLI topology](#cli-topology)
+            - [APIs](#apis)
+        - [CLI mountpoint](#cli-mountpoint)
+            - [APIs](#apis-1)
+            - [Translation layer](#translation-layer)
+                - [Device specific translation plugin](#device-specific-translation-plugin)
+                    - [Units](#units)
+            - [Transport layer](#transport-layer)
+    - [Data processing](#data-processing)
+        - [Transactions and revert](#transactions-and-revert)
+        - [Reconciliation](#reconciliation)
+    - [Usage](#usage)
+        - [Features](#features)
+        - [Logs](#logs)
+        - [Mounting a CLI device](#mounting-a-cli-device)
+            - [How to mount and manage IOS devices over REST](#how-to-mount-and-manage-ios-devices-over-rest)
+            - [How to mount and manage generic Linux VM devices over REST](#how-to-mount-and-manage-generic-linux-vm-devices-over-rest)
+    - [Supported devices](#supported-devices)
+
+<!-- /TOC -->
+
 # CLI Service Module User Guide
 
 *The Postman collection for the CLI service module can be accessed [here](FRINX_CLI_2.3.1.postman_collection.json). It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). We refer to the postman collection in the usage section below*
 
 **Postman can be downloaded for free [here](https://www.getpostman.com/postman)**
-
-<!-- TOC START min:1 max:3 link:true update:true -->
-- [CLI Service Module User Guide](#cli-service-module-user-guide)
-  - [Introduction](#introduction)
-  - [Architecture](#architecture)
-    - [CLI topology](#cli-topology)
-    - [CLI mountpoint](#cli-mountpoint)
-  - [Data processing](#data-processing)
-    - [Transactions and revert](#transactions-and-revert)
-    - [Reconciliation](#reconciliation)
-  - [Usage](#usage)
-    - [Features](#features)
-    - [Logs](#logs)
-    - [Mounting a CLI device](#mounting-a-cli-device)
-  - [Supported devices](#supported-devices)
-
-<!-- TOC END -->
 
 ## Introduction
 

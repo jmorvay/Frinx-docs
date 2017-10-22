@@ -1,5 +1,30 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/user_guide.html)
+<!-- TOC -->
+
+- [L3VPN Service Module User Guide](#l3vpn-service-module-user-guide)
+    - [A bit about L3VPN](#a-bit-about-l3vpn)
+        - [Problem definition and L3VPN](#problem-definition-and-l3vpn)
+        - [Terminology](#terminology)
+        - [Topologies](#topologies)
+            - [Any to Any](#any-to-any)
+            - [Hub and Spoke](#hub-and-spoke)
+    - [L3VPN Provider](#l3vpn-provider)
+        - [Use Case Specification](#use-case-specification)
+        - [Architecture](#architecture)
+            - [API description](#api-description)
+                - [[ietf-l3vpn-svc@2017-05-02.yang](ietf-l3vpn-svc@2017-05-02.yang)](#ietf-l3vpn-svc2017-05-02yangietf-l3vpn-svc2017-05-02yang)
+                - [[l3vpn-svc-aug@2017-05-02.yang](l3vpn-svc-aug@2017-05-02.yang)](#l3vpn-svc-aug2017-05-02yangl3vpn-svc-aug2017-05-02yang)
+        - [Network Element Plugin](#network-element-plugin)
+            - [IOS-XRv Network Element Plugin](#ios-xrv-network-element-plugin)
+            - [Mock Network Element Plugin](#mock-network-element-plugin)
+        - [Limitations](#limitations)
+        - [User-facing features](#user-facing-features)
+            - [frinx-l3vpn-iosxrv](#frinx-l3vpn-iosxrv)
+            - [frinx-l3vpn-testing](#frinx-l3vpn-testing)
+
+<!-- /TOC -->
+
 # L3VPN Service Module User Guide
 
 The goal of this project is to automate provisioning of Layer 3 Virtual Private Network (L3VPN) on Service Provider (SP) routers.
@@ -7,21 +32,6 @@ The goal of this project is to automate provisioning of Layer 3 Virtual Private 
 This is done by using the Frinx ODL controller which configures routers based on intent of the L3VPN service. The Frinx ODL controller translates the L3VPN service abstraction to network element configuration.  
 
 ![L3VPN Service](l3vpn_service.png)
-
-<!-- TOC START min:1 max:3 link:true update:true -->
-- [L3VPN Service Module User Guide](#l3vpn-service-module-user-guide)
-  - [A bit about L3VPN](#a-bit-about-l3vpn)
-    - [Problem definition and L3VPN](#problem-definition-and-l3vpn)
-    - [Terminology](#terminology)
-    - [Topologies](#topologies)
-  - [L3VPN Provider](#l3vpn-provider)
-    - [Use Case Specification](#use-case-specification)
-    - [Architecture](#architecture)
-    - [Network Element Plugin](#network-element-plugin)
-    - [Limitations](#limitations)
-    - [User-facing features](#user-facing-features)
-
-<!-- TOC END -->
 
 ## A bit about L3VPN
 

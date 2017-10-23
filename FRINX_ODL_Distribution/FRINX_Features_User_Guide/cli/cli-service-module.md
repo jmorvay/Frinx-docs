@@ -23,6 +23,7 @@
         - [Mounting a CLI device](#mounting-a-cli-device)
             - [How to mount and manage IOS devices over REST](#how-to-mount-and-manage-ios-devices-over-rest)
             - [How to mount and manage generic Linux VM devices over REST](#how-to-mount-and-manage-generic-linux-vm-devices-over-rest)
+            - [Pushing a config to a mounted node in dry run mode](#pushing-a-config-to-a-mounted-node-in-dry-run-mode)
     - [Supported devices](#supported-devices)
 
 <!-- /TOC -->
@@ -219,6 +220,32 @@ Please import the Postman collection available [here](FRINX_CLI_2.3.1.postman_co
 Open the body of the *mount* PUT call and edit the following fields according to your specific device: *network-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
 
 ![linux mount](linux-mount.jpg)
+
+#### Pushing a config to a mounted node in dry run mode
+
+For dry-run, you need to mount the device with following configuration
+
+{
+    "network-topology:node" :
+    {
+      "network-topology:node-id" : "IOS",
+     
+      "cli-topology:host" : "{{classic_ip_wrong}}",
+      "cli-topology:port" : "22",
+      "cli-topology:transport-type" : "ssh",
+     
+      "cli-topology:device-type" : "ios",
+      "cli-topology:device-version" : "*",
+     
+      "cli-topology:username" : "cisco",
+      "cli-topology:password" : "cisco",
+     
+      "cli-topology:journal-size": 150,
+      "cli-topology:dry-run-journal-size": 180
+    }
+  }
+ 
+Now issue a request, but in the URL instead of using node id, use <node-id>-dry-rung e.g. IOS1-dry-run.
 
 ## Supported devices
 

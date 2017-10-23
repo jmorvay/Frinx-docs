@@ -27,7 +27,7 @@ If VPP does not pick up interfaces, it helps to build and install it manually:
 1.  <https://wiki.fd.io/view/VPP>
 2.  [https://docs.fd.io/vpp/17.04/][2]
 3.  Google
-4.  **CSIT (VPP integration tests) - they use VAT tool to provide complex configuration to VPP. Each test case logs exact configuration steps. So looking at log file from latest vpp functional test run can help <https://jenkins.fd.io/view/csit/job/csit-vpp-functional-master-ubuntu1604-virl/> If log file does not open directly, download and reopen in browser). Look at a test case, list of keywords and vat command executed in every step.**
+4.  *CSIT (VPP integration tests) - they use VAT tool to provide complex configuration to VPP. Each test case logs exact configuration steps. So looking at log file from the latest vpp functional test run can help <https://jenkins.fd.io/view/csit/job/csit-vpp-functional-master-ubuntu1604-virl/> If the log file does not open directly, download and reopen in browser). Look at a test case, list of keywords and VAT command executed in every step.*
 5.  vpp-dev@lists.fd.io
 
 ### Install VPP in a docker container

@@ -114,13 +114,13 @@ Credentials:
 ### Ifconfig
 
 The configuration for the VMs could look like:  
-**FreeBSD:**
+#### FreeBSD:
 
     ifconfig vtnet0 10.10.55.1
     ifconfig vtnet0 inet6 add 2001:0db8:0:f101::1/64
 
 
-**Ubuntu:**
+#### Ubuntu:
 
     ifconfig eth0 10.10.55.2
     ifconfig eth0 inet6 add 2001:0db8:0:f101::2/64

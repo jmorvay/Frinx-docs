@@ -2,12 +2,13 @@
 [VPP Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_VPP_Distribution/operations_manual.html)
 # VPP Distribution: IPFIX Setup
 
-<!-- TOC START min:1 max:3 link:true update:true -->
-- [VPP Distribution: IPFIX Setup](#vpp-distribution-ipfix-setup)
-    - [Configure VPP using VAT](#configure-vpp-using-vat)
-    - [Start a UDP server](#start-a-udp-server)
+<!-- TOC -->
 
-<!-- TOC END -->
+- [VPP Distribution: IPFIX Setup](#vpp-distribution-ipfix-setup)
+        - [Configure VPP using VAT](#configure-vpp-using-vat)
+        - [Start a UDP server](#start-a-udp-server)
+        - [Further configuration options](#further-configuration-options)
+        - [IPFIX limitations as of 17.01](#ipfix-limitations-as-of-1701)
 
 ### Configure VPP using VAT
 
@@ -44,7 +45,8 @@
 
 ... this bash UDP server will accept the IPFIX data and display on screen. A better way of reading the data is using Wireshark (you can ping 192.168.1.87 to increase the stats) **Sample capture from Wireshark** <img src="https://frinx.io/wp-content/uploads/2017/05/ipfix.png" alt="" width="1252" height="800" class="alignleft size-full wp-image-4588" />
 
-**Further configuration options** To export IP source, IP destination, Protocol configure classifier with:
+### Further configuration options  
+To export IP source, IP destination, Protocol configure classifier with:
 
     classify_add_del_table mask l3 ip4 src dst proto l4
 
@@ -56,7 +58,8 @@ To also export ports, configure with:
     classify_add_del_table mask l3 ip4 src dst proto l4 src_port dst_port
 
 
-**IPFIX limitations as of 17.01** IPFIX has some limitations that (might) limit its usage within real use cases:
+### IPFIX limitations as of 17.01  
+IPFIX has some limitations that (might) limit its usage within real use cases:
 
 1.  Only inbound/ingress traffic is matched/exported by IPFIX
 2.  When using both IPFIX and IPSEC, the traffic is always going through IPFIX node before IPSEC decrypt, making IPFIX not work at all - there is an issue with the node graph order

@@ -1,7 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [VPP Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_VPP_Distribution/operations_manual.html)
 # VPP Distribution: IPsec Setup
-
 <!-- TOC -->
 
 - [VPP Distribution: IPsec Setup](#vpp-distribution-ipsec-setup)

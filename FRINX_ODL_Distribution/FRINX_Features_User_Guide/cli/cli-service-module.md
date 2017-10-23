@@ -223,7 +223,7 @@ Open the body of the *mount* PUT call and edit the following fields according to
 
 #### Pushing a config to a mounted node in dry run mode
 
-To operate in dry-run mode (useful for testing or demo purposes), you need to mount the device with following configuration
+To operate in dry-run mode (useful for testing or demo purposes), you need to mount the device with the following configuration
 ~~~~
 {
     "network-topology:node" :

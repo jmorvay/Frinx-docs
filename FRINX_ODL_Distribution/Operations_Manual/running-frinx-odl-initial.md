@@ -15,17 +15,17 @@
 This guide explains how to run the distribution for the first time. If you have run it previously, please see [this guide](running-frinx-odl-after-activation.md)
 
 ***System requirements***  
-**RAM:** 2GB minimum; we recommend 4GB.  
+**RAM:** 4GB minimum; we recommend 8GB.  
 **Java:** Releases based on Beryllium and Boron (and subsequent releases) require Java 8.  
-**Linux:** Unless stated otherwise, this documentation assumes you are using Linux.
+**Linux:** Unless stated otherwise, this documentation assumes you are using Linux. Supported distributions are Centos7 and Ubuntu 16.04.  
 
 ### Download and activate the FRINX ODL Distribution  
 
 Please click on the following link to download a zip archive of the FRINX ODL Distribution:
 
-*Carbon*: [distribution-karaf-3.1.0.frinx.zip](https://license.frinx.io/download/distribution-karaf-3.1.0.frinx.zip) 
+*Carbon*: [distribution-karaf-3.1.0.frinx.zip](https://license.frinx.io/download/distribution-karaf-3.1.0.frinx.zip)   
 *Boron*: [distribution-karaf-2.3.1.frinx.zip](https://license.frinx.io/download/distribution-karaf-2.3.1.frinx.zip)  
-*Beryllium*: [distribution-karaf-1.4.8.frinx.zip](https://license.frinx.io/download/distribution-karaf-1.4.8.frinx.zip)
+*Beryllium*: [distribution-karaf-1.4.8.frinx.zip](https://license.frinx.io/download/distribution-karaf-1.4.8.frinx.zip)  
 
 Older distributions can be downloaded from our [archive](https://frinx.io/archive)
 By downloading the file you accept the FRINX software agreement: [EULA](7793505-v7-Frinx-ODL-Distribution-Software-End-User-License-Agreement.pdf)

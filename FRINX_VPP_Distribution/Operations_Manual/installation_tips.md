@@ -51,7 +51,7 @@ Then in the container install vpp, configure and start it:
         yum install vpp
 
 
-# More info on VPP install: https://wiki.fd.io/view/VPP/Installing_VPP_binaries_from_packages
+More info on VPP install: https://wiki.fd.io/view/VPP/Installing_VPP_binaries_from_packages
 
     vim /etc/vpp/startup.conf
 

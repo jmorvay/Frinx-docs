@@ -245,7 +245,7 @@ For dry-run, you need to mount the device with following configuration
     }
   }
  
-Now issue a request, but in the URL instead of using node id, use <node-id>-dry-rung e.g. IOS1-dry-run.
+Now issue a request, but in the URL instead of using node id, use node-id-dry-run e.g. IOS1-dry-run.
 
 ## Supported devices
 

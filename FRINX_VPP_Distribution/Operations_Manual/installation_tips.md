@@ -51,22 +51,25 @@ Then in the container install vpp, configure and start it:
         yum install vpp
 
 
-    # More info on VPP install: https://wiki.fd.io/view/VPP/Installing_VPP_binaries_from_packages
+# More info on VPP install: https://wiki.fd.io/view/VPP/Installing_VPP_binaries_from_packages
 
     vim /etc/vpp/startup.conf
-    # Change DPDK configuration to add "no-pci" config attribute
-    # dpdk {
-    #    uio-driver uio_pci_generic
-    #    no-pci
-    # }
 
-    # And enable cli
-    # unix {
-    # nodaemon
-    #  log /tmp/vpp.log
-    #  full-coredump
-    #  cli-listen localhost:5002
-    # }
+Change DPDK configuration to add "no-pci" config attribute
+    
+    dpdk {
+        uio-driver uio_pci_generic
+        no-pci
+    }
+
+And enable cli
+
+    unix {
+    nodaemon
+    log /tmp/vpp.log
+    full-coredump
+    cli-listen localhost:5002
+    }
 
     /usr/bin/vpp -c /etc/vpp/startup.conf &
     telnet 0 5002

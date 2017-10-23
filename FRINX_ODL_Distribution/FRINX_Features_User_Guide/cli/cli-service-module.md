@@ -224,7 +224,7 @@ Open the body of the *mount* PUT call and edit the following fields according to
 #### Pushing a config to a mounted node in dry run mode
 
 For dry-run, you need to mount the device with following configuration
-
+~~~~
 {
     "network-topology:node" :
     {
@@ -244,7 +244,7 @@ For dry-run, you need to mount the device with following configuration
       "cli-topology:dry-run-journal-size": 180
     }
   }
- 
+~~~~ 
 Now issue a request, but in the URL instead of using node id, use node-id-dry-run e.g. IOS1-dry-run.
 
 ## Supported devices

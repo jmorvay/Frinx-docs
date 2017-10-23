@@ -243,7 +243,7 @@ For dry-run, you need to mount the device with following configuration
       "cli-topology:journal-size": 150,
       "cli-topology:dry-run-journal-size": 180
     }
-  }
+}
 ~~~~ 
 Now issue a request, but in the URL instead of using node id, use node-id-dry-run e.g. IOS1-dry-run.
 

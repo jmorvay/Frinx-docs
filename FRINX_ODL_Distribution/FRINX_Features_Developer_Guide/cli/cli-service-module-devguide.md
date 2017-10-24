@@ -123,13 +123,52 @@ It is usually wiser to choose an existing YANG model instead of developing a cus
 
 There are 2 types of handlers. Those which handle writes of configuration data and those which handle reads of operational data. The responsibility of a handler is just to transform between CLI commands and the YANG data. There is nothing more a handler needs to do. For an example, refer to the section discussing unit archetype.
 
+#### Dependencies between writing handlers (writers)
+
+A writer may be registered with or without dependency on another writer.
+The dependency between writers reflects actual dependency between CLI
+commands for a specific device.
+
+Following sample shows a CLI translation unit with dependency between 2
+writers. The unit is dedicated for interface configuration on Cisco IOS
+device.
+
+```
+R2(config)#interface loopback 1
+R2(config-if)#ip address 10.0.0.1 255.255.255.255
+```
+
+As example shows *ip address* command must be executed after *interface*
+command.
+
+IOS CLI translation unit based on openconfig-interfaces YANG model
+is [here][8]. This CLI translation unit contains [InterfaceConfigWriter][9]
+translating *interface* command and [Ipv4ConfigWriter][10] translating
+*ip address* command. [IosInterfaceUnit][11] contains registration of these
+writers where dependency between writers is described:
+
+```
+wRegistry.add(new GenericWriter<>(IIDs.IN_IN_CONFIG, new InterfaceConfigWriter(cli)));
+wRegistry.addAfter(new GenericWriter<>(SUBIFC_IPV4_CFG_ID, new Ipv4ConfigWriter(cli)), IIDs.IN_IN_CONFIG);
+```
+
+Registration of Ipv4ConfigWriter by using *addAfter* method ensures that
+OpenConfig ip address data is translated after OpenConfig interface data.
+That means CLI commands are executed in desired order.
+
+Writers can be registered by using methods:
+
+- add - no dependency on another writer, execution order is not guaranteed
+- addAfter - execute registered writer after dependency writer
+- addBefore - execute registered writer before dependency writer
+
 ### Implementing RPCs
 
 An RPC handler is a special kind of handler, different to the data handlers. RPC handler can encapsulate any commands. The biggest difference is that any configuration processing in RPCs is not part of transactions, reconciliation etc.
 
 ### Mounting and managing IOS devices from an application
 
-Besides mounting using Postman collections of RESTCONF calls (see the [user guide][8]) it is also possible to manage an IOS device in a similar fashion from within an OpenDaylight application. It is however necessary to acquire an appropriate mountpoint instance from MD-SAL's mountpoint service.
+Besides mounting using Postman collections of RESTCONF calls (see the [user guide][7]) it is also possible to manage an IOS device in a similar fashion from within an OpenDaylight application. It is however necessary to acquire an appropriate mountpoint instance from MD-SAL's mountpoint service.
 
 To do so, first make sure to generate an appropriate Opendaylight application using the archetype.
 
@@ -194,3 +233,7 @@ In this case *Version* operational data is being read from the device. In order 
  [5]: cliInComponents.png "CLI plugin components"
  [6]: projectComponents.png "CLI plugin modules"
  [7]: ../../FRINX_Features_User_Guide/cli/cli-service-module.html
+ [8]: https://github.com/FRINXio/cli-units/tree/master/ios/interface/src/main/java/io/frinx/cli/unit/ios/ifc
+ [9]: https://github.com/FRINXio/cli-units/blob/master/ios/interface/src/main/java/io/frinx/cli/unit/ios/ifc/ifc/InterfaceConfigWriter.java
+ [10]: https://github.com/FRINXio/cli-units/blob/master/ios/interface/src/main/java/io/frinx/cli/unit/ios/ifc/subifc/Ipv4ConfigWriter.java
+ [11]: https://github.com/FRINXio/cli-units/blob/master/ios/interface/src/main/java/io/frinx/cli/unit/ios/ifc/IosInterfaceUnit.java

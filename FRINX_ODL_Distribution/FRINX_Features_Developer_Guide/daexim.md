@@ -183,15 +183,14 @@ The purpose of the project is to export/import data from files. Here are the key
 [Video tutorial with Postman collection][2]  
 [Postman collection](daexim_postman.json)
 
-**Export data from datastore**
-
+**Export data from datastore**  
 RPC result is returned immediately after a task for export is scheduled. State of export can be shown via the RPC API.
 
 When RPC schedule-export is invoked, the scheduled export is stored to OPER DS. Therefore, the scheduled export is replicated on other nodes in a cluster deployment.
 
 DataExportImportAppProvider, on each cluster node, receives a modification event about the scheduled export and schedules ExportTask which executes datastore export. Therefore, RPC for schedule export can be invoked on any cluster node and datastore is exported on each cluster node.
 
-**Import data to datastore**
+**Import data to datastore**  
 Data import is done by calling RPC immediate-import. Data is imported from JSON files to CONF and OPER datastore in one transaction. In a cluster deployment, data import is executed only on a cluster node where RPC is invoked and data is replicated to other nodes within the transaction.
 
  [1]: https://wiki.opendaylight.org/view/Daexim:Main

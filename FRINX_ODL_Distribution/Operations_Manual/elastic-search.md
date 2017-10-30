@@ -54,33 +54,19 @@ Copy [org.ops4j.pax.logging.cfg](org.ops4j.pax.logging.cfg) into the same folder
 ### Configure Logstash
 We must now configure socket listener for Logstash:
 
-From your logstash folder (the folder created from unpackaging the download file at the start of this guide), move into the config folder:
+From your logstash directory(the directory created from unpackaging the download file at the start of this guide), move into the config directory:
 
     cd config
 
+Copy this template [logstash.conf file](logstash.conf) into that config directory.
 
-Create a blank file named frinx.conf
+Edit line 7 of logstash.conf to point to karaf_home/data/log/karaf.log (it is currently set to /mnt/karaf.log). 
 
-    touch frinx.conf
+Put the [odl file](odl) in /mnt/patterns/ or whatever directory you choose to set in line 18 of logstash.conf. For more info on custom patterns please see <https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html#_custom_patterns>
 
+For more info on logstash and log4j see: [Getting started with Logstash][6] and [Log4j][7]
 
-Enter the following into the file and save it. Parameters in [] are explained below:
-
-    input {
-      log4j {
-        mode => server
-        port => 9500
-        type => "log4j"
-      }
-    }
-    output {
-      elasticsearch { hosts => ["localhost:9200"] }
-    }
-
-
-For more info see: [Getting started with Logstash][6] and [Log4j][7]
-
-We started elasticsearch and kibana after downloading (see the start of this guide).
+We started elasticsearch and kibana after downloading them (see the start of this guide).
 
 We now need to start logstash. Move to your main logstash folder:
 

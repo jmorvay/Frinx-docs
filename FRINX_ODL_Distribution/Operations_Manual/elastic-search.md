@@ -59,7 +59,7 @@ From your logstash folder (the folder created from unpackaging the download file
     cd config
 
 
-Create a blank file named logstash.conf
+Create a blank file named frinx.conf
 
     touch frinx.conf
 

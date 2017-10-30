@@ -180,7 +180,7 @@ The purpose of the project is to export/import data from files. Here are the key
 *   Datastore can be cleared before data is imported
 *   Export can be scheduled
 
-[Video tutorial with Postman collection][2]
+[Video tutorial with Postman collection][2]  
 [Postman collection](daexim_postman.json)
 
 **Export data from datastore**

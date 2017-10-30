@@ -158,6 +158,7 @@ The purpose of the project is to export/import data from files. Here are the key
 *   Export can be scheduled
 
 [Video tutorial with Postman collection][2]
+[Postman collection](daexim_postman.json)
 
 **Export data from datastore**
 

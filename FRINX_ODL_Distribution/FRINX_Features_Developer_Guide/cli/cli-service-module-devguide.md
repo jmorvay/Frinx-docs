@@ -126,11 +126,11 @@ There are 2 types of handlers. Those which handle writes of configuration data a
 #### Dependencies between writing handlers (writers)
 
 A writer may be registered with or without dependency on another writer.
-The dependency between writers reflects actual dependency between CLI
+The dependency between writers reflects the actual dependency between CLI
 commands for a specific device.
 
-Following sample shows a CLI translation unit with dependency between 2
-writers. The unit is dedicated for interface configuration on Cisco IOS
+The following sample shows a CLI translation unit with dependency between 2
+writers. The unit is dedicated for interface configuration on a Cisco IOS
 device.
 
 ```
@@ -138,7 +138,7 @@ R2(config)#interface loopback 1
 R2(config-if)#ip address 10.0.0.1 255.255.255.255
 ```
 
-As example shows *ip address* command must be executed after *interface*
+As the example shows, the *ip address* command must be executed after the *interface*
 command.
 
 IOS CLI translation unit based on openconfig-interfaces YANG model
@@ -152,9 +152,9 @@ wRegistry.add(new GenericWriter<>(IIDs.IN_IN_CONFIG, new InterfaceConfigWriter(c
 wRegistry.addAfter(new GenericWriter<>(SUBIFC_IPV4_CFG_ID, new Ipv4ConfigWriter(cli)), IIDs.IN_IN_CONFIG);
 ```
 
-Registration of Ipv4ConfigWriter by using *addAfter* method ensures that
-OpenConfig ip address data is translated after OpenConfig interface data.
-That means CLI commands are executed in desired order.
+Registration of Ipv4ConfigWriter by using the *addAfter* method ensures that
+the OpenConfig ip address data is translated after OpenConfig interface data.
+That means CLI commands are executed in the desired order.
 
 Writers can be registered by using methods:
 

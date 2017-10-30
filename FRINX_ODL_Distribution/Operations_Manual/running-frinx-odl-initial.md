@@ -36,6 +36,7 @@ To activate your installation, unzip the file and open the directory. Enter th
 
     bin/karaf frinx.createtoken [frinx-license_secret-token]
 
+To stop it, hold down CTRL and type d 
 
 ## Non-standard setups
 

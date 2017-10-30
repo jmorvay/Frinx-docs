@@ -143,8 +143,8 @@ command.
 
 IOS CLI translation unit based on openconfig-interfaces YANG model
 is [here][8]. This CLI translation unit contains [InterfaceConfigWriter][9]
-translating *interface* command and [Ipv4ConfigWriter][10] translating
-*ip address* command. [IosInterfaceUnit][11] contains registration of these
+translating the *interface* command and [Ipv4ConfigWriter][10] translating
+the *ip address* command. [IosInterfaceUnit][11] contains registration of these
 writers where dependency between writers is described:
 
 ```

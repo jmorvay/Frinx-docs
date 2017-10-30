@@ -2,14 +2,15 @@
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/operations_manual.html)
 # Elasticsearch
 
-<!-- TOC START min:1 max:3 link:true update:true -->
-- [Elasticsearch](#elasticsearch)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
-  - [Operation](#operation)
-  - [Other links](#other-links)
+<!-- TOC -->
 
-<!-- TOC END -->
+- [Elasticsearch](#elasticsearch)
+    - [Installation](#installation)
+    - [Configuration](#configuration)
+        - [Configure Log4j](#configure-log4j)
+        - [Configure Logstash](#configure-logstash)
+    - [Operation](#operation)
+    - [Other links](#other-links)
 
 ## Installation
 

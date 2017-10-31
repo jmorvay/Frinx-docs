@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-[Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/operations_manual.html)
+[Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Beryllium/operations_manual.html)
 # NETCONF: Overview and use within the FRINX ODL Distribution
 
 ## What is NETCONF?

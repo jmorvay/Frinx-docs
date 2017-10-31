@@ -1,0 +1,413 @@
+module ietf-l2vpn {
+  namespace "urn:ietf:params:xml:ns:yang:ietf-l2vpn";
+  prefix "l2vpn";
+
+  import ietf-inet-types {
+    prefix "inet";
+  }
+
+  import ietf-yang-types {
+    prefix "yang";
+  }
+
+  import network-topology {
+    prefix nt;
+    revision-date 2013-10-21;
+  }
+
+  import yang-ext {
+    prefix ext;
+    revision-date "2013-07-09";
+  }
+
+  organization  "ietf";
+  contact       "ietf";
+  description   "l2vpn";
+
+  revision 2017-08-02 {
+    description
+      "Made YANG module compatible with ODL.";
+  }
+
+  revision "2017-03-06" {
+    description "Sixth revision " +
+                "  - Removed the 'common' container and move pw-templates " +
+                "    and redundancy-group-templates up a level " +
+                "  - Consolidated the endpoint configuration such that " +
+                "    all L2VPN instances has a list of endpoint.  For " +
+                "    certain types of L2VPN instances such as VPWS where " +
+                "    each L2VPN instance is limited to at most two " +
+                "    endpoint, additional augment statements were included " +
+                "    to add necessary constraints " +
+                "  - Removed discovery-type and signaling-type operational " +
+                "    state from VPLS pseudowires, as these two parameters " +
+                "    are configured as L2VPN parameters rather than " +
+                "    pseudowire paramteres " +
+                "  - Renamed l2vpn-instances to l2vpn-instances-state " +
+                "    in the operational state branch " +
+                "  - Removed BGP parameter groupings and reused " +
+                "    ietf-routing-types.yang module instead " +
+                "";
+    reference "";
+  }
+
+  revision "2016-10-24" {
+    description "Fifth revision " +
+                "  - Edits based on Giles's comments " +
+                "    5) Remove relative leafrefs in groupings, " +
+                "       and the resulting new groupings are: " +
+                "       (a) bgp-auto-discovery-parameters-grp " +
+                "       (b) bgp-signaling-parameters-grp " +
+                "       (c) endpoint-grp " +
+                "    11) Merge VPLS and VPWS into one single list " +
+                "       and use augment statements to handle " +
+                "       differences between VPLS and VPWS " +
+                "  - Add a new grouping l2vpn-common-parameters-grp " +
+                "    to make VPLS and VPWS more consistent";
+    reference "";
+  }
+
+  revision "2016-05-31" {
+    description "Fourth revision " +
+                "  - Edits based on Giles's comments " +
+                "    1) Change enumeration to identityref type for: " +
+                "       (a) l2vpn-service-type " +
+                "       (b) l2vpn-discovery-type " +
+                "       (c) l2vpn-signaling-type " +
+                "       bgp-rt-type, cw-negotiation, and " +
+                "       pbb-component remain enumerations " +
+                "    2) Define i-sid-type for leaf 'i-sid' " +
+                "       (which is renamed from 'i-tag') " +
+                "    3) Rename 'vpn-targets' to 'vpn-target' " +
+                "    4) Import ietf-mpls.yang and reuse the " +
+                "       'mpls-label' type defined in ietf-mpls.yang " +
+                "       transmit-label and receive-label " +
+                "    8) Change endpoint list's key to name " +
+                "    9) Changed MTU to type uint16 " +
+                "";
+    reference "";
+  }
+
+  revision "2016-03-07" {
+    description "Third revision " +
+                "  - Changed the module name to ietf-l2vpn " +
+                "  - Merged EVPN into L2VPN " +
+                "  - Eliminated the definitions of attachment " +
+                "    circuit with the intention to reuse other " +
+                "    layer-2 definitions " +
+                "  - Added state branch";
+    reference "";
+  }
+
+  revision "2015-10-08" {
+    description "Second revision " +
+                "  - Added container vpls-instances " +
+                "  - Rearranged groupings and typedefs to be " +
+                "    reused across vpls-instance and vpws-instances";
+    reference "";
+  }
+
+  revision "2015-06-30" {
+    description "Initial revision";
+    reference   "";
+  }
+
+  /* identities */
+
+  identity l2vpn-instance-type {
+    description "Base identity from which identities of " +
+                "l2vpn service instance types are derived";
+  }
+
+  identity vpws-instance-type {
+    base l2vpn-instance-type;
+    description "This identity represents VPWS instance type";
+  }
+
+  identity l2vpn-service {
+    description "Base identity from which identities describing " +
+                "L2VPN services are derived";
+  }
+
+  identity Ethernet {
+    base "l2vpn-service";
+    description "This identity represents Ethernet service";
+  }
+
+  identity l2vpn-signaling {
+    description "Base identity from which identities describing " +
+                "L2VPN signaling protocols are derived";
+  }
+
+  identity ldp-signaling {
+    base "l2vpn-signaling";
+    description "Label Distribution Protocol (LDP) signaling";
+  }
+
+  /* typedefs */
+
+  typedef l2vpn-service-type {
+    type identityref {
+      base "l2vpn-service";
+    }
+    description "L2VPN service type";
+  }
+
+  typedef l2vpn-signaling-type {
+    type identityref {
+      base "l2vpn-signaling";
+    }
+    description "L2VPN signaling type";
+  }
+
+  typedef cw-negotiation-type {
+    type enumeration {
+      enum "non-preferred" {
+        description "No preference for control-word";
+      }
+      enum "preferred" {
+        description "Prefer to have control-word negotiation";
+      }
+    }
+    description "control-word negotiation preference type";
+  }
+
+  typedef pw-template-ref {
+    type leafref {
+      path "/l2vpn/pw-templates/pw-template/name";
+    }
+    description "pw-template-ref";
+  }
+
+  /* groupings */
+
+  grouping l2vpn-common-parameters-grp {
+    description "L2VPN common parameters";
+    leaf name {
+      type string;
+      description "Name of L2VPN service instance";
+    }
+    leaf type {
+      type identityref {
+        base l2vpn-instance-type;
+      }
+      description "Type of L2VPN service instance";
+    }
+    leaf service-type {
+      type l2vpn-service-type;
+      default Ethernet;
+      description "L2VPN service type";
+    }
+    leaf signaling-type {
+      type l2vpn-signaling-type;
+      mandatory true;
+      description "L2VPN signaling type";
+    }
+  }
+
+  grouping pw-common-parameters-grp {
+    description "Pseudowire parameters common to both " +
+                "VPWS and VPLS pseudowires";
+    leaf name {
+      type string;
+      description "pseudowire name";
+    }
+    leaf template {
+      type pw-template-ref;
+      description "pseudowire template";
+    }
+    uses pw-type-grp;
+  }
+
+  grouping pw-type-grp {
+    description "pseudowire type grouping";
+    choice pw-type {
+      description "A choice of pseudowire type";
+      case ldp-or-static-pw {
+        leaf peer-ip {
+          type inet:ip-address;
+          description "peer IP address";
+        }
+        leaf pw-id {
+          type uint32;
+          description "pseudowire id";
+        }
+      }
+    }
+  }
+
+  grouping endpoint-grp {
+    description "A grouping that defines the structure of " +
+                "an endpoint";
+    leaf name {
+      type string;
+      description "endpoint name";
+    }
+    choice ac-or-pw-or-redundancy-grp-choice {
+      description "A choice of attachment circuit or " +
+                  "pseudowire or redundancy group";
+      case pw-case {
+        description "Pseudowire(s) as an endpoint";
+        list pw {
+          key "name";
+          leaf name {
+            type leafref {
+              path "/l2vpn/l2vpn-instances/l2vpn-instance/pw/name";
+            }
+            description "name of pseudowire";
+          }
+          description "An L2VPN instance's pseudowire list";
+        }
+      }
+    }
+  }
+
+  /* L2VPN YANG Model */
+
+  container l2vpn {
+    description "l2vpn";
+    container pw-templates {
+      description "pw-templates";
+      list pw-template {
+        key "name";
+        description "pw-template";
+        leaf name {
+          type string;
+          description "name";
+        }
+        leaf cw-negotiation {
+          type cw-negotiation-type;
+          default "preferred";
+          description
+            "control-word negotiation preference";
+        }
+      }
+    }
+    container l2vpn-instances {
+      description "A list of L2VPN instances";
+      list l2vpn-instance {
+        key "name type";
+        description "An L2VPN service instance";
+        uses l2vpn-common-parameters-grp;
+        list pw {
+          key "name";
+          description "A pseudowire";
+          uses pw-common-parameters-grp;
+        }
+        list endpoint {
+          key "name";
+          description "An endpoint";
+          uses endpoint-grp;
+        }
+      }
+    }
+  }
+
+  /* augments */
+
+  augment "/l2vpn/l2vpn-instances/l2vpn-instance" {
+    when "type = 'vpws-instance-type'" {
+      description "Constraints only for VPWS pseudowires";
+    }
+    description "Augment for VPWS instance";
+    container vpws-constraints {
+      must "(count(../endpoint) <= 2) and " +
+           "(count(../endpoint/pw) <= 1) and " +
+           "(count(../endpoint/ac) <= 1) and " +
+           "(count(../endpoint/primary-pw) <= 1) and " +
+           "(count(../endpoint/backup-pw) <= 1) " {
+        description "A VPWS L2VPN instance has at most 2 endpoints " +
+                    "and each endpoint has at most 1 pseudowire or " +
+                    "1 attachment circuit";
+      }
+      description "VPWS constraints";
+    }
+  }
+
+  augment "/l2vpn/l2vpn-instances/l2vpn-instance/pw" {
+    when "../type = 'vpws-instance-type'" {
+      description "Pseudowire parameters only for VPWS pseudowires";
+    }
+    description "Augment for peudowire parameters for " +
+                "VPWS pseudowires";
+    ext:augment-identifier "vpws-pw-aug";
+    leaf request-vlanid {
+      type uint16;
+      description "request vlanid";
+    }
+  }
+
+  /* Used by L2VPN Provider */
+
+  augment "/l2vpn/pw-templates/pw-template" {
+    description "Augments additional fields to pw-template";
+    ext:augment-identifier "pw-template-aug";
+    leaf encapsulation {
+      type enumeration {
+        enum "mpls" {
+          description "MPLS encapsulation";
+        }
+        enum "l2tp" {
+          description "L2TP encapsulation";
+        }
+      }
+    }
+  }
+
+  augment "/l2vpn/l2vpn-instances/l2vpn-instance" {
+    description "Tenant augmentation adds tenant attributes to l2vpn-instance.";
+    ext:augment-identifier "tenant-aug";
+    leaf tenant-id {
+      type string;
+      description "Tenant ID";
+    }
+  }
+
+  augment "/l2vpn/l2vpn-instances/l2vpn-instance/endpoint" {
+    description "PE augmentation identifies Provider Edge which connects Customer Edge.";
+    ext:augment-identifier "pe-aug";
+    leaf pe-node-id {
+      type nt:node-id;
+      description "Provider Edge node-id from network-topology:network-topology/topology/l2vpn-pe/node/<node-id>.";
+    }
+
+    leaf pe-2-ce-tp-id {
+      type nt:tp-id;
+      description "Termination point on Provider Edge which connects Customer Edge.";
+    }
+  }
+
+  typedef status {
+    description "A type describing the status of L3VPN processing by provider.";
+    type enumeration {
+      enum complete {
+        value 0;
+        description "L2VPN processing completed successfully.";
+      }
+      enum commit-failed-rollback-complete {
+        value -1;
+        description "L2VPN processing did not complete successfully and rollback completed
+                successfully.";
+      }
+      enum inconsistent {
+        value -2;
+        description "L2VPN processing and rollback did not complete successfully or other error occured.";
+      }
+    }
+  }
+
+  /* RPCs */
+
+  rpc commit-l2vpn {
+    description "Reads intended l2vpn from config datastore, real l2vpn from operational datastore and starts network element configuration.
+      Output is returned after network elements are configured or an error occured.";
+    output {
+      leaf status {
+        type status;
+      }
+      leaf error-message {
+        type string;
+      }
+    }
+  }
+}

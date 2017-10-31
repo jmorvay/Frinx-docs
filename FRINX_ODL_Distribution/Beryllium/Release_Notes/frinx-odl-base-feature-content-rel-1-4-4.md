@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-[Beryllium Release Notes main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Release_Notes/Beryllium.html)
+[Beryllium Release Notes main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Beryllium/release_notes.html)
     
 | Name                                          | Version                         |
 |-----------------------------------------------|---------------------------------|

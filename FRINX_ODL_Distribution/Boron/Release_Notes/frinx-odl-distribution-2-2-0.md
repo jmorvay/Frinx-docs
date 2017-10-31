@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-[Boron Release Notes main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Release_Notes/Boron.html)
+[Boron Release Notes main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/release_notes.html)
     
 This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.  
 

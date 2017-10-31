@@ -1,4 +1,6 @@
-## FRINX ODL Distribution 
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)
+
+## FRINX ODL Distribution: Boron 
 [Operations Manual](Boron/operations_manual.md)  
 [FRINX Features: User Guide](Boron/user_guide.md)  
 [FRINX Features: Developer Guide](Boron/developer_guide.md)  

@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-[Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/operations_manual.html)
+[Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/operations_manual.html)
 # Running the FRINX ODL distribution after initial activation
 
 After running for the first time and generating a local license file, you no longer need to provide a token when starting karaf.

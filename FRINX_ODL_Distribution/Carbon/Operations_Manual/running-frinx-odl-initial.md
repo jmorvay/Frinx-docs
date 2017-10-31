@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-[Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/operations_manual.html)
+[Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/operations_manual.html)
 # Running the FRINX ODL Distribution for the first time
 
 <!-- TOC START min:1 max:3 link:true update:true -->

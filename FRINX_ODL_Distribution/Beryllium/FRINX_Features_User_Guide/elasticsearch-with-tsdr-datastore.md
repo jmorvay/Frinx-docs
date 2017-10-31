@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-[FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/user_guide.html)
+[FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Beryllium/user_guide.html)
 
 *This feature was deprecated in FRINX 2.3.1. For using Elasticsearch with FRINX ODL logs see [here][1]*
 

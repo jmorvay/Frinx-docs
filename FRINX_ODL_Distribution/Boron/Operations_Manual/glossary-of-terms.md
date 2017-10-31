@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-[Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/operations_manual.html)
+[Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/operations_manual.html)
 # Glossary of Terms
 
 KARAF <http://karaf.apache.org/manual/latest/#_osgi>- Lightweight OSGI container used to dynamically load java classes

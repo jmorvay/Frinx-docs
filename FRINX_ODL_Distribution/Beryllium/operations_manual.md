@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)  
-# FRINX ODL Distribution: Operations Manual
+# FRINX Beryllium ODL Distribution: Operations Manual
 
 [Running the FRINX ODL Distribution](Operations_Manual/running-frinx-odl-initial.md)  
 [Running after activation](Operations_Manual/running-frinx-odl-after-activation.md)   

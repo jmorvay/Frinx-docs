@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)  
-# FRINX Features: User Guide
+# FRINX Beryllium Features: User Guide
 
 [RADIUS](FRINX_Features_User_Guide/radius.md)  
 [API Bundle](FRINX_Features_User_Guide/using-the-frinx-api-bundle.md)  

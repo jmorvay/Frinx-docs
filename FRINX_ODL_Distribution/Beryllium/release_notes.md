@@ -1,6 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-   
-# Release Notes: Beryllium 
+# FRINX Beryllium: Release Notes 
 
 [FRINX ODL Distribution 1.4.9](Release_Notes/Release_Notes/frinx-odl-distribution-1-4-9.md) [Base Feature Content: FRINX Beryllium 1.4.9](Release_Notes/frinx-odl-base-feature-content-rel-1-4-9.md)  
 [FRINX ODL Distribution 1.4.8](Release_Notes/frinx-odl-distribution-1-4-8.md) [Base Feature Content: FRINX Beryllium 1.4.8](Release_Notes/frinx-odl-base-feature-content-rel-1-4-8.md)  

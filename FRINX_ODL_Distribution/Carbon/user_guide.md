@@ -1,5 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)  
-# FRINX Features: User Guide
+# FRINX Carbon Features: User Guide
 
 [CLI Service Module User Guide](FRINX_Features_User_Guide/cli/cli-service-module.md)  
 [L3VPN Service Module User Guide](FRINX_Features_User_Guide/l3vpn/l3vpn-service-module.md)  

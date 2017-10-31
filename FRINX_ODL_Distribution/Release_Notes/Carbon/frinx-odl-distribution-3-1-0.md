@@ -13,7 +13,7 @@ This document describes the latest changes, additions, known issues, and fixes f
     * Modified raft election mechanism to move shard leaders to the same node, all shards will eventually have leaders on one node
     * Entity ownership is based on which node hosts the shard leaders
 
-2.  Modified daexim, including startup changes, described at https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/FRINX_Features_Developer_Guide/daexim.html
+2.  Modified daexim, including startup changes, described at <https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/FRINX_Features_Developer_Guide/daexim.html>
     
 3. cli, unified-topology, l2vpn, l3vpn projects added
 

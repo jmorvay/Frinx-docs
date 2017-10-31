@@ -37,11 +37,11 @@ where: **Snapshot-Type** can be either **opendaylight.release** or **opendayligh
 1.  open artifactory.frinx
 2.  open either frinx-release or frinx-snapshot
 3.  move to org/opendaylight/controller/opendaylight-startup-archetype
-4.  choose the latest (currently in Frinx release: 1.1.4-Beryllium-SR4.5-frinxodl)
+4.  choose the latest 
 
 The command will generate several prompts; you can enter the values according to the example [here][1]. At the end the project structure is generated.
 
-    [INFO] Using following parameters for creating project from Archetype: opendaylight-startup-archetype:**1\.1.4-Beryllium-SR4.5-frinxodl**  
+    [INFO] Using following parameters for creating project from Archetype: opendaylight-startup-archetype:**<archetype-name>**  
     [INFO] ----------------------------------------------------------------------------
     [INFO] Parameter: groupId, Value: jp.customer.example
     [INFO] Parameter: artifactId, Value: example
@@ -68,7 +68,7 @@ POM files are special maven files where we can configure plugins and declare dep
       <parent>
     <groupId>org.opendaylight.odlparent</groupId>
     <artifactId>odlparent-lite</artifactId>
-    <version>1.6.4-Beryllium-SR4.5-frinxodl</version>
+    <version>insert version name here</version>
     <relativePath/>
       </parent>
 

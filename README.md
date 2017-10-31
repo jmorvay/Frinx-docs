@@ -1,10 +1,8 @@
 ## FRINX ODL Distribution 
-[Operations Manual](FRINX_ODL_Distribution/operations_manual.md)  
-[FRINX Features: User Guide](FRINX_ODL_Distribution/user_guide.md)  
-[FRINX Features: Developer Guide](FRINX_ODL_Distribution/developer_guide.md)  
-[Troubleshooting Guide](FRINX_ODL_Distribution/Troubleshooting_Guide/troubleshooting_guide.md)   
-[Release Notes](FRINX_ODL_Distribution/release_notes.md)   
-
+[Carbon](carbon.md)  
+[Boron](boron.md)  
+[Beryllium](beryllium.md)  
+ 
 ## FRINX Smart Build Engine (SBE)  
 [Introduction](FRINX_Smart_Build_Engine/Introduction/sbe_intro.md)  
 [Operations Manual](FRINX_Smart_Build_Engine/operations_manual.md)  

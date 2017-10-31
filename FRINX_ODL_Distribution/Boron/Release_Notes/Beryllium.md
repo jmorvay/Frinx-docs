@@ -1,0 +1,20 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)
+[FRINX Release Notes main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/release_notes.html)
+    
+# Release Notes: Beryllium
+
+[FRINX ODL Distribution 1.4.9](Beryllium/frinx-odl-distribution-1-4-9.md) [Base Feature Content: FRINX Beryllium 1.4.9](Beryllium/frinx-odl-base-feature-content-rel-1-4-9.md)  
+[FRINX ODL Distribution 1.4.8](Beryllium/frinx-odl-distribution-1-4-8.md) [Base Feature Content: FRINX Beryllium 1.4.8](Beryllium/frinx-odl-base-feature-content-rel-1-4-8.md)  
+[FRINX ODL Distribution 1.4.7](Beryllium/frinx-odl-distribution-1-4-7.md) [Base Feature Content: FRINX Beryllium 1.4.7](Beryllium/frinx-odl-base-feature-content-rel-1-4-7.md)  
+[FRINX ODL Distribution 1.4.6](Beryllium/frinx-odl-distribution-1-4-6.md) [Base Feature Content: FRINX Beryllium 1.4.6](Beryllium/frinx-odl-base-feature-content-rel-1-4-6.md)  
+[FRINX ODL Distribution 1.4.5](Beryllium/frinx-odl-distribution-1-4-5.md) [Base Feature Content: FRINX Beryllium 1.4.5](Beryllium/frinx-odl-base-feature-content-rel-1-4-5.md)  
+[FRINX ODL Distribution 1.4.4](Beryllium/frinx-odl-distribution-1-4-4.md) [Base Feature Content: FRINX Beryllium 1.4.4](Beryllium/frinx-odl-base-feature-content-rel-1-4-4.md)  
+[FRINX ODL Distribution 1.4.3](Beryllium/frinx-odl-distribution-1-4-3.md) [Base Feature Content: FRINX Beryllium 1.4.3](Beryllium/frinx-odl-base-feature-content-rel-1-4-3.md)  
+[FRINX ODL Distribution 1.4.2](Beryllium/frinx-odl-distribution-1-4-2.md) [Base Feature Content: FRINX Beryllium 1.4.2](Beryllium/frinx-odl-base-feature-content-rel-1-4-2.md)  
+[FRINX ODL Distribution 1.4.1](Beryllium/frinx-odl-distribution-1-4-1.md) [Base Feature Content: FRINX Beryllium 1.4.1](Beryllium/frinx-odl-base-feature-content-rel-1-4-1.md)  
+[FRINX ODL Distribution 1.4.0](Beryllium/frinx-odl-distribution-1-4-0.md) [Base Feature Content: FRINX Beryllium 1.4.0](Beryllium/frinx-odl-base-feature-content-rel-1-4-0.md)  
+[FRINX ODL Distribution 1.3.0](Beryllium/frinx-odl-distribution-1-3-0.md) [Base Feature Content: FRINX Beryllium 1.3.0](Beryllium/frinx-odl-base-feature-content-rel-1-3-0.md)  
+[FRINX ODL Distribution 1.2.6](Beryllium/frinx-odl-distribution-1-2-6.md) [Base Feature Content: FRINX Beryllium 1.2.6](Beryllium/frinx-odl-base-feature-content-rel-1-2-6.md)  
+[FRINX ODL Distribution 1.2.5](Beryllium/frinx-odl-distribution-1-2-5.md) [Base Feature Content: FRINX Beryllium 1.2.5](Beryllium/frinx-odl-base-feature-content-rel-1-2-5.md)  
+[FRINX ODL Distribution 1.2.3](Beryllium/frinx-odl-distribution-1-2-3.md) [Base Feature Content: FRINX Beryllium 1.2.3](Beryllium/frinx-odl-base-feature-content-rel-1-2-3.md)  
+[FRINX ODL Distribution 1.2.2](Beryllium/frinx-odl-distribution-1-2-2.md)  

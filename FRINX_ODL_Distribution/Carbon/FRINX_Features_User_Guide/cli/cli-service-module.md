@@ -28,7 +28,7 @@
 
 <!-- /TOC -->
 
-*The Postman collection for the CLI service module can be accessed [here](FRINX_CLI_2.3.1.postman_collection.json). It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). We refer to the postman collection in the usage section below*
+*The Postman collection for the CLI service module can be accessed [here](https://github.com/FRINXio/cli-units/tree/master/postman). It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). We refer to the postman collection in the usage section below*
 
 **Postman can be downloaded for free [here](https://www.getpostman.com/postman)**
 
@@ -191,7 +191,7 @@ The following sequence of operations needs to happen from the point when Openday
 
 #### How to mount and manage IOS devices over REST
 
-Please import the Postman collection available [here](FRINX_CLI_2.3.1.postman_collection.json), into Postman, then open the folder *Ios mount*.
+Please import the Postman collection available [here](https://github.com/FRINXio/cli-units/tree/master/postman), into Postman, then open the folder *Ios mount*.
 
 You will see there are two calls available for mounting an Ios device. *In each case, edit the following fields according to your specific device: *cli-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
 
@@ -215,7 +215,7 @@ IOS devices can also be mounted and managed from an application. For instruction
 
 It is possible to mount any network device as a generic device. This allows invocation of any commands on the device using RPCs, which return the output back as freeform data and it is up to user/application to make sense of them.
 
-Please import the Postman collection available [here](FRINX_CLI_2.3.1.postman_collection.json), into Postman, then open the folder *Linux mount*
+Please import the Postman collection available [here](https://github.com/FRINXio/cli-units/tree/master/postman), into Postman, then open the folder *Linux mount*
 
 Open the body of the *mount* PUT call and edit the following fields according to your specific device: *network-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
 
@@ -251,7 +251,7 @@ Now issue a request, but in the URL instead of using node id, use node-id-dry-ru
 
 Please see [here](cli_supported_devices.md) for a structured list of device types currently supported by the CLI southbound plugin and configuration aspects implemented for them.
 
-It is possible to check a current list of units and thus a current list of supported devices directly from OpenDaylight's REST interface. Please import the Postman collection available [here](FRINX_CLI_2.3.1.postman_collection.json) into Postman and open the folder *registry* to access the GET call that displays the actual list.
+It is possible to check a current list of units and thus a current list of supported devices directly from OpenDaylight's REST interface. Please import the Postman collection available [here](https://github.com/FRINXio/cli-units/tree/master/postman) into Postman and open the folder *registry* to access the GET call that displays the actual list.
 
 *For a hands-on tour of the CLI service module from within your browser, please try our [playground](http://46.229.232.136:8888/)*
 

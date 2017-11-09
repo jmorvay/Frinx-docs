@@ -215,7 +215,7 @@ IOS devices can also be mounted and managed from an application. For instruction
 
 It is possible to mount any network device as a generic device. This allows invocation of any commands on the device using RPCs, which return the output back as freeform data and it is up to user/application to make sense of them.
 
-Please import the postman.json Postman collection file from [here](https://github.com/FRINXio/cli-units/tree/master/postman), into Postman, then open the folder *Mount/Unmount IOS*
+Please import the postman.json Postman collection file from [here](https://github.com/FRINXio/cli-units/tree/master/postman), into Postman, then open the folder *Linux mount*
 
 Open the body of the *mount* PUT call and edit the following fields according to your specific device: *network-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
 

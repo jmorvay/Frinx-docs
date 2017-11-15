@@ -246,7 +246,9 @@ To operate in dry-run mode (useful for testing or demo purposes), you need to mo
     }
 }
 ~~~~ 
-Now issue a request, but in the URL instead of using node id, use node-id-dryrun e.g. IOS1-dryrun.
+*Now issue a request, but in the URL instead of using node id, use node-id-dryrun e.g. IOS1-dryrun.*
+
+You can also mount in dry-run mode using the preconfigured calls (either: IOS XR/XR Mount/Mount IOS XR cli or IOS Classic/Classic Mount/Mount IOS Classic) which we provide in our [postman.json file accessible here](https://github.com/FRINXio/cli-units/tree/master/postman). You can quickly configure environment variables using the *env.json files accessible in the same location. Again, after mounting, you can issue a call in dry run mode by replacing node id in the URL of the call with node-id-dryrun e.g. IOS1-dryrun
 
 ## Supported devices
 

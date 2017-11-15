@@ -28,7 +28,7 @@
 
 <!-- /TOC -->
 
-*The postman collection (filename postman.json) for the CLI service module can be accessed [here](https://github.com/FRINXio/cli-units/tree/master/postman). The collection contains pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). We refer to the postman collections in the usage section below*
+*The postman.json Postman collection for the CLI service module can be accessed [here](https://github.com/FRINXio/cli-units/tree/master/postman). It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). It also contains several **environment files** with preconfigured variables whose values you can update within Postman (by clicking on the cog icon near the top-right of Postman). We refer to the postman collection in the usage section below*
 
 **Postman can be downloaded for free [here](https://www.getpostman.com/postman)**
 
@@ -223,7 +223,8 @@ Open the body of the *mount* PUT call and enter and edit the following fields ac
 
 #### Pushing a config to a mounted node in dry run mode
 
-To operate in dry-run mode (useful for testing or demo purposes), you need to mount the device with the following configuration
+To operate in dry-run mode (useful for testing or demo purposes), you need to mount the device with the following configuration. 
+Note - the value for the variable {{classic_ip_wrong}} can be edited within Postman by clicking on the cog icon near the top right of the screen and selecting 'Manage Environments'. We provide several environments containing preconfigured variable values at https://github.com/FRINXio/cli-units/tree/master/postman - the environment files all have a suffix 'env.json'
 ~~~~
 {
     "network-topology:node" :
@@ -245,7 +246,7 @@ To operate in dry-run mode (useful for testing or demo purposes), you need to mo
     }
 }
 ~~~~ 
-Now issue a request, but in the URL instead of using node id, use node-id-dry-run e.g. IOS1-dry-run.
+Now issue a request, but in the URL instead of using node id, use node-id-dryrun e.g. IOS1-dryrun.
 
 ## Supported devices
 

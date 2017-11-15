@@ -28,7 +28,8 @@
 
 <!-- /TOC -->
 
-*The postman.json Postman collection for the CLI service module can be accessed [here](https://github.com/FRINXio/cli-units/tree/master/postman). It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). It also contains several **environment files** with preconfigured variables whose values you can update within Postman (by clicking on the cog icon near the top-right of Postman). We refer to the postman collection in the usage section below*
+*The postman.json Postman collection for the CLI service module can be accessed [here](https://github.com/FRINXio/cli-units/tree/master/postman). It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). 
+It also contains several **environment files** with preconfigured variables whose values you can update within Postman (by clicking on the cog icon near the top-right of Postman). We refer to the postman collection in the usage section below*
 
 **Postman can be downloaded for free [here](https://www.getpostman.com/postman)**
 

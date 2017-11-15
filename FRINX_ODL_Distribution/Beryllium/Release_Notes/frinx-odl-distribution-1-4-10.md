@@ -5,7 +5,7 @@ This document describes the latest changes, additions, known issues, and fixes f
 
 **Note that FRINX ODL Distribution 1.4.10 requires Java 8**
 
-**Note that All yang models present in JAR artifacts of the distribution are extracted to schemas folder and parsed during startup**  
+**Note that all yang models present in JAR artifacts of the distribution are extracted to schemas folder and parsed during startup**  
 
 #### New Features, Improvements
 
@@ -13,7 +13,7 @@ This document describes the latest changes, additions, known issues, and fixes f
 1\. Fixed race condition in daexim startup  
 2\. Ignores ownership notifications after initial import
 
-Updated documentation for daexim can be found at <https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/FRINX_Features_Developer_Guide/daexim.html>
+Updated documentation for daexim can be found at <https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Beryllium/FRINX_Features_Developer_Guide/daexim.html>
 
 #### Known Issues
 
@@ -22,7 +22,7 @@ Updated documentation for daexim can be found at <https://frinxio.github.io/Frin
 
 #### Opendaylight Beryllium SR4 Release Notes
 
-The Frinx controller 1.4.9 is based on Opendaylight Beryllium SR4. Where a feature is present in both controllers, the same Release Notes apply
+The Frinx controller 1.4.10 is based on Opendaylight Beryllium SR4. Where a feature is present in both controllers, the same Release Notes apply
 
 <https://wiki.opendaylight.org/view/Simultaneous_Release/Beryllium/SR4/Release_Notes>  
 odlparent <https://wiki.opendaylight.org/view/Simultaneous_Release/Beryllium/SR4/Release_Notes#ODL_Root_Parent>  

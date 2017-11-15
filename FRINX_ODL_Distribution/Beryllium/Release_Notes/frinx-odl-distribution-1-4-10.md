@@ -5,7 +5,7 @@ This document describes the latest changes, additions, known issues, and fixes f
 
 **Note that FRINX ODL Distribution 1.4.10 requires Java 8**
 
-**Note that All yang models present in JAR artifacts of the distribution are extracted to schemas folder and parsed during startup**  
+**Note that all yang models present in JAR artifacts of the distribution are extracted to schemas folder and parsed during startup**  
 
 #### New Features, Improvements
 

@@ -225,15 +225,15 @@ Open the body of the *mount* PUT call and edit the following fields according to
 #### Pushing a config to a mounted node in dry run mode
 
 To operate in dry-run mode (useful for testing or demo purposes), you need to mount the device with the following configuration. 
-Note - the value for the variable {{classic_ip_wrong}} can be edited within Postman by clicking on the cog icon near the top right of the screen and selecting 'Manage Environments'. 
-*We provide several environments containing preconfigured variable values at <https://github.com/FRINXio/cli-units/tree/master/postman> - the environment files all have a suffix 'env.json'*
+Note - the value for the variable classic_ip_wrong can be edited within Postman by clicking on the cog icon near the top right of the screen and selecting 'Manage Environments'. 
+*We provide several environments containing preconfigured variable values [here](https://github.com/FRINXio/cli-units/tree/master/postman) - the environment files all have a suffix 'env.json'*
 ~~~~
 {
     "network-topology:node" :
     {
       "network-topology:node-id" : "IOS",
      
-      "cli-topology:host" : "{{classic_ip_wrong}}",
+      "cli-topology:host" : "classic_ip_wrong",
       "cli-topology:port" : "22",
       "cli-topology:transport-type" : "ssh",
      

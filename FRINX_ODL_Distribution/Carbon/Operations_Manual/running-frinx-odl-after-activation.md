@@ -1,5 +1,20 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/operations_manual.html)
+<!-- TOC -->
+
+- [Running the FRINX ODL distribution after initial activation](#running-the-frinx-odl-distribution-after-initial-activation)
+    - [Operating karaf in the foreground](#operating-karaf-in-the-foreground)
+        - [Starting karaf](#starting-karaf)
+        - [Stopping karaf](#stopping-karaf)
+    - [Operating karaf in the background](#operating-karaf-in-the-background)
+        - [Starting karaf](#starting-karaf-1)
+        - [Confirming karaf is running](#confirming-karaf-is-running)
+        - [Connecting to the background process](#connecting-to-the-background-process)
+        - [Stopping karaf](#stopping-karaf-1)
+    - [Resetting FRINX ODL](#resetting-frinx-odl)
+    - [Setting JAVA_HOME and other variables](#setting-java_home-and-other-variables)
+
+<!-- /TOC -->
 # Running the FRINX ODL distribution after initial activation
 
 After running for the first time and generating a local license file, you no longer need to provide a token when starting karaf.

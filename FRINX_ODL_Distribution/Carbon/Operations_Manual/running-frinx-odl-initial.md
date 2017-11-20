@@ -32,9 +32,9 @@ By downloading the file you accept the FRINX software agreement: [EULA](7793505-
 
 To activate your installation, unzip the file and open the directory. Enter the following commands in a terminal (the token is unique to your user account on frinx.io and cannot be shared with other users. It can be found [here](https://frinx.io/my-licenses-information) (you need to be logged in frinx.io to view your token)
 
-    bin/karaf frinx.createtoken [frinx-license_secret-token]
+    ./bin/karaf frinx.createtoken [frinx-license_secret-token]
 
-To stop it, hold down CTRL and type d
+To stop it, hold the 'CTRL' key and press the 'd' key
 
 ## Non-standard setups
 

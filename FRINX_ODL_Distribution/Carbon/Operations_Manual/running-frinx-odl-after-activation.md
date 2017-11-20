@@ -4,30 +4,54 @@
 
 After running for the first time and generating a local license file, you no longer need to provide a token when starting karaf.
 
-To start karaf, go to your Frinx ODL Distribution folder, for example /home/username/distribution-karaf-2.3.0.frinx.
+## Operating karaf in the foreground
+### Starting karaf
+In your Frinx ODL Distribution directory, for example /home/username/distribution-karaf-3.1.0.frinx, type
 
-Then type
+    ./bin/karaf 
 
-    bin/karaf 
-    
+### Stopping karaf
+To stop from within the karaf console there are three options:
 
-If you want to start the controller cleanly - that is, deleting any features you previously installed - then you can instead use
+1. Hold the 'CTRL' key and press the 'd' key 
+2. Type:
 
-    /bin/karaf clean
-    
+    halt
 
-The clean parameter clears the karaf cache. This is useful when recovering the controller to a known state.
+3. Type:
 
-After starting karaf you should see a karaf prompt similar to this one:
+    system:shutdown
 
-      /bin/karaf clean
-           _________      .__                  
-           __________ __|__| ____ __  ___    
-             / | ___  V__  |/      /  /    
-            /  |  |   |  |  |   |          
-            __| / |___|  |__>___|  /_/__   
-               /                 /           
-    Frinx version: 1.0.0-Beryllium-SR1.2-frinx frinx-user@root>
-    
+When prompted to confirm, type 'yes'.
 
-Once the controller is started press `Tab` to see the CLI commands available.
+## Operating karaf in the background
+### Starting karaf 
+In your Frinx ODL Distribution directory, for example /home/username/distribution-karaf-3.1.0.frinx, type
+
+    ./bin/start
+
+### Confirming karaf is running
+Type
+
+    ./bin/status
+
+### Connecting to the background process
+Type
+
+    ./bin/client
+
+or type
+
+    ssh karaf@localhost -p 8101
+
+(password: karaf)
+
+### Stopping karaf
+Type
+
+    ./bin/stop
+
+## Resetting FRINX ODL
+To 'reset' your distribution to a clean state and delete any features previously installed type the following within your frinx ODL distribution directory (e.g. /home/username/distribution-karaf-3.1.0.frinx)
+
+    rm -rf /data /cache /journal

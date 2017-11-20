@@ -11,7 +11,7 @@
         - [Confirming karaf is running](#confirming-karaf-is-running)
         - [Connecting to the background process](#connecting-to-the-background-process)
         - [Stopping karaf](#stopping-karaf-1)
-    - [Resetting FRINX ODL](#resetting-frinx-odl)
+    - [Resetting FRINX ODL to a clean state](#resetting-frinx-odl-to-a-clean-state)
     - [Setting JAVA_HOME and other variables](#setting-java_home-and-other-variables)
 
 <!-- /TOC -->
@@ -67,7 +67,7 @@ Type
 ```
     ./bin/stop
 ```
-## Resetting FRINX ODL
+## Resetting FRINX ODL to a clean state
 To 'reset' your distribution to a clean state and delete any features previously installed type the following within your frinx ODL distribution directory (e.g. /home/username/distribution-karaf-3.1.0.frinx)
 ```
     rm -rf /data /cache /journal

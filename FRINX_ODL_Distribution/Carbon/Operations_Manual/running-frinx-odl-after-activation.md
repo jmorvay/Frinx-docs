@@ -18,7 +18,7 @@
 # Running the FRINX ODL distribution after initial activation
 
 After running for the first time and generating a local license file, you no longer need to provide a token when starting karaf.
-The following oeprations have been tested in CentOS and Ubuntu 16.04.
+The following operations have been tested in CentOS and Ubuntu 16.04.
 
 ## Operating karaf in the foreground
 ### Starting karaf

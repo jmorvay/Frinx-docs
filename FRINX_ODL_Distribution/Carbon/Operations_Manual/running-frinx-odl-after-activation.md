@@ -73,7 +73,7 @@ To 'reset' your distribution to a clean state and delete any features previously
     rm -rf /data /cache /journal
 ```
 ## Setting JAVA_HOME and other variables
-This is done by editing the 'setenv' file in the bin directory. Uncomment the relevant line and set the variable as required e.g. to set the location of your Java home directory, uncomment the JAVA_HOME variable and point it to the appropriate folder depending on your Java installation:
+This is done by editing the 'setenv' file in the bin directory within your Frinx ODL Distribution directory. Uncomment the relevant line and set the variable as required e.g. to set the location of your Java home directory, uncomment the JAVA_HOME variable and point it to the appropriate folder depending on your Java installation:
 ``` 
     export JAVA_HOME=/opt/jdk1.8.0_151
 ```

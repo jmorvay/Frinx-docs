@@ -68,7 +68,7 @@ Warning
 Closing the console or shell window will cause Apache Karaf and therefore Frinx terminate.
 ~~~~
 ## Server mode  
-Server mode starts Apache Karaf as a foreground process, but doesn't start the shell console. To use this mode, use the server argument to the `bin/karaf` Linux script (on Windows the script is at <span style="font-family: Courier New">binkaraf.bat</span>).  
+Server mode starts Apache Karaf as a foreground process, but doesn't start the shell console. To use this mode, use the server argument to the `bin/karaf` Linux script (on Windows the script is at binkaraf.bat).  
 a. On Linux:
 ~~~~
 bin/karaf server
@@ -128,13 +128,14 @@ Apache Karaf accepts environment variables:
      * KARAF_DEBUG: if 'true', enable the debug mode (default is null). If debug mode is enabled, Karaf starts a JDWP socket on port 5005. You can plug your IDE to define breakpoints, and run step by step.
 
 
-You can define these environment variables in the `bin/setenv` Linux script (`binsetenv.bat` on Windows). For instance, to set the minimum and maximum memory size for the JVM, you can define the following values: a. On Linux: **Content of bin/setenv**
+You can define these environment variables in the `bin/setenv` Linux script (`binsetenv.bat` on Windows). For instance, to set the minimum and maximum memory size for the JVM, you can define the following values: 
+a. On Linux: **Content of bin/setenv**
 
      export JAVA_MIN_MEM=256M
      export JAVA_MAX_MEM=1024M
 
 
-b. On Windows:** rem Content of binsetenv.bat**
+b. On Windows: **Content of binsetenv.bat**
 
      set JAVA_MIN_MEM=256M
      set JAVA_MAX_MEM=1024M

@@ -16,13 +16,16 @@ This guide explains how to run the distribution for the first time. If you have 
 
 ***System requirements***  
 **RAM:** 4GB minimum; we recommend 8GB.  
-**Java:** Releases based on Beryllium and Boron (and subsequent releases) require Java 8. 
+**Java:** Releases based on Beryllium and Boron (and subsequent releases) require Java 8.
 To install Java:
 Ubuntu: In a terminal type
 
     sudo apt-get install openjdk-8-jre
 
-    
+CentOS: In a terminal type
+
+    sudo yum install java-1.8.0-openjdk
+        
 **Linux:** Unless stated otherwise, this documentation assumes you are using Linux. Supported distributions are Centos7 and Ubuntu 16.04.  
 
 ### Download and activate the FRINX ODL Distribution  

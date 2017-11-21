@@ -4,6 +4,10 @@
 This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.<!--more-->
 
 **Note that FRINX ODL distribution 3.1.0 requires Java 8**
+To install Java:
+Ubuntu: In a terminal type
+
+    sudo apt-get install openjdk-8-jre
 
 #### New Features, Improvements
 

@@ -94,7 +94,7 @@ Type
 ## Resetting FRINX ODL to a clean state
 To 'reset' your distribution to a clean state and delete any features previously installed type the following within your frinx ODL distribution directory (e.g. /home/username/distribution-karaf-3.1.0.frinx)
 ```
-    rm -rf /data /cache /journal
+    rm -rf data cache journal
 ```
 Then start karaf in clean mode (this removes any features you previously installed)
 ```

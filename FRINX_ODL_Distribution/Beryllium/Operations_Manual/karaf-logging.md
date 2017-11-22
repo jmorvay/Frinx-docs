@@ -57,3 +57,4 @@ To begin viewing the log type
 ```
 log:tail
 ```
+karaf logs are also written to the data/log directory within your main Frinx ODL distribution directory so can be viewed outside of karaf.

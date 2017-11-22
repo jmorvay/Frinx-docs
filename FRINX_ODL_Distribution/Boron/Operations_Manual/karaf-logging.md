@@ -29,7 +29,7 @@ org.opendaylight.netconf.topology                                | INFO
 To change the logging level for a particular feature e.g. io.frinx.cli type
 
 ```
-log:set DEBUG io.frinx.cli
+log:set INFO io.frinx.cli
 ```
 You will see the logging level has been updated when you again type
 
@@ -57,4 +57,3 @@ To begin viewing the log type
 ```
 log:tail
 ```
-    

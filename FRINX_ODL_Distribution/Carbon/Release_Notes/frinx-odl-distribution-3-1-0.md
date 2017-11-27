@@ -13,6 +13,8 @@ CentOS: In a terminal type
 
     sudo yum install java-1.8.0-openjdk
 
+**Note:** *CLI telnet connectivity with reverse telnet on Cisco devices (https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_usr_ssh/configuration/15-mt/sec-usr-ssh-15-mt-book/sec-rev-ssh-enhanmt.html ) is not supported in this release.*
+
 #### New Features, Improvements
 
 1.  Clustering changes:

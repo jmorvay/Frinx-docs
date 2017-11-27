@@ -66,7 +66,7 @@ or type
 ```
 (password: karaf)
 
-When connected to the background process, you can logout (and close only the ./bin/client process, but not the Frinx ODL server) by typing
+When connected to the background process, you can logout (this closes only the ./bin/client process, but not the Frinx ODL server) by typing
 ```
     logout
 ```

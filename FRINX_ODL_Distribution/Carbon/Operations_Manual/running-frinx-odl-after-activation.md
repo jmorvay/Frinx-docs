@@ -40,7 +40,7 @@ To stop from within the karaf console there are three options:
 ```
 3. Type:
 ```
-    system:shutdown
+    shutdown
 ```
 When prompted to confirm, type 'yes'.
 
@@ -65,6 +65,15 @@ or type
     ssh karaf@localhost -p 8101
 ```
 (password: karaf)
+
+When connected to the background process, you can logout (and close only the ./bin/client process, but not the Frinx ODL server) by typing
+```
+    logout
+```
+When connected to the background process, you can shutdown the Frinx ODL server by typing  
+```
+    shutdown
+```
 
 ### Stopping karaf
 Type

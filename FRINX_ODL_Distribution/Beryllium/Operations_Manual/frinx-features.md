@@ -32,7 +32,6 @@ The FRINX distribution offers the following features:
      l3vpn
 
 ## To install features
-### To install for the current karaf session only
 To view a list of available features: Within the karaf console type
 
  feature:list
@@ -49,15 +48,6 @@ To install a feature:
 Multiple features can be installed on a single line
 
  feature:install odl-restconf odl-netconf-connector-all
-
-### For an install that persists in future session
-To load features consistently and in accordance with our Daexim edit the **org.apache.karaf.features.cfg** file within the etc directory of your Frinx ODL distribution main directory:
-
-By setting the **odlFeaturesBoot** variable, the specified features will be loaded at startup, every time Frinx ODL starts e.g.
-
-odlFeaturesBoot=odl-restconf,odl-netconf-connector-all
-
-This will ensure that the odl-restconf and odl-netconf-connector-all features are always present at startup.
 
 **Compatibility with other OpenDaylight projects**  
 The Frinx ODL Distribution release schedule is tightly synched with OpenDaylight release schedule. The small code delta means that all Beryllium Opendaylight features can be used with the Frinx ODL Distribution. The full list of features can be found here:

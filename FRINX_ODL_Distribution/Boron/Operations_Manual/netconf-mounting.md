@@ -22,11 +22,9 @@ This can be done using the Karaf CLI:
     feature:install odl-netconf-connector-all
 
 ### For an install that persists in future session
-To load features consistently and in accordance with our Daexim edit the following file within the etc directory of your Frinx ODL distribution main directory:
+To load features consistently and in accordance with our Daexim edit the **org.apache.karaf.features.cfg** file within the etc directory of your Frinx ODL distribution main directory:
 
-org.apache.karaf.features.cfg
-
-by setting the following variable, features will be loaded at startup, every time Frinx ODL starts:
+By setting the **odlFeaturesBoot** variable, features will be loaded at startup, every time Frinx ODL starts:
 
     odlFeaturesBoot=odl-restconf,odl-netconf-connector-all
 

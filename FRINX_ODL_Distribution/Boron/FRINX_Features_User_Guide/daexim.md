@@ -1,10 +1,11 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
-[FRINX Features Developer Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/developer_guide.html)
-# Developer Guide: Daexim
+[FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/user_guide.html)
+# User Guide: Daexim
 
 <!-- TOC START min:1 max:3 link:true update:true -->
-- [Developer Guide: Daexim](#developer-guide-daexim)
+- [User Guide: Daexim](#user-guide-daexim)
   - [Overview](#overview)
+  - [Important files](#important-files)
   - [Import](#import)
   - [Export](#export)
     - [Exporting from leader node](#exporting-from-leader-node)

@@ -25,7 +25,7 @@ Ubuntu: In a terminal type
 CentOS: In a terminal type
 
     sudo yum install java-1.8.0-openjdk
-        
+
 **Linux:** Unless stated otherwise, this documentation assumes you are using Linux. Supported distributions are Centos7 and Ubuntu 16.04.  
 
 ### Download and activate the FRINX ODL Distribution  
@@ -60,7 +60,8 @@ Let's call the connected computer ONLINE and the one where you want to run karaf
 
     OFFLINE# TOKEN="insert your token here"
     OFFLINE# KARAF_HOME="insert path to karaf"
-    OFFLINE# echo "token=$TOKEN" &gt; $KARAF_HOME/etc/frinx.license.cfg
+    OFFLINE# echo "token=$TOKEN";
+    $KARAF_HOME/etc/frinx.license.cfg
 
 
 Generate fingerprint json to a local file:

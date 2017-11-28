@@ -3,10 +3,10 @@
 
 This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.<!--more-->
 
-**Update - currently the "./bin/status" command does not operate correctly - please refrain from using until further notice. We are working on a resolution to this issue.** 
+**Update - currently the "./bin/status" command does not operate correctly - please refrain from using until further notice. We are working on a resolution to this issue.**
 
-**Note that FRINX ODL distribution 3.1.0 requires Java 8**
-To install Java:
+**Note that FRINX ODL distribution 3.1.0 requires Java 8**  
+To install Java:  
 Ubuntu: In a terminal type
 
     sudo apt-get install openjdk-8-jre

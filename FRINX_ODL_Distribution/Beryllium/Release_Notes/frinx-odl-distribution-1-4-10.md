@@ -5,7 +5,15 @@ This document describes the latest changes, additions, known issues, and fixes f
 
 **Update - currently the "./bin/status" command does not operate correctly - please refrain from using until further notice. We are working on a resolution to this issue.**
 
-**Note that FRINX ODL Distribution 1.4.10 requires Java 8**
+**Note that FRINX ODL Distribution 1.4.10 requires Java 8**  
+To install Java:  
+Ubuntu: In a terminal type
+
+    sudo apt-get install openjdk-8-jre
+
+CentOS: In a terminal type
+
+    sudo yum install java-1.8.0-openjdk
 
 **Note that all yang models present in JAR artifacts of the distribution are extracted to schemas folder and parsed during startup**  
 

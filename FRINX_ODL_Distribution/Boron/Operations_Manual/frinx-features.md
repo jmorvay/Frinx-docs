@@ -35,20 +35,20 @@ The FRINX distribution offers the following features:
 ### To install for the current karaf session only
 To view a list of available features: Within the karaf console type
 
- feature:list
+    feature:list
 
 To search for a particular feature e.g. restconf you can use grep e.g.
 
- feature: list |grep restconf
+    feature: list |grep restconf
 
 To install a feature:
 
- feature:install odl-restconf
- feature:install odl-netconf-connector-all
+    feature:install odl-restconf
+    feature:install odl-netconf-connector-all
 
 Multiple features can be installed on a single line
 
- feature:install odl-restconf odl-netconf-connector-all
+    feature:install odl-restconf odl-netconf-connector-all
 
 ### For an install that persists in future session
 To load features consistently and in accordance with our Daexim edit the **org.apache.karaf.features.cfg** file within the etc directory of your Frinx ODL distribution main directory:

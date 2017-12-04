@@ -5,7 +5,7 @@
 - [FRINX ODL Distribution: Features](#frinx-odl-distribution-features)
     - [To install features](#to-install-features)
         - [To install for the current karaf session only](#to-install-for-the-current-karaf-session-only)
-        - [For an install that persists in future session](#for-an-install-that-persists-in-future-session)
+        - [For an install that persists in future sessions](#for-an-install-that-persists-in-future-sessions)
 
 <!-- /TOC -->
 
@@ -67,15 +67,3 @@ By setting the **odlFeaturesBoot** variable, the specified features will be load
 odlFeaturesBoot=odl-restconf,odl-netconf-connector-all
 
 This will ensure that the odl-restconf and odl-netconf-connector-all features are always present at startup.
-
-**Compatibility with other OpenDaylight projects**  
-The Frinx ODL Distribution release schedule is tightly synched with OpenDaylight release schedule. The small code delta means that all Beryllium Opendaylight features can be used with the Frinx ODL Distribution. The full list of features can be found here:
-
-<https://www.opendaylight.org/opendaylight-features-list>
-
-**Compatibility between features**  
-The link below describes the compatibility between OpenDaylight features.
-
-[https://wiki.opendaylight.org/view/AAA:Beryllium_System_Test_Plan][1]
-
- [1]: http://wiki.opendaylight.org/view/AAA:Beryllium_System_Test_Plan

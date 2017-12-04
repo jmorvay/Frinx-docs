@@ -3,8 +3,8 @@
 <!-- TOC -->
 
 - [Activating the FRINX ODL Distribution](#activating-the-frinx-odl-distribution)
-        - [Download the FRINX ODL Distribution](#download-the-frinx-odl-distribution)
-        - [Activate your FRINX ODL Distribution](#activate-your-frinx-odl-distribution)
+    - [Download the FRINX ODL Distribution](#download-the-frinx-odl-distribution)
+    - [Activate your FRINX ODL Distribution](#activate-your-frinx-odl-distribution)
     - [Non-standard setups](#non-standard-setups)
         - [Activating the FRINX ODL Distribution behind a proxy](#activating-the-frinx-odl-distribution-behind-a-proxy)
         - [Activating the FRINX ODL Distribution on a server without Internet access](#activating-the-frinx-odl-distribution-on-a-server-without-internet-access)
@@ -27,7 +27,7 @@ CentOS: In a terminal type
 
     sudo yum install java-1.8.0-openjdk
 
-### Download the FRINX ODL Distribution  
+## Download the FRINX ODL Distribution  
 
 Please click on the following link to download a zip archive of the FRINX ODL Distribution:
 
@@ -36,7 +36,7 @@ Please click on the following link to download a zip archive of the FRINX ODL Di
 Older distributions can be downloaded from our [archive](https://frinx.io/archive)
 By downloading the file you accept the FRINX software agreement: [EULA](7793505-v7-Frinx-ODL-Distribution-Software-End-User-License-Agreement.pdf)
 
-### Activate your FRINX ODL Distribution 
+## Activate your FRINX ODL Distribution 
 
 To activate your installation, unzip the file and open the directory. Enter the following commands in a terminal to start and activate Frinx ODL (the token is unique to your user account on frinx.io and cannot be shared with other users. It can be found [here](https://frinx.io/my-licenses-information) (you need to be logged in frinx.io to view your token)
 

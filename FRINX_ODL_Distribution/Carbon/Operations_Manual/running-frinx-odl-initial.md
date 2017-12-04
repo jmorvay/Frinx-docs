@@ -1,16 +1,16 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/operations_manual.html)
+<!-- TOC -->
+
+- [Activating the FRINX ODL Distribution](#activating-the-frinx-odl-distribution)
+        - [Download the FRINX ODL Distribution](#download-the-frinx-odl-distribution)
+        - [Activate your FRINX ODL Distribution](#activate-your-frinx-odl-distribution)
+    - [Non-standard setups](#non-standard-setups)
+        - [Activating the FRINX ODL Distribution behind a proxy](#activating-the-frinx-odl-distribution-behind-a-proxy)
+        - [Activating the FRINX ODL Distribution on a server without Internet access](#activating-the-frinx-odl-distribution-on-a-server-without-internet-access)
+
+<!-- /TOC -->
 # Activating the FRINX ODL Distribution 
-
-<!-- TOC START min:1 max:3 link:true update:true -->
-- [Running the FRINX ODL Distribution for the first time](#running-the-frinx-odl-distribution-for-the-first-time)
-    - [Download and activate the FRINX ODL Distribution](#download-and-activate-the-frinx-odl-distribution)
-    - [Start your FRINX ODL Distribution for the first time](#start-your-frinx-odl-distribution-for-the-first-time)
-  - [Non-standard setups](#non-standard-setups)
-    - [Activating the FRINX ODL Distribution behind a proxy](#activating-the-frinx-odl-distribution-behind-a-proxy)
-    - [Activating the FRINX ODL Distribution on a server without Internet access](#activating-the-frinx-odl-distribution-on-a-server-without-internet-access)
-
-<!-- TOC END -->
 
 This guide explains how to run the distribution for the first time. If you have run it previously, please see [this guide](running-frinx-odl-after-activation.md)
 

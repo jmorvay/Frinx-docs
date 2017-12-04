@@ -24,7 +24,7 @@
 After running for the first time and generating a local license file, you no longer need to provide a token when starting karaf.
 The following operations have been tested in CentOS and Ubuntu 16.04.
 
-*Note that Frinx ODL needs approximately 3 minutes to startup and shutdown. To maintain system integrity, please do not interrupt the startup and shutdown processes within this time*
+*Note that Frinx ODL needs approximately 3 minutes to startup and shutdown. To maintain system integrity, **please do not interrupt the startup and shutdown processes** within this time.*  
 *In the event of interruption, the initial state can be restored by entering the following commands from a terminal within your Frinx ODL main directory. The first command forcibly kills the Frinx ODL karaf process; the second command cleans certain directories:*
  
 ```

@@ -36,13 +36,22 @@ Please click on the following link to download a zip archive of the FRINX ODL Di
 Older distributions can be downloaded from our [archive](https://frinx.io/archive)
 By downloading the file you accept the FRINX software agreement: [EULA](7793505-v7-Frinx-ODL-Distribution-Software-End-User-License-Agreement.pdf)
 
-## Activate your FRINX ODL Distribution 
+## Activate your FRINX ODL Distribution  
 
 To activate your installation, unzip the file and open the directory. Enter the following commands in a terminal to start and activate Frinx ODL (the token is unique to your user account on frinx.io and cannot be shared with other users. It can be found [here](https://frinx.io/my-licenses-information) (you need to be logged in frinx.io to view your token)
 
-    bin/karaf frinx.createtoken [frinx-license_secret-token]
+    ./bin/karaf frinx.createtoken [frinx-license_secret-token]
 
-To stop it, hold down CTRL and type d
+*Note that Frinx ODL needs approximately 3 minutes to startup and shutdown. To maintain system integrity, **please do not interrupt the startup and shutdown processes** within this time.*  
+*In the event of interruption, the initial state can be restored by entering the following commands from a terminal within your Frinx ODL main directory. The first command forcibly kills the Frinx ODL karaf process; the second command cleans certain directories:*
+ 
+```
+kill -9 $(pgrep  -o -f  karaf)
+rm  -rf  data/ snapshots/ journal/
+```
+To stop FRINX ODL safely from within the karaf console, hold the 'CTRL' key and press the 'd' key.
+
+For more info on operating karaf, see [Operating the FRINX ODL Distribution](running-frinx-odl-after-activation)
 
 ## Non-standard setups
 

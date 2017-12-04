@@ -42,7 +42,15 @@ To activate your installation, unzip the file and open the directory. Enter th
 
     ./bin/karaf frinx.createtoken [frinx-license_secret-token]
 
-To stop it, hold the 'CTRL' key and press the 'd' key
+*Note that Frinx ODL needs approximately 3 minutes to startup and shutdown. To maintain system integrity, **please do not interrupt the startup and shutdown processes** within this time.*  
+*In the event of interruption, the initial state can be restored by entering the following commands from a terminal within your Frinx ODL main directory. The first command forcibly kills the Frinx ODL karaf process; the second command cleans certain directories:*
+ 
+```
+kill -9 $(pgrep  -o -f  karaf)
+rm  -rf  data/ snapshots/ journal/
+```
+To stop FRINX ODL safely from within the karaf console, hold the 'CTRL' key and press the 'd' key.
+For more info on operating karaf, see [Operating the FRINX ODL Distribution](running-frinx-odl-after-activation)
 
 ## Non-standard setups
 

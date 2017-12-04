@@ -79,8 +79,8 @@ When connected to the background process, you can shutdown the Frinx ODL server 
     shutdown
 ```
 
-### Stopping karaf
-Type
+### Stopping the background process
+With karaf running in the background (from using ./bin/start), stop it from within a terminal by typing
 ```
     ./bin/stop
 ```

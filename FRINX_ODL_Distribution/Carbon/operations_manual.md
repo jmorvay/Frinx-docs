@@ -1,7 +1,7 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)  
 # FRINX Carbon ODL Distribution: Operations Manual
 
-[Activating the FRINX ODL Distribution)](Operations_Manual/running-frinx-odl-initial.md)  
+[Activating the FRINX ODL Distribution](Operations_Manual/running-frinx-odl-initial.md)  
 [Operating the FRINX ODL Distribution](Operations_Manual/running-frinx-odl-after-activation.md)   
 [Features: how to install](Operations_Manual/frinx-features.md)  
 [Karaf Logging](Operations_Manual/karaf-logging.md)  

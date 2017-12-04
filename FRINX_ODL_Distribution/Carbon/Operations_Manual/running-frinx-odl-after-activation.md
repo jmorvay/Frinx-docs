@@ -60,11 +60,15 @@ Type
 ```
     ./bin/client
 ```
+By default, client tries to connect on localhost, on port 8101 (the default Apache Karaf SSH port). Client accepts different options to let you connect on a remote Apache Karaf instance. You can use --help to get details about these options.
+
 or type
 ```
     ssh karaf@localhost -p 8101
 ```
 (password: karaf)
+
+(This connection can be local or remote.)
 
 When connected to the background process, you can logout (this closes only the ./bin/client process, but not the Frinx ODL server) by typing
 ```

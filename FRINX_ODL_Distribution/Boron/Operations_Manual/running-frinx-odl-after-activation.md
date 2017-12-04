@@ -4,36 +4,43 @@
 <!-- TOC -->
 
 - [Operating the FRINX ODL Distribution](#operating-the-frinx-odl-distribution)
-    - [Operating karaf in 'regular' mode (in the foreground, with console)](#operating-karaf-in-regular-mode-in-the-foreground-with-console)
-        - [Starting karaf](#starting-karaf)
-        - [Stopping karaf](#stopping-karaf)
+    - [Operating in 'regular' mode (karaf in the foreground, with console)](#operating-in-regular-mode-karaf-in-the-foreground-with-console)
+        - [Starting](#starting)
+        - [Stopping](#stopping)
     - [Operating karaf in the background](#operating-karaf-in-the-background)
-        - [Starting karaf](#starting-karaf-1)
+        - [Starting karaf](#starting-karaf)
         - [Confirming karaf is running](#confirming-karaf-is-running)
         - [Connecting to the background process](#connecting-to-the-background-process)
         - [Stopping the background process](#stopping-the-background-process)
     - [Operating karaf in 'server' mode (in the foreground, without the console)](#operating-karaf-in-server-mode-in-the-foreground-without-the-console)
-        - [Starting karaf](#starting-karaf-2)
+        - [Starting karaf](#starting-karaf-1)
         - [Confirming karaf is running](#confirming-karaf-is-running-1)
-        - [Stopping karaf](#stopping-karaf-1)
+        - [Stopping karaf](#stopping-karaf)
     - [Resetting FRINX ODL to a clean state](#resetting-frinx-odl-to-a-clean-state)
     - [Setting JAVA_HOME and other variables](#setting-java_home-and-other-variables)
 
 <!-- /TOC -->
 
 # Operating the FRINX ODL Distribution
-
 After running for the first time and generating a local license file, you no longer need to provide a token when starting karaf.
 
 This page describes how you can operate the Frinx ODL distribution in different modes. The commands have been tested in CentOS and Ubuntu 16.04.
 
-## Operating karaf in 'regular' mode (in the foreground, with console)
-### Starting karaf
+*Note that Frinx ODL needs approximately 3 minutes to startup and shutdown. To maintain system integrity, **please do not interrupt the startup and shutdown processes** within this time.*  
+*In the event of interruption, the initial state can be restored by entering the following commands from a terminal within your Frinx ODL main directory. The first command forcibly kills the Frinx ODL karaf process; the second command cleans certain directories:*
+ 
+```
+kill -9 $(pgrep  -o -f  karaf)
+rm  -rf  data/ snapshots/ journal/
+```
+
+## Operating in 'regular' mode (karaf in the foreground, with console)
+### Starting
 In your Frinx ODL Distribution directory, for example /home/username/distribution-karaf-3.1.0.frinx, type
 
     ./bin/karaf
 
-### Stopping karaf
+### Stopping
 To stop from within the karaf console there are three options:
 
 1. Hold the 'CTRL' key and press the 'd' key
@@ -46,7 +53,6 @@ To stop from within the karaf console there are three options:
     shutdown
 ```
 When prompted to confirm, type 'yes'.
-
 ## Operating karaf in the background
 ### Starting karaf
 In your Frinx ODL Distribution directory, for example /home/username/distribution-karaf-3.1.0.frinx, type

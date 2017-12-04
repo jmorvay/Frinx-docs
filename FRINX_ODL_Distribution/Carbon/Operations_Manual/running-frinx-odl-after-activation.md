@@ -21,7 +21,6 @@
 <!-- /TOC -->
 
 # Operating the FRINX ODL Distribution
-
 After running for the first time and generating a local license file, you no longer need to provide a token when starting karaf.
 
 This page describes how you can operate the Frinx ODL distribution in different modes. The commands have been tested in CentOS and Ubuntu 16.04.
@@ -31,7 +30,7 @@ This page describes how you can operate the Frinx ODL distribution in different 
  
 ```
 kill -9 $(pgrep  -o -f  karaf)
-rm  -rf  data/ /snapshots/ journal/
+rm  -rf  data/ snapshots/ journal/
 ```
 
 ## Operating in 'regular' mode (karaf in the foreground, with console)

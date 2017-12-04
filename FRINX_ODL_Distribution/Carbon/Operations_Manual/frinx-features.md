@@ -59,7 +59,7 @@ Multiple features can be installed on a single line - use a space to separate e.
 
     feature:install odl-restconf odl-netconf-connector-all
 
-### For an install that persists in future session
+### For an install that persists in future sessions
 To load features consistently and in accordance with our Daexim edit the **org.apache.karaf.features.cfg** file within the etc directory of your Frinx ODL distribution main directory:
 
 By setting the **odlFeaturesBoot** variable, the specified features will be loaded at startup, every time Frinx ODL starts e.g.

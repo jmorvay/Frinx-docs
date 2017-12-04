@@ -1,6 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/operations_manual.html)
-# Running the FRINX ODL Distribution for the first time
+# Starting the FRINX ODL Distribution for the first time (activation)
 
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [Running the FRINX ODL Distribution for the first time](#running-the-frinx-odl-distribution-for-the-first-time)

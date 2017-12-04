@@ -1,8 +1,8 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)  
 # FRINX Beryllium ODL Distribution: Operations Manual
 
-[Running the FRINX ODL Distribution](Operations_Manual/running-frinx-odl-initial.md)  
-[Running after activation](Operations_Manual/running-frinx-odl-after-activation.md)   
+[Activating the FRINX ODL Distribution)](Operations_Manual/running-frinx-odl-initial.md)  
+[Operating the FRINX ODL Distribution](Operations_Manual/running-frinx-odl-after-activation.md)   
 [Karaf Logging](Operations_Manual/karaf-logging.md)  
 [Out of the box features](Operations_Manual/frinx-features.md)  
 [RESTCONF](Operations_Manual/restconf.md)  

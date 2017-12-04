@@ -1,25 +1,26 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/operations_manual.html)
-<!-- TOC START min:1 max:3 link:true update:true -->
-- [Running the FRINX ODL distribution after initial activation](#running-the-frinx-odl-distribution-after-initial-activation)
-  - [Operating karaf in 'regular' mode (in the foreground, with console)](#operating-karaf-in-regular-mode-in-the-foreground-with-console)
-    - [Starting karaf](#starting-karaf)
-    - [Stopping karaf](#stopping-karaf)
-  - [Operating karaf in the background](#operating-karaf-in-the-background)
-    - [Starting karaf](#starting-karaf-1)
-    - [Confirming karaf is running](#confirming-karaf-is-running)
-    - [Connecting to the background process](#connecting-to-the-background-process)
-    - [Stopping karaf](#stopping-karaf-1)
-  - [Operating karaf in 'server' mode (in the foreground, without the console)](#operating-karaf-in-server-mode-in-the-foreground-without-the-console)
-    - [Starting karaf](#starting-karaf-2)
-    - [Confirming karaf is running](#confirming-karaf-is-running-1)
-    - [Stopping karaf](#stopping-karaf-2)
-  - [Resetting FRINX ODL to a clean state](#resetting-frinx-odl-to-a-clean-state)
-  - [Setting JAVA_HOME and other variables](#setting-java_home-and-other-variables)
+<!-- TOC -->
 
-<!-- TOC END -->
+- [Operating the FRINX ODL Distribution](#operating-the-frinx-odl-distribution)
+    - [Operating in 'regular' mode (karaf in the foreground, with console)](#operating-in-regular-mode-karaf-in-the-foreground-with-console)
+        - [Starting](#starting)
+        - [Stopping](#stopping)
+    - [Operating in the background](#operating-in-the-background)
+        - [Starting](#starting-1)
+        - [Confirming karaf is running](#confirming-karaf-is-running)
+        - [Connecting to the background process](#connecting-to-the-background-process)
+        - [Stopping](#stopping-1)
+    - [Operating in 'server' mode (karaf in the foreground, without the console)](#operating-in-server-mode-karaf-in-the-foreground-without-the-console)
+        - [Starting](#starting-2)
+        - [Confirming karaf is running](#confirming-karaf-is-running-1)
+        - [Stopping the background process](#stopping-the-background-process)
+    - [Resetting FRINX ODL to a clean state](#resetting-frinx-odl-to-a-clean-state)
+    - [Setting JAVA_HOME and other variables](#setting-java_home-and-other-variables)
 
-# Running the FRINX ODL distribution after initial activation
+<!-- /TOC -->
+
+# Operating the FRINX ODL Distribution
 
 After running for the first time and generating a local license file, you no longer need to provide a token when starting karaf.
 The following operations have been tested in CentOS and Ubuntu 16.04.

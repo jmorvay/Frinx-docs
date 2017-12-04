@@ -1,5 +1,14 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/operations_manual.html)
+<!-- TOC -->
+
+- [FRINX ODL Distribution: Features](#frinx-odl-distribution-features)
+    - [To install features](#to-install-features)
+        - [To install for the current karaf session only](#to-install-for-the-current-karaf-session-only)
+        - [For an install that persists in future session](#for-an-install-that-persists-in-future-session)
+
+<!-- /TOC -->
+
 # FRINX ODL Distribution: Features
 
 The FRINX distribution offers the following features:
@@ -46,7 +55,7 @@ To install a feature:
     feature:install odl-restconf
     feature:install odl-netconf-connector-all
 
-Multiple features can be installed on a single line
+Multiple features can be installed on a single line - use a space to separate e.g.:
 
     feature:install odl-restconf odl-netconf-connector-all
 

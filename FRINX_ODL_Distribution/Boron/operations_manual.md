@@ -3,9 +3,9 @@
 
 [Running the FRINX ODL Distribution](Operations_Manual/running-frinx-odl-initial.md)  
 [Running after activation](Operations_Manual/running-frinx-odl-after-activation.md)   
+[Features - how to install](Operations_Manual/frinx-features.md)  
 [Karaf CLI](Operations_Manual/karaf-cli.md)  
 [Karaf Logging](Operations_Manual/karaf-logging.md)  
-[Out of the box features](Operations_Manual/frinx-features.md)  
 [RESTCONF](Operations_Manual/restconf.md)  
 [NETCONF:Intro](Operations_Manual/netconf-intro.md)  
 [NETCONF:Mounting a device](Operations_Manual/netconf-mounting.md)  

@@ -38,6 +38,7 @@ CentOS: In a terminal type
     *   entity-owners contains no data as entity ownership service was rewritten. Entity owners are assigned to the same node that hosts shard leaders.
 4.  Operational state of IOS device cannot be read when VRF is configured on the device and the device is mounted via SSH.
 5.  CLI telnet connectivity with reverse telnet on Cisco devices [see here](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_usr_ssh/configuration/15-mt/sec-usr-ssh-15-mt-book/sec-rev-ssh-enhanmt.html) is not supported in this release.
+6.  When a specific query is issued with regards to a child reader e.g. AreaReader in OSPF for XR, default data is being returned for non-existent instances.
 
 
 #### Opendaylight Carbon Release Notes

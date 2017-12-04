@@ -19,7 +19,7 @@ This guide explains how to run the distribution for the first time. If you have 
 **Java:** Releases based on Beryllium and Boron (and subsequent releases) require Java 8.  
 **Linux:** Unless stated otherwise, this documentation assumes you are using Linux. Supported distributions are Centos7 and Ubuntu 16.04.  
 
-### Download and the FRINX ODL Distribution  
+### Download the FRINX ODL Distribution  
 
 Please click on the following link to download a zip archive of the FRINX ODL Distribution:
  

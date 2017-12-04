@@ -24,13 +24,21 @@
 After running for the first time and generating a local license file, you no longer need to provide a token when starting karaf.
 The following operations have been tested in CentOS and Ubuntu 16.04.
 
-## Operating karaf in 'regular' mode (in the foreground, with console)
-### Starting karaf
+*Note that Frinx ODL needs approximately 3 minutes to startup and shutdown. To maintain system integrity, please do not interrupt the startup and shutdown processes within this time*
+*In the event of interruption, the initial state can be restored by entering the following commands from a terminal within your Frinx ODL main directory. The first command forcibly kills the Frinx ODL karaf process; the second command cleans certain directories:*
+ 
+```
+kill -9 $(pgrep  -o -f  karaf)
+rm  -rf  data/ /snapshots/ journal/
+```
+
+## Operating in 'regular' mode (karaf in the foreground, with console)
+### Starting
 In your Frinx ODL Distribution directory, for example /home/username/distribution-karaf-3.1.0.frinx, type
 
     ./bin/karaf
 
-### Stopping karaf
+### Stopping
 To stop from within the karaf console there are three options:
 
 1. Hold the 'CTRL' key and press the 'd' key
@@ -44,12 +52,13 @@ To stop from within the karaf console there are three options:
 ```
 When prompted to confirm, type 'yes'.
 
-## Operating karaf in the background
-### Starting karaf
+## Operating in the background
+### Starting 
 In your Frinx ODL Distribution directory, for example /home/username/distribution-karaf-3.1.0.frinx, type
 ```
     ./bin/start
 ```
+This starts the Frinx ODL karaf process.
 ### Confirming karaf is running
 Type
 ```
@@ -79,14 +88,14 @@ When connected to the background process, you can shutdown the Frinx ODL server 
     shutdown
 ```
 
-### Stopping the background process
-With karaf running in the background (from using ./bin/start), stop it from within a terminal by typing
+### Stopping 
+Type
 ```
     ./bin/stop
 ```
 
-## Operating karaf in 'server' mode (in the foreground, without the console)
-### Starting karaf
+## Operating in 'server' mode (karaf in the foreground, without the console)
+### Starting 
 In your Frinx ODL Distribution directory, for example /home/username/distribution-karaf-3.1.0.frinx, type
 ```
     ./bin/karaf server &
@@ -98,8 +107,8 @@ Type
     ./bin/status
 ```
 
-### Stopping karaf
-Type
+### Stopping the background process
+With karaf running in the background (from using ./bin/start), stop it from within a terminal by typing
 ```
     ./bin/stop
 ```
@@ -115,3 +124,4 @@ This is done by editing the 'setenv' file in the bin directory within your Frinx
 ```
     export JAVA_HOME=/opt/jdk1.8.0_151
 ```
+

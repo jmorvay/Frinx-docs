@@ -15,7 +15,6 @@
 
 <!-- TOC END -->
 
-
 The Apache Karaf container used by the Frinx ODL Distribution supports three different start modes:
 
 1.  ***regular*** mode starts Apache Karaf in the foreground, including the shell console.
@@ -27,7 +26,6 @@ You can also manage Apache Karaf as a system service (see [System Service][1] se
 ## Regular mode  
 Uses the `bin/karaf` Linux script (`binkaraf.bat` on Windows). It's the default start process. It starts Apache Karaf as a foreground process, and displays the shell console.
 
-a. On Linux:
 ~~~~
 /bin/karaf
 ~~~~
@@ -43,44 +41,12 @@ a. On Linux:
     Hit `<ctrl-d>` or type `system:shutdown` or `logout` to shutdown Karaf.
     $karaf@root()>
 ~~~~
-b. On Windows:
-~~~~
-binkaraf.bat
-~~~~
-~~~~      
-       _________      .__                  
-       __________ __|__| ____ __  ___    
-         / | ___  V__  |/      /  /    
-        /  |  |   |  |  |   |          
-        __| / |___|  |__>___|  /_/__   
-           /                 /           
-Frinx version: 1.0.0-Beryllium-SR1.2-frinx frinx-user@root>
-Hit [tab] for a list of available commands
 
-
-and [cmd] --help for help on a specific command.
-
-Hit <ctrl-d> or type system:shutdown or logout to shutdown Karaf.
-
-karaf@root()>
-
-Warning
-Closing the console or shell window will cause Apache Karaf and therefore Frinx terminate.
-~~~~
 ## Server mode  
 Server mode starts Apache Karaf as a foreground process, but doesn't start the shell console. To use this mode, use the server argument to the `bin/karaf` Linux script (on Windows the script is at <span style="font-family: Courier New">binkaraf.bat</span>).  
-a. On Linux:
+
 ~~~~
 bin/karaf server
-~~~~
-
-b. On Windows:
-~~~~
-binkaraf.bat server 
-~~~~
-~~~~
-Warning  
-Closing the console or shell window will cause Apache Karaf to terminate.
 ~~~~
 
 You can connect to the shell console using SSH or client (see the Connect section in this page).
@@ -88,30 +54,17 @@ You can connect to the shell console using SSH or client (see the Connect sectio
 ## Background mode  
 Background mode starts Apache Karaf as a background process. To start in background mode, you have to use the `bin/start` Linux script (`binstart.bat` on Windows).
 
-a. On Linux:
-
-    bin/start
-
-
-b. On Windows:
-
-    binstart.bat  
-
-You can connect to the shell console using SSH or client (see the Connect section).
+~~~~
+bin/start
+~~~~
 
 ## Clean start  
 Apache Karaf stores all previously installed applications and changes that you made in the data folder. If you want to start from a clean state, you can remove the data folder. For convenience, you can use the *clean* argument to the `bin/karaf` Linux script (`binkaraf.bat` on Windows).  
-a. On Linux:
 
-    bin/karaf clean  
-    bin/start clean
-
-
-b. On Windows:
-
-    binkaraf.bat clean  
-    binstart.bat clean
-
+~~~~
+bin/karaf clean  
+bin/start clean
+~~~~
 
 ## Customize variables  
 Apache Karaf accepts environment variables:
@@ -128,21 +81,15 @@ Apache Karaf accepts environment variables:
      * KARAF_DEBUG: if 'true', enable the debug mode (default is null). If debug mode is enabled, Karaf starts a JDWP socket on port 5005. You can plug your IDE to define breakpoints, and run step by step.
 
 
-You can define these environment variables in the `bin/setenv` Linux script (`binsetenv.bat` on Windows). For instance, to set the minimum and maximum memory size for the JVM, you can define the following values: a. On Linux: **Content of bin/setenv**
+You can define these environment variables in the `bin/setenv` Linux script (`binsetenv.bat` on Windows). For instance, to set the minimum and maximum memory size for the JVM, you can define the following values:  
+**Content of bin/setenv**
 
      export JAVA_MIN_MEM=256M
      export JAVA_MAX_MEM=1024M
 
-
-b. On Windows:** rem Content of binsetenv.bat**
-
-     set JAVA_MIN_MEM=256M
-     set JAVA_MAX_MEM=1024M
-
-
 ## Connecting  
 Even if you start Apache Karaf without the console (using server or background modes), you can connect to the console. This connection can be local or remote, in which case you can access the Karaf console remotely. To connect to the console, you can use the `bin/client` Linux script (`binclient.bat` on Windows).  
-a. On Linux:
+
 ~~~~
 /bin/client -u karaf
 ~~~~
@@ -168,41 +115,14 @@ Hit <ctrl-d> or type logout to disconnect the shell from the current session.
 
 karaf@root()>
 ~~~~
-b. On Windows:
-~~~~
-binclient.bat -u karaf
-~~~~
-
-~~~~
-Logging in as karaf 360 [pool-2-thread-3] WARN org.apache.sshd.client.keyverifier.AcceptAllServerKeyVerifier - Server at /0.0.0.0:8101 presented unverified key:
-
-           _________      .__                  
-           __________ __|__| ____ __  ___    
-             / | ___  V__  |/      /  /    
-            /  |  |   |  |  |   |          
-            __| / |___|  |__>___|  /_/__   
-               /                 /           
-    Frinx version: 1.0.0-Beryllium-SR1.2-frinx frinx-user@root>
-
-
-Hit [tab] for a list of available commands
-
-Type [cmd] --help for help on a specific command.
-
-Type system:shutdown to shutdown Karaf.
-
-Hit <ctrl-d> or type logout to disconnect shell from current session.
-
-karaf@root()>
-~~~~
 
 By default, client tries to connect on localhost, on port 8101 (the default Apache Karaf SSH port). Client accepts different options to let you connect on a remote Apache Karaf instance. You can use --help to get details about these options.
 
 ## Help  
-a. On Linux:
 
-    bin/client --help
-
+~~~~
+bin/client --help
+~~~~
 
 Apache Karaf client
 
@@ -212,11 +132,6 @@ Apache Karaf client
 *   -r [attempts] retry connection establishment (up to attempts times) -d [delay] intra-retry delay (defaults to 2 seconds) -b batch mode, specify multiple commands via standard input -f [file] read commands from the specified file [commands] commands to run
 
 *If no commands are specified, the client will be put into an interactive mode*
-
-b. On Windows:
-
-    binclient.bat --help
-
 
 ## Apache Karaf client  
 -a [port] specify the port to connect to -h [host] specify the host to connect to -u [user] specify the user name --help shows this help message -v raise verbosity -r [attempts] retry connection establishment (up to attempts times) -d [delay] intra-retry delay (defaults to 2 seconds) -b batch mode, specify multiple commands via standard input -f [file] read commands from the specified file [commands] commands to run *If no commands are specified, the client will be put in an interactive mode*

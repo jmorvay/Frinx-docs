@@ -9,7 +9,6 @@
 [NETCONF:Intro](Operations_Manual/netconf-intro.md)  
 [NETCONF:Mounting a device](Operations_Manual/netconf-mounting.md)  
 [NETCONF:Deleting a mounted device](Operations_Manual/netconf-deleting.md)  
-[Connecting to an OpenFlow switch](Operations_Manual/openflow-switch.md)  
 [Clustering](Operations_Manual/clustering-overview.md)  
 [Elasticsearch: with FRINX ODL logs](Operations_Manual/elastic-search.md)  
 [Glossary of terms](Operations_Manual/glossary-of-terms.md)  

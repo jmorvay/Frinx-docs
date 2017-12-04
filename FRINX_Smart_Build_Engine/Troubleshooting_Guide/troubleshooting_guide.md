@@ -12,14 +12,14 @@ Each SBE container has the following pre-installed tools:
     telnet  
     
 
-**SSH login credentials for each container:**
+**SSH login credentials for apache-ds, sonarqube, nexus, postgresql, redmine and sbe containers:**
 
 username: admin  
 password: admin
 
-Example of SSH login into "apache-ds" component container:
+Example of SSH login into "nexus" component container:
 
-    docker exec -it sbe-default-gerrit service ssh start
+    docker exec -it sbe-default-nexus service ssh start
     ssh admin@<component-ip>
     
 

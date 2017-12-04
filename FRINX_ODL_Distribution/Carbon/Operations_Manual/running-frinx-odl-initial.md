@@ -28,7 +28,7 @@ CentOS: In a terminal type
 
 **Linux:** Unless stated otherwise, this documentation assumes you are using Linux. Supported distributions are Centos7 and Ubuntu 16.04.  
 
-### Download and activate the FRINX ODL Distribution  
+### Download the FRINX ODL Distribution  
 
 Please click on the following link to download a zip archive of the FRINX ODL Distribution:
 
@@ -37,7 +37,7 @@ Please click on the following link to download a zip archive of the FRINX ODL Di
 Older distributions can be downloaded from our [archive](https://frinx.io/archive)
 By downloading the file you accept the FRINX software agreement: [EULA](7793505-v7-Frinx-ODL-Distribution-Software-End-User-License-Agreement.pdf)
 
-### Start your FRINX ODL Distribution for the first time
+### Start your FRINX ODL Distribution  
 
 To activate your installation, unzip the file and open the directory. Enter the following commands in a terminal (the token is unique to your user account on frinx.io and cannot be shared with other users. It can be found [here](https://frinx.io/my-licenses-information) (you need to be logged in frinx.io to view your token)
 

@@ -1,6 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/operations_manual.html)
-# Starting the FRINX ODL Distribution for the first time (activation)
+# Activating the FRINX ODL Distribution 
 
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [Running the FRINX ODL Distribution for the first time](#running-the-frinx-odl-distribution-for-the-first-time)
@@ -16,7 +16,8 @@ This guide explains how to run the distribution for the first time. If you have 
 
 ***System requirements***  
 **RAM:** 4GB minimum; we recommend 8GB.  
-**Java:** Releases based on Beryllium and Boron (and subsequent releases) require Java 8.
+**Java:** Releases based on Beryllium and Boron (and subsequent releases) require Java 8.  
+**Linux:** Unless stated otherwise, this documentation assumes you are using Linux. Supported distributions are Centos7 and Ubuntu 16.04.  
 To install Java:
 Ubuntu: In a terminal type
 
@@ -25,8 +26,6 @@ Ubuntu: In a terminal type
 CentOS: In a terminal type
 
     sudo yum install java-1.8.0-openjdk
-
-**Linux:** Unless stated otherwise, this documentation assumes you are using Linux. Supported distributions are Centos7 and Ubuntu 16.04.  
 
 ### Download the FRINX ODL Distribution  
 

@@ -38,7 +38,7 @@ To view a list of available features: Within the karaf console type
 
 To search for a particular feature e.g. restconf you can use grep e.g.
 
- feature: list |grep restconf
+ feature:list |grep restconf
 
 To install a feature:
 

@@ -15,8 +15,6 @@ CentOS: In a terminal type
 
     sudo yum install java-1.8.0-openjdk
 
-**Note:** *CLI telnet connectivity with reverse telnet on Cisco devices [see here](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_usr_ssh/configuration/15-mt/sec-usr-ssh-15-mt-book/sec-rev-ssh-enhanmt.html) is not supported in this release.*
-
 #### New Features, Improvements
 
 1.  Clustering changes:
@@ -39,6 +37,7 @@ CentOS: In a terminal type
 3.  restconf/operational/entity-owners:
     *   entity-owners contains no data as entity ownership service was rewritten. Entity owners are assigned to the same node that hosts shard leaders.
 4.  Operational state of IOS device cannot be read when VRF is configured on the device and the device is mounted via SSH.
+5.  CLI telnet connectivity with reverse telnet on Cisco devices [see here](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_usr_ssh/configuration/15-mt/sec-usr-ssh-15-mt-book/sec-rev-ssh-enhanmt.html) is not supported in this release.
 
 
 #### Opendaylight Carbon Release Notes

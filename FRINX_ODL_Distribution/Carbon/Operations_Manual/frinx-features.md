@@ -26,7 +26,7 @@ The FRINX distribution offers the following features:
      openflowplugin
      neutron
      sfc
-     ovsdb (without netvirt)
+     ovsdb
      gbp
      l2switch
      bgpcep

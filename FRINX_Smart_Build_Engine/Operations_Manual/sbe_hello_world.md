@@ -55,7 +55,7 @@ Prepare your LDAP admin username and password. Unless you changed base.ldiff, ru
 
 ### Set up Nexus repos
 
-Prepare your artifactory.frinx.io username and password. The first two arguments are credentials to sbe nexus, the latter ones are to frinx. Run
+Prepare your username and password. The first two arguments are credentials to sbe nexus, the latter ones are to frinx. Run
 
     ./sbe run nexus-create-repos admin admin123 <frinx_username> <frinx_password>   
 

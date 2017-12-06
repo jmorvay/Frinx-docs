@@ -4,13 +4,13 @@
 
 - [Clustering: Overview](#clustering-overview)
     - [Scaling](#scaling)
-    - [High Availability](#high-availability)
-    - [Data Persistence](#data-persistence)
-    - [Data Sharding](#data-sharding)
-    - [Single Node Clustering](#single-node-clustering)
-    - [Multiple Node Clustering](#multiple-node-clustering)
-        - [a. Setting Up](#a-setting-up)
-        - [b. Deployment Considerations](#b-deployment-considerations)
+    - [High availability](#high-availability)
+    - [Data persistence](#data-persistence)
+    - [Data sharding](#data-sharding)
+    - [Single node clustering](#single-node-clustering)
+    - [Multiple node clustering](#multiple-node-clustering)
+        - [a. Setting up](#a-setting-up)
+        - [b. Deployment considerations](#b-deployment-considerations)
         - [c. Deploying a cluster automatically](#c-deploying-a-cluster-automatically)
 
 <!-- /TOC -->
@@ -20,20 +20,20 @@ Clustering is a mechanism that enables multiple processes and programs to work t
 ## Scaling  
 If you have multiple controllers running, you can potentially do more work with or store more data on those controllers if they are clustered. You can also break your data into smaller chunks (known as shards) and either distribute that data across the cluster or perform certain operations on certain members of the cluster.
 
-## High Availability  
+## High availability  
 If you have multiple controllers running and one crashes, you would still have the other instances working and available.
 
-## Data Persistence  
+## Data persistence  
 You will not lose any data gathered by your controller after a manual restart or a crash. 
 
-## Data Sharding  
+## Data sharding  
 The in-memory MD-SAL tree is broken up into a number of smaller sub-trees (inventory, topology, and default).
 
 All of the data available on defined data shards is stored on a disk. By restarting Frinx ODL, you can use the persisted data to reinstate those shards to their previous state.
 
 *The following sections describe how to set up clustering on both individual and multiple Frinx ODL distributions.*
 
-## Single Node Clustering  
+## Single node clustering  
 To enable clustering on a single machine running the Frinx ODL distribution:  
 
 1\. In the Frinx ODL etc/ folder edit the file `org.apache.karaf.features.cfg`: Find the line that begins with '#odlFeaturesBoot'. Remove '#' and add the feature 'odl-mdsal-clustering' (you can keep any other features you currently have listed, just use a comma to separate features). The format should be as follows:
@@ -45,8 +45,8 @@ Save the file.
 
     ./karaf  
 
-## Multiple Node Clustering  
-### a. Setting Up    
+## Multiple node clustering  
+### a. Setting up    
 *(See next section for deployment considerations)*. To run the Frinx ODL distribution in a three node cluster (that is, on three machines), do the following:  
 1\. Determine the three machines (nodes) that will make up the cluster and copy the Frinx ODL distribution to each of those machines.  
 2\. Unzip the controller distribution.  
@@ -98,7 +98,7 @@ The key thing here is the name of the shard. Shard names are structured as follo
     <member-name>-shard-<shard-name-as-per-configuration>-<store-type>  
 
 Here are a couple of sample data short names: • member-1-shard-topology-config • member-2-shard-default-operational Content of this section provided from under *Apache 2.0 license* from [https://nexus.opendaylight.org/content/sites/site/org.opendaylight.docs/master/userguide/manuals/userguide/bk-user-guide/content/\_setting\_up_clustering_on_an_opendaylight_controller.html ][1]
-### b. Deployment Considerations  
+### b. Deployment considerations  
 **We recommend a minimum of three machines**. You can set up a cluster with just two nodes, however if one goes down, the controller will no longer be operational. 
 
 Every device that belongs to a cluster needs an identifier. For this purpose, OpenDaylight uses the node’s role. After you define the first node’s role as *member-1* in the `akka.conf` file (see next section for how the three .conf files are used), OpenDaylight uses *member-1* to identify that node. *Data shards* are used to house all or a certain segment of a module’s data. For example, one shard can contain all of a module’s inventory data while another shard contains all of its topology data.
@@ -111,13 +111,14 @@ If you only define data shard replicas on two of the cluster nodes and one of th
 
 If you have a three node cluster and have defined replicas for a data shard on each of those nodes, that shard will still function even if only two of the cluster nodes are running. *Note that if one of those two nodes go down, your controller will no longer be operational.*
 
-*What considerations need to be made when setting the seed nodes for each member?*  
-*Why are we referring to multiple seed nodes when you set only one IP address?*  
-*Can you set multiple seed nodes for functional testing?*
+***What considerations need to be made when setting the seed nodes for each member?***  
+***Why are we referring to multiple seed nodes when you set only one IP address?***  
+***Can you set multiple seed nodes for functional testing?***
 
 We recommend that you have multiple seed nodes configured. After a cluster member is started, it sends a message to all of its seed nodes. The cluster member then sends a join command to the first seed node that responds. If none of its seed nodes reply, the cluster member repeats this process until it successfully establishes a connection or it is shutdown.
 
-*What happens after one node becomes unreachable? Do the other two nodes function normally?* *When the first node reconnects, does it automatically synchronize with the other nodes?*
+***What happens after one node becomes unreachable? Do the other two nodes function normally?***   
+***When the first node reconnects, does it automatically synchronize with the other nodes?***
 
 After a node becomes unreachable, it remains down for a configurable period of time (10 seconds by default). Once a node goes down, you need to restart it so that it can rejoin the cluster. Once a restarted node joins a cluster, it will synchronize with the lead node automatically. You can run a two node cluster for functional testing, but for HA testing you need to run all three nodes.
 

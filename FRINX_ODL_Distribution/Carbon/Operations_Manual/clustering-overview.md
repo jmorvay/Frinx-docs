@@ -49,7 +49,6 @@ Save the file.
 
 ## Multiple node clustering  
 ### a. Setting up    
-*(See next section for deployment considerations)*.  
 To run the Frinx ODL distribution in a three node cluster (that is, on three machines), do the following:  
 1\. Determine the three machines (nodes) that will make up the cluster and copy the Frinx ODL distribution to each of those machines.  
 2\. Unzip the controller distribution.  

@@ -74,7 +74,11 @@ Find the following line and replace *127\.0.0.1* with the hostname or IP address
 
     cluster {seed-nodes = ["akka.tcp://opendaylight-cluster-data@127.0.0.1:2550"]}
 
-Find the following section and specify the role for each member node. For example, you could assign the first node with the *member-1* role, the second node with the *member-2* role, and the third node with the *member-3* role. roles = ["member-1"] Open the `configuration/initial/module-shards.conf` file and update the items listed in the following section so that the replicas match roles defined in this host’s `configuration/initial/akka.conf` file.
+Find the following section and specify the role for each member node. For example, you could assign the first node with the *member-1* role, the second node with the *member-2* role, and the third node with the *member-3* role.  
+
+    roles = ["member-1"]  
+
+Open the `configuration/initial/module-shards.conf` file and update the items listed in the following section so that the replicas match roles defined in this host’s `configuration/initial/akka.conf` file.
 
     replicas = ["member-1"]
 
@@ -87,7 +91,7 @@ Run the following commands on each of your cluster’s nodes:
     ./karaf JAVA_MAX_MEM=4G JAVA_MAX_PERM_MEM=512m  
     ./karaf
 
-The OpenDaylight controller can now run in a three node cluster. Use any of the three member nodes to access the data residing in the datastore. Say you want to view information about shard designated as *member-1* on a node. To do so, query the shard’s data by making the following HTTP request: *HTTP Method: GET* *HTTP URL:* <http://localhost:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-1-shard-inventory-config,type=DistributedConfigDatastore>
+The Frinx ODL distribution can now run in a three node cluster. Use any of the three member nodes to access the data residing in the datastore. Say you want to view information about shard designated as *member-1* on a node. To do so, query the shard’s data by making the following HTTP request: *HTTP Method: GET* *HTTP URL:* <http://localhost:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-1-shard-inventory-config,type=DistributedConfigDatastore>
 
 If prompted, enter admin as both the username and password.  
 *HTTP: EXPECTED RESPONSE*  
@@ -102,7 +106,7 @@ Here are a couple of sample data short names: • member-1-shard-topology-config
 ### b. Deployment considerations  
 **We recommend a minimum of three machines**. You can set up a cluster with just two nodes, however if one goes down, the controller will no longer be operational. 
 
-Every device that belongs to a cluster needs an identifier. For this purpose, OpenDaylight uses the node’s role. After you define the first node’s role as *member-1* in the `akka.conf` file (see next section for how the three .conf files are used), OpenDaylight uses *member-1* to identify that node. *Data shards* are used to house all or a certain segment of a module’s data. For example, one shard can contain all of a module’s inventory data while another shard contains all of its topology data.
+Every device that belongs to a cluster needs an identifier. For this purpose, OpenDaylight uses the node’s role. After you define the first node’s role as *member-1* in the `akka.conf` file, OpenDaylight uses *member-1* to identify that node. *Data shards* are used to house all or a certain segment of a module’s data. For example, one shard can contain all of a module’s inventory data while another shard contains all of its topology data.
 
 If you do not specify a module in the `modules.conf` file and do not specify a shard in `module-shards.conf`, then (by default) all the data is placed onto the default shard (which must also be defined in `module-shards.conf` file). Each shard has replicas configured, which can be specified in the `module-shards.conf` file. 
 

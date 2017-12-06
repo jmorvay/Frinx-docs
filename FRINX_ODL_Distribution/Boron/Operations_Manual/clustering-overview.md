@@ -34,9 +34,9 @@ All of the data available on defined data shards is stored on a disk. By restart
 *The following sections describe how to set up clustering on both individual and multiple Frinx ODL distributions.*
 
 ## Single Node Clustering  
-To enable clustering on a single OpenDaylight controller:  
+To enable clustering on a single machine running the Frinx ODL distribution:  
 
-1\. Run Karaf:
+1\. Run Karaf: In your main Frinx ODL directory, type
 
     ./karaf  
 
@@ -46,7 +46,7 @@ To enable clustering on a single OpenDaylight controller:
 
 ## Multiple Node Clustering  
 ### a. Setting Up a Multiple Node Cluster  
-*(See next section for deployment considerations)*. To run the Frinx ODL distribution in a three node cluster, do the following:  
+*(See next section for deployment considerations)*. To run the Frinx ODL distribution in a three node cluster (that is, on three machines), do the following:  
 1\. Determine the three machines (nodes) that will make up the cluster and copy the Frinx ODL distribution to each of those machines.  
 2\. Unzip the controller distribution.  
  
@@ -54,12 +54,11 @@ To enable clustering on a single OpenDaylight controller:
 
 odlFeaturesBoot=odl-mdsal-clustering
 
-4\. Navigate to the /bin directory. 
-5\. Run Karaf:
+4\. Run Karaf: In your main Frinx ODL directory, type
 
-    ./karaf  
+    ./bin/karaf  
 
-6\. On each machine, open the following .conf (configuration) files: `configuration/initial/akka.conf` `configuration/initial/module-shards.conf` In each file, make the following changes:
+5\. On each machine, open the following .conf (configuration) files: `configuration/initial/akka.conf` `configuration/initial/module-shards.conf` In each file, make the following changes:
 
 Find every instance of the following line and replace *127\.0.0.1* with the hostname or IP address of the machine on which the controller will run:
 

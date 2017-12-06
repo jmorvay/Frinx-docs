@@ -58,34 +58,23 @@ odlFeaturesBoot=odl-mdsal-clustering
 
     ./bin/karaf  
 
-5\. On each machine, open the following .conf (configuration) files: `configuration/initial/akka.conf` `configuration/initial/module-shards.conf` In each file, make the following changes:
+5\. On each machine, open the `{Frinx ODL main}/configuration/initial/akka.conf` file.
 
-Find every instance of the following line and replace *127\.0.0.1* with the hostname or IP address of the machine on which the controller will run:
+In the following line within the file, replace *127.0.0.1* with the hostname or IP address of the machine on which the Frinx ODL distribution will run:
 
     netty.tcp {hostname = "127.0.0.1"}`
 
-The value you need to specify will be different on each machine (node) in the cluster.
-
-Find the following line and replace *127\.0.0.1* with the hostname or IP address of any of the machines that will be part of the cluster:
+In the following line within the file, replace *127.0.0.1* with the hostname or IP address of any of the machines that will be part of the cluster:
 
     cluster {seed-nodes = ["akka.tcp://opendaylight-cluster-data@127.0.0.1:2550"]}
 
-Find the following section and specify the role for each member node. For example, you could assign the first node with the *member-1* role, the second node with the *member-2* role, and the third node with the *member-3* role.  
+In the following line within the file, replace member-1 with member-2 or member-3 so that you have a different member specified on each of the three machines.  
 
     roles = ["member-1"]  
 
-Open the `configuration/initial/module-shards.conf` file and update the items listed in the following section so that the replicas match roles defined in this host’s `configuration/initial/akka.conf` file.
+6\. On each machine, open the `{Frinx ODL main}/configuration/initial/module-shards.conf` file and update the following line so that the replicas member number corresponds to the roles member number defined above.
 
     replicas = ["member-1"]
-
-For reference, view a sample `akka.conf` file here: <https://gist.github.com/moizr/88f4bd4ac2b03cfa45f0>
-
-Run the following commands on each of your cluster’s nodes:
-
-    JAVA_MAX_MEM=4G JAVA_MAX_PERM_MEM=512m  
-    ./karaf JAVA_MAX_MEM=4G JAVA_MAX_PERM_MEM=512m  
-    ./karaf JAVA_MAX_MEM=4G JAVA_MAX_PERM_MEM=512m  
-    ./karaf
 
 The Frinx ODL distribution can now run in a three node cluster. Use any of the three member nodes to access the data residing in the datastore. Say you want to view information about shard designated as *member-1* on a node. To do so, query the shard’s data by making the following HTTP request: *HTTP Method: GET* *HTTP URL:* <http://localhost:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-1-shard-inventory-config,type=DistributedConfigDatastore>
 
@@ -98,11 +87,13 @@ The key thing here is the name of the shard. Shard names are structured as follo
 
     <member-name>-shard-<shard-name-as-per-configuration>-<store-type>  
 
-Here are a couple of sample data short names: • member-1-shard-topology-config • member-2-shard-default-operational Content of this section provided from under *Apache 2.0 license* from [https://nexus.opendaylight.org/content/sites/site/org.opendaylight.docs/master/userguide/manuals/userguide/bk-user-guide/content/\_setting\_up_clustering_on_an_opendaylight_controller.html ][1]
+Here are a couple of sample data short names: • member-1-shard-topology-config • member-2-shard-default-operational. 
 ### b. Deployment considerations  
-**We recommend a minimum of three machines**. You can set up a cluster with just two nodes, however if one goes down, the controller will no longer be operational. 
+**We recommend a minimum of three machines**. While it is possible to set up a cluster with just two nodes, if one node goes down, the controller will no longer be operational. 
 
-Every device that belongs to a cluster needs an identifier. For this purpose, OpenDaylight uses the node’s role. After you define the first node’s role as *member-1* in the `akka.conf` file, OpenDaylight uses *member-1* to identify that node. *Data shards* are used to house all or a certain segment of a module’s data. For example, one shard can contain all of a module’s inventory data while another shard contains all of its topology data.
+Every device that belongs to a cluster needs an identifier. For this purpose, OpenDaylight uses the node’s role. After you define the first node’s role as *member-1* in the `akka.conf` file, OpenDaylight uses *member-1* to identify that node.  
+
+*Data shards* are used to house all or a certain segment of a module’s data. For example, one shard can contain all of a module’s inventory data while another shard contains all of its topology data.
 
 If you do not specify a module in the `modules.conf` file and do not specify a shard in `module-shards.conf`, then (by default) all the data is placed onto the default shard (which must also be defined in `module-shards.conf` file). Each shard has replicas configured, which can be specified in the `module-shards.conf` file. 
 

@@ -9,7 +9,7 @@
     - [Data Sharding](#data-sharding)
     - [Single Node Clustering](#single-node-clustering)
     - [Multiple Node Clustering](#multiple-node-clustering)
-        - [a. Setting Up a Multiple Node Cluster](#a-setting-up-a-multiple-node-cluster)
+        - [a. Setting Up](#a-setting-up)
         - [b. Deployment Considerations](#b-deployment-considerations)
         - [c. Deploying a cluster automatically](#c-deploying-a-cluster-automatically)
 
@@ -45,7 +45,7 @@ odlFeaturesBoot=odl-mdsal-clustering
     ./karaf  
 
 ## Multiple Node Clustering  
-### a. Setting Up a Multiple Node Cluster  
+### a. Setting Up    
 *(See next section for deployment considerations)*. To run the Frinx ODL distribution in a three node cluster (that is, on three machines), do the following:  
 1\. Determine the three machines (nodes) that will make up the cluster and copy the Frinx ODL distribution to each of those machines.  
 2\. Unzip the controller distribution.  
@@ -74,7 +74,6 @@ Find the following section and specify the role for each member node. For exampl
 
     replicas = ["member-1"]
 
-
 For reference, view a sample `akka.conf` file here: <https://gist.github.com/moizr/88f4bd4ac2b03cfa45f0>
 
 Run the following commands on each of your cluster’s nodes:
@@ -94,7 +93,6 @@ This request should return the following information:
 The key thing here is the name of the shard. Shard names are structured as follows:
 
     <member-name>-shard-<shard-name-as-per-configuration>-<store-type>  
-
 
 Here are a couple of sample data short names: • member-1-shard-topology-config • member-2-shard-default-operational Content of this section provided from under *Apache 2.0 license* from [https://nexus.opendaylight.org/content/sites/site/org.opendaylight.docs/master/userguide/manuals/userguide/bk-user-guide/content/\_setting\_up_clustering_on_an_opendaylight_controller.html ][1]
 ### b. Deployment Considerations  

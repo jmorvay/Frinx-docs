@@ -10,8 +10,10 @@
     - [Single node clustering](#single-node-clustering)
     - [Multiple node clustering](#multiple-node-clustering)
         - [a. Setting up](#a-setting-up)
-        - [b. Deployment considerations](#b-deployment-considerations)
-        - [c. Deploying a cluster automatically](#c-deploying-a-cluster-automatically)
+        - [b. Info on data shards](#b-info-on-data-shards)
+        - [c. Info on seed nodes](#c-info-on-seed-nodes)
+        - [d. Info on clustering functionality](#d-info-on-clustering-functionality)
+        - [e. Deploying a cluster automatically](#e-deploying-a-cluster-automatically)
 
 <!-- /TOC -->
 # Clustering: Overview
@@ -60,15 +62,15 @@ odlFeaturesBoot=odl-mdsal-clustering
 
 5\. On each machine, open the `{Frinx ODL main}/configuration/initial/akka.conf` file.
 
-In the following line within the file, replace *127.0.0.1* with the hostname or IP address of the machine on which the Frinx ODL distribution will run:
+In the following line, replace *127.0.0.1* with the hostname or IP address of the machine on which the Frinx ODL distribution will run:
 
     netty.tcp {hostname = "127.0.0.1"}`
 
-In the following line within the file, replace *127.0.0.1* with the hostname or IP address of any of the machines that will be part of the cluster:
+In the following line, replace *127.0.0.1* with the hostname or IP address of any of the machines that will be part of the cluster:
 
     cluster {seed-nodes = ["akka.tcp://opendaylight-cluster-data@127.0.0.1:2550"]}
 
-In the following line within the file, replace member-1 with member-2 or member-3 so that you have a different member specified on each of the three machines.  
+In the following line, replace member-1 with member-2 or member-3 so that you have a different member specified on each of the three machines.  
 
     roles = ["member-1"]  
 
@@ -76,7 +78,7 @@ In the following line within the file, replace member-1 with member-2 or member-
 
     replicas = ["member-1"]
 
-The Frinx ODL distribution can now run in a three node cluster. Use any of the three member nodes to access the data residing in the datastore. Say you want to view information about shard designated as *member-1* on a node. To do so, query the shard’s data by making the following HTTP request: *HTTP Method: GET* *HTTP URL:* <http://localhost:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-1-shard-inventory-config,type=DistributedConfigDatastore>
+You can now use any of the three member nodes to access the data residing in the datastore. For example, if you want to view information about shard designated as *member-1* on a node, query the shard’s data by making the following HTTP request: *HTTP Method: GET* *HTTP URL:* 
 
 If prompted, enter admin as both the username and password.  
 *HTTP: EXPECTED RESPONSE*  
@@ -88,11 +90,10 @@ The key thing here is the name of the shard. Shard names are structured as follo
     <member-name>-shard-<shard-name-as-per-configuration>-<store-type>  
 
 Here are a couple of sample data short names: • member-1-shard-topology-config • member-2-shard-default-operational.
-### b. Deployment considerations  
-**We recommend a minimum of three machines**. While it is possible to set up a cluster with just two nodes, if one node goes down, the controller will no longer be operational. 
 
-Every device that belongs to a cluster needs an identifier. For this purpose, OpenDaylight uses the node’s role. After you define the first node’s role as *member-1* in the `akka.conf` file, OpenDaylight uses *member-1* to identify that node. 
+**We recommend a minimum of three nodes** because a two node cluster will become unoperational if one node goes down.
 
+### b. Info on data shards   
 *Data shards* are used to house all or a certain segment of a module’s data. For example, one shard can contain all of a module’s inventory data while another shard contains all of its topology data.
 
 If you do not specify a module in the `modules.conf` file and do not specify a shard in `module-shards.conf`, then (by default) all the data is placed onto the default shard (which must also be defined in the `module-shards.conf` file). Each shard has replicas configured, which can be specified in the `module-shards.conf` file. 
@@ -103,18 +104,13 @@ If you only define data shard replicas on two of the cluster nodes and one of th
 
 If you have a three node cluster and have defined replicas for a data shard on each of those nodes, that shard will still function even if only two of the cluster nodes are running. *Note that if one of those two nodes go down, your controller will no longer be operational.*
 
-***What considerations need to be made when setting the seed nodes for each member?***  
-***Why are we referring to multiple seed nodes when you set only one IP address?***  
-***Can you set multiple seed nodes for functional testing?***
-
+### c. Info on seed nodes  
 We recommend that you have multiple seed nodes configured. After a cluster member is started, it sends a message to all of its seed nodes. The cluster member then sends a join command to the first seed node that responds. If none of its seed nodes reply, the cluster member repeats this process until it successfully establishes a connection or it is shutdown.
 
-***What happens after one node becomes unreachable? Do the other two nodes function normally?***   
-***When the first node reconnects, does it automatically synchronize with the other nodes?***
-
+### d. Info on clustering functionality 
 After a node becomes unreachable, it remains down for a configurable period of time (10 seconds by default). Once a node goes down, you need to restart it so that it can rejoin the cluster. Once a restarted node joins a cluster, it will synchronize with the lead node automatically. You can run a two node cluster for functional testing, but for HA testing you need to run all three nodes.
 
-### c. Deploying a cluster automatically  
+### e. Deploying a cluster automatically  
 The cluster can be also deployed automatically using a script developed by the OpenDaylight integration project. The script is available from their Git repository.
 
     git clone https://git.opendaylight.org/gerrit/integration/test.git

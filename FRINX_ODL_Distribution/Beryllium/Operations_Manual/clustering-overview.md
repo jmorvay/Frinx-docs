@@ -66,11 +66,11 @@ In the following line, replace *127.0.0.1* with the hostname or IP address of th
 
     netty.tcp {hostname = "127.0.0.1"}`
 
-In the following line, replace *127.0.0.1* with the hostname or IP address of any of the machines that will be part of the cluster:
+In the following line, replace *127.0.0.1* with the hostname or IP address of either of the other two machines (without repeating the same IP address):
 
     cluster {seed-nodes = ["akka.tcp://opendaylight-cluster-data@127.0.0.1:2550"]}
 
-In the following line, replace member-1 with member-2 or member-3 so that you have a different member specified on each of the three machines.  
+In the following line, replace member-1 with member-2 or member-3 as appropriate so that you have a different member specified on each of the three machines.  
 
     roles = ["member-1"]  
 
@@ -78,7 +78,7 @@ In the following line, replace member-1 with member-2 or member-3 so that you ha
 
     replicas = ["member-1"]
 
-You can now use any of the three member nodes to access the data residing in the datastore. For example, if you want to view information about shard designated as *member-1* on a node, query the shard’s data by making the following HTTP request: *HTTP Method: GET* *HTTP URL:* 
+You can now use any of the three member (machines) nodes to access the data residing in the datastore. For example, if you want to view information about shard designated as *member-1* on a node, query the shard’s data by making the following HTTP request: *HTTP Method: GET* *HTTP URL:* 
 
 If prompted, enter admin as both the username and password.  
 *HTTP: EXPECTED RESPONSE*  

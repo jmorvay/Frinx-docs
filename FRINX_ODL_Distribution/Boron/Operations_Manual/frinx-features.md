@@ -6,7 +6,6 @@
 - [FRINX ODL Distribution: Features](#frinx-odl-distribution-features)
     - [To install features](#to-install-features)
         - [To install for the current karaf session only](#to-install-for-the-current-karaf-session-only)
-        - [For an install that persists in future sessions](#for-an-install-that-persists-in-future-sessions)
 
 <!-- /TOC -->
 
@@ -60,11 +59,4 @@ Multiple features can be installed on a single line - use a space to separate e.
 
     feature:install odl-restconf odl-netconf-connector-all
 
-### For an install that persists in future sessions
-To load features consistently and in accordance with our Daexim edit the **org.apache.karaf.features.cfg** file within the etc directory of your Frinx ODL distribution main directory:
 
-By setting the **odlFeaturesBoot** variable, the specified features will be loaded at startup, every time Frinx ODL starts e.g.
-
-odlFeaturesBoot=odl-restconf,odl-netconf-connector-all
-
-This will ensure that the odl-restconf and odl-netconf-connector-all features are always present at startup.

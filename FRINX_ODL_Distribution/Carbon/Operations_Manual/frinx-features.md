@@ -3,9 +3,7 @@
 <!-- TOC -->
 
 - [FRINX ODL Distribution: Features](#frinx-odl-distribution-features)
-    - [To install features](#to-install-features)
-        - [To install for the current karaf session only](#to-install-for-the-current-karaf-session-only)
-        - [For an install that persists in future sessions](#for-an-install-that-persists-in-future-sessions)
+    - [Managing features](#managing-features)
 
 <!-- /TOC -->
 
@@ -40,30 +38,22 @@ The FRINX distribution offers the following features:
      l2vpn
      l3vpn
 
-## To install features
-### To install for the current karaf session only
-To view a list of available features: Within the karaf console type
+## Managing features
+Feature management has changed after FRINX has introduced DAEXIM (Data Export and Import Manager) in Carbon. Previously, features that the user loaded in Karaf were persisted after shutdown of Frinx ODL. Since introducing DAEXIM, features loaded in karaf are no longer persisted automatically.
+ 
+For features that the user wants to always start every time FRINX ODL is started, features must be added to the following file located in the Frinx ODL etc/ folder:
 
-    feature:list
+**org.apache.karaf.features.cfg**
 
-To search for a particular feature e.g. restconf you can use grep e.g.
-
-    feature:list |grep restconf
-
-To install a feature:
-
-    feature:install odl-restconf
-    feature:install odl-netconf-connector-all
-
-Multiple features can be installed on a single line - use a space to separate e.g.:
-
-    feature:install odl-restconf odl-netconf-connector-all
-
-### For an install that persists in future sessions
-To load features consistently and in accordance with our Daexim edit the **org.apache.karaf.features.cfg** file within the etc directory of your Frinx ODL distribution main directory:
-
-By setting the **odlFeaturesBoot** variable, the specified features will be loaded at startup, every time Frinx ODL starts e.g.
+Edit the file to remove the '#' in front of **odlFeaturesBoot** and specify which features to persistently load every time Frinx ODL starts e.g. to ensure that the odl-restconf and odl-netconf-connector-all features are always present at startup you would edit odlFeaturesBoot to read as follows:
 
 odlFeaturesBoot=odl-restconf,odl-netconf-connector-all
 
-This will ensure that the odl-restconf and odl-netconf-connector-all features are always present at startup.
+For a list of available features, first start Frinx ODL [see our guide](running-frinx-odl-after-activation) and enter the following command within the karaf terminal:
+
+    feature:list
+
+For a list of features whose names include a particular word e.g. 'restconf' you can use grep e.g.
+
+    feature:list |grep restconf
+

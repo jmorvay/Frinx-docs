@@ -36,10 +36,11 @@ All of the data available on defined data shards is stored on a disk. By restart
 ## Single Node Clustering  
 To enable clustering on a single machine running the Frinx ODL distribution:  
 
-1\. In the Frinx ODL etc/ folder edit org.apache.karaf.features.cfg to add the feature odl-mdsal-clustering to the odlFeaturesBoot line (you can keep any other features you currently have listed, just use a comma to separate features):
+1\. In the Frinx ODL etc/ folder edit the file `org.apache.karaf.features.cfg`: Find the line that begins with '#odlFeaturesBoot'. Remove '#' and add the feature 'odl-mdsal-clustering' (you can keep any other features you currently have listed, just use a comma to separate features). The format should be as follows:
 
 odlFeaturesBoot=odl-mdsal-clustering
 
+Save the file.
 2\. Run Karaf:
 
     ./karaf  
@@ -50,9 +51,11 @@ odlFeaturesBoot=odl-mdsal-clustering
 1\. Determine the three machines (nodes) that will make up the cluster and copy the Frinx ODL distribution to each of those machines.  
 2\. Unzip the controller distribution.  
  
-3\. On each machine, in the Frinx ODL etc/ folder edit org.apache.karaf.features.cfg to add the feature odl-mdsal-clustering to the odlFeaturesBoot line (you can keep any other features you currently have listed, just use a comma to separate features):
+3\. In the Frinx ODL etc/ folder edit the file `org.apache.karaf.features.cfg`: Find the line that begins with '#odlFeaturesBoot'. Remove '#' and add the feature 'odl-mdsal-clustering' (you can keep any other features you currently have listed, just use a comma to separate features). The format should be as follows:
 
 odlFeaturesBoot=odl-mdsal-clustering
+
+Save the file.
 
 4\. Run Karaf: In your main Frinx ODL directory, type
 

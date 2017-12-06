@@ -36,9 +36,9 @@ All of the data available on defined data shards is stored on a disk. By restart
 ## Single node clustering  
 To enable clustering on a single machine running the Frinx ODL distribution:  
 
-1\. Run Karaf: In your main Frinx ODL directory, type
+1\. Run Karaf: In your main Frinx ODL directory, type  
 
-    ./karaf  
+    ./bin/karaf  
 
 2.\ In the karaf terminal, type:
 

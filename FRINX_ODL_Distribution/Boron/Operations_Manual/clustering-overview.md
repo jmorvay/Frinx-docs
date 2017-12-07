@@ -87,8 +87,61 @@ If prompted, enter admin as both the username and password.
 
 This request should return the following information:  
 
-```
-{ "timestamp": 1410524741, "status": 200, "request": { "mbean": "org.opendaylight.controller:Category=Shards,name=member-1-shard-inventory-config,type=DistributedConfigDatastore", "type": "read" }, "value": { "ReadWriteTransactionCount": 0, "LastLogIndex": -1, "MaxNotificationMgrListenerQueueSize": 1000, "ReadOnlyTransactionCount": 0, "LastLogTerm": -1, "CommitIndex": -1, "CurrentTerm": 1, "FailedReadTransactionsCount": 0, "Leader": "member-1-shard-inventory-config", "ShardName": "member-1-shard-inventory-config", "DataStoreExecutorStats": { "activeThreadCount": 0, "largestQueueSize": 0, "currentThreadPoolSize": 1, "maxThreadPoolSize": 1, "totalTaskCount": 1, "largestThreadPoolSize": 1, "currentQueueSize": 0, "completedTaskCount": 1, "rejectedTaskCount": 0, "maxQueueSize": 5000 }, "FailedTransactionsCount": 0, "CommittedTransactionsCount": 0, "NotificationMgrExecutorStats": { "activeThreadCount": 0, "largestQueueSize": 0, "currentThreadPoolSize": 0, "maxThreadPoolSize": 20, "totalTaskCount": 0, "largestThreadPoolSize": 0, "currentQueueSize": 0, "completedTaskCount": 0, "rejectedTaskCount": 0, "maxQueueSize": 1000 }, "LastApplied": -1, "AbortTransactionsCount": 0, "WriteOnlyTransactionCount": 0, "LastCommittedTransactionTime": "1969-12-31 16:00:00.000", "RaftState": "Leader", "CurrentNotificationMgrListenerQueueStats": [] } }
+```json
+{  
+   "timestamp":1410524741,
+   "status":200,
+   "request":{  
+      "mbean":"org.opendaylight.controller:Category=Shards,name=member-1-shard-inventory-config,type=DistributedConfigDatastore",
+      "type":"read"
+   },
+   "value":{  
+      "ReadWriteTransactionCount":0,
+      "LastLogIndex":-1,
+      "MaxNotificationMgrListenerQueueSize":1000,
+      "ReadOnlyTransactionCount":0,
+      "LastLogTerm":-1,
+      "CommitIndex":-1,
+      "CurrentTerm":1,
+      "FailedReadTransactionsCount":0,
+      "Leader":"member-1-shard-inventory-config",
+      "ShardName":"member-1-shard-inventory-config",
+      "DataStoreExecutorStats":{  
+         "activeThreadCount":0,
+         "largestQueueSize":0,
+         "currentThreadPoolSize":1,
+         "maxThreadPoolSize":1,
+         "totalTaskCount":1,
+         "largestThreadPoolSize":1,
+         "currentQueueSize":0,
+         "completedTaskCount":1,
+         "rejectedTaskCount":0,
+         "maxQueueSize":5000
+      },
+      "FailedTransactionsCount":0,
+      "CommittedTransactionsCount":0,
+      "NotificationMgrExecutorStats":{  
+         "activeThreadCount":0,
+         "largestQueueSize":0,
+         "currentThreadPoolSize":0,
+         "maxThreadPoolSize":20,
+         "totalTaskCount":0,
+         "largestThreadPoolSize":0,
+         "currentQueueSize":0,
+         "completedTaskCount":0,
+         "rejectedTaskCount":0,
+         "maxQueueSize":1000
+      },
+      "LastApplied":-1,
+      "AbortTransactionsCount":0,
+      "WriteOnlyTransactionCount":0,
+      "LastCommittedTransactionTime":"1969-12-31 16:00:00.000",
+      "RaftState":"Leader",
+      "CurrentNotificationMgrListenerQueueStats":[  
+
+      ]
+   }
+}
 ```
 
 The key thing here is the name of the shard. Shard names are structured as follows:

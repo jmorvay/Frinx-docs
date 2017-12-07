@@ -155,12 +155,12 @@ Example data short names: • member-1-shard-topology-config • member-2-shard-
 ### b. Info on data shards   
 *Data shards* are used to house all or a certain segment of a module’s data. For example, one shard can contain all of a module’s inventory data while another shard contains all of its topology data.
 
-**Modules**
+**Modules**  
 Modules (as well as default shard) should be specified in the `{Frinx ODL main/configuration/initial/modules.conf` file.
 
 If modules are not specified, then all the data is placed onto the default shard.
 
-**Data shard replicas**
+**Data shard replicas**  
 Each shard has replicas configured, which should be specified in the `{Frinx ODL main/configuration/initial/module-shards.conf` file. 
 
 *Purpose:* If you have a three node cluster and have defined replicas for a data shard on each of those nodes, that shard will still function even if only two of the cluster nodes are running. *Note that if one of those two nodes go down, your controller will no longer be operational.*

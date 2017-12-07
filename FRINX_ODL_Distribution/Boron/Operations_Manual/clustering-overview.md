@@ -3,10 +3,9 @@
 <!-- TOC -->
 
 - [Clustering: Overview](#clustering-overview)
-    - [Scaling](#scaling)
-    - [High availability](#high-availability)
+    - [High availability (HA)](#high-availability-ha)
     - [Data persistence](#data-persistence)
-    - [Data sharding](#data-sharding)
+    - [Scaling](#scaling)
     - [Single node clustering](#single-node-clustering)
     - [Multiple node clustering](#multiple-node-clustering)
         - [a. Setting up](#a-setting-up)
@@ -17,21 +16,18 @@
 
 <!-- /TOC -->
 # Clustering: Overview
-Clustering is a mechanism that enables multiple processes and programs to work together as one entity. For example, a Google Web search is in fact processed by thousands of web servers connected in a cluster. Similarly, you can have multiple instances of the OpenDaylight controller working together as one entity. There are a number of uses for clustering:
+Clustering enables multiple instances of the Frinx ODL Distribution to work together as one entity. Data from the in-memory MD-SAL tree is split into smaller sub-trees (inventory, topology, and default) and distributed across the machines (referred to as nodes) which are part of the cluster.
 
-## Scaling  
-If you have multiple controllers running, you can potentially do more work with or store more data on those controllers if they are clustered. You can also break your data into smaller chunks (known as shards) and either distribute that data across the cluster or perform certain operations on certain members of the cluster.
+This offers a number of benefits:
 
-## High availability  
-If you have multiple controllers running and one crashes, you would still have the other instances working and available.
+## High availability (HA)
+If you have multiple instances running and one crashes, you would still have the other instances working and available.
 
 ## Data persistence  
-You will not lose any data gathered by your controller after a manual restart or a crash. 
+You will not lose any data gathered by your controller after a manual restart or a crash. By restarting Frinx ODL, you can use the persisted data to reinstate shards to their previous state.
 
-## Data sharding  
-The in-memory MD-SAL tree is broken up into a number of smaller sub-trees (inventory, topology, and default).
-
-All of the data available on defined data shards is stored on a disk. By restarting Frinx ODL, you can use the persisted data to reinstate those shards to their previous state.
+## Scaling  
+If you have multiple Frinx ODL instances running as a cluster, you can potentially do more work or store more data. 
 
 *The following sections describe how to set up clustering on both individual and multiple Frinx ODL distributions.*
 

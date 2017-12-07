@@ -26,7 +26,7 @@ You will not lose any data gathered by Frinx ODL after a manual restart or a cra
 ## Scaling  
 If you have multiple Frinx ODL instances running as a cluster, you can potentially do more work or store more data. 
 
-*The following sections describe how to set up clustering on both individual and multiple Frinx ODL distributions.*
+*The following sections describe how to set up clustering on both individual (single node) and multiple (multiple node) Frinx ODL distributions.*
 
 ## Single node clustering  
 To enable clustering on a single machine running the Frinx ODL distribution:  

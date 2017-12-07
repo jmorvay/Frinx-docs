@@ -152,19 +152,27 @@ Example data short names: • member-1-shard-topology-config • member-2-shard-
 
 **We recommend a minimum of three nodes** because a two node cluster will become unoperational if one node goes down.
 
-### b. Info on data shards  
+### b. Info on data shards   
 *Data shards* are used to house all or a certain segment of a module’s data. For example, one shard can contain all of a module’s inventory data while another shard contains all of its topology data.
 
-If you do not specify a module in the `modules.conf` file and do not specify a shard in `module-shards.conf`, then (by default) all the data is placed onto the default shard (which must also be defined in the `module-shards.conf` file). Each shard has replicas configured, which can be specified in the `module-shards.conf` file. 
+**Modules**
+Modules (as well as default shard) should be specified in the `{Frinx ODL main/configuration/initial/modules.conf` file.
 
-If you have a three node cluster on which HA is enabled, a replica of every defined data shard must be running on all three cluster nodes. This is because OpenDaylight’s clustering implementation requires a majority of the defined shard replicas to be running in order to function. 
+If modules are not specified, then all the data is placed onto the default shard.
+
+**Data shard replicas**
+Each shard has replicas configured, which should be specified in the `{Frinx ODL main/configuration/initial/module-shards.conf` file. 
+
+*Purpose:* If you have a three node cluster and have defined replicas for a data shard on each of those nodes, that shard will still function even if only two of the cluster nodes are running. *Note that if one of those two nodes go down, your controller will no longer be operational.*
+
+Clustering requires a majority of the defined shard replicas to be running in order to function. With a three node cluster, a replica of every defined data shard must be running on all three  nodes.
 
 If you only define data shard replicas on two of the cluster nodes and one of those goes down, the corresponding data shards will not function. 
 
-If you have a three node cluster and have defined replicas for a data shard on each of those nodes, that shard will still function even if only two of the cluster nodes are running. *Note that if one of those two nodes go down, your controller will no longer be operational.*
-
 ### c. Info on seed nodes  
-We recommend that you have multiple seed nodes configured. After a cluster member is started, it sends a message to all of its seed nodes. The cluster member then sends a join command to the first seed node that responds. If none of its seed nodes reply, the cluster member repeats this process until it successfully establishes a connection or it is shutdown.
+We recommend that you have multiple seed nodes configured. 
+
+*Functionality:* After a cluster member is started, it sends a message to all of its seed nodes. The cluster member then sends a join command to the first seed node that responds. If none of its seed nodes reply, the cluster member repeats this process until it successfully establishes a connection or it is shutdown.
 
 ### d. Info on clustering functionality 
 After a node becomes unreachable, it remains down for a configurable period of time (10 seconds by default). Once a node goes down, you need to restart it so that it can rejoin the cluster. Once a restarted node joins a cluster, it will synchronize with the lead node automatically. You can run a two node cluster for functional testing, but for HA testing you need to run all three nodes.

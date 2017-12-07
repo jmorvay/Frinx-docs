@@ -46,15 +46,16 @@ To enable clustering on a single machine running the Frinx ODL distribution:
 ### a. Setting up  
 To run the Frinx ODL distribution in a three node cluster (that is, on three machines), do the following:  
 1\. Determine the three machines (nodes) that will make up the cluster and copy the Frinx ODL distribution to each of those machines.  
+
 2\. Unzip the controller distribution.  
  
-3\. On each machine, in the Frinx ODL etc/ folder edit org.apache.karaf.features.cfg to add the feature odl-mdsal-clustering to the odlFeaturesBoot line (you can keep any other features you currently have listed, just use a comma to separate features):
-
-odlFeaturesBoot=odl-mdsal-clustering
-
-4\. Run Karaf: In your main Frinx ODL directory, type
+3\. Run Karaf: In your main Frinx ODL directory, type
 
     ./bin/karaf  
+
+4.\ In the karaf terminal, type:
+
+    feature:install odl-mdsal-clustering
 
 5\. On each machine, open the `{Frinx ODL main}/configuration/initial/akka.conf` file.
 
@@ -70,11 +71,11 @@ In the following line, replace member-1 with member-2 or member-3 as appropriate
 
     roles = ["member-1"]  
 
-6\. On each machine, open the `{Frinx ODL main}/configuration/initial/module-shards.conf` file and update the following line so that the replicas member number corresponds to the roles member number defined above.
+6\. On each machine, open the `{Frinx ODL main}/configuration/initial/module-shards.conf` file and update the following line so that the replicas member number corresponds to the roles member number defined above (member-1, member-2 or member-3, depending on the machine).
 
     replicas = ["member-1"]
 
-You can now use any of the three member (machines) nodes to access the data residing in the datastore. For example, if you want to view information about shard designated as *member-1* on a node, query the shard’s data by making the following HTTP request: *HTTP Method: GET* *HTTP URL:* <http://localhost:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-1-shard-inventory-config,type=DistributedConfigDatastore>
+You can now use any of the three member nodes (machines) to access the data residing in the datastore. For example, if you want to view information about the shard designated as *member-1* on a node, query the shard’s data by making the following HTTP request: *HTTP Method: GET* *HTTP URL:* <http://localhost:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-1-shard-inventory-config,type=DistributedConfigDatastore>
 
 If prompted, enter admin as both the username and password.  
 *HTTP: EXPECTED RESPONSE*  

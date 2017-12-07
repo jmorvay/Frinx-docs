@@ -76,7 +76,7 @@ You do not need to edit these files. We will use a script to automatically confi
 
 Change directory to `{Frinx ODL main}/bin`
 
-Type the following command, where the first argument is an index (1,2 or 3 - according to machine 1,2 or 3) and the final three arguments are the IP addresses (example IPs are used below) of the machines in the cluster (note when you run the command on each machine you list the same three IP addresses). On the first machine you would run:
+Type the following command, where the first argument is an index (1,2 or 3 - according to machine 1,2 or 3) and the final three arguments are the IP addresses (example IPs are used below - replace these with IPs of your machines) of the machines in the cluster (note when you run the command on each machine you list the same three IP addresses each time). On the first machine you would run:
 
     ./configure_cluster.sh 1 10.10.199.6 10.10.199.7 10.10.199.8
 
@@ -96,9 +96,9 @@ Wait for three minutes. Then in the terminal window, still in the `{Frinx ODL ma
     
 Once karaf has fully started (which can take three minutes) you will be able to use any of the three member nodes (machines) to access the data residing in the datastore. For example, if you want to view information about the shard designated as *member-1* on a node, query the shard’s data by making the following HTTP request (we recommend using Postman): 
 
-*HTTP Method: GET* *HTTP URL:* 
+*HTTP Method: GET*  
 
-<http://localhost:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-1-shard-inventory-config,type=DistributedConfigDatastore>
+*HTTP URL:* <http://localhost:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-1-shard-inventory-config,type=DistributedConfigDatastore>  
 
 If prompted, enter admin as both the username and password.  
 

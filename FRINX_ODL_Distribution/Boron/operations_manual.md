@@ -3,7 +3,7 @@
 
 [Activating the FRINX ODL Distribution](Operations_Manual/running-frinx-odl-initial.md)  
 [Operating the FRINX ODL Distribution](Operations_Manual/running-frinx-odl-after-activation.md)  
-[Features - how to install](Operations_Manual/frinx-features.md)  
+[Frinx Features](Operations_Manual/frinx-features.md)  
 [Karaf Logging](Operations_Manual/karaf-logging.md)  
 [RESTCONF](Operations_Manual/restconf.md)  
 [NETCONF:Intro](Operations_Manual/netconf-intro.md)  

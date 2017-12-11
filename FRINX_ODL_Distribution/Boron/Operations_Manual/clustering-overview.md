@@ -6,7 +6,6 @@
     - [High availability (HA)](#high-availability-ha)
     - [Data persistence](#data-persistence)
     - [Scaling](#scaling)
-    - [Single node clustering](#single-node-clustering)
     - [Multiple node clustering](#multiple-node-clustering)
         - [a. Setting up](#a-setting-up)
         - [b. Info on clustering functionality](#b-info-on-clustering-functionality)
@@ -25,19 +24,6 @@ You will not lose any data gathered by Frinx ODL after a manual restart or a cra
 
 ## Scaling  
 If you have multiple Frinx ODL instances running as a cluster, you can potentially do more work or store more data. 
-
-*The following sections describe how to set up clustering on both individual (single node) and multiple (multiple node) Frinx ODL distributions.*
-
-## Single node clustering  
-To enable clustering on a single machine running the Frinx ODL distribution:  
-
-1\. Run Karaf: In your `{Frinx ODL main}` directory, type  
-
-    ./bin/karaf  
-
-2.\ In the karaf terminal, type:
-
-    feature:install odl-mdsal-clustering
 
 ## Multiple node clustering  
 ### a. Setting up  

@@ -36,7 +36,7 @@ To enable clustering on a single machine running the Frinx ODL distribution:
 odlFeaturesBoot=odl-mdsal-clustering
 
 Save the file.  
-2\. Run Karaf: In your main Frinx ODL directory, type  
+2\. Run Karaf: In your `{Frinx ODL main}` directory, type  
 
     ./bin/karaf  
 

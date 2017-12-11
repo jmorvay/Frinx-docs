@@ -31,7 +31,7 @@ If you have multiple Frinx ODL instances running as a cluster, you can potential
 ## Single node clustering  
 To enable clustering on a single machine running the Frinx ODL distribution:  
 
-1\. Run Karaf: In your main Frinx ODL directory, type  
+1\. Run Karaf: In your `{Frinx ODL main}` directory, type  
 
     ./bin/karaf  
 

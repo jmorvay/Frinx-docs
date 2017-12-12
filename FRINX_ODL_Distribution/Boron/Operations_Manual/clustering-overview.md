@@ -70,7 +70,9 @@ Wait for three minutes. Then in the terminal window, still in the `{Frinx ODL ma
 
     ./karaf
     
-Once karaf has fully started (which can take three minutes) you will be able to use any of the three member nodes (machines) to access the data residing in the datastore. For example, if you want to view information about the shard designated as *member-1* on a node, query the shard’s data by making the following HTTP request (we recommend using Postman): 
+Once karaf has fully started (which can take three minutes) you will be able to use any of the three member nodes (machines) to access the data residing in the datastore. 
+
+For example, if you want to view information about the shard designated as *member-1* on a node, query the shard’s data by making the following HTTP request (we recommend using Postman): 
 
 *HTTP Method: GET*  
 

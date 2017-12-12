@@ -7,7 +7,7 @@ To use this functionality, run the following command in the karaf console:
     feature:install frinx-installer-backend
 
 
-The API is based on REST services. This means that functionality can be tested using CURL. This bundle consists of 4 services:
+The API bundle consists of 4 services:
 
 ## Show version
 
@@ -18,7 +18,7 @@ By REST (as POST). (username: admin password: admin). This can be done in Postma
     http://[host]:[port]/restconf/operations/installer:show-version
 
 
-Or typing:
+Or typing the following in a terminal window:
 
     curl 'http://localhost:8181/restconf/operations/installer:show-version' -H 'Host: localhost:8181' -H 'Content-Type: application/json;charset=utf-8' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X post
 
@@ -41,7 +41,7 @@ By REST (as GET). (username: admin password: admin). This can be done in Postman
     http://[host]:[port]/restconf/operational/installer:features
 
 
-Or typing:
+Or typing the following in a terminal window:
 
     curl 'http://localhost:8181/restconf/operational/installer:features' -H 'Host: localhost:8181' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X get
 
@@ -62,7 +62,7 @@ By REST (as POST). (username: admin password: admin). This can be done in Postma
     http://[host]:[port]/restconf/operations/installer:monitor-resources
 
 
-Or typing:
+Or typing the following in a terminal window:
 
     curl 'http://localhost:8181/restconf/operations/installer:monitor-resources' -H 'Host: localhost:8181' -H 'Content-Type: application/json;charset=utf-8' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X post
 
@@ -81,7 +81,7 @@ This function allows the user to easily upload any KAR file to the Karaf distrib
 
 The POST request contains one parameter which indicates the binary data of the KAR file. The parameter should be specified in [base64 binary data format][1] (as in the example curl command below).
 
-For example the CURL has a function to convert file location to binary data. You can upload a KAR file by typing the following in a terminal:
+For example the CURL has a function to convert file location to binary data. You can upload a KAR file by typing the following in a terminal window:
 
     curl 'http://localhost:8181/restconf/operations/installer:upload-kar' -H 'Host: localhost:8181' -H 'Content-Type: application/yang.data+json;charset=utf-8' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X post -d '{"input":{"data":"'"$(base64 --wrap=0 upload/dummy-1.0.0.kar)"'"}}' -H 'Connection: keep-alive' -H "Expect:"
 

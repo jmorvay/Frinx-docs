@@ -19,7 +19,7 @@
 
 In the unpackaged folder, start elasticsearch with
 
-    bin/elasticsearch
+    ./bin/elasticsearch
 
 
 3\. [Install Kibana][4] - download the version appropriate to your system. For the Linuz-64 bit tar.gz download file, unpackage it with
@@ -29,7 +29,7 @@ In the unpackaged folder, start elasticsearch with
 
 In the unpackaged folder, start kibana with
 
-    bin/kibana
+    ./bin/kibana
 
 
 4\. [Install logstash][5] - which we'll use for collecting and parsing log files. It can transform an unstructured log into something meaningful and searchable.
@@ -75,7 +75,7 @@ We now need to start logstash. Move to your main logstash folder:
 
 The start logstash with
 
-    bin/logstash -f config/frinx.conf
+    ./bin/logstash -f config/frinx.conf
 
 
 ## Operation
@@ -84,7 +84,7 @@ We have already started elasticsearch, kibana, and logstash. Now start karaf as 
 
 Then type
 
-    bin/karaf
+    ./bin/karaf
 
 
 All logging information is now logged to an Elasticsearch node though Logstash. This information can be analysed with Kibana. Open Kibana in a Web browser by going to <http://localhost:5601>

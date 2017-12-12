@@ -20,7 +20,7 @@ By REST (as POST). (username: admin password: admin). This can be done in Postma
 Postman example:
 ![show version example](show-version.JPG)
 
-Or typing:
+Or typing the following in a terminal window:
 
     curl 'http://localhost:8181/restconf/operations/installer:show-version' -H 'Host: localhost:8181' -H 'Content-Type: application/json;charset=utf-8' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X post
 
@@ -44,7 +44,7 @@ By REST (as GET). (username: admin password: admin). This can be done in Postman
 Postman example:
 ![features list example](features-list.JPG)
 
-Or typing:
+Or typing the following in a terminal window:
 
     curl 'http://localhost:8181/restconf/operational/installer:features' -H 'Host: localhost:8181' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X get
 
@@ -67,8 +67,7 @@ By REST (as POST). (username: admin password: admin). This can be done in Postma
 Postman example:
 ![monitor resources example](monitor-resources.JPG)
 
-Or typing:
-
+Or typing the following in a terminal window:
     curl 'http://localhost:8181/restconf/operations/installer:monitor-resources' -H 'Host: localhost:8181' -H 'Content-Type: application/json;charset=utf-8' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X post
 
 

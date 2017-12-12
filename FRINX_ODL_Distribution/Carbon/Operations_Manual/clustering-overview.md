@@ -77,7 +77,9 @@ Wait for three minutes. Then in the terminal window, still in the `{Frinx ODL ma
 
     ./karaf
     
-Once karaf has fully started (which can take three minutes) you will be able to use any of the three member nodes (machines) to access the data residing in the datastore. For example, if you want to view information about the shard designated as *member-1* on a node, query the shard’s data by making the following HTTP request (we recommend using Postman): 
+Once karaf has fully started (which can take three minutes) you will be able to use any of the three member nodes (machines) to access the data residing in the datastore. 
+
+For example, if you want to view information about the shard designated as *member-1* on a node, query the shard’s data by making the following HTTP request (we recommend using Postman): 
 
 *HTTP Method: GET*  
 
@@ -144,11 +146,8 @@ The request should return the following information:
    }
 }
 ```
-The key parameter from the above output is ShardName, whose structure is as follows:
-
-    <member-name>-shard-<shard-name-as-per-configuration>-<store-type>  
-
-These *Data shards* are used to house all or a certain segment of various types of Frinx ODL data. For example, one shard may contain all of a particular module’s inventory data while another shard contains all of its topology data. Each shard has replicas configured, which means the same data is stored on different nodes, ensuring data persistence in the event that one node becomes unoperational.
+ 
+*Data shards* are used to house all or a certain segment of various types of Frinx ODL data. For example, one shard may contain all of a particular module’s inventory data while another shard contains all of its topology data. Each shard has replicas configured, which means the same data is stored on different nodes, ensuring data persistence in the event that one node becomes unoperational.
 
 ### b. Info on clustering functionality 
 After a cluster 'node' (sometimes referred to as a 'member') is started, it sends a message to each other node within the cluster, which are referred to as 'seed' nodes. The cluster node then sends a join command to the first seed node that responds. If none of its seed nodes reply, the cluster member repeats this process until it successfully establishes a connection or is shutdown.

@@ -3,7 +3,9 @@
 
 # Configuring logging level within karaf
 
-It's possible to adjust the verbosity of logging for each Frinx ODL feature. Two levels are available - INFO and DEBUG. INFO is less verbose and is a good compromise in terms of verbosity and effectiveness.
+It's possible to adjust the verbosity of logging for each Frinx ODL feature.
+The following levels are available (most verbose listed first) - TRACE, DEBUG, WARN, INFO, ERROR.
+INFO is less verbose and is a good compromise in terms of verbosity and effectiveness.
 
 After [starting Frinx ODL](running-frinx-odl-after-activation), first check the logging level currently set for each feature: within the karaf console type
 ```
@@ -16,17 +18,14 @@ Logger                                                           | Level
 ------------------------------------------------------------------------
 ROOT                                                             | INFO
 io.frinx                                                         | DEBUG
-io.frinx.cli                                                     | DEBUG
 org.apache.karaf.features                                        | DEBUG
-org.opendaylight                                                 | INFO
-org.opendaylight.controller                                      | INFO
-org.opendaylight.controller.cluster                              | INFO
+org.opendaylight.controller.cluster                              | DEBUG
 org.opendaylight.controller.config.yang.md.sal.connector.netconf | INFO
-org.opendaylight.daexim                                          | INFO
+org.opendaylight.daexim                                          | DEBUG
 org.opendaylight.netconf.sal.connect                             | INFO
 org.opendaylight.netconf.topology                                | INFO
 ```
-To change the logging level for a particular feature e.g. io.frinx.cli type
+To add or change the logging level for a particular feature e.g. io.frinx.cli type
 
 ```
 log:set INFO io.frinx.cli
@@ -45,11 +44,9 @@ ROOT                                                             | INFO
 io.frinx                                                         | DEBUG
 io.frinx.cli                                                     | INFO
 org.apache.karaf.features                                        | DEBUG
-org.opendaylight                                                 | INFO
-org.opendaylight.controller                                      | INFO
-org.opendaylight.controller.cluster                              | INFO
+org.opendaylight.controller.cluster                              | DEBUG
 org.opendaylight.controller.config.yang.md.sal.connector.netconf | INFO
-org.opendaylight.daexim                                          | INFO
+org.opendaylight.daexim                                          | DEBUG
 org.opendaylight.netconf.sal.connect                             | INFO
 org.opendaylight.netconf.topology                                | INFO
 ```
@@ -57,4 +54,7 @@ To begin viewing the log type
 ```
 log:tail
 ```
-karaf logs are also written to the data/log directory within your main Frinx ODL distribution directory so can be viewed outside of karaf.
+Karaf logs are also written to the data/log directory within your main Frinx ODL distribution directory so can be viewed outside of karaf.
+
+Default settings for logging can be changed in etc/org.ops4j.pax.logging.cfg
+within your main Frinx ODL distribution directory.

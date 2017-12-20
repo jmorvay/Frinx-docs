@@ -126,10 +126,10 @@ L2VPN Provider works only with devices which have these capabilities:
 </table>
 
 The capabilities are sent from XR to ODL automatically during device connection via NETCONF.
-You can see the NETCONF capabilities under each node by calling: 
+You can see the NETCONF capabilities under each node by calling:
 GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf
 
-A list of PE nodes can be obtained from: 
+A list of PE nodes can be obtained from:
 GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/l2vpn-provider-edge-topology
 
 ### Architecture
@@ -240,7 +240,7 @@ Installs L2VPN Provider with IOS-XRv NEP and NETCONF connector. This feature is 
 **Description:**  
 Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for testing and demonstration purposes where real PE devices are not available.
 
-*The postman collection for the L2VPN service module can be accessed [here](L2VPN_IOS-XRv_public.postman_collection.json)*
+*The postman collection for the L2VPN service module can be downloaded from [here](https://github.com/FRINXio/Postman/releases).*
 
 | Feature Guide         |             |                                                                                                     |
 |-----------------------|-------------|-----------------------------------------------------------------------------------------------------|

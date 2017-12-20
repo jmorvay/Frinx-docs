@@ -132,10 +132,10 @@ L3VPN Provider works only with devices which have these capabilities:
 </table>
 
 The capabilities are sent from XR to ODL automatically during device connection via NETCONF.
-You can see the NETCONF capabilities under each node by calling: 
+You can see the NETCONF capabilities under each node by calling:
 GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf
 
-A ist of PE nodes can be obtained from: 
+A ist of PE nodes can be obtained from:
 GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/l3vpn-provider-edge-topology
 
 
@@ -287,8 +287,8 @@ Installs L3VPN Provider with IOS-XRv NEP and NETCONF connector. This feature is 
 **Description:**  
 Installs L3VPN Provider with Mock NEP and RESTCONF. This feature can be used for testing and demonstration purposes where real PE devices are not available.
 
-*The postman collection for the L3VPN service module can be accessed [here](L3VPN_IOS-XRv_public.postman_collection.json)*
- 
+*The postman collection for the L3VPN service module can be downloaded from [here](https://github.com/FRINXio/Postman/releases).*
+
 | Feature Guide         |             |                                                                                                     |
 |-----------------------|-------------|-----------------------------------------------------------------------------------------------------|
 | Feature introduced in | FRINX 2.3.0 | VPN service module implementation with support for L3VPN and IOS XR (Version 6.1.2) NEP via NETCONF |

@@ -31,16 +31,17 @@ The FRINX distribution offers the following features:
      lispflowmapping
      cli
      daexim
-     faas    
+     faas
      genius
      netvirt
      honeycomb-vbd
      l2vpn
      l3vpn
+     uniconfig
 
 ## Managing features
 Feature management has changed after FRINX has introduced DAEXIM (Data Export and Import Manager) in Carbon. Previously, features that the user loaded in Karaf were persisted after shutdown of Frinx ODL. Since introducing DAEXIM, features loaded in karaf are no longer persisted automatically.
- 
+
 For features that the user wants to always start every time FRINX ODL is started, features must be added to the following file located in the Frinx ODL etc/ folder:
 
 **org.apache.karaf.features.cfg**
@@ -53,7 +54,10 @@ For a list of available features, first start Frinx ODL ([see our guide](running
 
     feature:list
 
+A list of installed features can be displayed with the command:
+
+    feature:list -i
+
 For a list of features whose names include a particular word e.g. 'restconf' you can use grep e.g.
 
-    feature:list |grep restconf
-
+    feature:list | grep restconf

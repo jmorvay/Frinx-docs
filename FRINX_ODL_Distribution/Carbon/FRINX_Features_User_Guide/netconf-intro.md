@@ -33,7 +33,6 @@ In terms of RFCs, the connector supports:
 [RFC-5277](https://tools.ietf.org/html/rfc5277)  
 [RFC-6022](https://tools.ietf.org/html/rfc6022)  
 [draft-ietf-netconf-yang-library-06](https://tools.ietf.org/html/draft-ietf-netconf-yang-library-06)  
-
 **Netconf-connector is fully model-driven (utilizing the YANG modeling language) so in addition to the above RFCs, it supports any data/RPC/notifications described by a YANG model that is implemented by the device.**  
 
 *Tip
@@ -52,9 +51,9 @@ Preconditions:
 2. In Karaf, you must have the netconf-connector installed (at the Karaf prompt, type: feature:install odl-netconf-connector-all); the loopback NETCONF mountpoint will be automatically configured and activated
 3. Wait until log displays following entry: RemoteDevice{controller-config}: NETCONF connector initialized successfully
 To configure a new netconf-connector you need to send following request to RESTCONF:
-
+```
 POST   http://localhost:8181/restconf/config/network-topology:network-topology/topology/topology-netconf/node/controller-config/yang-ext:mount/config:modules  
-
+```
 Headers:  
 * Accept application/xml
 * Content-Type application/xml
@@ -95,15 +94,15 @@ Headers:
 </module>
 ```
 This spawns a new netconf-connector which tries to connect to (or mount) a NETCONF device at 127.0.0.1 and port 830. You can check the configuration of config-subsystem’s configuration datastore. The new netconf-connector will now be present there. Just invoke:  
-
+```
 GET   http://localhost:8181/restconf/config/network-topology:network-topology/topology/topology-netconf/node/controller-config/yang-ext:mount/config:modules  
-
+```
 The response will contain the module for new-netconf-device.  
 
 Right after the new netconf-connector is created, it writes some useful metadata into the datastore of MD-SAL under the network-topology subtree. This metadata can be found at:  
-
+```
 GET http://localhost:8181/restconf/operational/network-topology:network-topology/  
-
+```
 Information about connection status, device capabilities, etc. can be found there.  
 
 #### Connecting to a device not supporting NETCONF monitoring
@@ -140,9 +139,9 @@ Netconf-connector has an optional configuration attribute called yang-module-cap
 It is possible to change the configuration of a running module while the whole controller is running. This example will continue where the last left off and will change the configuration for the brand new netconf-connector after it was spawned. Using one RESTCONF request, we will change both username and password for the netconf-connector.  
 
 To update an existing netconf-connector you need to send following request to RESTCONF:  
-
+```
 PUT   http://localhost:8181/restconf/config/network-topology:network-topology/topology/topology-netconf/node/controller-config/yang-ext:mount/config:modules/module/odl-sal-netconf-connector-cfg:sal-netconf-connector/new-netconf-device  
-
+```
 ```xml
 <module xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
   <type xmlns:prefix="urn:opendaylight:params:xml:ns:yang:controller:md:sal:connector:netconf">prefix:sal-netconf-connector</type>
@@ -177,23 +176,21 @@ PUT   http://localhost:8181/restconf/config/network-topology:network-topology/to
 </module>
 ```
 Since a PUT is a replace operation, the whole configuration must be specified along with the new values for username and password. This should result in a 2xx response and the instance of netconf-connector called new-netconf-device will be reconfigured to use username bob and password passwd. New configuration can be verified by executing:  
-
+```
 GET   http://localhost:8181/restconf/config/network-topology:network-topology/topology/topology-netconf/node/controller-config/yang-ext:mount/config:modules/module/odl-sal-netconf-connector-cfg:sal-netconf-connector/new-netconf-device  
-
+```
 With new configuration, the old connection will be closed and a new one established.  
 
 #### Destroying Netconf-Connector While the Controller is Running  
 
 Using RESTCONF one can also destroy an instance of a module. In case of netconf-connector, the module will be destroyed, NETCONF connection dropped and all resources will be cleaned. To do this, simply issue a request to following URL:  
-
+```
 DELETE   http://localhost:8181/restconf/config/network-topology:network-topology/topology/topology-netconf/node/controller-config/yang-ext:mount/config:modules/module/odl-sal-netconf-connector-cfg:sal-netconf-connector/new-netconf-device  
-
+```
 The last element of the URL is the name of the instance and its predecessor is the type of that module (In our case the type is **sal-netconf-connector** and name **new-netconf-device**). The type and name are actually the keys of the module list.  
-
 
 ## How does the Frinx ODL Distribution use NETCONF?
 The Frinx ODL Distribution's southbound APIs use a NETCONF connector to communicate with downstream devices. The northbound APIs expose the YANG models of connected devices. This makes it possible to examine the operational and config datastores and to configure devices using RPCs. RESTCONF maps a subset of these YANG models to a RESTful interface.
-
 
 **NETCONF – features used by the Frinx ODL Distribution include:**  
 

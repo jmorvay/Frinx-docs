@@ -96,6 +96,7 @@ This will give the following output which confirms that the file has been upload
        }
     }
 
+*The postman collection for the Frinx API Bundle can be downloaded from [here](https://github.com/FRINXio/Postman/releases).* 
 
 | Feature Guide         |             |                   |
 |-----------------------|-------------|-------------------|

@@ -7,4 +7,8 @@
 [FRINX Daexim](FRINX_Features_User_Guide/daexim.md)  
 [RADIUS](FRINX_Features_User_Guide/radius.md)  
 [API Bundle](FRINX_Features_User_Guide/using-the-frinx-api-bundle.md)  
+[RESTCONF](FRINX_Features_User_Guide/restconf.md)  
+[NETCONF:Intro](FRINX_Features_User_Guide/netconf-intro.md)  
+[NETCONF:Mounting a device](FRINX_Features_User_Guide/netconf-mounting.md)  
+[NETCONF:Deleting a mounted device](FRINX_Features_User_Guide/netconf-deleting.md)  
 [NETCONF Clustering](FRINX_Features_User_Guide/netconf-clustering.md)   

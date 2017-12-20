@@ -28,8 +28,8 @@
 
 <!-- /TOC -->
 
-*The postman.json Postman collection for the CLI service module can be accessed [here](https://github.com/FRINXio/cli-units/tree/master/postman). It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc). 
-It also contains several **environment files** (with suffix env.json) with preconfigured variables whose values you can update within Postman (by clicking on the cog icon near the top-right of Postman and selecting 'Manage Environments'). We refer to the postman collection in the usage section below*
+*The Postman collection for the CLI service module can be downloaded from [Postman collection accessible here](https://github.com/FRINXio/Postman/releases). It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc).
+We include several environment files (with suffix env.json) with preconfigured variables whose values you can update within Postman (by clicking on the cog icon near the top-right of Postman and selecting 'Manage Environments'). We refer to the postman collection in the usage section below*
 
 **Postman can be downloaded for free [here](https://www.getpostman.com/postman)**
 
@@ -192,7 +192,7 @@ The following sequence of operations needs to happen from the point when Openday
 
 #### How to mount and manage IOS devices over REST
 
-Please import the postman.json Postman collection available [here](https://github.com/FRINXio/cli-units/tree/master/postman), into Postman, then open the folder *Ios mount*.
+Please import the postman.json Postman collection available [Postman collection accessible here](https://github.com/FRINXio/Postman/releases), into Postman, then open the folder *Ios mount*.
 
 You will see there are two calls available for mounting an Ios device. *In each case, edit the following fields according to your specific device: *cli-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
 
@@ -216,7 +216,7 @@ IOS devices can also be mounted and managed from an application. For instruction
 
 It is possible to mount any network device as a generic device. This allows invocation of any commands on the device using RPCs, which return the output back as freeform data and it is up to user/application to make sense of them.
 
-Please import the postman.json Postman collection available [here](https://github.com/FRINXio/cli-units/tree/master/postman), into Postman, then open the folder *Linux mount*
+Please import the postman.json Postman collection available [Postman collection accessible here](https://github.com/FRINXio/Postman/releases), into Postman, then open the folder *Linux mount*
 
 Open the body of the *mount* PUT call and edit the following fields according to your specific device: *network-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
 
@@ -224,29 +224,29 @@ Open the body of the *mount* PUT call and edit the following fields according to
 
 #### Pushing a config to a mounted node in dry run mode
 
-To operate in dry-run mode (useful for testing or demo purposes), you need to mount the device with the following configuration. 
+To operate in dry-run mode (useful for testing or demo purposes), you need to mount the device with the following configuration.
 ~~~~
 {
     "network-topology:node" :
     {
       "network-topology:node-id" : "IOS",
-     
+
       "cli-topology:host" : "",
       "cli-topology:port" : "22",
       "cli-topology:transport-type" : "ssh",
-     
+
       "cli-topology:device-type" : "ios",
       "cli-topology:device-version" : "*",
-     
+
       "cli-topology:username" : "cisco",
       "cli-topology:password" : "cisco",
-     
+
       "cli-topology:journal-size": 150,
       "cli-topology:dry-run-journal-size": 180
     }
 }
-~~~~ 
-You can also mount in dry-run mode using the preconfigured calls (either: IOS XR/XR Mount/Mount IOS XR cli or IOS Classic/Classic Mount/Mount IOS Classic) which we provide in our [postman.json file accessible here](https://github.com/FRINXio/cli-units/tree/master/postman). You can quickly configure environment variables using the *env.json files accessible in the same location. Again, after mounting, you can issue a call in dry run mode by replacing node id in the URL of the call with node-id-dryrun e.g. IOS1-dryrun
+~~~~
+You can also mount in dry-run mode using the preconfigured calls (either: IOS XR/XR Mount/Mount IOS XR cli or IOS Classic/Classic Mount/Mount IOS Classic) which we provide in our [Postman collection accessible here](https://github.com/FRINXio/Postman/releases). You can quickly configure environment variables using the included env.json files. Again, after mounting, you can issue a call in dry run mode by replacing node id in the URL of the call with node-id-dryrun e.g. IOS1-dryrun
 
 ## Supported devices
 

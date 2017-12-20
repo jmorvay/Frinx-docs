@@ -182,7 +182,6 @@ GET   http://localhost:8181/restconf/config/network-topology:network-topology/to
 With new configuration, the old connection will be closed and a new one established.  
 
 #### Destroying Netconf-Connector While the Controller is Running  
-
 Using RESTCONF one can also destroy an instance of a module. In case of netconf-connector, the module will be destroyed, NETCONF connection dropped and all resources will be cleaned. To do this, simply issue a request to following URL:  
 ```
 DELETE   http://localhost:8181/restconf/config/network-topology:network-topology/topology/topology-netconf/node/controller-config/yang-ext:mount/config:modules/module/odl-sal-netconf-connector-cfg:sal-netconf-connector/new-netconf-device  

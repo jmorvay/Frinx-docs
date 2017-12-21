@@ -16,7 +16,7 @@ Frinx uses the free Postman REST client as an API for the Frinx ODL distribution
 We have created collections of REST calls that form the API for the Frinx ODL distribution.
 These REST calls are grouped together as `Postman collection` files. 
 
-For some features we also provide `Postman environment` files (with suffix env.json). These make the REST calls easily configurable through the use of variables, whose values you can edit.
+For some features we also provide `Postman environment` files (with suffix env.json). These make the REST calls easily configurable through the use of variables, whose values you can edit (see section below in importing).
 
 Both the Frinx `Postman collection` and `Postman environment` files are grouped by Frinx ODL release (starting with 3.1.1) and packaged as zip files [here](https://github.com/FRINXio/Postman/releases). 
 

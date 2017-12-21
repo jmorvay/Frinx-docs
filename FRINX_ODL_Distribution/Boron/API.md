@@ -30,8 +30,6 @@ following subdirectories, grouped by FRINX ODL features:
 * `L2VPN Service Module`  - [L3VPN](FRINX_Features_User_Guide/l3vpn/l3vpn-service-module.md)
 * `Uniconfig Framework`     - [CLI](FRINX_Features_User_Guide/cli/cli-service-module.md)
 
-Between Frinx ODL releases we will also post release candidate (RC) zip files.
-
 ## Importing Frinx Postman collection & environment files into Postman
 Start Postman and click on `Import` near the top-left of the screen.
 

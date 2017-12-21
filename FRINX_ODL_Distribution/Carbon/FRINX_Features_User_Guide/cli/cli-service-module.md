@@ -18,6 +18,7 @@
         - [Transactions and revert](#transactions-and-revert)
         - [Reconciliation](#reconciliation)
     - [Usage](#usage)
+        - [Frinx CLI API](#frinx-cli-api)
         - [FRINX ODL Distribution: CLI Features](#frinx-odl-distribution-cli-features)
         - [Logs](#logs)
         - [Mounting a CLI device](#mounting-a-cli-device)
@@ -27,11 +28,6 @@
     - [Supported devices](#supported-devices)
 
 <!-- /TOC -->
-
-*The Postman collection for the CLI service module can be downloaded from [Postman collection accessible here](https://github.com/FRINXio/Postman/releases). It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc).
-We include several environment files (with suffix env.json) with preconfigured variables whose values you can update within Postman (by clicking on the cog icon near the top-right of Postman and selecting 'Manage Environments'). We refer to the postman collection in the usage section below*
-
-**Postman can be downloaded for free [here](https://www.getpostman.com/postman)**
 
 ## Introduction
 
@@ -159,6 +155,8 @@ There might be situations where there are inconsistencies between actual configu
 *   Allow apps/users to request synchronization when an inconsistent state is expected e.g. manual configuration of the device
 
 ## Usage
+### Frinx CLI API
+To download and use FRINX pre-configured Postman REST calls - see [this page](../../API.md).
 
 This section provides samples for how to use the CLI southbound plugin to manage a particular device.
 
@@ -191,8 +189,7 @@ The following sequence of operations needs to happen from the point when Openday
 6.  CLI topology updates operational state of this node in CLI topology to connected
 
 #### How to mount and manage IOS devices over REST
-
-Please import the postman.json Postman collection from [Postman collection accessible here](https://github.com/FRINXio/Postman/releases), into Postman, then open the folder *Mount/Unmount Ios*.
+Pre-configured REST calls are provided - please see [this page](../../API.md) 
 
 *In the 'Body' section of the Mount call, edit the following fields according to your specific device: *cli-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
 
@@ -216,7 +213,7 @@ IOS devices can also be mounted and managed from an application. For instruction
 
 It is possible to mount any network device as a generic device. This allows invocation of any commands on the device using RPCs, which return the output back as freeform data and it is up to the user/application to make sense of them.
 
-Please import the postman.json Postman collection file from [Postman collection accessible here](https://github.com/FRINXio/Postman/releases), into Postman, then open the folder *Linux mount*
+In postman, then open the folder *Linux mount*
 
 Open the body of the *mount* PUT call and enter and edit the following fields according to your specific device: *network-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
 
@@ -257,6 +254,7 @@ Please see [here](cli_supported_devices.md) for a structured list of device type
 *For a hands-on tour of the CLI service module from within your browser, please try our [playground](http://46.229.232.136:8888/)*
 
 *For more information, please contact us at info@frinx.io*
+
 
 | FEATURE GUIDE         |             |                                                                                                                                                                                                                                                                                |
 |-----------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

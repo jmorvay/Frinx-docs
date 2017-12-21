@@ -18,6 +18,7 @@
         - [Transactions and revert](#transactions-and-revert)
         - [Reconciliation](#reconciliation)
     - [Usage](#usage)
+        - [Frinx CLI API](#frinx-cli-api)
         - [Features](#features)
         - [Logs](#logs)
         - [Mounting a CLI device](#mounting-a-cli-device)
@@ -27,11 +28,6 @@
     - [Supported devices](#supported-devices)
 
 <!-- /TOC -->
-
-*The Postman collection for the CLI service module can be downloaded from [Postman collection accessible here](https://github.com/FRINXio/Postman/releases). It contains several pre-configured REST calls for mounting and interacting with devices, which can be edited for your use (by changing IP addresses, port numbers etc).
-We include several environment files (with suffix env.json) with preconfigured variables whose values you can update within Postman (by clicking on the cog icon near the top-right of Postman and selecting 'Manage Environments'). We refer to the postman collection in the usage section below*
-
-**Postman can be downloaded for free [here](https://www.getpostman.com/postman)**
 
 ## Introduction
 
@@ -159,6 +155,8 @@ There might be situations where there are inconsistencies between actual configu
 *   Allow apps/users to request synchronization when an inconsistent state is expected e.g. manual configuration of the device
 
 ## Usage
+### Frinx CLI API
+To download and use FRINX pre-configured Postman REST calls - see [this page](../../API.md).
 
 This section provides samples for how to use the CLI southbound plugin to manage a particular device.
 

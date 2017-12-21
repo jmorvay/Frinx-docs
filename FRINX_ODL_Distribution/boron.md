@@ -6,6 +6,7 @@
 [FRINX Features: Developer Guide](Boron/developer_guide.md)  
 [Troubleshooting Guide](Boron/Troubleshooting_Guide/troubleshooting_guide.md)   
 [Release Notes](Boron/release_notes.md)   
+[Frinx API](Boron/API.md)
 
 
 

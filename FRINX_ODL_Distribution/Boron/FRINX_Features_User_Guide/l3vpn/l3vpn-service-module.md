@@ -4,6 +4,7 @@
 <!-- TOC -->
 
 - [L3VPN Service Module User Guide](#l3vpn-service-module-user-guide)
+    - [Frinx L3VPN API](#frinx-l3vpn-api)
     - [A bit about L3VPN](#a-bit-about-l3vpn)
         - [Problem definition and L3VPN](#problem-definition-and-l3vpn)
         - [Terminology](#terminology)
@@ -31,6 +32,9 @@ The goal of this project is to automate provisioning of Layer 3 Virtual Private 
 This is done by using the Frinx ODL controller which configures routers based on intent of the L3VPN service. The Frinx ODL controller translates the L3VPN service abstraction to network element configuration.  
 
 ![L3VPN Service](l3vpn_service.png)
+
+## Frinx L3VPN API
+To download and use FRINX pre-configured Postman REST calls - see [this page](../../API.md).
 
 ## A bit about L3VPN
 

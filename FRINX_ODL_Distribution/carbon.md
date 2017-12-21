@@ -6,6 +6,7 @@
 [FRINX Features: Developer Guide](Carbon/developer_guide.md)  
 [Troubleshooting Guide](Carbon/Troubleshooting_Guide/troubleshooting_guide.md)   
 [Release Notes](Carbon/release_notes.md)   
+[Frinx API](Carbon/API.md)
 
 
 

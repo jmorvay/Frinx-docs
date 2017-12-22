@@ -213,7 +213,7 @@ IOS devices can also be mounted and managed from an application. For instruction
 
 It is possible to mount any network device as a generic device. This allows invocation of any commands on the device using RPCs, which return the output back as freeform data and it is up to the user/application to make sense of them.
 
-In postman, then open the folder *Linux mount*
+In postman, open the folder *Linux mount*
 
 Open the body of the *mount* PUT call and enter and edit the following fields according to your specific device: *network-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
 
@@ -245,13 +245,15 @@ To operate in dry-run mode (useful for testing or demo purposes), you need to mo
 ~~~~
 *Now issue a request, but in the URL instead of using node id, use node-id-dryrun e.g. IOS1-dryrun.*
 
-You can also mount in dry-run mode using the preconfigured calls (either: IOS XR/XR Mount/Mount IOS XR cli or IOS Classic/Classic Mount/Mount IOS Classic) which we provide in our [Postman collection accessible here](https://github.com/FRINXio/Postman/releases). You can quickly configure environment variables using the included env.json files included. Again, after mounting, you can issue a call in dry run mode by replacing node id in the URL of the call with node-id-dryrun e.g. IOS1-dryrun
+You can also mount in dry-run mode using the preconfigured calls (either: IOS XR/XR Mount/Mount IOS XR cli or IOS Classic/Classic Mount/Mount IOS Classic) which we provide in our [Postman collection accessible here](https://github.com/FRINXio/Postman/releases). More info [here](../../API.md).
+
+You can quickly configure environment variables using the included env.json files included. Again, after mounting, you can issue a call in dry run mode by replacing node id in the URL of the call with node-id-dryrun e.g. IOS1-dryrun
 
 ## Supported devices
 
 Please see [here](cli_supported_devices.md) for a structured list of device types currently supported by the CLI southbound plugin and configuration aspects implemented for them.
 
-*For a hands-on tour of the CLI service module from within your browser, please try our [playground](http://46.229.232.136:8888/)*
+*For a hands-on tour of the CLI service module from within your browser, please try our [playground](http://46.229.232.136:7777/)*
 
 *For more information, please contact us at info@frinx.io*
 

@@ -21,7 +21,7 @@ More information about CLI mounting can be found [here](https://frinxio.github.i
 
 [cli-topology.yang](yang/cli-topology.yang)
 
-[Tree representation of cli-topology.yang](cli-topology.html)
+[Tree representation of cli-topology.yang](yang/cli-topology.html)
 
 ### NETCONF
 More information about NETCONF mounting can be found [here](http://docs.opendaylight.org/en/stable-carbon/user-guide/netconf-user-guide.html#southbound-netconf-connector)

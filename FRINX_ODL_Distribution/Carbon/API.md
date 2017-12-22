@@ -6,7 +6,6 @@
     - [Download Frinx Postman collection and environment files](#download-frinx-postman-collection-and-environment-files)
     - [Importing Frinx Postman collection & environment files into Postman](#importing-frinx-postman-collection--environment-files-into-postman)
     - [Versioning](#versioning)
-        - [Currently available versions:](#currently-available-versions)
 
 <!-- /TOC -->
 ## Download Postman (free)
@@ -40,14 +39,10 @@ Imported **Collection files** appear as folders on the left of the screen. They 
 Imported **Environment files** contain variables whose values you can update by clicking on the cog icon near the top-right of Postman and selecting `Manage Environments`.
 
 ## Versioning
-The first planned release is 3.1.1 (Carbon). 
+Between releases we also publish release candidate (RC) zip files [in the same location](https://github.com/FRINXio/Postman/releases) which are pre-release versions in the development stage. These correspond with pre-release versions of Frinx ODL.  
 
-Between releases we also publish release candidate (RC) zip files [same location](https://github.com/FRINXio/Postman/releases)
-
-### Currently available versions:
-3.1.1rc (Carbon release candidate)
-Backwards compatibility: 
-`Infrastructure`        - All releases of Carbon, Boron, Beryllium
-`L2VPN Service Module`  - All releases of Carbon, Boron
-`L2VPN Service Module`  - All releases of Carbon, Boron
-`Uniconfig Framework`   - With this version only (Carbon 3.1.1rc)
+Backwards compatibility of Frinx Postman collections:   
+`Infrastructure`        - Works with all releases of Carbon, Boron, Beryllium Frinx ODL  
+`L2VPN Service Module`  - Works with all releases of Carbon, Boron Frinx ODL  
+`L2VPN Service Module`  - Works with all releases of Carbon, Boron Frinx ODL  
+`Uniconfig Framework`   - Works only with corresponding version of Frinx ODL  

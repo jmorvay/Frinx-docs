@@ -26,9 +26,9 @@ In a terminal on your local machine, unzip the file. This will create a new dire
 following subdirectories, grouped by FRINX ODL features: 
 
 * `Infrastructure`          - [Bundle API](FRINX_Features_User_Guide/using-the-frinx-api-bundle.md), [Clustering](Operations_Manual/clustering-overview)
-* `L2VPN Service Module`    - [L2VPN](FRINX_Features_User_Guide/l2vpn/l2vpn-service-module.md)
-* `L3VPN Service Module`    - [L3VPN](FRINX_Features_User_Guide/l3vpn/l3vpn-service-module.md)
-* `Uniconfig Framework`     - [CLI](FRINX_Features_User_Guide/cli/cli-service-module.md)
+* `L2VPN Service Module`    - Not applicable to Beryllium releases
+* `L3VPN Service Module`    - Not applicable to Beryllium releases
+* `Uniconfig Framework`     - Not applicable to Beryllium releases
 
 ## Importing Frinx Postman collection & environment files into Postman
 Start Postman and click on `Import` near the top-left of the screen.
@@ -42,8 +42,4 @@ Imported **Environment files** contain variables whose values you can update by 
 ## Versioning
 Between releases we also publish release candidate (RC) zip files [in the same location](https://github.com/FRINXio/Postman/releases) which are pre-release versions in the development stage. These correspond with pre-release versions of Frinx ODL.  
 
-Backwards compatibility of Frinx Postman collections:   
-`Infrastructure`        - Works with all releases of Carbon, Boron, Beryllium Frinx ODL  
-`L2VPN Service Module`  - Works with all releases of Carbon, Boron Frinx ODL  
-`L2VPN Service Module`  - Works with all releases of Carbon, Boron Frinx ODL  
-`Uniconfig Framework`   - Works only with corresponding version of Frinx ODL  
+

@@ -14,7 +14,7 @@ Frinx uses the free Postman REST client as an API for the Frinx ODL distribution
 
 ## Download Frinx Postman collection and environment files
 We have created collections of REST calls that form the API for the Frinx ODL distribution.
-These REST calls are grouped together as **Postman collection**` files. 
+These REST calls are grouped together as **Postman collection** files. 
 
 For some features we also provide **Postman environment** files (with suffix env.json). These make the REST calls easily configurable through the use of variables, whose values you can edit (see section below in importing).
 
@@ -22,7 +22,7 @@ Both the Frinx **Postman collection** and **Postman environment** files are grou
 
 On that page, find your Frinx ODL version number and click on 'zip' to download to a location on your local machine. 
 
-![Select release](image2.png "Select release")  
+![Select release](zip-files.png "Select release")  
 
 In a terminal on your local machine, unzip the file. This will create a new directory with the 
 following subdirectories, grouped by FRINX ODL features: 
@@ -37,11 +37,23 @@ Start Postman and click on **Import** near the top-left of the screen.
 
 In the pop-up window which opens, click to select the file you want to import (both collection files and environment files are imported from here). 
 
-![Import into Postman](image3.png "Import into Postman")  
+![Import into Postman](import.png "Import into Postman")  
 
 Imported **Collection files** appear as folders on the left of the screen. They contain sets of REST calls which allow you to interact with FRINX ODL and to use FRINX ODL to interact with network devices.
 
-Imported **Environment files** contain variables whose values you can update by clicking on the cog icon near the top-right of Postman and selecting **Manage Environments**.
+![Imported collection](imported-collection.png "Imported collection")  
+
+Imported **Environment files** contain variables whose values you can update by clicking on the cog icon near the top-right of Postman and selecting **Manage Environments**.  
+
+![Manage environments](manage-envs.png "Manage environments")  
+
+All the environments you have imported or created will be listed:  
+
+![Environments](environments.png "Environments")  
+
+CLick on the environment you wish to edit. You are then able to set values for each key (variable):
+
+![Update-envs](update-envs.png "Update-envs")  
 
 ## Versioning
 Between releases we also publish release candidate (RC) zip files [in the same location](https://github.com/FRINXio/Postman/releases) which are pre-release versions in the development stage. These correspond with pre-release versions of Frinx ODL.  

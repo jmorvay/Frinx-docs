@@ -86,7 +86,7 @@ curl -X PUT \
   }'
 ```
 
-[more examples in postman collection](https://github.com/FRINXio/Postman/blob/carbon/development/Uniconfig%20Framework/postman.json)
+[more examples in postman collection](https://github.com/FRINXio/Postman/blob/carbon/development/Uniconfig%20Framework/postman_collection_uniconfig.json)
 
 ## UniConfig API description
 

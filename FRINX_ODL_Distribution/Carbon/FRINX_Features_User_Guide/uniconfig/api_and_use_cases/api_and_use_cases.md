@@ -44,7 +44,7 @@ Mounting CLI or NETCONF network element.
 ![Mount CLI or NETCONF device](drawing/UNM/CLI_NETCONF_mount.png)
 
 ### CLI
-More information about CLI mounting can be found [here](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/FRINX_Features_User_Guide/cli/cli-service-module.html#mounting-a-cli-device)
+More information about CLI mounting can be found [here](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/FRINX_Features_User_Guide/cli/cli-service-module.html#mounting-a-cli-device)
 
 [cli-topology.yang](yang/cli-topology.yang)
 

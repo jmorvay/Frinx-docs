@@ -40,7 +40,7 @@ following subdirectories, grouped by FRINX ODL features:
 ## Importing Frinx Postman collection & environment files into Postman
 Start Postman and click on **Import** near the top-left of the screen.
 
-In the pop-up window which opens, click to select the file you want to import (both collection files and environment files are imported from here). 
+In the pop-up window which opens, click **Choose files** and navigate into the subdirectory of your choice (Infrastructure, L2VPN Service Module, L3VPN Service Module or Uniconfig Framework) and select a postman_collection.json file to import (both collection files and environment files are imported from here). 
 
 ![Import into Postman](import.png "Import into Postman")  
 

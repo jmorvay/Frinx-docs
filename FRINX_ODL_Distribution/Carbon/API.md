@@ -6,6 +6,7 @@
     - [Download Postman (free)](#download-postman-free)
     - [Download Frinx Postman collection and environment files](#download-frinx-postman-collection-and-environment-files)
     - [Importing Frinx Postman collection & environment files into Postman](#importing-frinx-postman-collection--environment-files-into-postman)
+        - [Editing environments](#editing-environments)
     - [Versioning](#versioning)
 
 <!-- /TOC -->
@@ -42,6 +43,8 @@ In the pop-up window which opens, click to select the file you want to import (b
 Imported **Collection files** appear as folders on the left of the screen. They contain sets of REST calls which allow you to interact with FRINX ODL and to use FRINX ODL to interact with network devices.
 
 ![Imported collection](imported-collection.png "Imported collection")  
+
+### Editing environments
 
 Imported **Environment files** contain variables whose values you can update by clicking on the cog icon near the top-right of Postman and selecting **Manage Environments**.  
 

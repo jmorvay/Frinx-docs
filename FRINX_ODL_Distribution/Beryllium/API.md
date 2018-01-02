@@ -58,6 +58,10 @@ CLick on the environment you wish to edit. You are then able to set values for e
 
 ![Update-envs](update-envs.png "Update-envs")  
 
+The values you set for a key is substituted for the key wherever it appears within your calls. Within calls, keys are always shown within double sets of curly braces:
+
+ ![Environment keys](env-keys.png "Environment keys")  
+
 ## Versioning
 Between releases we also publish release candidate (RC) zip files [in the same location](https://github.com/FRINXio/Postman/releases) which are pre-release versions in the development stage. These correspond with pre-release versions of Frinx ODL.  
 

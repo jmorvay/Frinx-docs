@@ -72,7 +72,7 @@ Next you need to select your choice of environment from the drop-down menu in th
 
  ![Select environment](select-env.png "Select environment")  
 
-The value you set for each key when you configured the selected environment is substituted for the key wherever it appears within the body or URL of any REST call you issue while that environment is active. Within calls, keys are always shown within double sets of curly braces:
+The value you set for each key when you configured the selected environment is substituted for the key wherever it appears within the body or URL of any REST call you issue while that environment is active. When using keys within calls, they should be encapsulated in double sets of curly braces (our postman collection calls are already set up this way):
 
  ![Environment keys](env-keys.png "Environment keys")  
 

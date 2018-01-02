@@ -6,7 +6,8 @@
     - [Download Postman (free)](#download-postman-free)
     - [Download Frinx Postman collection and environment files](#download-frinx-postman-collection-and-environment-files)
     - [Importing Frinx Postman collection & environment files into Postman](#importing-frinx-postman-collection--environment-files-into-postman)
-        - [Editing environments](#editing-environments)
+        - [Configuring environments](#configuring-environments)
+        - [Activating an environment](#activating-an-environment)
     - [Versioning](#versioning)
         - [Main releases](#main-releases)
         - [Release candidates](#release-candidates)
@@ -47,7 +48,10 @@ Imported **Collection files** appear as folders on the left of the screen. They 
 
 ![Imported collection](imported-collection.png "Imported collection")  
 
-### Editing environments
+### Configuring environments
+The advantage of setting environments is that you can re-use the same variable name throughout the URL and body of multiple calls, and update its value in one location.
+
+You can create your own environments, but you can also make use of environments we have created to save time. You can re-use our keys, but you will need to update the values according to your setup:
 
 Imported **Environment files** contain variables whose values you can update by clicking on the cog icon near the top-right of Postman and selecting **Manage Environments**.  
 
@@ -61,7 +65,14 @@ CLick on the environment you wish to edit. You are then able to set values for e
 
 ![Update-envs](update-envs.png "Update-envs")  
 
-The values you set for a key is substituted for the key wherever it appears within your calls. Within calls, keys are always shown within double sets of curly braces:
+Click on `update` to save your changes.
+
+### Activating an environment
+Next you need to select your choice of environment from the drop-down menu in the top right of screen:
+
+ ![Select environment](select-env.png "Select environment")  
+
+The value you set for each key when you configured the selected environment is substituted for the key wherever it appears within the body or URL of any REST call you issue while that environment is active. Within calls, keys are always shown within double sets of curly braces:
 
  ![Environment keys](env-keys.png "Environment keys")  
 

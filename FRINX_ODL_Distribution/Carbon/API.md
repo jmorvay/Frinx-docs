@@ -8,6 +8,9 @@
     - [Importing Frinx Postman collection & environment files into Postman](#importing-frinx-postman-collection--environment-files-into-postman)
         - [Editing environments](#editing-environments)
     - [Versioning](#versioning)
+        - [Main releases](#main-releases)
+        - [Release candidates](#release-candidates)
+        - [Backwards compatibility](#backwards-compatibility)
 
 <!-- /TOC -->
 ## Download Postman (free)
@@ -63,8 +66,25 @@ The values you set for a key is substituted for the key wherever it appears with
  ![Environment keys](env-keys.png "Environment keys")  
 
 ## Versioning
-Between releases we also publish release candidate (RC) zip files [in the same location](https://github.com/FRINXio/Postman/releases) which are pre-release versions in the development stage. These correspond with pre-release versions of Frinx ODL.  
+### Main releases
+Distinct versions of the FRINX Postman API files are [available here](https://github.com/FRINXio/Postman/releases), and named in the following format to correspond to analogous FRINX ODL distributions:  
 
+    release-x.x.x.frinx  
+
+for example 
+
+    release-3.1.1.frinx
+
+### Release candidates
+Between releases we also publish release candidate (RC) zip files [in the same location](https://github.com/FRINXio/Postman/releases) which are pre-release versions in the development stage. These correspond with pre-release versions of Frinx ODL. The naming format is:  
+
+    release-x.x.x.rcx-frinx
+
+for example
+
+    release-3.1.1.rc2-frinx
+
+### Backwards compatibility
 Backwards compatibility of Frinx Postman collections:   
 `Infrastructure`        - Works with all releases of Carbon, Boron, Beryllium Frinx ODL  
 `L2VPN Service Module`  - Works with all releases of Carbon, Boron Frinx ODL  

@@ -65,7 +65,7 @@ CLick on the environment you wish to edit. You are then able to set values for e
 
 ![Update-envs](update-envs.png "Update-envs")  
 
-Click on `update` to save your changes.
+Click on **Update** to save your changes.
 
 ### Activating an environment
 Next you need to select your choice of environment from the drop-down menu in the top right of screen:

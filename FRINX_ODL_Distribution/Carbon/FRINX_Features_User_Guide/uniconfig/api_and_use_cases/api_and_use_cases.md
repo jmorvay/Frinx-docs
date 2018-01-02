@@ -1,3 +1,30 @@
+[Documentation main page](https://frinxio.github.io/Frinx-docs/)  
+[FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/user_guide.html)  
+<!-- TOC -->
+
+- [UniConfig framework](#uniconfig-framework)
+    - [Mounting CLI or NETCONF network element](#mounting-cli-or-netconf-network-element)
+        - [CLI](#cli)
+        - [NETCONF](#netconf)
+        - [Example](#example)
+    - [UniConfig API description](#uniconfig-api-description)
+        - [Config initialization](#config-initialization)
+        - [RPC sync-from-network](#rpc-sync-from-network)
+            - [Example](#example-1)
+        - [RPC commit](#rpc-commit)
+            - [Example](#example-2)
+        - [RPC create-snapshot](#rpc-create-snapshot)
+            - [Example](#example-3)
+        - [RPC delete-snapshot](#rpc-delete-snapshot)
+            - [Example](#example-4)
+        - [RPC calculate-diff](#rpc-calculate-diff)
+            - [Example](#example-5)
+        - [RPC replace-config-with-operational](#rpc-replace-config-with-operational)
+            - [Example](#example-6)
+        - [RPC replace-config-with-snapshot](#rpc-replace-config-with-snapshot)
+            - [Example](#example-7)
+
+<!-- /TOC -->
 This document describes API and use cases how UniConfig framework can be used by
 external or OpenDaylight application.  
 [RESTCONF](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/FRINX_Features_User_Guide/restconf.html)

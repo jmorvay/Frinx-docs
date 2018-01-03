@@ -26,7 +26,7 @@
 
 <!-- /TOC -->
 This document describes API and use cases how UniConfig framework can be used by
-external or OpenDaylight application.  
+an external or OpenDaylight application.  
 [RESTCONF](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/FRINX_Features_User_Guide/restconf.html)
 is used for API description and REST call examples in this document.
 

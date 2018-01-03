@@ -18,9 +18,9 @@
         - [Transactions and revert](#transactions-and-revert)
         - [Reconciliation](#reconciliation)
     - [Usage](#usage)
-        - [Frinx CLI API](#frinx-cli-api)
+        - [Using the Frinx API to implement CLI southbound plugin](#using-the-frinx-api-to-implement-cli-southbound-plugin)
         - [FRINX ODL Distribution: CLI Features](#frinx-odl-distribution-cli-features)
-        - [Logs](#logs)
+        - [Optional - Change logging level](#optional---change-logging-level)
         - [Mounting a CLI device](#mounting-a-cli-device)
             - [How to mount and manage IOS devices over REST](#how-to-mount-and-manage-ios-devices-over-rest)
             - [How to mount and manage generic Linux VM devices over REST](#how-to-mount-and-manage-generic-linux-vm-devices-over-rest)
@@ -176,12 +176,13 @@ The following is an overview of the process by which a CLI device is rendered tr
 
 You can achieve this as follows:
 #### How to mount and manage IOS devices over REST
-The easiest way is to use REST calls Frinx has already created and packaged in the [Frinx API](../../API.md).
-The Frinx CLI postman collection contains subfolders with collections for **IOS XR** and **IOS Classic**. These contain subfolders **XR Mount** and **Classic Mount** respectively, with pre-configured calls for mounting those devices. As explained [here](../../API.md) you will need to import the relevant environment file and update its variables - this is because the calls contains several of these variables (visible in double sets of curly braces in the following image)
+The easiest way is to use one of the REST calls Frinx has already created and packaged in the [Frinx API](../../API.md).
+The Frinx CLI postman collection accessible from there contains subfolders with collections for **IOS XR** and **IOS Classic**. 
+These contain subfolders **XR Mount** and **Classic Mount** respectively, with pre-configured calls for mounting those devices. As explained [here](../../API.md) you will need to import the relevant environment file and update its variables - this is because the calls contains several of these variables (visible in double sets of curly braces in the following image)
 
 ![mount](mount.png)
 
-Once mounted, several other operations can be undertaken using the calls contained within the other Postman collection subfolders.
+Once mounted, several other operations can be undertaken using the calls contained within the other Postman collection subfolders e.g. *General Information, Interface, static route*.
 
 IOS devices can also be mounted and managed from an application. For instructions, please see the end of the [Developer Guide](../../FRINX_Features_Developer_Guide/cli/cli-service-module-devguide.html)
 
@@ -193,7 +194,10 @@ In postman, open the folder *Linux* to access the Mount call. To configure the v
 ![linux mount](linux-mount.png)
 
 #### Pushing a config to a mounted node in dry run mode
-To operate in dry-run mode (useful for testing or demo purposes), you need to mount the device with the following configuration.
+To operate in dry-run mode (useful for testing or demo purposes), you can again use the calls **IOS XR/XR Mount** or **IOS Classic/Classic Mount** but you need to 
+
+1. change the body of the call as follows:
+
 ~~~~
 {
     "network-topology:node" :
@@ -215,11 +219,8 @@ To operate in dry-run mode (useful for testing or demo purposes), you need to mo
     }
 }
 ~~~~
-*Now issue a request, but in the URL instead of using node id, use node-id-dryrun e.g. IOS1-dryrun.*
 
-You can also mount in dry-run mode using the preconfigured calls (either: IOS XR/XR Mount/Mount IOS XR cli or IOS Classic/Classic Mount/Mount IOS Classic) which we provide in our [Postman collection accessible here](https://github.com/FRINXio/Postman/releases). More info [here](../../API.md).
-
-You can quickly configure environment variables using the included env.json files included. Again, after mounting, you can issue a call in dry run mode by replacing node id in the URL of the call with node-id-dryrun e.g. IOS1-dryrun
+2. Now issue the call, but in the URL instead of using node id, use node-id-dryrun e.g. IOS1-dryrun.
 
 ## Supported devices
 Please see [here](cli_supported_devices.md) for a structured list of device types currently supported by the CLI southbound plugin and configuration aspects implemented for them.

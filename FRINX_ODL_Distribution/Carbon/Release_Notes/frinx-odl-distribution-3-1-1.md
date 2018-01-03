@@ -15,20 +15,36 @@ CentOS: In a terminal type
 
     sudo yum install java-1.8.0-openjdk
 
-#### Known Issues
+#### New Features, Improvements
+1. UniConfig manager has been added.
+2. Switches to G1 garbage collector.
+3. Uses 4GB heap by default.
+4. Enables crash on out of memory JVM flag.
 
-1. L2 VPN and L3 VPN service applications stay unchanged and are working as in Milestone 1 & 2 (XR supported).
-2. “Line card” information is not implemented for IOS devices.
-3. In older IOS versions, parsing in show IP route static not fully supported on IOS 12.X.
-4. Configuration commands for L3VPN/with BGP for IOS XR are missing.
-5. Configuration commands for L3VPN/with OSPF for IOS XR are missing.
-6. Show commands for OSPF routing are not working with the version IOS XE 16.7.1.
-7. Rollback is not working when L2VPN update fails.
-8. VRF crud tests are missing, will be created in January 2018.
-9. L3VPN OSPF, L3VPN BGP, VPWS and VPLS will be tested in January 2018.
+#### Known Issues
+1. odl-netconf-clustered-topology:
+    * Contains critical bugs and is not intended for production use, so odl-netconf-topology was modified FRINX so that it can work in cluster. FRINX recommends to use odl-netconf-topology in production environments.
+2. restconf/operational/entity-owners:
+    * entity-owners contains no data as entity ownership service was rewritten. Entity owners are assigned to the same node that hosts shard leaders.
+3. CLI telnet connectivity with reverse telnet on Cisco devices is not supported in this release.
+4. CLI, Unitopo and L2/3VPN service modules are supported on single node ODL.
+5. Readers returning default data for non-existent instances.
+    * When a specific query is issued for some child reader e.g. AreaReader in OSPF for XR, it will return default data back instead of a 404 response.
+6. UniConfig:
+    * Connection status is not shown under unified node
+    * *Workaround is to check connection status under CLI/NETCONF node*
+    * Uniconfig node is not removed from CONF DS when CLI/NETCONF node is unmount
+    * *Workaround is to remove uniconfig node manually e.g.:*
+```
+  curl -X DELETE \
+    http://192.168.56.11:8181/restconf/config/network-topology:network-topology/topology/uniconfig/node/IOSXR \
+    -H 'content-type: application/json'
+```    
+    * Create/update/delete of BFD attributes on LAG does not work – the probable cause is writers not being generated properly in unified layer
+    * Create/read/update/delete of ACL does not work properly
+    * Create/read/update/delete of SNMP does not work properly
 
 #### Opendaylight Carbon Release Notes
-
 The Frinx controller 3.1.1 is based on OpenDaylight Carbon.
 
 <https://wiki.opendaylight.org/view/Simultaneous_Release/Carbon/Release_Notes>

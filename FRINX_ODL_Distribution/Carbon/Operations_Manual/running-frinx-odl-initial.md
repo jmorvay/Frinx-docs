@@ -10,7 +10,7 @@
         - [Activating the FRINX ODL Distribution on a server without Internet access](#activating-the-frinx-odl-distribution-on-a-server-without-internet-access)
 
 <!-- /TOC -->
-# Activating the FRINX ODL Distribution 
+# Activating the FRINX ODL Distribution
 
 This guide explains how to run the distribution for the first time. If you have run it previously, please see [this guide](running-frinx-odl-after-activation.md)
 
@@ -29,9 +29,9 @@ CentOS: In a terminal type
 
 ## Download the FRINX ODL Distribution  
 
-Please click on the following link to download a zip archive of the FRINX ODL Distribution:
+Please click on the following link to download a zip archive of the latest Carbon FRINX ODL Distribution:
 
-*Carbon*: [distribution-karaf-3.1.0.frinx.zip](https://license.frinx.io/download/distribution-karaf-3.1.0.frinx.zip)   
+*Carbon*: [distribution-karaf-3.1.1.frinx.zip](https://license.frinx.io/download/distribution-karaf-3.1.1.frinx.zip)   
 
 Older distributions can be downloaded from our [archive](https://frinx.io/archive).
 By downloading the file you accept the FRINX software agreement: [EULA](7793505-v7-Frinx-ODL-Distribution-Software-End-User-License-Agreement.pdf)
@@ -44,7 +44,7 @@ To activate your installation, unzip the file and open the directory. Enter th
 
 *Note that Frinx ODL needs approximately 3 minutes to startup and shutdown. To maintain system integrity, **please do not interrupt the startup and shutdown processes** within this time.*  
 *In the event of interruption, the initial state can be restored by entering the following commands from a terminal within your Frinx ODL main directory. The first command forcibly kills the Frinx ODL karaf process; the second command cleans certain directories:*
- 
+
 ```
 kill -9 $(pgrep  -o -f  karaf)
 rm  -rf  data/ snapshots/ journal/

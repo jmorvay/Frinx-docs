@@ -30,7 +30,6 @@
 <!-- /TOC -->
 
 ## Introduction
-
 The CLI southbound plugin enables the FRINX Opendaylight distribution to communicate with CLI devices that do not speak NETCONF or any other programmatic API. The CLI service module uses YANG models and implements a translation logic to send and receive structured data to and from CLI devices. This allows applications to use a service model or unified device model to communicate with a broad range of network platforms and SW revisions from different vendors.
 
 Much like the NETCONF southbound plugin, the CLI southbound plugin enables fully model-driven, transactional device management for internal and external OpenDaylight applications. In fact, the applications are completely unaware of underlying transport and can manage devices over the CLI plugin in the same exact way as over NETCONF.
@@ -40,11 +39,9 @@ Once we have mounted the device, we can present an abstract, model-based network
 ![CLI southbound plugin](cliSouthPlugin.png)
 
 ## Architecture
-
 This section provides an architectural overview of the plugin, focusing on the main conponents.
 
 ### CLI topology
-
 The CLI topology is a dedicated topology instance where users and applications can:
 
 *   mount a CLI device
@@ -56,11 +53,9 @@ The CLI topology is a dedicated topology instance where users and applications c
 In fact, this topology can be seen as an equivalent of topology-netconf, providing the same features for netconf devices.
 
 #### APIs
-
 The topology APIs are YANG APIs based on the ietf-topology model. Similarly to netconf topology, CLI topology augments the model with some basic configuration data and also some state to monitor mountpoints. For details please refer to the latest CLI topology YANG model.
 
 ### CLI mountpoint
-
 The plugin relies on MD-SAL and its concept of mountpoints to expose management of a CLI device into Opendaylight. By exposing a mountpoint into MD-SAL, it enables the CLI topology to actually access the device's data in a structured/YANG manner. Components of such a mountpoint can be divided into 3 distinct layers:
 
 *   Service layer - implementation of MD-SAL APIs delegating execution to transport layer.
@@ -72,7 +67,6 @@ The following diagram shows the layers of a CLI mountpoint:
 ![CLI mountpoint](cliMountpoint.png)
 
 #### APIs
-
 The mountpoint exposes standard APIs and those are:
 
 *   DataBroker
@@ -82,11 +76,9 @@ The mountpoint exposes standard APIs and those are:
 These are the basic APIs every mountpoint in MD-SAL needs to provide. The actual data consumed and provided by the services depends on the YANG models implemented for a particular device type.
 
 #### Translation layer
-
 The CLI southbound plugin is as generic as possible. However, the device-specific translation code (from YANG data -> CLI commands and vice versa), needs to be encapsulated in a device-specific translation plugin. E.g. Cisco IOS specific translation code needs to be implemented by Cisco IOS translation plugin before Opendaylight can manage IOS devices. These translation plugins in conjunction with the generic translation layer allow for a CLI mountpoint to be created.
 
 ##### Device specific translation plugin
-
 Device specific translation plugin is a set of: - YANG models  
 - Data handlers  
 - RPC implementations
@@ -100,7 +92,6 @@ that actually
 So the plugin itself is responsible for defining the mapping between YANG and CLI. However, the translation layer into which it plugs in is what handles the heavy lifting for it e.g. transactions, rollback, config data storage, reconciliation etc. Additionally, the SPIs of the translation layer are very simple to implement because the translation plugin only needs to focus on the translations between YANG <-> CLI.
 
 ###### Units
-
 In order to enable better extensibility of the translation plugin and also to allow the separation of various aspects of a device's configuration, a plugin can be split into multiple units. Where a unit is actually just a subset of a plugin's models, handlers and RPCs.
 
 A single unit will usually cover a particular aspect of device management e.g. the interface management unit.
@@ -114,7 +105,6 @@ The following diagram shows an IOS device translation plugin split into multiple
 ![IOS translation plugin](iosUnits.png)
 
 #### Transport layer
-
 There are various transport protocols available such as:
 
 *   SSH
@@ -123,7 +113,6 @@ There are various transport protocols available such as:
 But all of them implement the same APIs, which enables the translation layer of the CLI plugin to be completely independent of the underlying protocol in use. Deciding which transport will be used to manage a particular device is simply a matter of configuration.
 
 ## Data processing
-
 There are 2 types of data in the Opendaylight world: Config and Operational. This section details how these data types map to CLI commands.
 
 Just as there are 2 types of data, there are 2 streams of data in the CLI southbound plugin:
@@ -144,41 +133,38 @@ Just as there are 2 types of data, there are 2 streams of data in the CLI southb
 *   **RPCs** stand on their own and can actually encapsulate any command(s) on the device.
 
 ### Transactions and revert
-
 As mentioned before, configuring a device is performed within transactions. If it's impossible to perform device configuration, the user/app facing transaction is failed and a revert procedure is initiated (in case there was partial configuration already submitted to the device).
 
 ### Reconciliation
-
 There might be situations where there are inconsistencies between actual configuration on the device and the state cached in Opendaylight. That's why a reconciliation mechanism was developed to:
 
 *   Allow the mountpoint to sync its state when first connecting to the device
 *   Allow apps/users to request synchronization when an inconsistent state is expected e.g. manual configuration of the device
 
 ## Usage
-### Frinx CLI API
-To download and use FRINX pre-configured Postman REST calls - see [this page](../../API.md).
+### Using the Frinx API to implement CLI southbound plugin
+First follow the instructions [here](../../API.md) to download and use Frinx pre-configured Postman REST calls.
 
-This section provides samples for how to use the CLI southbound plugin to manage a particular device.
+You'll be able to select the Frinx API version that maps to the version of Frinx ODL you are using. The `Uniconfig Framework` subdirectory contains the files needed to interact with the CLI.
+
+The sections below provide samples of how the CLI southbound plugin can be used to manage a particular device.
 
 ### FRINX ODL Distribution: CLI Features
+Next [run Frinx ODL](../../Operations_Manual/running-frinx-odl-initial.html).
 
-Install the following features into a running FRINX OpenDaylight instance (For running Frinx OpenDaylight, please see our [guide](../../Operations_Manual/running-frinx-odl-initial.html)):
+Then within karaf, install the required features:
 
     feature:install cli-topology cli-southbound-all-units odl-restconf
 
-
 This installs the CLI topology and all supported CLI translation units for various platforms e.g. IOS and IOS-XR.
 
-### Logs
-
-If finer logging is required, use the following command to enable DEBUG/TRACE logging:
+### Optional - Change logging level
+If you require more detailed logging, use the following command in karaf to enable DEBUG/TRACE logging:
 
     log:set TRACE io.frinx.cli
 
-
 ### Mounting a CLI device
-
-The following sequence of operations needs to happen from the point when Opendaylight is configured to mount a CLI device until it is truly accessible for users and applications:
+The following is an overview of the process by which a CLI device is rendered truly accessible for users and applications:
 
 1.  Submit CLI device configuration into CLI topology
     *   Over REST, NETCONF or from within Opendaylight
@@ -188,39 +174,25 @@ The following sequence of operations needs to happen from the point when Openday
 5.  CLI topology exposes the mountpoint into MD-SAL
 6.  CLI topology updates operational state of this node in CLI topology to connected
 
+You can achieve this as follows:
 #### How to mount and manage IOS devices over REST
-Pre-configured REST calls are provided - please see [this page](../../API.md) 
+The easiest way is to use REST calls Frinx has already created and packaged in the [Frinx API](../../API.md).
+The Frinx CLI postman collection contains subfolders with collections for **IOS XR** and **IOS Classic**. These contain subfolders **XR Mount** and **Classic Mount** respectively, with pre-configured calls for mounting those devices. As explained [here](../../API.md) you will need to import the relevant environment file and update its variables - this is because the calls contains several of these variables (visible in double sets of curly braces in the following image)
 
-*In the 'Body' section of the Mount call, edit the following fields according to your specific device: *cli-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
+![mount](mount.png)
 
-**Mounting by telnet**
-
-![telnet mount](mount-telnet.jpg)
-
-**Mounting by ssh**
-
-![ssh mount](/mount-ssh.jpg)
-
-You'll see that the *Ios mount* folder in Postman contains several other REST calls - the aspects of IOS device management they currently support are:
-
-*   Interface management
-*   VRF management
-*   Version data read
+Once mounted, several other operations can be undertaken using the calls contained within the other Postman collection subfolders.
 
 IOS devices can also be mounted and managed from an application. For instructions, please see the end of the [Developer Guide](../../FRINX_Features_Developer_Guide/cli/cli-service-module-devguide.html)
 
 #### How to mount and manage generic Linux VM devices over REST
-
 It is possible to mount any network device as a generic device. This allows invocation of any commands on the device using RPCs, which return the output back as freeform data and it is up to the user/application to make sense of them.
 
-In postman, open the folder *Linux mount*
+In postman, open the folder *Linux* to access the Mount call. To configure the variable values, import the *linux_157_env.json* environment file from the `Uniconfig Framework` directory as explained in the [Frinx API guide](../../API.md)
 
-Open the body of the *mount* PUT call and enter and edit the following fields according to your specific device: *network-topology:node-id, cli-topology:host, cli-topology:port, cli-topology:username, cli-topology:password*:
-
-![linux mount](linux-mount.jpg)
+![linux mount](linux-mount.png)
 
 #### Pushing a config to a mounted node in dry run mode
-
 To operate in dry-run mode (useful for testing or demo purposes), you need to mount the device with the following configuration.
 ~~~~
 {
@@ -250,7 +222,6 @@ You can also mount in dry-run mode using the preconfigured calls (either: IOS XR
 You can quickly configure environment variables using the included env.json files included. Again, after mounting, you can issue a call in dry run mode by replacing node id in the URL of the call with node-id-dryrun e.g. IOS1-dryrun
 
 ## Supported devices
-
 Please see [here](cli_supported_devices.md) for a structured list of device types currently supported by the CLI southbound plugin and configuration aspects implemented for them.
 
 *For a hands-on tour of the CLI service module from within your browser, please try our [playground](http://46.229.232.136:7777/)*

@@ -197,7 +197,7 @@ In postman, open the folder **Linux** to access the Mount call. To configure the
 #### Pushing a config to a mounted node in dry run mode
 To operate in dry-run mode (useful for testing or demo purposes), you can use one of the Mount cli calls within the imported **Frinx CLI** postman collection (**IOS XR/XR Mount/Mount IOS XR cli** or **IOS Classic/Classic Mount/Mount IOS Classic**). 
 
-- First change the following lines within the body of the call to the following:  
+- First change the values of the following lines within the body of the call to the following:  
 
 ~~~~
 {

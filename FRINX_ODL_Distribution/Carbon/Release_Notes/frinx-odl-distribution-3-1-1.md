@@ -3,6 +3,10 @@
 
 This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.<!--more-->
 
+**Frinx CLI plugin safe command execution - Frinx ODL distribution 3.1.1 introduces safe command execution to the [Frinx CLI plugin](../FRINX_Features_User_Guide/cli/cli-service-module.md). This forces the cli session to wait for the device to echo back each command before issuing another command. To implement safe command execution, remove the following line (boxed in red in the image below) when issuing the Mount IOS XR cli REST call within Postman. For more info on using the Frinx API and Postman see [our guide](../API.md)**
+
+![safe command execution](safe-command-execution.png)
+
 **Note that FRINX ODL distribution 3.1.1 requires Java 8**  
 To install Java:  
 Ubuntu: In a terminal type

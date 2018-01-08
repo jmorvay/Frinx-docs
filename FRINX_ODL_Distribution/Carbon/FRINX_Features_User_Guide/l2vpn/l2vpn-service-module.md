@@ -5,7 +5,7 @@
 
 - [L2VPN Service Module User Guide](#l2vpn-service-module-user-guide)
     - [Overview](#overview)
-    - [Using via Frinx API](#using-via-frinx-api)
+    - [Usage - via Frinx API](#usage---via-frinx-api)
     - [A bit about L2VPN](#a-bit-about-l2vpn)
         - [Problem definition and L2VPN](#problem-definition-and-l2vpn)
         - [Terminology](#terminology)
@@ -30,8 +30,12 @@
 
 The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
 
-## Using via Frinx API
-To download and use FRINX pre-configured Postman REST calls with L2VPN - see [this page](../../API.md).
+## Usage - via Frinx API
+To download and use FRINX pre-configured Postman REST calls with L3VPN - see [this page](../../API.md). Follow that guide to import the file `postman_collection_L2VPN_IOS-XRv.json` from the directory `L2VPN Service Module`.
+
+That file contains several REST calls for establishing a NETCONF connection and creating or deleting L2VPN instances (the values within the red boxes in the image below will need to be edited for your setup. The value for odl_ip should be set in a Postman environment [guidance here](../../API.md). The other values can be edited directly within the call bodies.
+
+![Postman](postman.png)
 
 ## A bit about L2VPN
 

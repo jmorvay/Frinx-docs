@@ -4,7 +4,7 @@
 <!-- TOC -->
 
 - [L3VPN Service Module User Guide](#l3vpn-service-module-user-guide)
-    - [Usage via Frinx API](#usage-via-frinx-api)
+    - [Usage - via Frinx API](#usage---via-frinx-api)
     - [A bit about L3VPN](#a-bit-about-l3vpn)
         - [Problem definition and L3VPN](#problem-definition-and-l3vpn)
         - [Terminology](#terminology)
@@ -33,8 +33,12 @@ This is done by using the Frinx ODL controller which configures routers based on
 
 ![L3VPN Service](l3vpn_service.png)
 
-## Usage via Frinx API
-To download and use FRINX pre-configured Postman REST calls for L3VPN - see [this page](../../API.md).
+## Usage - via Frinx API
+To download and use FRINX pre-configured Postman REST calls with L3VPN - see [this page](../../API.md). Follow that guide to import the file `postman_collection_L3VPN_IOS-XRv.json` from the directory `L3VPN Service Module`.
+
+That file contains several REST calls for establishing a NETCONF connection and creating or deleting L3VPN instances (the values within the red boxes in the image below will need to be edited for your setup. The value for odl_ip should be set in a Postman environment [guidance here](../../API.md). The other values can be edited directly within the call bodies.
+
+![Postman](postman.png)
 
 ## A bit about L3VPN
 

@@ -37,6 +37,8 @@ That file contains several REST calls for establishing a NETCONF connection and 
 
 ![Postman](postman.png)
 
+See our usage [example video](https://youtu.be/UkHj9OgHHyo)  
+
 ## A bit about L2VPN
 
 ### Problem definition and L2VPN

@@ -40,6 +40,8 @@ That file contains several REST calls for establishing a NETCONF connection and 
 
 ![Postman](postman.png)
 
+Also see our [video on L3VPN](https://youtu.be/qxnMJG_Cz-c)  
+
 ## A bit about L3VPN
 
 ### Problem definition and L3VPN

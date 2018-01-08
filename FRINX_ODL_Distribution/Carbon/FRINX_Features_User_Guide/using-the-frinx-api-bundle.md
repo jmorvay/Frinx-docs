@@ -62,7 +62,7 @@ Example using our pre-configured Postman REST call available [via this guide](..
 ![features list example](features-list.JPG)
 
 - Or by typing the following in a terminal window:
-```
+```bash
 curl 'http://localhost:8181/restconf/operational/installer:features' -H 'Host: localhost:8181' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X get
 ```
 

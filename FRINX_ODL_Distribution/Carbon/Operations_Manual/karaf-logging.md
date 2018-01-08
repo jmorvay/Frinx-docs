@@ -1,12 +1,19 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/operations_manual.html)
+<!-- TOC -->
 
+- [Configuring logging level within karaf](#configuring-logging-level-within-karaf)
+    - [Check logging level](#check-logging-level)
+    - [Add or change logging level for a particular feature](#add-or-change-logging-level-for-a-particular-feature)
+
+<!-- /TOC -->
 # Configuring logging level within karaf
 
 It's possible to adjust the verbosity of logging for each Frinx ODL feature.
 The following levels are available (most verbose listed first) - TRACE, DEBUG, WARN, INFO, ERROR.
 INFO is less verbose and is a good compromise in terms of verbosity and effectiveness.
 
+## Check logging level
 After [starting Frinx ODL](running-frinx-odl-after-activation), first check the logging level currently set for each feature: within the karaf console type
 ```
 log:list
@@ -25,6 +32,7 @@ org.opendaylight.daexim                                          | DEBUG
 org.opendaylight.netconf.sal.connect                             | INFO
 org.opendaylight.netconf.topology                                | INFO
 ```
+## Add or change logging level for a particular feature
 To add or change the logging level for a particular feature e.g. io.frinx.cli type
 
 ```

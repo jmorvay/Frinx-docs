@@ -26,6 +26,7 @@
             - [How to mount and manage generic Linux VM devices over REST](#how-to-mount-and-manage-generic-linux-vm-devices-over-rest)
             - [Pushing a config to a mounted node in dry run mode](#pushing-a-config-to-a-mounted-node-in-dry-run-mode)
     - [Supported devices](#supported-devices)
+    - [Feature history guide](#feature-history-guide)
 
 <!-- /TOC -->
 
@@ -229,6 +230,9 @@ Please see [here](cli_supported_devices.md) for a structured list of device type
 *For a hands-on tour of the CLI service module from within your browser, please try our [playground](http://46.229.232.136:7777/)*
 
 *For more information, please contact us at info@frinx.io*
+
+## Feature history guide
+The following table records the Frinx ODL versions in which particular CLI features and device support were introduced:  
 
 | FEATURE GUIDE         |             |                                                                                                                                                                                                                                                                                |
 |-----------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

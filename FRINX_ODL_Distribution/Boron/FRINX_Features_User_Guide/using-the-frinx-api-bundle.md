@@ -66,7 +66,7 @@ Example using our pre-configured Postman REST call available [via this guide](..
 curl 'http://localhost:8181/restconf/operational/installer:features' -H 'Host: localhost:8181' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X get
 ```
 
-In each case, output will be in the following format (the following has been json formatted):  
+In each case, output will be in the following format (the following has been JSON formatted):  
 ```json
 {  
    "features":{  
@@ -163,7 +163,7 @@ Example using our pre-configured Postman REST call available [via this guide](..
 curl 'http://localhost:8181/restconf/operations/installer:monitor-resources' -H 'Host: localhost:8181' -H 'Content-Type: application/json;charset=utf-8' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X post
 ```
 
-In each case, output will be in the following format:
+In each case, output will be in the following format (the following has been JSON formatted):
 
 ```json
 {  

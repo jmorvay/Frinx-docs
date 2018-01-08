@@ -21,6 +21,8 @@ The API is based on REST services. This means that functionality can be tested u
 ## Using via Frinx pre-configured REST calls
 The easiest way to issue the REST calls detailed below is using Postman and our preconfigured REST calls - see our [usage guide](../API.md). Follow the guide to import the file `postman_collection_FRINX API Bundle.json` from within the directory `Infrastructure`.
 
+The value for odl_ip should be set in a Postman environment [guidance here](../../API.md) - that way it needs only be entered once and will be applied to each call.
+
 ## Show version
 
 This displays the current Karaf distribution version. For example:

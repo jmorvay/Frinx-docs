@@ -15,9 +15,9 @@ To use this functionality, run the following command in the karaf console:
 
     feature:install frinx-installer-backend
 
-The easiest way to issue the REST calls detailed below is using Postman and our preconfigured REST calls packaged  - see our [usage guide](../API.md). Follow the guide to import the file `postman_collection_FRINX API Bundle.json` from within the directory `Infrastructure`.
+The API is based on REST services. This means that functionality can be tested using CURL. This bundle consists of 4 services listed in the sections that follow.
 
-The API is based on REST services. This means that functionality can be tested using CURL. This bundle consists of 4 services:
+The easiest way to issue the REST calls detailed below is using Postman and our preconfigured REST calls packaged  - see our [usage guide](../API.md). Follow the guide to import the file `postman_collection_FRINX API Bundle.json` from within the directory `Infrastructure`.
 
 ## Show version
 

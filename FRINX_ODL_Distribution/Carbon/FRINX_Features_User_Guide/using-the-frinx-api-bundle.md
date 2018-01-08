@@ -30,10 +30,11 @@ This displays the current Karaf distribution version. 
 
 You can run either:  
 
-- By REST (as POST). (username: admin password: admin).  Use our pre-configured Postman call, see above.  
+- By REST (as POST). (username: admin password: admin).  
+
     http://[host]:[port]/restconf/operations/installer:show-version
 
-Example using Postman:  
+Example using our pre-configured Postman REST call available [via this guide](../API.md).  
 ![show version example](show-version.JPG)  
 
 - Or by typing the following in a terminal window:
@@ -53,11 +54,11 @@ name - version - repository - description - installed (boolean value, whether it
 
 You can run either:  
 
-- By REST (as GET). (username: admin password: admin). Use our pre-configured Postman call, see above.  
+- By REST (as GET). (username: admin password: admin).  
 
     http://[host]:[port]/restconf/operational/installer:features
 
-Example using Postman:  
+Example using our pre-configured Postman REST call available [via this guide](../API.md).  
 ![features list example](features-list.JPG)
 
 - Or by typing the following in a terminal window:
@@ -76,11 +77,11 @@ This displays base information about system, memory and disk management
 
 You can run either:  
 
-- By REST (as POST). (username: admin password: admin). Use our pre-configured Postman call, see above.  
+- By REST (as POST). (username: admin password: admin).  
 
     http://[host]:[port]/restconf/operations/installer:monitor-resources
 
-Example using Postman:  
+Example using our pre-configured Postman REST call available [via this guide](../API.md).  
 ![monitor resources example](monitor-resources.JPG)
 
 - Or by typing the following in a terminal window:

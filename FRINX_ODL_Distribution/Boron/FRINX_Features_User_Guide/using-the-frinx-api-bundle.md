@@ -30,11 +30,13 @@ This displays the current Karaf distribution version. 
 
 You can run either:  
 
- - By REST (as POST). (username: admin password: admin).  Use our pre-configured Postman call, see above.  
+- By REST (as POST). (username: admin password: admin).  Use our pre-configured Postman call, see above.  
     http://[host]:[port]/restconf/operations/installer:show-version
 
+Example using Postman:  
+![show version example](show-version.JPG)  
 
-Or typing the following in a terminal window:
+- Or by typing the following in a terminal window:
 
     curl 'http://localhost:8181/restconf/operations/installer:show-version' -H 'Host: localhost:8181' -H 'Content-Type: application/json;charset=utf-8' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X post
 
@@ -42,7 +44,6 @@ Or typing the following in a terminal window:
 In each case, output will be in the following format:  
 
     {"output":{"versions":{"controller-version":"1.2.6.frinx-SNAPSHOT"}}}
-
 
 ## Feature list
 
@@ -56,6 +57,8 @@ You can run either:
 
     http://[host]:[port]/restconf/operational/installer:features
 
+Example using Postman:  
+![features list example](features-list.JPG)
 
 - Or by typing the following in a terminal window:
 
@@ -77,6 +80,8 @@ You can run either:
 
     http://[host]:[port]/restconf/operations/installer:monitor-resources
 
+Example using Postman:  
+![monitor resources example](monitor-resources.JPG)
 
 - Or by typing the following in a terminal window:
 

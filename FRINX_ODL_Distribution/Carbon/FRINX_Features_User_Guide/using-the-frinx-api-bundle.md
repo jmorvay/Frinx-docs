@@ -33,6 +33,8 @@ You can run either:
 - By REST (as POST). (username: admin password: admin).  Use our pre-configured Postman call, see above.  
     http://[host]:[port]/restconf/operations/installer:show-version
 
+Example using Postman:  
+![show version example](show-version.JPG)  
 
 - Or by typing the following in a terminal window:
 
@@ -42,7 +44,6 @@ You can run either:
 In each case, output will be in the following format:  
 
     {"output":{"versions":{"controller-version":"1.2.6.frinx-SNAPSHOT"}}}
-
 
 ## Feature list
 
@@ -56,6 +57,8 @@ You can run either:
 
     http://[host]:[port]/restconf/operational/installer:features
 
+Example using Postman:  
+![features list example](features-list.JPG)
 
 - Or by typing the following in a terminal window:
 
@@ -77,6 +80,8 @@ You can run either:
 
     http://[host]:[port]/restconf/operations/installer:monitor-resources
 
+Example using Postman:  
+![monitor resources example](monitor-resources.JPG)
 
 - Or by typing the following in a terminal window:
 

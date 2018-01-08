@@ -16,7 +16,7 @@ To use this functionality, run the following command in the karaf console:
 
     feature:install frinx-installer-backend
 
-The API is based on REST services. This means that functionality can be tested using CURL. This bundle consists of 4 services listed in the sections that follow.
+The bundle comprises four REST services which can be implemented using either CURL or Postman REST calls.  
 
 ## Using via Frinx pre-configured REST calls
 
@@ -34,7 +34,7 @@ You can run either:
 ```
 http://[host]:[port]/restconf/operations/installer:show-version
 ```
-Example using our pre-configured Postman REST call available [via this guide](../API.md).  
+Example output from using our pre-configured Postman REST call available [via this guide](../API.md).  
 ![show version example](show-version.JPG)  
 
 - Or by typing the following in a terminal window:
@@ -42,7 +42,7 @@ Example using our pre-configured Postman REST call available [via this guide](..
 curl 'http://localhost:8181/restconf/operations/installer:show-version' -H 'Host: localhost:8181' -H 'Content-Type: application/json;charset=utf-8' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X post
 ```
 
-In each case, output will be in the following format:  
+Whether using curl or Postman, the output will be in the following format:  
 ```json
 {"output":{"versions":{"controller-version":"1.2.6.frinx-SNAPSHOT"}}}
 ```
@@ -58,7 +58,7 @@ You can run either:
 ```
 http://[host]:[port]/restconf/operational/installer:features
 ```
-Example using our pre-configured Postman REST call available [via this guide](../API.md).  
+Example output from using our pre-configured Postman REST call available [via this guide](../API.md).  
 ![features list example](features-list.JPG)
 
 - Or by typing the following in a terminal window:
@@ -66,7 +66,7 @@ Example using our pre-configured Postman REST call available [via this guide](..
 curl 'http://localhost:8181/restconf/operational/installer:features' -H 'Host: localhost:8181' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X get
 ```
 
-In each case, output will be in the following format (the following has been JSON formatted):  
+Whether using curl or Postman, output will be in the following format: (if using curl, the output can be passed through a JSON formatter to achieve the formatting below):  
 ```json
 {  
    "features":{  
@@ -155,7 +155,7 @@ You can run either:
 ```
 http://[host]:[port]/restconf/operations/installer:monitor-resources
 ```
-Example using our pre-configured Postman REST call available [via this guide](../API.md).  
+Example output using our pre-configured Postman REST call available [via this guide](../API.md).  
 ![monitor resources example](monitor-resources.JPG)
 
 - Or by typing the following in a terminal window:
@@ -163,7 +163,7 @@ Example using our pre-configured Postman REST call available [via this guide](..
 curl 'http://localhost:8181/restconf/operations/installer:monitor-resources' -H 'Host: localhost:8181' -H 'Content-Type: application/json;charset=utf-8' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -X post
 ```
 
-In each case, output will be in the following format (the following has been JSON formatted):
+In each case, output will be in the following format (if using curl, the output can be passed through a JSON formatter to achieve the formatting below):
 
 ```json
 {  
@@ -276,3 +276,4 @@ This will give the following output which confirms that the file has been upload
 | Feature introduced in | FRINX 1.2.6 | API bundle module |
 
  [1]: https://tools.ietf.org/html/rfc6020#section-9.8.2
+

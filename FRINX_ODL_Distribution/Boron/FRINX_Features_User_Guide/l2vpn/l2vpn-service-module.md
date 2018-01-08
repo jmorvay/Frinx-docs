@@ -157,7 +157,7 @@ As was mentioned, NEP registers network elements to L2VPN Provider. L2VPN Provid
 The API is described using YANG modules. An external application can consume the API via RESTCONF, NETCONF, or JAVA. The L2VPN service module provides domain specific abstraction where the abstraction describes attributes of VPNs and sites instead of configuration of network elements. The FRINX ODL Distribution translates the abstraction to network element configuration.
 
 ##### ietf-l2vpn@2017-08-02.yang
-[ietf-l2vpn@2017-08-02.yang](ietf-l2vpn@2017-08-02_new.yang)
+[ietf-l2vpn@2017-08-02.yang](ietf-l2vpn@2017-08-02.yang)
 
 Original YANG is from [RFC draft - YANG Data Model for MPLS-based L2VPN](https://tools.ietf.org/html/draft-ietf-bess-l2vpn-yang-05). This YANG module is modified due to compatibility with OpenDaylight and is extended with L2VPN Provider elements - see the modified YANG module [ietf-l2vpn@2017-08-02.yang](ietf-l2vpn@2017-08-02.yang)
 

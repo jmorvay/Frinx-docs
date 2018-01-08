@@ -20,7 +20,7 @@ The API is based on REST services. This means that functionality can be tested u
 
 ## Using via Frinx pre-configured REST calls
 
-The easiest way to issue the REST calls detailed below is using Postman and our preconfigured REST calls packaged  - see our [usage guide](../API.md). Follow the guide to import the file `postman_collection_FRINX API Bundle.json` from within the directory `Infrastructure`.
+The easiest way to issue the REST calls detailed below is using Postman and our preconfigured REST calls - see our [usage guide](../API.md). Follow the guide to import the file `postman_collection_FRINX API Bundle.json` from within the directory `Infrastructure`.
 
 ## Show version
 

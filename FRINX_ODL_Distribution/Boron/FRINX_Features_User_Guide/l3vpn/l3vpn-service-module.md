@@ -4,7 +4,7 @@
 <!-- TOC -->
 
 - [L3VPN Service Module User Guide](#l3vpn-service-module-user-guide)
-    - [Frinx L3VPN API](#frinx-l3vpn-api)
+    - [Usage via Frinx API](#usage-via-frinx-api)
     - [A bit about L3VPN](#a-bit-about-l3vpn)
         - [Problem definition and L3VPN](#problem-definition-and-l3vpn)
         - [Terminology](#terminology)
@@ -33,8 +33,8 @@ This is done by using the Frinx ODL controller which configures routers based on
 
 ![L3VPN Service](l3vpn_service.png)
 
-## Frinx L3VPN API
-To download and use FRINX pre-configured Postman REST calls - see [this page](../../API.md).
+## Usage via Frinx API
+To download and use FRINX pre-configured Postman REST calls for L3VPN - see [this page](../../API.md).
 
 ## A bit about L3VPN
 

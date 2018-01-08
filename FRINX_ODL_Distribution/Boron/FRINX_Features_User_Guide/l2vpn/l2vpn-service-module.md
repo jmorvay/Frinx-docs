@@ -33,7 +33,7 @@ The goal of this project is to automate provisioning of Layer 2 Virtual Private 
 ## Usage - via Frinx API
 To download and use FRINX pre-configured Postman REST calls with L2VPN - see [this page](../../API.md). Follow that guide to import the file `postman_collection_L2VPN_IOS-XRv.json` from the directory `L2VPN Service Module`.
 
-That file contains several REST calls for establishing a NETCONF connection and creating or deleting L2VPN instances (the values within the red boxes in the image below will need to be edited for your setup. The value for odl_ip should be set in a Postman environment [guidance here](../../API.md). The other values can be edited directly within the call bodies.
+That file contains several REST calls for establishing a NETCONF connection and creating or deleting L2VPN instances (the values within the red boxes in the image below will need to be edited for your setup. The value for odl_ip should be set in a Postman environment [guidance here](../../API.md) - that way it needs only be entered once and will be applied to each call. The other values can be edited directly within the call bodies.
 
 ![Postman](postman.png)
 

@@ -15,12 +15,12 @@ CentOS: In a terminal type
 
 #### New Features, Improvements
 
-**daexim:**  
+**Daexim:**  
 1\. Removed schema export and models.json file
 2\. Added percentage hint to daexim import
 3\. Introduced daexim.importTimeoutMillis
 
-**distribution:**  
+**Distribution:**  
 1\. Switched gc collector to G1, use 4GB for heap by default, add gc logs to log folder
 2\. Added switch to crash JVM on out of memory
 3\. Added best effort check for other running karaf instances
@@ -28,7 +28,7 @@ CentOS: In a terminal type
 5\. Extract yang files from system folder during startup schema import
 6\. Fixed status and stop command
 
-**bgp:**  
+**BGP:**  
 1\. Export org.opendaylight.groupbasedpolicy.resolver
 
 Updated documentation for daexim can be found at <https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Beryllium/FRINX_Features_Developer_Guide/daexim.html>

@@ -31,8 +31,6 @@ CentOS: In a terminal type
 **BGP:**  
 1\. Export org.opendaylight.groupbasedpolicy.resolver
 
-Updated documentation for daexim can be found at <https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Beryllium/FRINX_Features_Developer_Guide/daexim.html>
-
 #### Known Issues
 
 1.  Clustering related issues with feature “odl-netconf-clustered-topology” – please use “odl-netconf-topology” instead.

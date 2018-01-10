@@ -66,25 +66,20 @@ The following terms are often used in the L3VPN domain:
 ![Terminology in picture](terminology.png)
 
 ### Topologies
-
 Common topologies used in L3VPN.
 
 #### Any to Any
-
 Sites can forward traffic directly among each other in a VPN. Communication is restricted to a particular VPN so it is not possible to communicate with sites on different VPNs. ![Any to Any topology example](topo_any-to-any.png)
 
 #### Hub and Spoke
-
 Spoke sites in the VPN can communicate with each other only through the hub site. This is usually used when all sites must communicate through an access control device. ![Hub and Spoke topology example](topo_hub-and-spoke.png)
 
 ## L3VPN Provider
-
 L3VPN Provider is an implementation which automatically provisions L3VPN on PE routers based on intended L3VPN service. It exposes a domain-specific API for L3VPN manipulation and declarative configuration “what vs how”.
 
 L3VPN Provider supports network-wide transactions, which are transactions on top of multiple devices. Rollback of a network wide transaction means rollback of configuration on each device which was a part of the conifiguration. The rollback of a network-wide transaction is done automatically if there is failed configuration on at least one device.
 
 ### Use Case Specification
-
 L3VPN Provider can be used on a network where:
 
 *   Any to Any L3VPN topology is needed
@@ -149,7 +144,6 @@ GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topolog
 
 
 ### Architecture
-
 L3VPN Provider is composed of multiple components. The high level architecture is shown in the picture below.
 
 ![Architecture](architecture.png)
@@ -163,7 +157,6 @@ If rollback is successful then *status-l3vpn-provider* has status "failed", othe
 As has been mentioned, NEP registers network elements to L3VPN Provider. L3VPN Provider stores network elements as nodes to abstract topology *provider-edge-topolgoy* and this topology is a source of nodes which can be used for L3VPN configuration.
 
 #### API description
-
 The API is described using YANG modules. An external application can consume the API via RESTCONF, NETCONF, or JAVA. The L3VPN service module provides domain-specific abstraction where the abstraction describes attributes of VPNs and sites instead of configuration of network elements. The SDN controller translates the abstraction to network element configuration.
 
 ##### ietf-l3vpn-svc@2017-05-02.yang
@@ -184,7 +177,6 @@ The YANG module contains 3 root statements and one RPC:
 Augments ietf-l3vpn-svc module with statements which are needed for configuration of L3VPN.
 
 ### Network Element Plugin
-
 The Network Element Plugin (NEP) is a unit which implements SPI from the L3VPN Provider. The NEP is device API specific and is responsible for:
 
 *   announcement of discovered device (PE) to the L3VPN Provider
@@ -192,7 +184,6 @@ The Network Element Plugin (NEP) is a unit which implements SPI from the L3VPN P
 *   rollback of configuration on a device
 
 #### IOS-XRv Network Element Plugin
-
 This plugin configures L3VPN on IOS-XRv using NETCONF. It listens on topology-netconf and announces PE capable devices to the L3VPN Provider. Rollback on a device is done automatically using the "Rollback-on-Error" capability.
 
 ![IOS-XRv NEP](nep_ios-xrv.png)
@@ -255,13 +246,11 @@ NETCONF session configuration in IOS XR to allow ODL to connect:
 
 
 #### Mock Network Element Plugin
-
 The purpose of this plugin is to mock functionality of the Network Element Plugin. It is used mainly for testing when you do not need to connect real devices. ![Mock NEP](nep_mock.png)
 
 The Mock NEP listens on nodes from *mock-pe-topology*. When a node is created, the NEP registers this node as a PE node to the L3VPN Provider. When the L3VPN Provider calls the SPI which Mock NEP implements, instead of configuration of real devices, the SPI DTOs are stored under nodes in *mock-pe-topology* of OPER DS.
 
 ### Limitations
-
 Implementation of L3VPN provider does not support all statements in ietf-l3vpn-svc@2017-05-02.yang. Unsupported statements can be found in YANG deviations.
 
 [Inheritance of Parameters Defined at Site Level and Site Network Access Level](https://tools.ietf.org/html/rfc8049#section-6.3.2.3) is not supported, therefore parameters must be defined at Site Network Access level. L3VPN Provider does not support reconciliation, therefore only L3VPN created via L3VPN Provider are visible through the API.
@@ -275,7 +264,6 @@ Other limitations:
 *   pre-configured Route Policy must exist
 
 ### User-facing features
-
 #### frinx-l3vpn-iosxrv
 
 **Karaf installation:**

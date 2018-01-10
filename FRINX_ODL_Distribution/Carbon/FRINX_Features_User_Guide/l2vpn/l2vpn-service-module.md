@@ -37,7 +37,7 @@ That file contains several REST calls for establishing a NETCONF connection and 
 
 ![Postman](postman.png)
 
-See our usage [example video](https://youtu.be/UkHj9OgHHyo)  
+See our usage [example video](https://youtu.be/UkHj9OgHHyo) on creating an L2VPN connection between two routers
 
 ## A bit about L2VPN
 
@@ -254,5 +254,6 @@ Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for
 
 | Feature Guide         |             |                                                                                                     |
 |-----------------------|-------------|-----------------------------------------------------------------------------------------------------|
-| Feature introduced in | FRINX 2.3.1 | VPN service module implementation with support for L2VPN and IOS XR (Version 6.1.2) NEP via NETCONF |
 |  | FRINX 3.1.0 | Removed all elements from yang which are not supported in implementation |
+| Feature introduced in | FRINX 2.3.1 | VPN service module implementation with support for L2VPN and IOS XR (Version 6.1.2) NEP via NETCONF |
+

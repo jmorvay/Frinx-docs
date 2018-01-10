@@ -36,13 +36,10 @@ That file contains several REST calls for establishing a NETCONF connection and 
 See our usage [example video](https://youtu.be/UkHj9OgHHyo) on creating an L2VPN connection between two routers
 
 ## Introduction
-
 The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
 
 ## A bit about L2VPN
-
 ### Problem definition and L2VPN
-
 A company needs to reconnect multiple sites with each other via an SP which provides L2 services to the company. The company's sites needs to see each other as directly connected on L3. L2VPN offers a solution for those requirements.
 
 The company has two different sites and they are both connected to the Service Provider using an L2 connection. They need to interconnect two of their sites. ![Two company's sites connected to SP](problem.png)
@@ -50,7 +47,6 @@ The company has two different sites and they are both connected to the Service P
 In this case L2VPN provides site-to-site connectivity and the SP network behaves as a wire between the company’s sites. The company’s routes are exchanged via the SP network. ![Solution with L2VPN between sites.](problem_solution.png)
 
 ### Terminology
-
 These terms are usually used in the L2VPN domain:
 
 *   **Customer Edge (CE)** device – router at customer site connected to SP
@@ -60,7 +56,6 @@ These terms are usually used in the L2VPN domain:
 ![Terminology in picture](terminology.png)
 
 ### L2VPN types
-
 There are two main types of L2VPN:
 
 *   point-to-point
@@ -69,17 +64,14 @@ There are two main types of L2VPN:
 These types have many implementations. The Frinx ODL distribution supports Virtual Private Wire Service (VPWS) implementation.
 
 #### VPWS
-
 VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet services over MPLS. It is also known as ETHoMPLS (Ethernet over MPLS), or VLL (Virtual Leased Line). VPWS is point-to-point L2VPN which usually uses MPLS in core networks for signaling and creates pseudo-wires on PE routers for separation of L2 connections. L2 connections are identified by interface or VLAN. The picture below shows an MPLS core network with pseudo-wires on PEs for each VPN which are identified by VLAN.
 
 ![VPWS example](vpws_topology.png)
 
 ## L2VPN Provider
-
 L2VPN Provider is an implementation which automatically provisions L2VPN on PE routers based on intended L2VPN service. It exposes a domain specific API for L2VPN manipulation and declarative configuration “what vs how”. L2VPN Provider supports network wide transactions which are transactions on top of multiple devices. Rollback of a network wide transaction means rollback of configuration on each device which was a part of the conifiguration. The rollback of a network wide transaction is done automatically if there is failed configuration on at least one device.
 
 ### Use Case Specification
-
 L2VPN Provider can be used on a network where:
 
 *   VPWS L2VPN is needed
@@ -143,7 +135,6 @@ A list of PE nodes can be obtained from:
 GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/l2vpn-provider-edge-topology
 
 ### Architecture
-
 L2VPN Provider is composed of multiple components. The high level architecture is shown in the picture below.
 
 ![Architecture](architecture.png)
@@ -153,7 +144,6 @@ An external application modifies *ietf-l2vpn* in CONF DS. L2VPN can be configure
 As was mentioned, NEP registers network elements to L2VPN Provider. L2VPN Provider stores network elements as nodes to abstract topology *l2vpn-provider-edge-topology* and this topology is a source of nodes which can be used for L2VPN configuration.
 
 #### API description
-
 The API is described using YANG modules. An external application can consume the API via RESTCONF, NETCONF, or JAVA. The L2VPN service module provides domain specific abstraction where the abstraction describes attributes of VPNs and sites instead of configuration of network elements. The FRINX ODL Distribution translates the abstraction to network element configuration.
 
 ##### ietf-l2vpn@2017-08-02.yang
@@ -168,7 +158,6 @@ The YANG module contains 2 root statements and one RPC:
 *   **rpc commit-l2vpn** – configures intent of L2VPN service. The output of RPC is the result of service configuration.
 
 ### Network Element Plugin
-
 Network Element Plugin (NEP) is a unit which implements SPI from the L2VPN Provider. This NEP is device API specific and is responsible for:
 
 *   announcement of discovered device (PE) to the L2VPN Provider
@@ -176,7 +165,6 @@ Network Element Plugin (NEP) is a unit which implements SPI from the L2VPN Provi
 *   rollback of configuration on a device
 
 #### IOS-XRv Network Element Plugin
-
 This plugin configures L2VPN on IOS-XRv using NETCONF. It listens on topology-netconf and announces PE capable devices to the L2VPN Provider. Rollback on a device is done automatically using the "Rollback-on-Error" capability.
 
 ![IOS-XRv NEP](nep_ios-xrv.png)
@@ -213,13 +201,11 @@ l2vpn
 </pre>
 
 #### Mock Network Element Plugin
-
 The purpose of this plugin is to mock functionality of the Network Element Plugin. It is mainly use for testing when you do not need to connect real devices. ![Mock NEP](nep_mock.png)
 
 The Mock NEP listens on nodes from *mock-pe-topology*. When a node is created, the NEP registers this node as a PE node to the L2VPN Provider. When the L2VPN Provider calls the SPI which Mocks NEP implements, intead of configuration of real devices, the SPI DTOs are logged.
 
 ### Limitations
-
 Implementation of L2VPN provider does not support all statements in ietf-l2vpn@2017-08-02.yang. All supported elements are listen in the postman collection. L2VPN Provider does not support reconciliation, therefore only L2VPNs created via L2VPN Provider are visible through the API.
 
 Other limitations:
@@ -229,7 +215,6 @@ Other limitations:
 *   pre-configured MPLS among PEs must exist
 
 ### User-facing features
-
 #### frinx-l2vpn-iosxrv
 
 **Karaf installation:**
@@ -241,7 +226,6 @@ Other limitations:
 Installs L2VPN Provider with IOS-XRv NEP and NETCONF connector. This feature is NEP for IOS-XRv devices.
 
 #### frinx-l2vpn-testing
-
 **Karaf installation:**
 
     feature:install frinx-l2vpn-testing

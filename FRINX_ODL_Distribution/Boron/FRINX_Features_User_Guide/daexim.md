@@ -1,21 +1,25 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/user_guide.html)
 # User Guide: Daexim
+<!-- TOC -->
 
-<!-- TOC START min:1 max:3 link:true update:true -->
 - [User Guide: Daexim](#user-guide-daexim)
-  - [Overview](#overview)
-  - [Important files](#important-files)
-  - [Import](#import)
-  - [Export](#export)
-    - [Exporting from leader node](#exporting-from-leader-node)
-  - [General info on daexim](#general-info-on-daexim)
+    - [Introduction](#introduction)
+    - [Important files](#important-files)
+    - [Import](#import)
+        - [org.opendaylight.daexim.cfg](#orgopendaylightdaeximcfg)
+        - [Enabling automatic import during startup](#enabling-automatic-import-during-startup)
+        - [Karaf property files affected by the Frinx daexim changes](#karaf-property-files-affected-by-the-frinx-daexim-changes)
+        - [Changing batch size](#changing-batch-size)
+    - [Export](#export)
+        - [Exporting from leader node](#exporting-from-leader-node)
+    - [General info on daexim](#general-info-on-daexim)
+        - [Export data from datastore](#export-data-from-datastore)
+        - [Import data to datastore](#import-data-to-datastore)
 
-<!-- TOC END -->
-
+<!-- /TOC -->
 **daexim - datastore export import**
-
-## Overview
+## Introduction
 
 Frinx daexim is a fork from ODL's daexim project. It contains several modifications aimed at improved import and export:
 
@@ -30,7 +34,6 @@ After daexim export, the following files and folders are created in the karaf fo
 * schemas/ - contains all yang files which were loaded in ODL when export was executed
 
 ## Import
-
 Originally, import was done anytime during runtime. The drawback of this approach is that applications can listen on changes in the datastore and start writing to it while import is still in progress.
 
 Another drawback is that the entire import ran as a single transaction. This created pressure on the underlying communication layer, causing intermittent failures in akka.
@@ -46,7 +49,7 @@ where all yang files are backed up (during export) and loaded (during karaf star
 > ${karaf.home}/daexim
 
 
-**org.opendaylight.daexim.cfg**
+### org.opendaylight.daexim.cfg
 
 The defaults that affect daexim are stored in the file etc/org.opendaylight.daexim.cfg. The defaults are:
 ```
@@ -54,7 +57,7 @@ daexim.importOnInit=false
 daexim.importBatchSize=1500
 ```
 
-**Enabling automatic import during startup**
+### Enabling automatic import during startup
 
 To enable automatic import, place the backed up json files into
 
@@ -69,7 +72,7 @@ and make sure org.opendaylight.daexim.cfg contains the following on all nodes:
     daexim.importOnInit=true
 
 
-**Karaf property files affected by the Frinx daexim changes**
+### Karaf property files affected by the Frinx daexim changes
 
 The changes mentioned here are already in place in the official Frinx distribution. However, if you are building your own karaf, ensure that your etc folder has no unintended deviations from Frinx karaf.
 
@@ -95,7 +98,7 @@ This can be automated by changing a line in the file
 
     karaf.clean.cache=true
 
-**Changing batch size**
+### Changing batch size
 
 The Daexim initial import process reads the content of json files and sends it as transactions to data stores. However, executing +100 MB transactions is risky as it may affect the stability of the cluster. That is why import splits the changes into many transactions. The number of changes per transaction is controlled by the property `daexim.importBatchSize`. The default value is 1500. Setting it too high may result in AskTimeoutExceptions and leader isolation failures. Setting it too low will make startup very slow. Unless there are problems with the default it is not advised to change this value.
 
@@ -103,56 +106,56 @@ The Daexim initial import process reads the content of json files and sends it a
 ## Export
 
 Daexim export was changed so that it is executed only on the node which was contacted via restconf:
-
-    curl -u admin:admin  "ODL_NODE_1:8181/restconf/operations/data-export-import:simple-export" -X POST -H "Content-Type: application/json" -d '{"input": {}}' -v
-
+```bash
+curl -u admin:admin  "ODL_NODE_1:8181/restconf/operations/data-export-import:simple-export" -X POST -H "Content-Type: application/json" -d '{"input": {}}' -v
+```
 
 In this case, the export will be executed on ODL_NODE_1. Note that the RPC is slightly different than what Daexim supports by default - simple-export does not need time and date to be supplied, export will start immediately. For advanced use, the operator can specify a list of excluded tuples: model,data store (config, operational). This behavior is the same as with ODL's daexim project.
 
 ### Exporting from leader node
 
 Reading the whole datastore within a cluster can be slow and can cause pressure on the system leading to intermittent node failures. Therefore it is advised to run the export on the shard leader. This way all data will be read from local memory. To determine the node that contains the leaders of both shards (default-operational, default-config), call the following:
-
-    curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=ShardManager,name=shard-manager-config,type=DistributedConfigDatastore
-    curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=ShardManager,name=shard-manager-operational,type=DistributedOperationalDatastore
-
+```bash
+curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=ShardManager,name=shard-manager-config,type=DistributedConfigDatastore
+curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=ShardManager,name=shard-manager-operational,type=DistributedOperationalDatastore
+```
 
 Example output:
-
-    {
-        "request": {
-            "mbean": "org.opendaylight.controller:Category=ShardManager,name=shard-manager-operational,type=DistributedOperationalDatastore",
-            "type": "read"
-        },
-        "status": 200,
-        "timestamp": 1506949569,
-        "value": {
-            "LocalShardInformation": {
-                "member-1-shard-default-operational": {
-                    "activeMember": true,
-                    "inSync": true,
-                    "leader": false,
-                    "leaderId": "member-3-shard-default-operational",
-                    "leaderVersion": 3,
-                    "shardId": {
-                        "memberName": "member-1",
-                        "shardName": "default",
-                        "type": "operational"
-                    },
-                    "shardInitialized": true,
+```json
+{
+    "request": {
+        "mbean": "org.opendaylight.controller:Category=ShardManager,name=shard-manager-operational,type=DistributedOperationalDatastore",
+        "type": "read"
+    },
+    "status": 200,
+    "timestamp": 1506949569,
+    "value": {
+        "LocalShardInformation": {
+            "member-1-shard-default-operational": {
+                "activeMember": true,
+                "inSync": true,
+                "leader": false,
+                "leaderId": "member-3-shard-default-operational",
+                "leaderVersion": 3,
+                "shardId": {
+                    "memberName": "member-1",
                     "shardName": "default",
-                    "shardReady": true,
-                    "shardReadyWithLeaderId": true
-                }
-            },
-            "LocalShards": [
-                "member-1-shard-default-operational"
-            ],
-            "MemberName": "member-1",
-            "SyncStatus": true
-        }
+                    "type": "operational"
+                },
+                "shardInitialized": true,
+                "shardName": "default",
+                "shardReady": true,
+                "shardReadyWithLeaderId": true
+            }
+        },
+        "LocalShards": [
+            "member-1-shard-default-operational"
+        ],
+        "MemberName": "member-1",
+        "SyncStatus": true
     }
-
+}
+```
 
 Note that leaderId points to the node containing the shard leader, attributes shardReady,shardReadyWithLeaderId,shardInitialized inform that cluster is stable.
 
@@ -184,14 +187,14 @@ The purpose of the project is to export/import data from files. Here are the key
 [Video tutorial with Postman collection][2]  
 [Postman collection](daexim_postman.json)
 
-**Export data from datastore**  
+### Export data from datastore 
 RPC result is returned immediately after a task for export is scheduled. State of export can be shown via the RPC API.
 
 When RPC schedule-export is invoked, the scheduled export is stored to OPER DS. Therefore, the scheduled export is replicated on other nodes in a cluster deployment.
 
 DataExportImportAppProvider, on each cluster node, receives a modification event about the scheduled export and schedules ExportTask which executes datastore export. Therefore, RPC for schedule export can be invoked on any cluster node and datastore is exported on each cluster node.
 
-**Import data to datastore**  
+### Import data to datastore 
 Data import is done by calling RPC immediate-import. Data is imported from JSON files to CONF and OPER datastore in one transaction. In a cluster deployment, data import is executed only on a cluster node where RPC is invoked and data is replicated to other nodes within the transaction.
 
  [1]: https://wiki.opendaylight.org/view/Daexim:Main

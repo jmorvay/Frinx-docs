@@ -1,18 +1,18 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/user_guide.html)
 # RADIUS
+<!-- TOC -->
 
-<!-- TOC START min:1 max:3 link:true update:true -->
 - [RADIUS](#radius)
-    - [Quick Start](#quick-start)
-    - [To download the freeRADIUS image](#to-download-the-freeradius-image)
-    - [RADIUS configuration](#radius-configuration)
-    - [Prepare the environment](#prepare-the-environment)
-    - [Change RADIUS credentials](#change-radius-credentials)
-    - [What is Apache Shiro?](#what-is-apache-shiro)
+    - [Introduction](#introduction)
+        - [Quick Start](#quick-start)
+        - [RADIUS configuration](#radius-configuration)
+        - [Prepare the environment](#prepare-the-environment)
+        - [Change RADIUS credentials](#change-radius-credentials)
+        - [What is Apache Shiro?](#what-is-apache-shiro)
 
-<!-- TOC END -->
-
+<!-- /TOC -->
+## Introduction
 **RADIUS - How FRINX contributes to OpenDaylight authentication**
 
 Within OpenDaylight, authentication and authorization is handled by the AAA feature, of which Apache Shiro is the core component. Apache Shiro can itself cooperate with third party authentication and authorization tools. However, in its current implementation within OpenDaylight it supports only LDAP.

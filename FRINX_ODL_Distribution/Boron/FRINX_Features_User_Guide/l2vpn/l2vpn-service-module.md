@@ -5,7 +5,7 @@
 
 - [L2VPN Service Module User Guide](#l2vpn-service-module-user-guide)
     - [Overview](#overview)
-    - [Usage - via Frinx API](#usage---via-frinx-api)
+    - [How to use](#how-to-use)
     - [A bit about L2VPN](#a-bit-about-l2vpn)
         - [Problem definition and L2VPN](#problem-definition-and-l2vpn)
         - [Terminology](#terminology)
@@ -30,14 +30,14 @@
 
 The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
 
-## Usage - via Frinx API
+## How to use
 To download and use FRINX pre-configured Postman REST calls with L2VPN - see [this page](../../API.md). Follow that guide to import the file `postman_collection_L2VPN_IOS-XRv.json` from the directory `L2VPN Service Module`.
 
 That file contains several REST calls for establishing a NETCONF connection and creating or deleting L2VPN instances (the values within the red boxes in the image below will need to be edited for your setup. The value for odl_ip should be set in a Postman environment [guidance here](../../API.md) - that way it needs only be entered once and will be applied to each call. The other values can be edited directly within the call bodies.
 
 ![Postman](postman.png)
 
-See our usage [example video](https://youtu.be/UkHj9OgHHyo)  
+See our usage [example video](https://youtu.be/UkHj9OgHHyo) on creating an L2VPN connection between two routers
 
 ## A bit about L2VPN
 
@@ -254,5 +254,6 @@ Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for
 
 | Feature Guide         |             |                                                                                                     |
 |-----------------------|-------------|-----------------------------------------------------------------------------------------------------|
-| Feature introduced in | FRINX 2.3.1 | VPN service module implementation with support for L2VPN and IOS XR (Version 6.1.2) NEP via NETCONF |
 |  | FRINX 3.1.0 | Removed all elements from yang which are not supported in implementation |
+| Feature introduced in | FRINX 2.3.1 | VPN service module implementation with support for L2VPN and IOS XR (Version 6.1.2) NEP via NETCONF |
+

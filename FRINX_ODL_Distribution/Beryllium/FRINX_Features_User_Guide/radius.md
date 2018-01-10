@@ -24,18 +24,17 @@ The NAS sends a RADIUS *AccessRequest* message to the RADIUS server, in our case
 The response from the Radius server can be either: Access Accept - The user is granted access. This information may be stored locally on the RADIUS server, or may be looked up in an external source such as LDAP. Access Reject - The user is unconditionally denied access to all requested network resources. Reasons may include failure to provide proof of identification or an unknown or inactive user account.
 
 ### Quick Start
-
 Within the FRINX distribution, the AAA feature extends authentication capabilities via the RADIUS protocol. In order to be able to authenticate the user it is necessary to start freeRADIUS, which acts as a RADIUS server.
 
 To download the freeRADIUS image:
-
-    docker pull docker.io/unico/freeradius
-
+```bash
+docker pull docker.io/unico/freeradius
+```
 
 To run the freeRADIUS server:
-
-    docker run -it docker.io/unico/freeradius
-
+```bash
+docker run -it docker.io/unico/freeradius
+```
 
 ### RADIUS configuration  
 Within your FRINX distribution directory structure, go to the /etc directory and edit the *shiro.ini* file. Under "[main]" enter the following four lines of text:
@@ -47,16 +46,15 @@ Within your FRINX distribution directory structure, go to the /etc directory and
 The final two lines set the RADIUS server ip address and shared secret string. The shared secret string is Base64 encoded.
 
 ### Prepare the environment
-
 Start the controller Karaf container:
-
-    bin/karaf frinx.createtoken <user token>
-
+```bash
+bin/karaf frinx.createtoken <user token>
+```
 
 Check the installed bundle for RADIUS authentication. It must be in ACTIVE state:
-
-    la | grep -i aaa-authn-radius
-
+```bash
+la | grep -i aaa-authn-radius
+```
 
 Open the browser and type the following link: http://localhost:8181/index.html#/login Enter the credentials: username: admin password: password
 
@@ -65,24 +63,24 @@ If the credentials are correct, the RADIUS server sends \*AccessAccept\* and the
 ### Change RADIUS credentials
 
 Start the freeRADIUS docker image:
-
-    docker exec -it <CONTAINER_ID> /bin/bash  
-
+```bash
+docker exec -it <CONTAINER_ID> /bin/bash  
+```
 
 Go to /etc/freeradius and open the users file:
-
-    vi /etc/freeradius/users  
-
+```bash
+vi /etc/freeradius/users  
+```
 
 Check the line where the default user is defined e.g.:
 
 admin Cleartext-Password := "password"
 
 Change the username and password and save the file. Next, exit from the container and restart the docker image:
-
-    docker stop <CONTAINER_ID>   
-    docker start <CONTAINER_ID>
-
+```bash
+docker stop <CONTAINER_ID>   
+docker start <CONTAINER_ID>
+```
 
 ### What is Apache Shiro?  
 A Java Security Framework that performs authentication, authorization, cryptography, and session management and can be used to secure any application - from command line applications through mobile applications to the largest Web and enterprise applications. Its benefits are:  

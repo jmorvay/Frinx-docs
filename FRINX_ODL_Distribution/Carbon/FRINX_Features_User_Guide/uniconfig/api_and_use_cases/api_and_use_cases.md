@@ -86,7 +86,7 @@ curl -X PUT \
   }'
 ```
 
-[more examples in postman collection](https://github.com/FRINXio/Postman/blob/carbon/development/Uniconfig%20Framework/postman_collection_uniconfig.json)
+[Further examples in postman collection](https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Uniconfig%20Framework/postman_collection_uniconfig.json)
 
 ## UniConfig API description
 
@@ -230,7 +230,7 @@ RPC removes snapshot from CONF DS.
 
 #### Example
 RPC input contains name of topology snapshot which should be removed.
-PRC output contains result of operation.
+RPC output contains result of operation.
 
 RPC request:
 ```
@@ -300,7 +300,7 @@ topology from operational datastore.
 ![RPC replace-config-with-operational](../api_and_use_cases/drawing/UNM/RPC_replace-config-with-operational.png)
 
 #### Example
-There is no RPC input and PRC output contains result of operation.
+There is no RPC input and RPC output contains result of operation.
 
 RPC request:
 ```
@@ -326,7 +326,7 @@ operational datastore.
 
 #### Example
 RPC input contains name of topology snapshot which should replace uniconfig
-topology in config datastore. PRC output contains result of operation.
+topology in config datastore. RPC output contains result of operation.
 
 RPC request:
 ```

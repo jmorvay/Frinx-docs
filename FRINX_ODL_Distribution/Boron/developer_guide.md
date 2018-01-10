@@ -2,4 +2,4 @@
 # FRINX Boron Features: Developer Guide
 
 [CLI Service Module Developer Guide](FRINX_Features_Developer_Guide/cli/cli-service-module-devguide.md)  
-[Translation Units:Cisco IOS XR](https://github.com/FRINXio/translation-units-docs/tree/master/Cisco_IOS_XR)
+[Translation Units](https://github.com/FRINXio/translation-units-docs)

@@ -16,25 +16,25 @@ CentOS: In a terminal type
 #### New Features, Improvements
 
 **Daexim:**  
-1\. Removed schema export and models.json file
-2\. Added percentage hint to daexim import
-3\. Introduced daexim.importTimeoutMillis
+1. Removed schema export and models.json file
+2. Added percentage hint to daexim import
+3. Introduced daexim.importTimeoutMillis
 
 **Distribution:**  
-1\. Switched gc collector to G1, use 4GB for heap by default, add gc logs to log folder
-2\. Added switch to crash JVM on out of memory
-3\. Added best effort check for other running karaf instances
-4\. Better naming for extracted yang schemas - use module@revision.yang
-5\. Extract yang files from system folder during startup schema import
-6\. Fixed status and stop command
+1. Switched gc collector to G1, use 4GB for heap by default, add gc logs to log folder
+2. Added switch to crash JVM on out of memory
+3. Added best effort check for other running karaf instances
+4. Better naming for extracted yang schemas - use module@revision.yang
+5. Extract yang files from system folder during startup schema import
+6. Fixed status and stop command
 
 **BGP:**  
-1\. Export org.opendaylight.groupbasedpolicy.resolver
+1. Export org.opendaylight.groupbasedpolicy.resolver
 
 #### Known Issues
 
-1.  Clustering related issues with feature “odl-netconf-clustered-topology” – please use “odl-netconf-topology” instead.
-2.  Netconf topology does not report connection issues – reports connected even if keepalive message is not received. Underlying connection reconnect functionality works as expected.
+1. Clustering related issues with feature “odl-netconf-clustered-topology” – please use “odl-netconf-topology” instead.
+2. Netconf topology does not report connection issues – reports connected even if keepalive message is not received. Underlying connection reconnect functionality works as expected.
 
 #### Opendaylight Beryllium SR4 Release Notes
 

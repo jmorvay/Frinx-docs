@@ -4,7 +4,8 @@
 <!-- TOC -->
 
 - [L3VPN Service Module User Guide](#l3vpn-service-module-user-guide)
-    - [Usage - via Frinx API](#usage---via-frinx-api)
+    - [How to use](#how-to-use)
+    - [Introduction](#introduction)
     - [A bit about L3VPN](#a-bit-about-l3vpn)
         - [Problem definition and L3VPN](#problem-definition-and-l3vpn)
         - [Terminology](#terminology)
@@ -27,13 +28,7 @@
 
 <!-- /TOC -->
 
-The goal of this project is to automate provisioning of Layer 3 Virtual Private Network (L3VPN) on Service Provider (SP) routers.
-
-This is done by using the Frinx ODL controller which configures routers based on intent of the L3VPN service. The Frinx ODL controller translates the L3VPN service abstraction to network element configuration.  
-
-![L3VPN Service](l3vpn_service.png)
-
-## Usage - via Frinx API
+## How to use
 To download and use FRINX pre-configured Postman REST calls with L3VPN - see [this page](../../API.md). Follow that guide to import the file `postman_collection_L3VPN_IOS-XRv.json` from the directory `L3VPN Service Module`.
 
 That file contains several REST calls for establishing a NETCONF connection and creating or deleting L3VPN instances (the values within the red boxes in the image below will need to be edited for your setup. The value for odl_ip should be set in a Postman environment [guidance here](../../API.md) - that way it needs only be entered once and will be applied to each call. The other values can be edited directly within the call bodies.
@@ -42,10 +37,15 @@ That file contains several REST calls for establishing a NETCONF connection and 
 
 Also see our [video on L3VPN](https://youtu.be/qxnMJG_Cz-c)  
 
+## Introduction
+The goal of this project is to automate provisioning of Layer 3 Virtual Private Network (L3VPN) on Service Provider (SP) routers.
+
+This is done by using the Frinx ODL controller which configures routers based on intent of the L3VPN service. The Frinx ODL controller translates the L3VPN service abstraction to network element configuration.  
+
+![L3VPN Service](l3vpn_service.png)
+
 ## A bit about L3VPN
-
 ### Problem definition and L3VPN
-
 A company needs to reconnect multiple sites with each other via a Service Provider which provides L3 connectivity to the company. The company's sites exchange routing information and multiple companies may use overlapping address space so there is a need to isolate companies and their address spaces. L3VPN offers a solution for those requirements.
 
 Host1 and Host2 are two different sites for the same company and they both connect to the Service Provider using a separate connection. They need to interconnect two of their sites.
@@ -57,7 +57,6 @@ In this case L3VPN provides site-to-site connectivity and the SP network behaves
 ![Solution with L3VPN between sites.](problem_solution.png)
 
 ### Terminology
-
 The following terms are often used in the L3VPN domain:
 
 *   **Customer Edge (CE)** device – router at customer site connected to SP

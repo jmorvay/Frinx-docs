@@ -2,7 +2,7 @@
 [FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/user_guide.html)
 <!-- TOC -->
 
-- [Using the FRINX API Bundle](#using-the-frinx-api-bundle)
+- [How to use](#how-to-use)
     - [Using via Frinx pre-configured REST calls](#using-via-frinx-pre-configured-rest-calls)
     - [Show version](#show-version)
     - [Feature list](#feature-list)
@@ -10,7 +10,7 @@
     - [Upload a KAR file](#upload-a-kar-file)
 
 <!-- /TOC -->
-# Using the FRINX API Bundle
+# How to use
 
 To use this functionality, run the following command in the karaf console:
 

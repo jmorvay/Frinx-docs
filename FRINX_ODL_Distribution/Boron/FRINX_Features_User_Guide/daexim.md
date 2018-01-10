@@ -113,10 +113,9 @@ curl -u admin:admin  "ODL_NODE_1:8181/restconf/operations/data-export-import:sim
 In this case, the export will be executed on ODL_NODE_1. Note that the RPC is slightly different than what Daexim supports by default - simple-export does not need time and date to be supplied, export will start immediately. For advanced use, the operator can specify a list of excluded tuples: model,data store (config, operational). This behavior is the same as with ODL's daexim project.
 
 ### Exporting from leader node
-
 Reading the whole datastore within a cluster can be slow and can cause pressure on the system leading to intermittent node failures. Therefore it is advised to run the export on the shard leader. This way all data will be read from local memory. To determine the node that contains the leaders of both shards (default-operational, default-config), call the following:
 ```bash
-curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=ShardManager,name=shard-manager-config,type=DistributedConfigDatastore
+curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=ShardManager,name=shard-manager-config,type=DistributedConfigDatastore 
 curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=ShardManager,name=shard-manager-operational,type=DistributedOperationalDatastore
 ```
 
@@ -160,19 +159,17 @@ Example output:
 Note that leaderId points to the node containing the shard leader, attributes shardReady,shardReadyWithLeaderId,shardInitialized inform that cluster is stable.
 
 Details about both shards can be obtained by calling:
-
-    ID=1
-    SHARD_NAME=default-operational
-    TYPE=DistributedOperationalDatastore
-    curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-${ID}-shard-${SHARD_NAME},type=${TYPE}
-    SHARD_NAME=default-config
-    TYPE=DistributedConfigDatastore
-    curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-${ID}-shard-${SHARD_NAME},type=${TYPE}
-
-
+```bash
+ID=1
+SHARD_NAME=default-operational
+TYPE=DistributedOperationalDatastore
+curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-${ID}-shard-${SHARD_NAME},type=${TYPE}
+SHARD_NAME=default-config
+TYPE=DistributedConfigDatastore
+curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-${ID}-shard-${SHARD_NAME},type=${TYPE}
+```
 ## General info on daexim
-
-[OpenDaylight Wiki page on daexim][1]
+[OpenDaylight Wiki page on daexim][1]   
 Data Export/Import (daexim) is a project introduced in the OpenDaylight Carbon release. However, daexim has been back ported to FRINX distributions and is available from Beryllium 1.4.6 and Boron 2.3.0 and subsequent releases.
 
 The purpose of the project is to export/import data from files. Here are the key functions of the project:

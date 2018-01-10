@@ -69,7 +69,6 @@ and make sure org.opendaylight.daexim.cfg contains the following on all nodes:
 
     daexim.importOnInit=true
 
-
 ### Karaf property files affected by the Frinx daexim changes
 The changes mentioned here are already in place in the official Frinx distribution. However, if you are building your own karaf, ensure that your etc folder has no unintended deviations from Frinx karaf.
 
@@ -97,7 +96,6 @@ This can be automated by changing a line in the file
 
 ### Changing batch size
 The Daexim initial import process reads the content of json files and sends it as transactions to data stores. However, executing +100 MB transactions is risky as it may affect the stability of the cluster. That is why import splits the changes into many transactions. The number of changes per transaction is controlled by the property `daexim.importBatchSize`. The default value is 1500. Setting it too high may result in AskTimeoutExceptions and leader isolation failures. Setting it too low will make startup very slow. Unless there are problems with the default it is not advised to change this value.
-
 
 ## Export
 Daexim export was changed so that it is executed only on the node which was contacted via restconf:
@@ -154,19 +152,18 @@ Example output:
 Note that leaderId points to the node containing the shard leader, attributes shardReady,shardReadyWithLeaderId,shardInitialized inform that cluster is stable.
 
 Details about both shards can be obtained by calling:
-
-    ID=1
-    SHARD_NAME=default-operational
-    TYPE=DistributedOperationalDatastore
-    curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-${ID}-shard-${SHARD_NAME},type=${TYPE}
-    SHARD_NAME=default-config
-    TYPE=DistributedConfigDatastore
-    curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-${ID}-shard-${SHARD_NAME},type=${TYPE}
-
+```bash
+ID=1
+SHARD_NAME=default-operational
+TYPE=DistributedOperationalDatastore
+curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-${ID}-shard-${SHARD_NAME},type=${TYPE}
+SHARD_NAME=default-config
+TYPE=DistributedConfigDatastore
+curl -u admin:admin  "ODL_NODE_1:8181/jolokia/read/org.opendaylight.controller:Category=Shards,name=member-${ID}-shard-${SHARD_NAME},type=${TYPE}
+```
 
 ## General info on daexim
-
-[OpenDaylight Wiki page on daexim][1]
+[OpenDaylight Wiki page on daexim][1]  
 Data Export/Import (daexim) is a project introduced in the OpenDaylight Carbon release. However, daexim has been back ported to FRINX distributions and is available from Beryllium 1.4.6 and Boron 2.3.0 and subsequent releases.
 
 The purpose of the project is to export/import data from files. Here are the key functions of the project:

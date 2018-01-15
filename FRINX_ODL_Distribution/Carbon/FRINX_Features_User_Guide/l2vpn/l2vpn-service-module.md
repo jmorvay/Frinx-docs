@@ -8,7 +8,6 @@
         - [Postman - Import collection](#postman---import-collection)
         - [Frinx ODL - Install features](#frinx-odl---install-features)
     - [Introduction](#introduction)
-    - [A bit about L2VPN](#a-bit-about-l2vpn)
         - [Problem definition and L2VPN](#problem-definition-and-l2vpn)
         - [Terminology](#terminology)
         - [L2VPN types](#l2vpn-types)
@@ -59,7 +58,6 @@ Your system is now ready. To provision L2VPN see the [Usage - Operations Guide](
 ## Introduction
 The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
 
-## A bit about L2VPN
 ### Problem definition and L2VPN
 Let's take the scenario where a company needs to reconnect multiple sites with each other via an SP which provides L2 services to the company. The company's sites needs to see each other as directly connected on L3. L2VPN offers a solution for those requirements.
 

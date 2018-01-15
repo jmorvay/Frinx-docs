@@ -18,8 +18,8 @@
             - [Create a pseudo-wire (PW) template](#create-a-pseudo-wire-pw-template)
             - [Create the L2VPN instance](#create-the-l2vpn-instance)
         - [Delete the L2VPN connection](#delete-the-l2vpn-connection)
-        - [Frinx l2vpn demo video (setup and deletion)](#frinx-l2vpn-demo-video-setup-and-deletion)
-        - [frinx-l2vpn-testing](#frinx-l2vpn-testing)
+        - [Frinx L2VPN demo video (setup and deletion)](#frinx-l2vpn-demo-video-setup-and-deletion)
+        - [Testing](#testing)
     - [L2VPN Provider](#l2vpn-provider)
         - [Use Case Specification](#use-case-specification)
         - [Architecture](#architecture)
@@ -214,10 +214,10 @@ Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001
 2. Delete the l2vpn instance by using the Postman REST call: `L2VPN Service/delete PW template PW1`. There is no body to the call. 
 3. We now need to commit by RPC: Issue the Postman REST call `L2VPN Service/RPC commit-l2vpn`. In the Response body You should receive "status": "complete". This shows the deletion has been competed successfully.
 
-### Frinx l2vpn demo video (setup and deletion)
+### Frinx L2VPN demo video (setup and deletion)
 See our [video](https://youtu.be/UkHj9OgHHyo)  
 
-### frinx-l2vpn-testing
+### Testing
 We also provide a feature which can be used for testing the l2vpn feature:  
 **Karaf installation:**
 

@@ -89,15 +89,13 @@ VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet s
 ## Usage - Operations Guide
 To import the necessary Postman collection file see the section [Postman - Import collection](#postman---import-collection) at the top of this page.  
 
-That file contains several REST calls for establishing a NETCONF connection and creating or deleting L2VPN instances (the values within the red boxes in the image below will need to be edited for your setup. The value for odl_ip should be set in a Postman environment [guidance here](../../API.md) - that way it needs only be entered once and will be applied to each call. The other values can be edited directly within the call bodies.
-
-![Postman](postman.png)
+That file contains several REST calls for establishing a NETCONF connection and creating or deleting L2VPN instances, for which we provide guidance below:
 
 ### Set up an L2VPN connection
 Three steps are required to create an l2vpn connection between two routers (we perform these in our [video](https://youtu.be/UkHj9OgHHyo) which you can use a reference):  
 
 1. Establish a NETCONF connection between Frinx ODL and each of the two routers between which the L2VPN will be configured:
-To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2)  
+  To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2)  
 
   - Configure the REST call `NETCONF connection/connect pe1` according to your setup for router 1:  
   *URL:*  In the URL, replace `&lt;odl_ip&gt;` with the IP of the system you are running the Frinx ODL distribution on. Or [create an environment in Postman](../../API.md) where you set a value for `odl_ip`.  
@@ -117,18 +115,18 @@ To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router
     ]
   }
   ```
-  ![connect pe1](connect-pe1.PNG)
+![connect pe1](connect-pe1.PNG)
 
-  - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
+- Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
-  - Now configure the REST call `NETCONF connection/connect pe2` in the same way, but this time editing the REST call body according to your setup for router 2  
+- Now configure the REST call `NETCONF connection/connect pe2` in the same way, but this time editing the REST call body according to your setup for router 2  
 
-  - Again, issue the call, ensuring you receive the Response: Status **201 Created**
+- Again, issue the call, ensuring you receive the Response: Status **201 Created**
 
-  - Before we can proceed any further, we need to confirm that FRINX ODL has successfully established NETCONF connections with routers 1 and 2. This normally takes a few minutes. We can check if the connections have been established by issuing the Postman REST call `NETCONF connection/topology-netconf OPER` and checking that:
-    - You receive the Response: Status **200 OK**
-    and
-    - When you scroll through the Response body (this is very large) you see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
+- Before we can proceed any further, we need to confirm that FRINX ODL has successfully established NETCONF connections with routers 1 and 2. This normally takes a few minutes. We can check if the connections have been established by issuing the Postman REST call `NETCONF connection/topology-netconf OPER` and checking that:
+  - You receive the Response: Status **200 OK**
+  and
+  - When you scroll through the Response body (this is very large) you see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
 
 2. Create a pseudo-wire (PW) template (which will be used in the next step when we create the L2VPN instance).  
   Postman REST call: `L2VPN Service/create PW template PW1`  
@@ -149,7 +147,7 @@ To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router
 3. Create the L2VPN instance.  
   Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
   - Configure the call:  
-  *URL:*  In the URL, replace `&lt;odl_ip&gt;` with the IP of the system you are running the Frinx ODL distribution on. Or [create an environment in Postman](../../API.md) where you set a value for `odl_ip`.  
+  *URL:*  In the URL, replace &lt;odl_ip&gt; with the IP of the system you are running the Frinx ODL distribution on. Or [create an environment in Postman](../../API.md) where you set a value for `odl_ip`.  
   *Body:* In the call body, edit the following fields according to your setup:  
   ```json
   {  
@@ -210,9 +208,9 @@ To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router
 
 ### Delete the L2VPN connection
 1. Delete the pseudo-wire template by using the Postman REST call: `L2VPN Service/delete PW template PW1`. There is no body to the call. 
-If you have not already set an environment, then just edit the URL of the call to replace `&lt;odl_ip&gt;` with the IP of the system you are running the Frinx ODL distribution on.  
+If you have not already set an environment, then just edit the URL of the call to replace &lt;odl_ip&gt; with the IP of the system you are running the Frinx ODL distribution on.  
 2. Delete the l2vpn instance by using the Postman REST call: `L2VPN Service/delete PW template PW1`. There is no body to the call. 
-If you have not already set an environment, then just edit the URL of the call to replace `&lt;odl_ip&gt;` with the IP of the system you are running the Frinx ODL distribution on.
+If you have not already set an environment, then just edit the URL of the call to replace &lt;odl_ip&gt; with the IP of the system you are running the Frinx ODL distribution on.
 3. We now need to commit by RPC: Issue the Postman REST call `L2VPN Service/RPC commit-l2vpn`. In the Response body You should receive "status": "complete". This shows the deletion has been competed successfully.
 
 ![rpc commit](rpc-commit.PNG)

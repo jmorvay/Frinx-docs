@@ -126,9 +126,8 @@ To create an l2vpn connection between two routers (we perform these in our [vide
 
 - Before we can proceed any further, we need to confirm that FRINX ODL has successfully established NETCONF connections with routers 1 and 2. This normally takes a few minutes. We can check if the connections have been established by issuing the call `NETCONF connection/topology-netconf OPER` and checking that:
   - You receive the Response: Status **200 OK**
-  and
   - When you scroll through the Response body (this is very large) you see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
----
+
 - **Create a pseudo-wire (PW) template** (which will be used in the next step when we create the L2VPN instance).  
   - Postman REST call: `L2VPN Service/create PW template PW1`. You don't need to change any of the fields of the call body. You can change **name** if you wish.  
 ```json
@@ -144,7 +143,6 @@ To create an l2vpn connection between two routers (we perform these in our [vide
 ```
 ![create pw template](create-pw-template.PNG)
 
----
 - **Create the L2VPN instance**  
 Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
   - Configure the call:

@@ -51,7 +51,7 @@ feature:install odl-restconf frinx-l2vpn-iosxrv
 
 **frinx-l2vpn-iosxrv** is an L2VPN Provider with the IOS-XRv (Network Element Plugin) NEP and a NETCONF connector. This particular feature is specific for IOS-XRv devices.  
 
-You now have your system ready to provision l2vpn - see the the [Usage - Operations Guide](#usage---operations-guide) below.
+You now have your system ready to provision l2vpn - see the [Usage - Operations Guide](#usage---operations-guide) below.
 
 ## Introduction
 The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)

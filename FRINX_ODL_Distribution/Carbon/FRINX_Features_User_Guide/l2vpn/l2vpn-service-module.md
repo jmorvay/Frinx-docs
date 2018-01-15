@@ -15,6 +15,9 @@
             - [VPWS](#vpws)
     - [Usage - Operations Guide](#usage---operations-guide)
         - [Set up an L2VPN connection](#set-up-an-l2vpn-connection)
+            - [Establish a NETCONF connection](#establish-a-netconf-connection)
+            - [Create a pseudo-wire (PW) template](#create-a-pseudo-wire-pw-template)
+            - [Create the L2VPN instance](#create-the-l2vpn-instance)
         - [Delete the L2VPN connection](#delete-the-l2vpn-connection)
         - [Frinx l2vpn demo video (setup and deletion)](#frinx-l2vpn-demo-video-setup-and-deletion)
             - [frinx-l2vpn-testing](#frinx-l2vpn-testing)
@@ -94,12 +97,12 @@ That file contains several REST calls for establishing a NETCONF connection and 
 ### Set up an L2VPN connection
 To create an l2vpn connection between two routers (we perform these in our [video](https://youtu.be/UkHj9OgHHyo) which you can use a reference):  
 
-- **Establish a NETCONF connection** between Frinx ODL and each of the two routers between which the L2VPN will be configured. 
+#### Establish a NETCONF connection 
+This is between Frinx ODL and each of the two routers which we'll use for the L2VPN. 
 
-  - To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2):  
+- Use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2):  
 
-  - Configure the call `NETCONF connection/connect pe1` according to your setup for router 1:  
-    - *Body:* In the call body, edit the fields according to your setup:    
+- First edit the body of the call `NETCONF connection/connect pe1` according to your setup for router 1:  
     
 ```json
 {
@@ -119,19 +122,20 @@ To create an l2vpn connection between two routers (we perform these in our [vide
 
 ![connect pe1](connect-pe1.PNG)
 
-  - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
+- Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
-  - Now configure the call `NETCONF connection/connect pe2` in the same way, but this time editing the body according to your setup for router 2  
+- Now configure the call `NETCONF connection/connect pe2` in the same way, but this time editing the body according to your setup for router 2  
 
-  - Again, issue the call, ensuring you receive the Response: Status **201 Created**
+- Again, issue the call, ensuring you receive the Response: Status **201 Created**
 
-  - Before we can proceed any further, we need to confirm that FRINX ODL has successfully established NETCONF connections with routers 1 and 2. This normally takes a few minutes. We can check if the connections have been established by issuing the call `NETCONF connection/topology-netconf OPER` and checking that:
-    - You receive the Response: Status **200 OK**
-    - When you scroll through the Response body (this is very large) you see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
+- Before we can proceed any further, we need to confirm that FRINX ODL has successfully established NETCONF connections with routers 1 and 2. This normally takes a few minutes. We can check if the connections have been established by issuing the call `NETCONF connection/topology-netconf OPER` and checking that:
+  - You receive the Response: Status **200 OK**
+  - When you scroll through the Response body (this is very large) you see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
 
-- **Create a pseudo-wire (PW) template** (which will be used in the next step when we create the L2VPN instance).  
-  - Postman REST call: `L2VPN Service/create PW template PW1`. You don't need to change any of the fields of the call body. You can change **name** if you wish.  
-  
+#### Create a pseudo-wire (PW) template 
+This will be used in the next step when we create the L2VPN instance.  
+- Use the Postman REST call: `L2VPN Service/create PW template PW1`. You don't need to change any of the fields of the call body. You can change **name** if you wish.
+
 ```json
 {  
   "pw-template":[  
@@ -143,12 +147,12 @@ To create an l2vpn connection between two routers (we perform these in our [vide
   ]
 }
 ```
+
 ![create pw template](create-pw-template.PNG)
 
-- **Create the L2VPN instance**  
-Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
-  - Configure the call:
-    - *Body:* In the call body, edit the following fields according to your setup:  
+#### Create the L2VPN instance  
+Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
+- Edit the following fields of the call body according to your setup:  
   
 ```json
 {  
@@ -201,19 +205,15 @@ Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`
   ]
 }
 ```
-  - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
+- Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 ![create l2vpn instance](create-l2vpn-instance.PNG)
 
-  - We now need to commit by RPC: Issue the Postman REST call `L2VPN Service/RPC commit-l2vpn`. In the Response body You should receive "status": "complete". This shows the setup has been competed successfully.
-
-![rpc commit](rpc-commit.PNG)
+- We now need to commit by RPC: Issue the Postman REST call `L2VPN Service/RPC commit-l2vpn`. In the Response body You should receive "status": "complete". This shows the setup has been competed successfully.
 
 ### Delete the L2VPN connection
 1. Delete the pseudo-wire template by using the Postman REST call: `L2VPN Service/delete PW template PW1`. There is no body to the call.   
 2. Delete the l2vpn instance by using the Postman REST call: `L2VPN Service/delete PW template PW1`. There is no body to the call. 
 3. We now need to commit by RPC: Issue the Postman REST call `L2VPN Service/RPC commit-l2vpn`. In the Response body You should receive "status": "complete". This shows the deletion has been competed successfully.
-
-![rpc commit](rpc-commit.PNG)
 
 ### Frinx l2vpn demo video (setup and deletion)
 See our [video](https://youtu.be/UkHj9OgHHyo)  

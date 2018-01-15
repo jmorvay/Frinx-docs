@@ -95,7 +95,7 @@ To import the necessary Postman collection file see the section [Postman - Impor
 That file contains several REST calls for establishing a NETCONF connection and creating or deleting L2VPN instances, for which we provide guidance below:
 
 ### Set up an L2VPN connection
-To create an l2vpn connection between two routers (we perform these in our [video](https://youtu.be/UkHj9OgHHyo) which you can use a reference):  
+To create an l2vpn connection between two routers (we perform these steps in our [video](https://youtu.be/UkHj9OgHHyo) which you can use a reference):  
 
 #### Establish a NETCONF connection 
 This is between Frinx ODL and each of the two routers which we'll use for the L2VPN. 
@@ -128,9 +128,9 @@ This is between Frinx ODL and each of the two routers which we'll use for the L2
 
 - Again, issue the call, ensuring you receive the Response: Status **201 Created**
 
-- Before we can proceed any further, we need to confirm that FRINX ODL has successfully established NETCONF connections with routers 1 and 2. This normally takes a few minutes. We can check if the connections have been established by issuing the call `NETCONF connection/topology-netconf OPER` and checking that:
+- It can take a few minutes before the connections are formed. We can check if they're ready by issuing the call `NETCONF connection/topology-netconf OPER`
   - You receive the Response: Status **200 OK**
-  - When you scroll through the Response body (this is very large) you see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
+  - When you scroll through the Response body you see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
 
 #### Create a pseudo-wire (PW) template 
 This will be used in the next step when we create the L2VPN instance.  

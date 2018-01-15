@@ -37,10 +37,8 @@
 2. Follow that guide to import the file `postman_collection_L2VPN_IOS-XRv.json` from the directory `L2VPN Service Module`.
 
 ### Frinx ODL - Install features
-1. First, [start Frinx ODL](../../Operations_Manual/running-frinx-odl-after-activation.md)
-
-  Wait for 3 minutes to ensure the start up process is complete.  
-
+1. First, [start Frinx ODL](../../Operations_Manual/running-frinx-odl-after-activation.md) 
+  - Wait for 3 minutes to ensure the start up process is complete.  
 2. Then, in the karaf terminal which will have started, install two features - RESTCONF and the l2vpn provider:  
 
 ```
@@ -94,28 +92,26 @@ That file contains several REST calls for establishing a NETCONF connection and 
 ### Set up an L2VPN connection
 Three steps are required to create an l2vpn connection between two routers (we perform these in our [video](https://youtu.be/UkHj9OgHHyo) which you can use a reference):  
 
-1. Establish a NETCONF connection between Frinx ODL and each of the two routers between which the L2VPN will be configured:
-  To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2)  
-
-  - Configure the REST call `NETCONF connection/connect pe1` according to your setup for router 1:  
-  *URL:*  In the URL, replace `&lt;odl_ip&gt;` with the IP of the system you are running the Frinx ODL distribution on. Or [create an environment in Postman](../../API.md) where you set a value for `odl_ip`.  
-  *Body:* In the call body, edit the fields according to your setup:    
+1. Establish a NETCONF connection between Frinx ODL and each of the two routers between which the L2VPN will be configured. To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2)  
+  - Configure the REST call `NETCONF connection/connect pe1` according to your setup for router 1: 
+      - *URL:*  In the URL, replace /{/{odl_ip/{/} with the IP of the system you are running the Frinx ODL distribution on. Or [create an environment in Postman](../../API.md) where you set a value for `odl_ip`.  
+      - *Body:* In the call body, edit the fields according to your setup:    
   ```json
   {
     "node": [
       {
         "node-id": "pe1",
-        "netconf-node-topology:host": "192.168.1.211",  Edit this according to your setup
+        "netconf-node-topology:host": "192.168.1.211",  //Edit this according to your setup
         "netconf-node-topology:port": 830,
         "netconf-node-topology:keepalive-delay": 0,
         "netconf-node-topology:tcp-only": false,
-        "netconf-node-topology:username": "cisco",  Edit this according to your setup
-        "netconf-node-topology:password": "cisco"   Edit this according to your setup
+        "netconf-node-topology:username": "cisco",  //Edit this according to your setup
+        "netconf-node-topology:password": "cisco"   //Edit this according to your setup
       }
     ]
   }
   ```
-![connect pe1](connect-pe1.PNG)
+  ![connect pe1](connect-pe1.PNG)
 
   - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
@@ -129,8 +125,7 @@ Three steps are required to create an l2vpn connection between two routers (we p
     - When you scroll through the Response body (this is very large) you see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
 
 2. Create a pseudo-wire (PW) template (which will be used in the next step when we create the L2VPN instance).  
-  Postman REST call: `L2VPN Service/create PW template PW1`  
-  You don't need to change any of the fields of the call body. You can change **name** if you wish.  
+  - Postman REST call: `L2VPN Service/create PW template PW1`. You don't need to change any of the fields of the call body. You can change **name** if you wish.  
   ```json
   {  
     "pw-template":[  
@@ -161,15 +156,15 @@ Three steps are required to create an l2vpn connection between two routers (we p
         "pw":[
           {
             "name":"pe1_pw999_vlan3001",  
-            "template":"PW1", If you edited the name in step 2. above, then use the same name here
-            "peer-ip":"172.16.2.2",   Edit to the IP of the interface on router 2
+            "template":"PW1", //If you edited the name in step 2. above, then use the same name here
+            "peer-ip":"172.16.2.2",   //Edit to the IP of the interface on router 2
             "pw-id":999,
             "request-vlanid":3001
           },
           {
-            "name":"pe2_pw999_vlan3001",  Edit this according to your setup
-            "template":"PW1", If you edited the name in step 2. above, then use the same name here
-            "peer-ip":"172.16.1.2",  Edit to the IP of the interface on router 1
+            "name":"pe2_pw999_vlan3001",  //Edit this according to your setup
+            "template":"PW1", //If you edited the name in step 2. above, then use the same name here
+            "peer-ip":"172.16.1.2",  //Edit to the IP of the interface on router 1
             "pw-id":999,
             "request-vlanid":3001
           }

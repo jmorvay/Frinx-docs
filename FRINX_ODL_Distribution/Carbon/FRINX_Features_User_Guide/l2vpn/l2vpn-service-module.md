@@ -36,7 +36,7 @@
 
 2. Follow that guide to import the file `postman_collection_L2VPN_IOS-XRv.json` from the directory `L2VPN Service Module`.
 
-3. [Create an environment in Postman](../../API.md) where you set a value for `odl_ip`.
+3. [Configure an environment in Postman](../../API.md) where you set a value for `odl_ip`.
 
 ### Frinx ODL - Install features
 1. First, [start Frinx ODL](../../Operations_Manual/running-frinx-odl-after-activation.md) 
@@ -98,8 +98,7 @@ To create an l2vpn connection between two routers (we perform these in our [vide
 
   - To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2):  
 
-  - Configure the call `NETCONF connection/connect pe1` according to your setup for router 1: 
-    - *URL:*  In the URL, replace /{/{odl_ip/{/} with the IP of the system you are running the Frinx ODL distribution on. Or   
+  - Configure the call `NETCONF connection/connect pe1` according to your setup for router 1:  
     - *Body:* In the call body, edit the fields according to your setup:    
 ```json
 {
@@ -148,8 +147,7 @@ To create an l2vpn connection between two routers (we perform these in our [vide
 ---
 - **Create the L2VPN instance**  
 Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
-  - Configure the call:  
-    - *URL:*  In the URL, replace /{/{odl_ip/{/} with the IP of the system you are running the Frinx ODL distribution on. Or [create an environment in Postman](../../API.md) where you set a value for `odl_ip`.  
+  - Configure the call:
     - *Body:* In the call body, edit the following fields according to your setup:  
 ```json
 {  

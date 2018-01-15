@@ -100,6 +100,7 @@ To create an l2vpn connection between two routers (we perform these in our [vide
 
   - Configure the call `NETCONF connection/connect pe1` according to your setup for router 1:  
     - *Body:* In the call body, edit the fields according to your setup:    
+    
 ```json
 {
   "node": [
@@ -130,6 +131,7 @@ To create an l2vpn connection between two routers (we perform these in our [vide
 
 - **Create a pseudo-wire (PW) template** (which will be used in the next step when we create the L2VPN instance).  
   - Postman REST call: `L2VPN Service/create PW template PW1`. You don't need to change any of the fields of the call body. You can change **name** if you wish.  
+  
 ```json
 {  
   "pw-template":[  
@@ -147,6 +149,7 @@ To create an l2vpn connection between two routers (we perform these in our [vide
 Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
   - Configure the call:
     - *Body:* In the call body, edit the following fields according to your setup:  
+  
 ```json
 {  
   "l2vpn-instance":[  

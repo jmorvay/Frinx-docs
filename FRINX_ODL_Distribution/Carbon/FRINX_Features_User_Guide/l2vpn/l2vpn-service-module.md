@@ -164,14 +164,14 @@ Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001
       "pw":[
         {
           "name":"pe1_pw999_vlan3001",
-          "template":"PW1",//If you edited the name when creating the pseudowire template then use the same name here
+          "template":"PW1",//If you edited the name in step 2. then use the same name here
           "peer-ip":"172.16.2.2",//Edit to the IP of the interface on router 2
           "pw-id":999,
           "request-vlanid":3001
         },
         {
           "name":"pe2_pw999_vlan3001",
-          "template":"PW1",//If you edited the name when creating the pseudowire template then use the same name here
+          "template":"PW1",//If you edited the name in step 2. then use the same name here
           "peer-ip":"172.16.1.2",//Edit to the IP of the interface on router 1
           "pw-id":999,
           "request-vlanid":3001

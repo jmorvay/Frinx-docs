@@ -20,7 +20,7 @@
             - [Create the L2VPN instance](#create-the-l2vpn-instance)
         - [Delete the L2VPN connection](#delete-the-l2vpn-connection)
         - [Frinx l2vpn demo video (setup and deletion)](#frinx-l2vpn-demo-video-setup-and-deletion)
-            - [frinx-l2vpn-testing](#frinx-l2vpn-testing)
+        - [frinx-l2vpn-testing](#frinx-l2vpn-testing)
     - [L2VPN Provider](#l2vpn-provider)
         - [Use Case Specification](#use-case-specification)
         - [Architecture](#architecture)
@@ -119,6 +119,7 @@ This is between Frinx ODL and each of the two routers which we'll use for the L2
   ]
 }
 ```
+![connect pe1](connect-pe1.PNG)
 
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
@@ -145,6 +146,8 @@ This will be used in the next step when we create the L2VPN instance.
   ]
 }
 ```
+![create pw template](create-pw-template.PNG)
+
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
 #### Create the L2VPN instance  
@@ -202,6 +205,8 @@ Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001
   ]
 }
 ```
+![create l2vpn instance](create-l2vpn-instance.PNG)
+
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
 - We now need to commit by RPC: Issue the call `L2VPN Service/RPC commit-l2vpn`. In the Response body You should receive "status": "complete". This shows the setup has been competed successfully.
@@ -214,7 +219,7 @@ Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001
 ### Frinx l2vpn demo video (setup and deletion)
 See our [video](https://youtu.be/UkHj9OgHHyo)  
 
-#### frinx-l2vpn-testing
+### frinx-l2vpn-testing
 We also provide a feature which can be used for testing the l2vpn feature:  
 **Karaf installation:**
 

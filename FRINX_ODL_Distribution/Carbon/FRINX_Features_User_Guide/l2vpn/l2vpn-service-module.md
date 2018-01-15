@@ -93,7 +93,7 @@ To import the necessary Postman collection file see the section [Postman - Impor
 That file contains several REST calls for establishing a NETCONF connection and creating or deleting L2VPN instances, for which we provide guidance below:
 
 ### Set up an L2VPN connection
-To create an l2vpn connection between two routers (we perform these steps in our [video](https://youtu.be/UkHj9OgHHyo) which you can use a reference):  
+Three steps are requried to create an l2vpn connection between two routers (we perform these steps in our [video](https://youtu.be/UkHj9OgHHyo) which you can use a reference):  
 
 #### 1. Establish a NETCONF connection 
 This is between Frinx ODL and each of the two routers which we'll use for the L2VPN. 
@@ -123,7 +123,7 @@ This is between Frinx ODL and each of the two routers which we'll use for the L2
 
 - Now configure the call `NETCONF connection/connect pe2` in the same way, but this time editing the body according to your setup for router 2  
 
-- Again, issue the call, ensuring you receive the Response: Status **201 Created**
+- Again, issue the call by hitting **Send**, ensuring you receive the Response: Status **201 Created**
 
 - It can take a few minutes before the connections are formed. We can check if they're ready by issuing the call `NETCONF connection/topology-netconf OPER`
   - You receive the Response: Status **200 OK**

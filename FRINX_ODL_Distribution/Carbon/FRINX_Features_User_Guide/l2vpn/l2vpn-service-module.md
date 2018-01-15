@@ -94,13 +94,13 @@ That file contains several REST calls for establishing a NETCONF connection and 
 ### Set up an L2VPN connection
 To create an l2vpn connection between two routers (we perform these in our [video](https://youtu.be/UkHj9OgHHyo) which you can use a reference):  
 
-- Establish a NETCONF connection between Frinx ODL and each of the two routers between which the L2VPN will be configured. 
+- **Establish a NETCONF connection** between Frinx ODL and each of the two routers between which the L2VPN will be configured. 
 
-To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2):  
+  - To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2):  
 
-- Configure the REST call `NETCONF connection/connect pe1` according to your setup for router 1: 
-  - *URL:*  In the URL, replace /{/{odl_ip/{/} with the IP of the system you are running the Frinx ODL distribution on. Or   
-  - *Body:* In the call body, edit the fields according to your setup:    
+  - Configure the call `NETCONF connection/connect pe1` according to your setup for router 1: 
+    - *URL:*  In the URL, replace /{/{odl_ip/{/} with the IP of the system you are running the Frinx ODL distribution on. Or   
+    - *Body:* In the call body, edit the fields according to your setup:    
 ```json
 {
   "node": [
@@ -119,19 +119,19 @@ To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router
 
 ![connect pe1](connect-pe1.PNG)
 
-- Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
+  - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
-- Now configure the REST call `NETCONF connection/connect pe2` in the same way, but this time editing the REST call body according to your setup for router 2  
+- Now configure the call `NETCONF connection/connect pe2` in the same way, but this time editing the body according to your setup for router 2  
 
 - Again, issue the call, ensuring you receive the Response: Status **201 Created**
 
-- Before we can proceed any further, we need to confirm that FRINX ODL has successfully established NETCONF connections with routers 1 and 2. This normally takes a few minutes. We can check if the connections have been established by issuing the Postman REST call `NETCONF connection/topology-netconf OPER` and checking that:
+- Before we can proceed any further, we need to confirm that FRINX ODL has successfully established NETCONF connections with routers 1 and 2. This normally takes a few minutes. We can check if the connections have been established by issuing the call `NETCONF connection/topology-netconf OPER` and checking that:
   - You receive the Response: Status **200 OK**
   and
   - When you scroll through the Response body (this is very large) you see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
 ---
-- Create a pseudo-wire (PW) template (which will be used in the next step when we create the L2VPN instance).  
-- Postman REST call: `L2VPN Service/create PW template PW1`. You don't need to change any of the fields of the call body. You can change **name** if you wish.  
+- **Create a pseudo-wire (PW) template** (which will be used in the next step when we create the L2VPN instance).  
+  - Postman REST call: `L2VPN Service/create PW template PW1`. You don't need to change any of the fields of the call body. You can change **name** if you wish.  
 ```json
 {  
   "pw-template":[  
@@ -146,11 +146,11 @@ To do this, use Postman REST calls: `NETCONF connection/connect pe1` (for router
 ![create pw template](create-pw-template.PNG)
 
 ---
--  **Create the L2VPN instance**.  
+- **Create the L2VPN instance**  
 Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
-- Configure the call:  
-*URL:*  In the URL, replace /{/{odl_ip/{/} with the IP of the system you are running the Frinx ODL distribution on. Or [create an environment in Postman](../../API.md) where you set a value for `odl_ip`.  
-*Body:* In the call body, edit the following fields according to your setup:  
+  - Configure the call:  
+    - *URL:*  In the URL, replace /{/{odl_ip/{/} with the IP of the system you are running the Frinx ODL distribution on. Or [create an environment in Postman](../../API.md) where you set a value for `odl_ip`.  
+    - *Body:* In the call body, edit the following fields according to your setup:  
 ```json
 {  
   "l2vpn-instance":[  

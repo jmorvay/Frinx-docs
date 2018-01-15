@@ -150,7 +150,7 @@ This will be used in the next step when we create the L2VPN instance.
 
 #### Create the L2VPN instance  
 Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
-- Edit the following fields of the call body according to your setup:  
+- Edit the call body according to your setup. Only the fields with comments below them should be edited:  
   
 ```json
 {  
@@ -164,14 +164,14 @@ Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001
       "pw":[
         {
           "name":"pe1_pw999_vlan3001",
-          "template":"PW1",//If you edited the name in step 2. above, then use the same name her
+          "template":"PW1",//If you edited the name in step 2. above, then use the same name here
           "peer-ip":"172.16.2.2",//Edit to the IP of the interface on router 2
           "pw-id":999,
           "request-vlanid":3001
         },
         {
           "name":"pe2_pw999_vlan3001",
-          "template":"PW1",//If you edited the name in step 2. above, then use the same name her
+          "template":"PW1",//If you edited the name in step 2. above, then use the same name here
           "peer-ip":"172.16.1.2",//Edit to the IP of the interface on router 1
           "pw-id":999,
           "request-vlanid":3001

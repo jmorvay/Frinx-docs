@@ -120,8 +120,6 @@ This is between Frinx ODL and each of the two routers which we'll use for the L2
 }
 ```
 
-![connect pe1](connect-pe1.PNG)
-
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
 - Now configure the call `NETCONF connection/connect pe2` in the same way, but this time editing the body according to your setup for router 2  
@@ -147,8 +145,7 @@ This will be used in the next step when we create the L2VPN instance.
   ]
 }
 ```
-
-![create pw template](create-pw-template.PNG)
+- Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
 #### Create the L2VPN instance  
 Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
@@ -206,9 +203,8 @@ Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001
 }
 ```
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
-![create l2vpn instance](create-l2vpn-instance.PNG)
 
-- We now need to commit by RPC: Issue the Postman REST call `L2VPN Service/RPC commit-l2vpn`. In the Response body You should receive "status": "complete". This shows the setup has been competed successfully.
+- We now need to commit by RPC: Issue the call `L2VPN Service/RPC commit-l2vpn`. In the Response body You should receive "status": "complete". This shows the setup has been competed successfully.
 
 ### Delete the L2VPN connection
 1. Delete the pseudo-wire template by using the Postman REST call: `L2VPN Service/delete PW template PW1`. There is no body to the call.   

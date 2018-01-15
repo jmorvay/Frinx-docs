@@ -14,9 +14,9 @@
             - [VPWS](#vpws)
     - [Usage - Operations Guide](#usage---operations-guide)
         - [Set up an L2VPN connection](#set-up-an-l2vpn-connection)
-            - [Establish a NETCONF connection](#establish-a-netconf-connection)
-            - [Create a pseudo-wire (PW) template](#create-a-pseudo-wire-pw-template)
-            - [Create the L2VPN instance](#create-the-l2vpn-instance)
+            - [1. Establish a NETCONF connection](#1-establish-a-netconf-connection)
+            - [2. Create a pseudo-wire (PW) template](#2-create-a-pseudo-wire-pw-template)
+            - [3. Create the L2VPN instance](#3-create-the-l2vpn-instance)
         - [Delete the L2VPN connection](#delete-the-l2vpn-connection)
         - [Frinx L2VPN demo video (setup and deletion)](#frinx-l2vpn-demo-video-setup-and-deletion)
         - [Testing](#testing)
@@ -95,7 +95,7 @@ That file contains several REST calls for establishing a NETCONF connection and 
 ### Set up an L2VPN connection
 To create an l2vpn connection between two routers (we perform these steps in our [video](https://youtu.be/UkHj9OgHHyo) which you can use a reference):  
 
-#### Establish a NETCONF connection 
+#### 1. Establish a NETCONF connection 
 This is between Frinx ODL and each of the two routers which we'll use for the L2VPN. 
 
 - Use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2):  
@@ -129,7 +129,7 @@ This is between Frinx ODL and each of the two routers which we'll use for the L2
   - You receive the Response: Status **200 OK**
   - When you scroll through the Response body you see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
 
-#### Create a pseudo-wire (PW) template 
+#### 2. Create a pseudo-wire (PW) template 
 This will be used in the next step when we create the L2VPN instance.  
 - Use the Postman REST call: `L2VPN Service/create PW template PW1`. You don't need to change any of the fields of the call body. You can change **name** if you wish.
 
@@ -148,7 +148,7 @@ This will be used in the next step when we create the L2VPN instance.
 
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
-#### Create the L2VPN instance  
+#### 3. Create the L2VPN instance  
 Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
 - Edit the call body according to your setup. Only the fields with comments below them should be edited:  
   

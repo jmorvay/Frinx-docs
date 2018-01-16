@@ -350,7 +350,7 @@ L3VPN Provider is composed of multiple components. The high level architecture i
 
 - If rollback is successful then ***status-l3vpn-provider*** has status "failed", otherwise the status is "inconsistent". 
 - The architecture can be extended very easily because Network Element Plugin needs to implement only NEP SPI, rollback, and network element registration. 
-- IOS NEP in the above picture is not implemented yet.
+- Note that IOS NEP in the image above is not yet implemented.
 
 As mentioned above, NEP registers network elements to L3VPN Provider. L3VPN Provider stores network elements as nodes to abstract topology ***provider-edge-topology*** and this topology is a source of nodes which can be used for L3VPN configuration.
 

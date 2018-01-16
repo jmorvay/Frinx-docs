@@ -288,13 +288,13 @@ L2VPN Provider works only with devices which have these capabilities:
 </table>
 
 The capabilities are sent from XR to ODL automatically during device connection via NETCONF.
-You can see the NETCONF capabilities under each node by calling:
+You can see the NETCONF capabilities under each node by calling (replacing odl_ip with the IP of the system on which you're running Frinx ODL):
 ```
-GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf
+GET http://odl_ip:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf
 ```
 A list of PE nodes can be obtained from:
 ```
-GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/l2vpn-provider-edge-topology
+GET http://odl_ip:8181/restconf/operational/network-topology:network-topology/topology/l2vpn-provider-edge-topology
 ```
 ### Architecture
 L2VPN Provider is composed of multiple components. The high level architecture is shown in the picture below.

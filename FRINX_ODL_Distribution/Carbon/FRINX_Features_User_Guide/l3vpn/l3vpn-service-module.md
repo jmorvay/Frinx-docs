@@ -248,9 +248,7 @@ If you want to remove the L3VPN connection:
     - commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn-svc`. There is no body to the call.  
       - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.  
   
-  - using the Postman REST call `L3VPN Service/delete site cus1_ce2`. There is no body to the call. 
-    - commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn-svc`. There is no body to the call.  
-      - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
+  Repeat Step 2. for  `L3VPN Service/delete site cus1_ce2`.
 
 ### Testing
 **Karaf installation:**

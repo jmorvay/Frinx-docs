@@ -341,14 +341,14 @@ L3VPN Provider is composed of multiple components. The high level architecture i
 - The architecture can be extended very easily because Network Element Plugin needs to implement only NEP SPI, rollback, and network element registration. 
 - IOS NEP in the above picture is not implemented yet.
 
-As has been mentioned, NEP registers network elements to L3VPN Provider. L3VPN Provider stores network elements as nodes to abstract topology ***provider-edge-topology*** and this topology is a source of nodes which can be used for L3VPN configuration.
+As mentioned above, NEP registers network elements to L3VPN Provider. L3VPN Provider stores network elements as nodes to abstract topology ***provider-edge-topology*** and this topology is a source of nodes which can be used for L3VPN configuration.
 
 #### API description
 The API is described using YANG modules. An external application can consume the API via RESTCONF, NETCONF, or JAVA. 
 - The L3VPN service module provides domain-specific abstraction where the abstraction describes attributes of VPNs and sites instead of configuration of network elements. 
 - The FRINX ODL controller translates the abstraction to network element configuration.
 
-[ietf-l3vpn-svc@2017-05-02.yang](ietf-l3vpn-svc@2017-05-02.yang)
+[ietf-l3vpn-svc@2017-05-02.yang](ietf-l3vpn-svc@2017-05-02.yang)(Click link to download)
 
 The original YANG is from [RFC 8049](https://tools.ietf.org/html/rfc8049). Supported statements are shown in [generated UML from the original YANG](ietf-l3vpn-svc_uml.png). This YANG module is modified in order to reuse its parts and is extended with L3VPN Provider elements.
 
@@ -359,7 +359,7 @@ The YANG module contains 3 root statements and one RPC:
  - **container configured-l3vpn-svc** – shows last successfully configured L3VPN service.
  - **rpc commit-l3vpn-svc** – starts processing intent of L3VPN service. An output of RPC is the version which was assigned to the intent. The output is returned immediately after processing starts.
 
-[l3vpn-svc-aug@2017-05-02.yang](l3vpn-svc-aug@2017-05-02.yang)
+[l3vpn-svc-aug@2017-05-02.yang](l3vpn-svc-aug@2017-05-02.yang)(Click link to download)
 
 Augments ietf-l3vpn-svc module with statements which are needed for configuration of L3VPN.
 

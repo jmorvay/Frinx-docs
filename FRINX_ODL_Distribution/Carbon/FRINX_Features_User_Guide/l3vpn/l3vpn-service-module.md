@@ -238,8 +238,8 @@ Use the Postman REST calls: `L3VPN Service/create site cus1_ce1` and `L3VPN Serv
 - Finally, we again need to commit by RPC: Issue the same RPC call `L3VPN Service/RPC commit-l3vpn-svc`. In the Response body you should receive "status": "complete". This shows the setup has been competed successfully.
 
 ### Delete the L3VPN connection
-If you want to remove the L2VPN connection:
-1. Delete the l3vpn service by:
+If you want to remove the L3VPN connection:
+1. Delete the L3VPN service by:
   - using the Postman REST call: `L3VPN Service/delete vpn service cus1_vpn1`. There is no body to the call. 
     - commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn-svc`. There is no body to the call.  
       - In the Response body you should receive "status": "complete". This shows the deletion has   been competed successfully.

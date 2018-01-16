@@ -319,7 +319,7 @@ An external application modifies ***ietf-l2vpn*** in CONF DS. L2VPN can be confi
 - A diff is created based on intended vs actual state. 
 - This diff is configured inside network wide transaction on the necessary PE routers by using particular Network Element Plugins. 
 - If configuration of routers is successful then a new ***ietf-l2vpn*** is stored to OPER DS and RPC output is returned with status "complete". 
-- If configuration fails on one of the devices, the rollback of the network wide transaction starts and if the rollback is successful then RPC output has status "commit-failed-rollback-complete", otherwise the status is "inconsistent". 
+- If configuration fails on one of the devices, the **rollback** of the network wide transaction starts and if the rollback is successful then RPC output has status "commit-failed-rollback-complete", otherwise the status is "inconsistent". 
 - The architecture can be extended very easily because Network Element Plugin needs to implement only NEP SPI, rollback, and network element registration. -Note that IOS NEP from the image above is not yet implemented.
 
 As stated earlier, NEP registers network elements to L2VPN Provider. L2VPN Provider stores network elements as nodes to abstract topology ***l2vpn-provider-edge-topology*** and this topology is a source of nodes which can be used for L2VPN configuration.

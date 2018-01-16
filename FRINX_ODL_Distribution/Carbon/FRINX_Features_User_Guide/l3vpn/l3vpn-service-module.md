@@ -25,8 +25,6 @@
         - [Use Case Specification](#use-case-specification)
         - [Architecture](#architecture)
             - [API description](#api-description)
-                - [ietf-l3vpn-svc@2017-05-02.yang](#ietf-l3vpn-svc2017-05-02yang)
-                - [l3vpn-svc-aug@2017-05-02.yang](#l3vpn-svc-aug2017-05-02yang)
         - [Network Element Plugin](#network-element-plugin)
             - [IOS-XRv Network Element Plugin](#ios-xrv-network-element-plugin)
             - [Mock Network Element Plugin](#mock-network-element-plugin)
@@ -95,7 +93,7 @@ To import the necessary Postman collection file see the section [Postman - Impor
 That file contains several REST calls for establishing a NETCONF connection and creating or deleting L3VPN instances, for which we provide guidance below:
 
 ### Set up an L3VPN connection
-Three steps are required to create an l3vpn connection between two routers (we perform these steps in our [video](https://youtu.be/qxnMJG_Cz-c) which you can use a reference):  
+Three steps are required to create an l3vpn connection between two routers (we perform these steps in our [video](https://youtu.be/qxnMJG_Cz-c) by commandline. Below we will make it easier by using Postman collections):  
 
 #### 1. Establish a NETCONF connection 
 This is between FRINX ODL and each of the two routers which we'll use for the L3VPN. 
@@ -132,7 +130,7 @@ This is between FRINX ODL and each of the two routers which we'll use for the L3
   - When you scroll through the Response body you should see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
 
 #### 2. Create VPN service 
-This will be used in the next step when we create the L3VPN instance.  
+This will be used in the next step when we create the L3VPN sites.  
 - Use the Postman REST call: `L3VPN Service/create vpn-service cus1_vpn1`. You don't need to change any of the fields of the call body. You can change **customer-name** if you wish.
 
 ```json
@@ -253,7 +251,7 @@ If you want to remove the L2VPN connection:
 Installs L3VPN Provider with Mock NEP and RESTCONF. This feature can be used for testing and demonstration purposes where real PE devices are not available.
 
 ### FRINX L3VPN demo video 
-See our [video](https://youtu.be/UkHj9OgHHyo)  
+See our [video](https://youtu.be/qxnMJG_Cz-c)  
 
 ## L3VPN Provider
 L3VPN Provider is an implementation which automatically provisions L3VPN on PE routers based on intended L3VPN service. 
@@ -350,7 +348,6 @@ The API is described using YANG modules. An external application can consume the
 - The L3VPN service module provides domain-specific abstraction where the abstraction describes attributes of VPNs and sites instead of configuration of network elements. 
 - The FRINX ODL controller translates the abstraction to network element configuration.
 
-##### ietf-l3vpn-svc@2017-05-02.yang
 [ietf-l3vpn-svc@2017-05-02.yang](ietf-l3vpn-svc@2017-05-02.yang)
 
 The original YANG is from [RFC 8049](https://tools.ietf.org/html/rfc8049). Supported statements are shown in [generated UML from the original YANG](ietf-l3vpn-svc_uml.png). This YANG module is modified in order to reuse its parts and is extended with L3VPN Provider elements.
@@ -362,7 +359,6 @@ The YANG module contains 3 root statements and one RPC:
  - **container configured-l3vpn-svc** – shows last successfully configured L3VPN service.
  - **rpc commit-l3vpn-svc** – starts processing intent of L3VPN service. An output of RPC is the version which was assigned to the intent. The output is returned immediately after processing starts.
 
-##### l3vpn-svc-aug@2017-05-02.yang
 [l3vpn-svc-aug@2017-05-02.yang](l3vpn-svc-aug@2017-05-02.yang)
 
 Augments ietf-l3vpn-svc module with statements which are needed for configuration of L3VPN.

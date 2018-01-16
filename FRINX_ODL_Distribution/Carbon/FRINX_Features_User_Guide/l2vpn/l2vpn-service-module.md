@@ -137,8 +137,8 @@ This is between FRINX ODL and each of the two routers which we'll use for the L2
 - Again, issue the call by hitting **Send**, ensuring you receive the Response: Status **201 Created**
 
 - It can take a few minutes before the connections are formed. We can check if they're ready by issuing the call `NETCONF connection/topology-netconf OPER`
-  - You receive the Response: Status **200 OK**
-  - When you scroll through the Response body you see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
+  - You should receive the Response: Status **200 OK**
+  - When you scroll through the Response body you should see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
 
 #### 2. Create a pseudo-wire (PW) template 
 This will be used in the next step when we create the L2VPN instance.  

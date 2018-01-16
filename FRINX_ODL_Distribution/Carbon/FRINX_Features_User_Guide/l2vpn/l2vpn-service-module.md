@@ -59,7 +59,7 @@ Your system is now ready. To provision L2VPN see the [Usage - Operations Guide](
 The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
 
 ### Problem definition and L2VPN
-Let's take the scenario where a company needs to reconnect multiple sites with each other via an SP which provides L2 services to the company. The company's sites needs to see each other as directly connected on L3. L2VPN offers a solution for those requirements.
+Consider the scenario where a company needs to reconnect multiple sites with each other via an SP which provides L2 services to the company. The company's sites needs to see each other as directly connected on L3. L2VPN offers a solution for those requirements.
 
 The company has two different sites and they are both connected to the Service Provider using an L2 connection. They need to interconnect two of their sites. ![Two company's sites connected to SP](problem.png)
 
@@ -68,9 +68,9 @@ In this case L2VPN provides site-to-site connectivity and the SP network behaves
 ### Terminology
 These terms are usually used in the L2VPN domain:
 
-*   **Customer Edge (CE)** device – router at customer site connected to SP
-*   **Provider Edge (PE)** device – router at the edge of the SP network which provides connectivity for CE
-*   **Provider (P)** device – core router on the SP network providing connectivity among PE routers
+ - **Customer Edge (CE)** device – router at customer site connected to SP
+ - **Provider Edge (PE)** device – router at the edge of the SP network which provides connectivity for CE
+ - **Provider (P)** device – core router on the SP network providing connectivity among PE routers
 
 ![Terminology in picture](terminology.png)
 
@@ -83,7 +83,10 @@ There are two main types of L2VPN:
 These types have many implementations. The Frinx ODL distribution supports Virtual Private Wire Service (VPWS) implementation.
 
 #### VPWS
-VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet services over MPLS. It is also known as ETHoMPLS (Ethernet over MPLS), or VLL (Virtual Leased Line). VPWS is point-to-point L2VPN which usually uses MPLS in core networks for signaling and creates pseudo-wires on PE routers for separation of L2 connections. L2 connections are identified by interface or VLAN. The picture below shows an MPLS core network with pseudo-wires on PEs for each VPN which are identified by VLAN.
+VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet services over MPLS. 
+ - Also known as ETHoMPLS (Ethernet over MPLS), or VLL (Virtual Leased Line). - VPWS is point-to-point L2VPN which usually uses MPLS in core networks for signaling and creates pseudo-wires on PE routers for separation of L2 connections. 
+ - L2 connections are identified by interface or VLAN. 
+ - The picture below shows an MPLS core network with pseudo-wires on PEs for each VPN which are identified by VLAN.
 
 ![VPWS example](vpws_topology.png)
 
@@ -234,17 +237,15 @@ L2VPN Provider is an implementation which automatically provisions L2VPN on PE r
 It exposes a domain specific API for L2VPN manipulation and declarative configuration “what vs how”.  
 
 - L2VPN Provider supports *network wide transactions* which are transactions on top of multiple devices. 
-
 - *Rollback* of a network wide transaction means rollback of configuration on each device which was a part of the conifiguration. 
-
 - *The rollback of a network wide transaction is done automatically* if there is failed configuration on at least one device.
 
 ### Use Case Specification
 L2VPN Provider can be used on a network where:
 
-*   VPWS L2VPN is needed
-*   VLAN is used for pseudo-wire selection
-*   MPLS encapsulation is used in SP core
+- VPWS L2VPN is needed
+- VLAN is used for pseudo-wire selection
+- MPLS encapsulation is used in SP core
 
 ![Use case example](use-case.png)
 
@@ -333,16 +334,16 @@ The API is described using YANG modules.
 
 The YANG module contains 2 root statements and one RPC:
 
-*   **container l2vpn** – represents intended state stored in CONF DS and actual state stored in OPER DS
-*   **container l2vpn-state** – not used in current implementation
-*   **rpc commit-l2vpn** – configures intent of L2VPN service. The output of RPC is the result of service configuration.
+ - **container l2vpn** – represents intended state stored in CONF DS and actual state stored in OPER DS
+ - **container l2vpn-state** – not used in current implementation
+ - **rpc commit-l2vpn** – configures intent of L2VPN service. The output of RPC is the result of service configuration.
 
 ### Network Element Plugin
 Network Element Plugin (NEP) is a unit which implements SPI from the L2VPN Provider. This NEP is device API specific and is responsible for:
 
-*   announcement of discovered device (PE) to the L2VPN Provider
-*   translation between SPI Data Transfer Objects (DTO) and device configuration
-*   rollback of configuration on a device
+- Announcement of discovered device (PE) to the L2VPN Provider
+- Translation between SPI Data Transfer Objects (DTO) and device configuration
+- Rollback of configuration on a device
 
 #### IOS-XRv Network Element Plugin
 This plugin configures L2VPN on IOS-XRv using NETCONF. It listens on topology-netconf and announces PE capable devices to the L2VPN Provider. Rollback on a device is done automatically using the "Rollback-on-Error" capability.
@@ -393,9 +394,9 @@ Implementation of L2VPN provider does not support all statements in ietf-l2vpn@2
 
 Other limitations:
 
-*   only MPLS encapsulation is supported
-*   only VLAN can be used between CE and PE for pseudo-wire selection
-*   pre-configured MPLS among PEs must exist
+ - Only MPLS encapsulation is supported
+ - Only VLAN can be used between CE and PE for pseudo-wire selection
+ - Pre-configured MPLS among PEs must exist
 
 
 | Feature Guide         |             |                                                                                                     |

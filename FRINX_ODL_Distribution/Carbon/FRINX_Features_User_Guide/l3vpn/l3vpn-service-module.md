@@ -16,8 +16,8 @@
     - [Usage - Operations Guide](#usage---operations-guide)
         - [Set up an L3VPN connection](#set-up-an-l3vpn-connection)
             - [1. Establish a NETCONF connection](#1-establish-a-netconf-connection)
-            - [2. Create a pseudo-wire (PW) template](#2-create-a-pseudo-wire-pw-template)
-            - [3. Create the L3VPN instance](#3-create-the-l3vpn-instance)
+            - [2. Create VPN service](#2-create-vpn-service)
+            - [3. Create site](#3-create-site)
         - [Delete the L3VPN connection](#delete-the-l3vpn-connection)
         - [frinx-l3vpn-testing](#frinx-l3vpn-testing)
         - [FRINX L3VPN demo video](#frinx-l3vpn-demo-video)
@@ -131,90 +131,109 @@ This is between FRINX ODL and each of the two routers which we'll use for the L3
   - You should receive the Response: Status **200 OK**
   - When you scroll through the Response body you should see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
 
-#### 2. Create a pseudo-wire (PW) template 
+#### 2. Create VPN service 
 This will be used in the next step when we create the L3VPN instance.  
-- Use the Postman REST call: `L3VPN Service/create PW template PW1`. You don't need to change any of the fields of the call body. You can change **name** if you wish.
+- Use the Postman REST call: `L3VPN Service/create vpn-service cus1_vpn1`. You don't need to change any of the fields of the call body. You can change **customer-name** if you wish.
 
 ```json
 {  
-  "pw-template":[  
+  "vpn-service":[  
     {  
-      "name":"PW1",
-      "cw-negotiation":"preferred",
-      "encapsulation":"mpls"
+      "vpn-id":"cus1_vpn1",
+      "customer-name":"customer1",
+      "vpn-service-topology":"any-to-any",
+      "l3vpn-param:vrf-name":"cus1_vpn1",
+      "l3vpn-param:route-distinguisher":{  
+        "as":11,
+        "as-index":11
+      },
+      "l3vpn-param:import-route-targets":{  
+        "route-target":{  
+          "as":11,
+          "as-index":11
+        }
+      },
+      "l3vpn-param:export-route-targets":{  
+        "route-target":{  
+          "as":11,
+          "as-index":11
+        }
+      }
     }
   ]
 }
 ```
-![create pw template](create-pw-template.PNG)
+![create vpn service](create-vpn-service.PNG)
 
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
-#### 3. Create the L3VPN instance  
-Use the Postman REST call: `L3VPN Service/create l3vpn instance ce1-ce2_vlan3001`  
+#### 3. Create site  
+Use the Postman REST call: `L3VPN Service/create site cus1_ce1`  
 - Edit the call body according to your setup. Only the fields with comments below should be edited:  
   
 ```json
 {  
-  "l3vpn-instance":[  
+  "site":[  
     {  
-      "name":"ce1-ce2_vlan3001",
-      "type":"vpws-instance-type",
-      "service-type":"Ethernet",
-      "signaling-type":"ldp-signaling",
-      "tenant-id":"frinx",
-      "pw":[
-        {
-          "name":"pe1_pw999_vlan3001",
-          "template":"PW1",//If you edited the name in step 2. then use the same name here
-          "peer-ip":"172.16.2.2",//Edit to the IP of the interface on router 2
-          "pw-id":999,
-          "request-vlanid":3001
-        },
-        {
-          "name":"pe2_pw999_vlan3001",
-          "template":"PW1",//If you edited the name in step 2. then use the same name here
-          "peer-ip":"172.16.1.2",//Edit to the IP of the interface on router 1
-          "pw-id":999,
-          "request-vlanid":3001
-        }
-      ],
-      "endpoint":[
-        {
-          "name":"ce1",
-          "pe-node-id":"pe1",
-          "pe-2-ce-tp-id":"GigabitEthernet0/0/0/0",
-          "pw":[
-            {
-              "name":"pe1_pw999_vlan3001"
-            }
-          ]
-        },
-        {
-          "name":"ce2",
-          "pe-node-id":"pe2",
-          "pe-2-ce-tp-id":"GigabitEthernet0/0/0/0",
-          "pw":[
-            {
-              "name":"pe2_pw999_vlan3001"
-            }
-          ]
-        }
-      ]
+      "site-id":"cus1_ce1",
+      "site-vpn-flavor":"site-vpn-flavor-single",
+      "management":{  
+        "type":"customer-managed"
+      },
+      "site-network-accesses":{  
+        "site-network-access":[  
+          {  
+            "site-network-access-id":"cus1_ce1-pe1",
+            "site-network-access-type":"multipoint",
+            "vpn-attachment":{  
+              "vpn-id":"cus1_vpn1",
+              "site-role":"any-to-any-role"
+            },
+            "routing-protocols":{  
+              "routing-protocol":[  
+                {  
+                  "type":"bgp",
+                  "bgp":{  
+                    "autonomous-system":65101,
+                    "address-family":[  
+                      "ipv4"
+                    ]
+                  }
+                }
+              ]
+            },
+            "ip-connection":{  
+              "ipv4":{  
+                "address-allocation-type":"static-address",
+                "addresses":{  
+                  "provider-address":"10.1.11.1",//Edit according to your setup
+                  "customer-address":"10.1.11.10",//Edit according to your setup
+                  "mask":24
+                }
+              }
+            },
+            "l3vpn-param:pe-node-id":"pe1",
+            "l3vpn-param:pe-2-ce-tp-id":"GigabitEthernet0/0/0/2",
+            "l3vpn-param:pe-bgp-as":65000,
+            "l3vpn-param:route-policy-in":"RPL_PASS_ALL",
+            "l3vpn-param:route-policy-out":"RPL_PASS_ALL"
+          }
+        ]
+      }
     }
   ]
 }
 ```
-![create l3vpn instance](create-l3vpn-instance.PNG)
+![create site](create-site.PNG)
 
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
-- We now need to commit by RPC: Issue the call `L3VPN Service/RPC commit-l3vpn`. In the Response body you should receive "status": "complete". This shows the setup has been competed successfully.
+- We now need to commit by RPC: Issue the call `L3VPN Service/RPC commit-l3vpn-svc`. In the Response body you should receive "status": "complete". This shows the setup has been competed successfully.
 
 ### Delete the L3VPN connection
 If you want to remove the L2VPN connection:
-1. Delete the pseudo-wire template by using the Postman REST call: `L3VPN Service/delete PW template PW1`. There is no body to the call.   
-2. Delete the l2vpn instance by using the Postman REST call: `L3VPN Service/delete l3vpn-instance ce1-ce2_vlan3001`. There is no body to the call. 
+1. Delete the pseudo-wire template by using the Postman REST call: `L3VPN Service/delete site cus1_ce1`. There is no body to the call.   
+2. Delete the l3vpn service by using the Postman REST call: `L3VPN Service/delete vpn service cus1_vpn1`. There is no body to the call. 
 3. We now need to commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn`. There is no body to the call.  
   - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
 

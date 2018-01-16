@@ -222,10 +222,13 @@ Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001
 
 ### Delete the L2VPN connection
 If you want to remove the L2VPN connection:
-1. Delete the pseudo-wire template by using the Postman REST call: `L2VPN Service/delete PW template PW1`. There is no body to the call.   
+1. Delete the pseudo-wire template by:
+  - using the Postman REST call: `L2VPN Service/delete PW template PW1`. There is no body to the call.  
+  - commit by RPC: Issue the Postman REST call: `L2VPN Service/RPC commit-l2vpn`. There is no body to the call.  
+    - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
 2. Delete the l2vpn instance by using the Postman REST call: `L2VPN Service/delete l2vpn-instance ce1-ce2_vlan3001`. There is no body to the call. 
-3. We now need to commit by RPC: Issue the Postman REST call: `L2VPN Service/RPC commit-l2vpn`. There is no body to the call.  
-  - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
+  - commit by RPC: Issue the Postman REST call: `L2VPN Service/RPC commit-l2vpn`. There is no body to the call.  
+    - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
 
 ### FRINX L2VPN demo video (setup and deletion)
 See our [video](https://youtu.be/UkHj9OgHHyo)  

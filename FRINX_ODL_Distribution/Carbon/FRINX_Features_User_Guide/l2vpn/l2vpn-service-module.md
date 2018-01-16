@@ -111,7 +111,7 @@ This is between FRINX ODL and each of the two routers which we'll use for the L2
 
 - Use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2):  
 
-- First edit the body of the call `NETCONF connection/connect pe1` according to your setup for router 1:  
+- First edit the body of the call `NETCONF connection/connect pe1` according to your setup for router 1. Only the fields with comments below should be edited:  
     
 ```json
 {
@@ -161,7 +161,7 @@ This will be used in the next step when we create the L2VPN instance.
 
 #### 3. Create the L2VPN instance  
 Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
-- Edit the call body according to your setup. Only the fields with comments below should be edited:  
+- Edit the call body according to your setup. Only the fields with comments below should be edited:
   
 ```json
 {  

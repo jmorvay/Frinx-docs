@@ -17,7 +17,7 @@
         - [Set up an L3VPN connection](#set-up-an-l3vpn-connection)
             - [1. Establish a NETCONF connection](#1-establish-a-netconf-connection)
             - [2. Create VPN service](#2-create-vpn-service)
-            - [3. Create site](#3-create-site)
+            - [3. Create sites](#3-create-sites)
         - [Delete the L3VPN connection](#delete-the-l3vpn-connection)
         - [frinx-l3vpn-testing](#frinx-l3vpn-testing)
         - [FRINX L3VPN demo video](#frinx-l3vpn-demo-video)
@@ -167,10 +167,9 @@ This will be used in the next step when we create the L3VPN instance.
 
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
-#### 3. Create site  
-Use the Postman REST call: `L3VPN Service/create site cus1_ce1`  
-- Edit the call body according to your setup. Only the fields with comments below should be edited:  
-  
+#### 3. Create sites  
+Use the Postman REST calls: `L3VPN Service/create site cus1_ce1` and `L3VPN Service/create site cus1_ce2`  
+- First edit the body of the call `L3VPN Service/create site cus1_ce1` according to your setup. Only the fields with comments below should be edited:
 ```json
 {  
   "site":[  
@@ -230,11 +229,19 @@ Use the Postman REST call: `L3VPN Service/create site cus1_ce1`
 
 - We now need to commit by RPC: Issue the call `L3VPN Service/RPC commit-l3vpn-svc`. In the Response body you should receive "status": "complete". This shows the setup has been competed successfully.
 
+- Now configure the call `L3VPN Service/create site cus1_ce2` in the same way, but this time editing the body according to your setup for site 2 
+
+- Again, issue the call by hitting **Send**, ensuring you receive the Response: Status **201 Created**
+
+- Finally, we again need to commit by RPC: Issue the same RPC call `L3VPN Service/RPC commit-l3vpn-svc`. In the Response body you should receive "status": "complete". This shows the setup has been competed successfully.
+
 ### Delete the L3VPN connection
 If you want to remove the L2VPN connection:
 1. Delete the l3vpn service by using the Postman REST call: `L3VPN Service/delete vpn service cus1_vpn1`. There is no body to the call. 
-2. Delete the site by using the Postman REST call: `L3VPN Service/delete site cus1_ce1`. There is no body to the call.   
-3. We now need to commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn`. There is no body to the call.  
+2. Delete the sites by using the Postman REST calls: 
+  - `L3VPN Service/delete site cus1_ce1`. There is no body to the call.   
+  - `L3VPN Service/delete site cus1_ce2`. There is no body to the call. 
+3. We now need to commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn-svc`. There is no body to the call.  
   - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
 
 ### frinx-l3vpn-testing

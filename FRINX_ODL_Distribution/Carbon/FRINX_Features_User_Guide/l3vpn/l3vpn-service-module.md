@@ -18,7 +18,8 @@
             - [1. Establish a NETCONF connection](#1-establish-a-netconf-connection)
             - [2. Create a pseudo-wire (PW) template](#2-create-a-pseudo-wire-pw-template)
             - [3. Create the L3VPN instance](#3-create-the-l3vpn-instance)
-        - [Delete the L2VPN connection](#delete-the-l2vpn-connection)
+        - [Delete the L3VPN connection](#delete-the-l3vpn-connection)
+        - [frinx-l3vpn-testing](#frinx-l3vpn-testing)
         - [FRINX L3VPN demo video](#frinx-l3vpn-demo-video)
     - [L3VPN Provider](#l3vpn-provider)
         - [Use Case Specification](#use-case-specification)
@@ -30,9 +31,6 @@
             - [IOS-XRv Network Element Plugin](#ios-xrv-network-element-plugin)
             - [Mock Network Element Plugin](#mock-network-element-plugin)
         - [Limitations](#limitations)
-        - [User-facing features](#user-facing-features)
-            - [frinx-l3vpn-iosxrv](#frinx-l3vpn-iosxrv)
-            - [frinx-l3vpn-testing](#frinx-l3vpn-testing)
 
 <!-- /TOC -->
 
@@ -40,10 +38,10 @@
 ### FRINX ODL - Install features
 1. First, [start FRINX ODL](../../Operations_Manual/running-frinx-odl-after-activation.md). 
   - Wait for 3 minutes to ensure the start up process is complete.  
-2. Then, in the karaf terminal which will have started, install two features - RESTCONF and the l2vpn provider:  
+2. Then, in the karaf terminal which will have started, install two features - RESTCONF and the l3vpn provider:  
 
 ```
-feature:install odl-restconf frinx-l2vpn-iosxrv 
+feature:install odl-restconf frinx-l3vpn-iosxrv 
 ```
 ### Postman - Import collection
 1. To download and use FRINX pre-configured Postman REST calls with L3VPN - see [this page](../../API.md). 
@@ -51,8 +49,6 @@ feature:install odl-restconf frinx-l2vpn-iosxrv
 3. [Configure an environment in Postman](../../API.md) where you set a value for `odl_ip`.
 
 Your system is now ready. To provision L3VPN see the [Usage - Operations Guide](#usage---operations-guide) below.
-
-Also see our [video on L3VPN](https://youtu.be/qxnMJG_Cz-c)  
 
 ## Introduction
 The goal of this project is to automate provisioning of Layer 3 Virtual Private Network (L3VPN) on Service Provider (SP) routers.
@@ -78,9 +74,9 @@ In this case L3VPN provides site-to-site connectivity and the SP network behaves
 ### Terminology
 The following terms are often used in the L3VPN domain:
 
-*   **Customer Edge (CE)** device – router at customer site connected to SP
-*   **Provider Edge (PE)** device – router at the edge of the SP network which provides connectivity for CE
-*   **Provider (P)** device – core router on the SP network providing connectivity among PE routers
+ - **Customer Edge (CE)** device – router at customer site connected to SP
+ - **Provider Edge (PE)** device – router at the edge of the SP network which provides connectivity for CE
+ - **Provider (P)** device – core router on the SP network providing connectivity among PE routers
 
 ![Terminology in picture](terminology.png)
 
@@ -99,7 +95,7 @@ To import the necessary Postman collection file see the section [Postman - Impor
 That file contains several REST calls for establishing a NETCONF connection and creating or deleting L3VPN instances, for which we provide guidance below:
 
 ### Set up an L3VPN connection
-Three steps are required to create an l2vpn connection between two routers (we perform these steps in our [video](https://youtu.be/UkHj9OgHHyo) which you can use a reference):  
+Three steps are required to create an l3vpn connection between two routers (we perform these steps in our [video](https://youtu.be/qxnMJG_Cz-c) which you can use a reference):  
 
 #### 1. Establish a NETCONF connection 
 This is between FRINX ODL and each of the two routers which we'll use for the L3VPN. 
@@ -136,8 +132,8 @@ This is between FRINX ODL and each of the two routers which we'll use for the L3
   - When you scroll through the Response body you should see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
 
 #### 2. Create a pseudo-wire (PW) template 
-This will be used in the next step when we create the L2VPN instance.  
-- Use the Postman REST call: `L2VPN Service/create PW template PW1`. You don't need to change any of the fields of the call body. You can change **name** if you wish.
+This will be used in the next step when we create the L3VPN instance.  
+- Use the Postman REST call: `L3VPN Service/create PW template PW1`. You don't need to change any of the fields of the call body. You can change **name** if you wish.
 
 ```json
 {  
@@ -155,12 +151,12 @@ This will be used in the next step when we create the L2VPN instance.
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
 #### 3. Create the L3VPN instance  
-Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
+Use the Postman REST call: `L3VPN Service/create l3vpn instance ce1-ce2_vlan3001`  
 - Edit the call body according to your setup. Only the fields with comments below should be edited:  
   
 ```json
 {  
-  "l2vpn-instance":[  
+  "l3vpn-instance":[  
     {  
       "name":"ce1-ce2_vlan3001",
       "type":"vpws-instance-type",
@@ -209,18 +205,27 @@ Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001
   ]
 }
 ```
-![create l2vpn instance](create-l2vpn-instance.PNG)
+![create l3vpn instance](create-l3vpn-instance.PNG)
 
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
-- We now need to commit by RPC: Issue the call `L2VPN Service/RPC commit-l2vpn`. In the Response body you should receive "status": "complete". This shows the setup has been competed successfully.
+- We now need to commit by RPC: Issue the call `L3VPN Service/RPC commit-l3vpn`. In the Response body you should receive "status": "complete". This shows the setup has been competed successfully.
 
-### Delete the L2VPN connection
+### Delete the L3VPN connection
 If you want to remove the L2VPN connection:
-1. Delete the pseudo-wire template by using the Postman REST call: `L2VPN Service/delete PW template PW1`. There is no body to the call.   
-2. Delete the l2vpn instance by using the Postman REST call: `L2VPN Service/delete l2vpn-instance ce1-ce2_vlan3001`. There is no body to the call. 
-3. We now need to commit by RPC: Issue the Postman REST call: `L2VPN Service/RPC commit-l2vpn`. There is no body to the call.  
+1. Delete the pseudo-wire template by using the Postman REST call: `L3VPN Service/delete PW template PW1`. There is no body to the call.   
+2. Delete the l2vpn instance by using the Postman REST call: `L3VPN Service/delete l3vpn-instance ce1-ce2_vlan3001`. There is no body to the call. 
+3. We now need to commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn`. There is no body to the call.  
   - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
+
+### frinx-l3vpn-testing
+
+**Karaf installation:**
+
+    feature:install frinx-l3vpn-testing   
+
+**Description:**  
+Installs L3VPN Provider with Mock NEP and RESTCONF. This feature can be used for testing and demonstration purposes where real PE devices are not available.
 
 ### FRINX L3VPN demo video 
 See our [video](https://youtu.be/UkHj9OgHHyo)  
@@ -228,14 +233,12 @@ See our [video](https://youtu.be/UkHj9OgHHyo)
 ## L3VPN Provider
 L3VPN Provider is an implementation which automatically provisions L3VPN on PE routers based on intended L3VPN service. 
 - It exposes a domain-specific API for L3VPN manipulation and declarative configuration “what vs how”.
-
 - L3VPN Provider supports *network-wide transactions*, which are transactions on top of multiple devices. 
 - *Rollback* of a network wide transaction means rollback of configuration on each device which was a part of the conifiguration. 
 - The rollback of a network-wide transaction is done *automatically* if there is failed configuration on at least one device.
 
 ### Use Case Specification
 L3VPN Provider can be used on a network where:
-
  - Any to Any L3VPN topology is needed
  - CE - PE connection belongs to only one VPN
  - CE runs BGP for route advertising to PE
@@ -434,28 +437,6 @@ Other limitations:
  - Pre-configured MP-BGP between PE and BGP Route Reflector must exist
  - Pre-configured Route Policy must exist
 
-### User-facing features
-#### frinx-l3vpn-iosxrv
-
-**Karaf installation:**
-
-    feature:install frinx-l3vpn-iosxrv   
-
-
-**Description:**  
-Installs L3VPN Provider with IOS-XRv NEP and NETCONF connector. This feature is NEP for IOS-XRv devices.
-
-#### frinx-l3vpn-testing
-
-**Karaf installation:**
-
-    feature:install frinx-l3vpn-testing   
-
-
-**Description:**  
-Installs L3VPN Provider with Mock NEP and RESTCONF. This feature can be used for testing and demonstration purposes where real PE devices are not available.
-
-*The postman collection for the L3VPN service module can be downloaded from [here](https://github.com/FRINXio/Postman/releases).*
 
 | Feature Guide         |             |                                                                                                     |
 |-----------------------|-------------|-----------------------------------------------------------------------------------------------------|

@@ -458,9 +458,7 @@ The purpose of this plugin is to mock functionality of the Network Element Plugi
 
 ### Known Limitations
 - Implementation of L3VPN provider does not support all statements in ietf-l3vpn-svc@2017-05-02.yang. Unsupported statements can be found in YANG deviations.
-
 - [Inheritance of Parameters Defined at Site Level and Site Network Access Level](https://tools.ietf.org/html/rfc8049#section-6.3.2.3) is not supported, therefore parameters must be defined at Site Network Access level. 
-
 - L3VPN Provider does not support reconciliation, therefore only L3VPN created via L3VPN Provider are visible through the API.
 
 Other limitations:

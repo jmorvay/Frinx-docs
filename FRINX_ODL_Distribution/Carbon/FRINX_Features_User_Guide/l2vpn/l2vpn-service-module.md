@@ -161,7 +161,7 @@ This will be used in the next step when we create the L2VPN instance.
 
 #### 3. Create the L2VPN instance  
 Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001`  
-- Edit the call body according to your setup. Only the fields with comments below them should be edited:  
+- Edit the call body according to your setup. Only the fields with comments below should be edited:  
   
 ```json
 {  

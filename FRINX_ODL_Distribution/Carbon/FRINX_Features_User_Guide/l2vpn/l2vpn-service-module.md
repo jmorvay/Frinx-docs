@@ -229,7 +229,15 @@ We also provide a feature which can be used for testing the l2vpn feature:
 Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for testing and demonstration purposes where real PE devices are not available.
 
 ## L2VPN Provider
-L2VPN Provider is an implementation which automatically provisions L2VPN on PE routers based on intended L2VPN service. It exposes a domain specific API for L2VPN manipulation and declarative configuration “what vs how”. L2VPN Provider supports network wide transactions which are transactions on top of multiple devices. Rollback of a network wide transaction means rollback of configuration on each device which was a part of the conifiguration. The rollback of a network wide transaction is done automatically if there is failed configuration on at least one device.
+L2VPN Provider is an implementation which automatically provisions L2VPN on PE routers based on intended L2VPN service.   
+
+It exposes a domain specific API for L2VPN manipulation and declarative configuration “what vs how”.  
+
+- L2VPN Provider supports *network wide transactions* which are transactions on top of multiple devices. 
+
+- *Rollback* of a network wide transaction means rollback of configuration on each device which was a part of the conifiguration. 
+
+- *The rollback of a network wide transaction is done automatically* if there is failed configuration on at least one device.
 
 ### Use Case Specification
 L2VPN Provider can be used on a network where:
@@ -287,7 +295,8 @@ L2VPN Provider works only with devices which have these capabilities:
   </tbody>
 </table>
 
-The capabilities are sent from XR to ODL automatically during device connection via NETCONF.
+The capabilities are sent from XR to ODL automatically during device connection via NETCONF.  
+
 You can see the NETCONF capabilities under each node by calling (replacing odl_ip with the IP of the system on which you're running Frinx ODL):
 ```
 GET http://odl_ip:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf
@@ -301,15 +310,26 @@ L2VPN Provider is composed of multiple components. The high level architecture i
 
 ![Architecture](architecture.png)
 
-An external application modifies *ietf-l2vpn* in CONF DS. L2VPN can be configured on nodes which are read from *l2vpn-provider-edge-topology*. When all changes are done, the external application calls RPC *commit-l2vpn*. The RPC reads *ietf-l2vpn* from CONF DS (the intended state) and from OPER DS (the actual state). Diff is created based on intended and actual state. This diff is configured inside network wide transaction on the necessary PE routers by using particular Network Element Plugins. If configuration of routers is successful then a new *ietf-l2vpn* is stored to OPER DS and RPC output is returned with status "complete". In case configuration on one of the devices fails, the rollback of the network wide transaction starts and if the rollback is successful then RPC output has status "commit-failed-rollback-complete", otherwise the status is "inconsistent". The architecture can be extended very easily because Network Element Plugin needs to implement only NEP SPI, rollback, and network element registration. IOS NEP from the picture is not yet implemented.
+An external application modifies *ietf-l2vpn* in CONF DS. L2VPN can be configured on nodes which are read from *l2vpn-provider-edge-topology*.  
 
-As was mentioned, NEP registers network elements to L2VPN Provider. L2VPN Provider stores network elements as nodes to abstract topology *l2vpn-provider-edge-topology* and this topology is a source of nodes which can be used for L2VPN configuration.
+- When all changes are done, the external application calls RPC *commit-l2vpn*. 
+- The RPC reads *ietf-l2vpn* from CONF DS (the intended state) and from OPER DS (the actual state). 
+- A diff is created based on intended and actual state. 
+- This diff is configured inside network wide transaction on the necessary PE routers by using particular Network Element Plugins. 
+- If configuration of routers is successful then a new *ietf-l2vpn* is stored to OPER DS and RPC output is returned with status "complete". 
+- If configuration fails on one of the devices, the rollback of the network wide transaction starts and if the rollback is successful then RPC output has status "commit-failed-rollback-complete", otherwise the status is "inconsistent". 
+- The architecture can be extended very easily because Network Element Plugin needs to implement only NEP SPI, rollback, and network element registration. -Note that IOS NEP from the image above is not yet implemented.
+
+As stated earlier, NEP registers network elements to L2VPN Provider. L2VPN Provider stores network elements as nodes to abstract topology *l2vpn-provider-edge-topology* and this topology is a source of nodes which can be used for L2VPN configuration.
 
 #### API description
-The API is described using YANG modules. An external application can consume the API via RESTCONF, NETCONF, or JAVA. The L2VPN service module provides domain specific abstraction where the abstraction describes attributes of VPNs and sites instead of configuration of network elements. The FRINX ODL Distribution translates the abstraction to network element configuration.
+The API is described using YANG modules. 
+- An external application can consume the API via RESTCONF, NETCONF, or JAVA. - The L2VPN service module provides domain specific abstraction where the abstraction describes attributes of VPNs and sites instead of configuration of network elements. 
+- The FRINX ODL Distribution translates the abstraction to network element configuration.
 
 ##### ietf-l2vpn@2017-08-02.yang
-The original YANG is from [RFC draft - YANG Data Model for MPLS-based L2VPN](https://tools.ietf.org/html/draft-ietf-bess-l2vpn-yang-05). This YANG module is modified due to compatibility with OpenDaylight and is extended with L2VPN Provider elements - see the modified YANG module [ietf-l2vpn@2017-08-02.yang](ietf-l2vpn@2017-08-02.yang)
+- The original YANG is from [RFC draft - YANG Data Model for MPLS-based L2VPN](https://tools.ietf.org/html/draft-ietf-bess-l2vpn-yang-05). 
+- This YANG module is modified due to compatibility with OpenDaylight and is extended with L2VPN Provider elements - see the modified YANG module [ietf-l2vpn@2017-08-02.yang](ietf-l2vpn@2017-08-02.yang)
 
 The YANG module contains 2 root statements and one RPC:
 
@@ -329,7 +349,8 @@ This plugin configures L2VPN on IOS-XRv using NETCONF. It listens on topology-ne
 
 ![IOS-XRv NEP](nep_ios-xrv.png)
 
-IOS-XRv NEP listens on nodes in *topology-netconf*. When a new IOS-XRv device is connected to Frinx ODL it appears as a new node in *topology-netconf* and IOS-XRv registers that node as PE to L2VPN Provider. If L2VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
+- IOS-XRv NEP listens on nodes in *topology-netconf*. 
+- When a new IOS-XRv device is connected to Frinx ODL it appears as a new node in *topology-netconf* and IOS-XRv registers that node as PE to L2VPN Provider. - If L2VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
 
 Here is an example of L2VPN configuration on IOS-XRv (parameters encapsulated in ** are specific for VPN or site):
 
@@ -363,7 +384,9 @@ l2vpn
 #### Mock Network Element Plugin
 The purpose of this plugin is to mock functionality of the Network Element Plugin. It is mainly use for testing when you do not need to connect real devices. ![Mock NEP](nep_mock.png)
 
-The Mock NEP listens on nodes from *mock-pe-topology*. When a node is created, the NEP registers this node as a PE node to the L2VPN Provider. When the L2VPN Provider calls the SPI which Mocks NEP implements, intead of configuration of real devices, the SPI DTOs are logged.
+- The Mock NEP listens on nodes from *mock-pe-topology*. 
+- When a node is created, the NEP registers this node as a PE node to the L2VPN Provider. 
+- When the L2VPN Provider calls the SPI which Mocks NEP implements, intead of configuration of real devices, the SPI DTOs are logged.
 
 ### Known Limitations
 Implementation of L2VPN provider does not support all statements in ietf-l2vpn@2017-08-02.yang. All supported elements are listen in the Postman collection. L2VPN Provider does not support reconciliation, therefore only L2VPNs created via L2VPN Provider are visible through the API.

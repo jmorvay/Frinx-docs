@@ -5,8 +5,8 @@
 
 - [L2VPN Service Module User Guide](#l2vpn-service-module-user-guide)
     - [Usage - Setup](#usage---setup)
+        - [FRINX ODL - Install features](#frinx-odl---install-features)
         - [Postman - Import collection](#postman---import-collection)
-        - [Frinx ODL - Install features](#frinx-odl---install-features)
     - [Introduction](#introduction)
         - [Problem definition and L2VPN](#problem-definition-and-l2vpn)
         - [Terminology](#terminology)
@@ -18,7 +18,7 @@
             - [2. Create a pseudo-wire (PW) template](#2-create-a-pseudo-wire-pw-template)
             - [3. Create the L2VPN instance](#3-create-the-l2vpn-instance)
         - [Delete the L2VPN connection](#delete-the-l2vpn-connection)
-        - [Frinx L2VPN demo video (setup and deletion)](#frinx-l2vpn-demo-video-setup-and-deletion)
+        - [FRINX L2VPN demo video (setup and deletion)](#frinx-l2vpn-demo-video-setup-and-deletion)
         - [Testing](#testing)
     - [L2VPN Provider](#l2vpn-provider)
         - [Use Case Specification](#use-case-specification)
@@ -33,38 +33,43 @@
 <!-- /TOC -->
 
 ## Usage - Setup
-### Postman - Import collection
-1. To download and use FRINX pre-configured Postman REST calls with L2VPN - see [this page](../../API.md). 
-2. Follow that guide to import the file `postman_collection_L2VPN_IOS-XRv.json` from the directory `L2VPN Service Module`.
-3. [Configure an environment in Postman](../../API.md) where you set a value for `odl_ip`.
-
-### Frinx ODL - Install features
-1. First, [start Frinx ODL](../../Operations_Manual/running-frinx-odl-after-activation.md). 
+### FRINX ODL - Install features
+1. First, [start FRINX ODL](../../Operations_Manual/running-frinx-odl-after-activation.md). 
   - Wait for 3 minutes to ensure the start up process is complete.  
 2. Then, in the karaf terminal which will have started, install two features - RESTCONF and the l2vpn provider:  
 
 ```
 feature:install odl-restconf frinx-l2vpn-iosxrv 
 ```
-
-**odl-restconf** enables us to communicate between Frinx ODL and the routers by using REST calls (which we issue with Postman).  
+**odl-restconf** enables us to communicate between FRINX ODL and the routers by using REST calls (which we issue with Postman).  
 
 **frinx-l2vpn-iosxrv** is an L2VPN Provider with the IOS-XRv (Network Element Plugin) NEP and a NETCONF connector. This particular feature is specific for IOS-XRv devices.  
+
+### Postman - Import collection
+1. To download and use FRINX pre-configured Postman REST calls with L2VPN - see [this page](../../API.md). 
+2. Follow that guide to import the file `postman_collection_L2VPN_IOS-XRv.json` from the directory `L2VPN Service Module`.
+3. [Configure an environment in Postman](../../API.md) where you set a value for `odl_ip`.
 
 Your system is now ready. To provision L2VPN see the [Usage - Operations Guide](#usage---operations-guide) below.
 
 ## Introduction
 The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. 
-- This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. 
-- The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
+- This is done by using the FRINX ODL controller which configures routers based on intent of the L2VPN service. 
+- The FRINX ODL controller translates the L2VPN service abstraction to network element configuration.  
+
+![L2VPN Service](l2vpn_service.png)
 
 ### Problem definition and L2VPN
 Consider the scenario where a company needs to reconnect multiple sites with each other via an SP which provides L2 services to the company. 
 - The company's sites needs to see each other as directly connected on L3. - L2VPN offers a solution for those requirements.
 
-The company has two different sites and they are both connected to the Service Provider using an L2 connection. They need to interconnect two of their sites. ![Two company's sites connected to SP](problem.png)
+The company has two different sites and they are both connected to the Service Provider using an L2 connection. They need to interconnect two of their sites. 
 
-In this case L2VPN provides site-to-site connectivity and the SP network behaves as a wire between the company’s sites. The company’s routes are exchanged via the SP network. ![Solution with L2VPN between sites.](problem_solution.png)
+![Two company's sites connected to SP](problem.png)
+
+In this case L2VPN provides site-to-site connectivity and the SP network behaves as a wire between the company’s sites. The company’s routes are exchanged via the SP network. 
+
+![Solution with L2VPN between sites.](problem_solution.png)
 
 ### Terminology
 These terms are usually used in the L2VPN domain:
@@ -81,7 +86,7 @@ There are two main types of L2VPN:
 *   point-to-point
 *   point-to-multipoint
 
-These types have many implementations. The Frinx ODL distribution supports Virtual Private Wire Service (VPWS) implementation.
+These types have many implementations. The FRINX ODL distribution supports Virtual Private Wire Service (VPWS) implementation.
 
 #### VPWS
 VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet services over MPLS. 
@@ -100,7 +105,7 @@ That file contains several REST calls for establishing a NETCONF connection and 
 Three steps are required to create an l2vpn connection between two routers (we perform these steps in our [video](https://youtu.be/UkHj9OgHHyo) which you can use a reference):  
 
 #### 1. Establish a NETCONF connection 
-This is between Frinx ODL and each of the two routers which we'll use for the L2VPN. 
+This is between FRINX ODL and each of the two routers which we'll use for the L2VPN. 
 
 - Use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2):  
 
@@ -220,7 +225,7 @@ If you want to remove the L2VPN connection:
 3. We now need to commit by RPC: Issue the Postman REST call: `L2VPN Service/RPC commit-l2vpn`. There is no body to the call.  
   - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
 
-### Frinx L2VPN demo video (setup and deletion)
+### FRINX L2VPN demo video (setup and deletion)
 See our [video](https://youtu.be/UkHj9OgHHyo)  
 
 ### Testing
@@ -299,7 +304,7 @@ L2VPN Provider works only with devices which have these capabilities:
 
 The capabilities are sent from XR to ODL automatically during device connection via NETCONF.  
 
-You can see the NETCONF capabilities under each node by calling (replacing odl_ip with the IP of the system on which you're running Frinx ODL):
+You can see the NETCONF capabilities under each node by calling (replacing odl_ip with the IP of the system on which you're running FRINX ODL):
 ```
 GET http://odl_ip:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf
 ```
@@ -352,7 +357,7 @@ This plugin configures L2VPN on IOS-XRv using NETCONF. It listens on ***topology
 ![IOS-XRv NEP](nep_ios-xrv.png)
 
 - IOS-XRv NEP listens on nodes in ***topology-netconf***. 
-- When a new IOS-XRv device is connected to Frinx ODL it appears as a new node in ***topology-netconf*** and IOS-XRv registers that node as PE to L2VPN Provider. - If L2VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
+- When a new IOS-XRv device is connected to FRINX ODL it appears as a new node in ***topology-netconf*** and IOS-XRv registers that node as PE to L2VPN Provider. - If L2VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
 
 Here is an example of L2VPN configuration on IOS-XRv (parameters encapsulated in ** are specific for VPN or site):
 
@@ -384,7 +389,9 @@ l2vpn
 </pre>
 
 #### Mock Network Element Plugin
-The purpose of this plugin is to mock functionality of the Network Element Plugin. It is mainly use for testing when you do not need to connect real devices. ![Mock NEP](nep_mock.png)
+The purpose of this plugin is to mock functionality of the Network Element Plugin. It is mainly use for testing when you do not need to connect real devices. 
+
+![Mock NEP](nep_mock.png)
 
 - The Mock NEP listens on nodes from ***mock-pe-topology***. 
 - When a node is created, the NEP registers this node as a PE node to the L2VPN Provider. 

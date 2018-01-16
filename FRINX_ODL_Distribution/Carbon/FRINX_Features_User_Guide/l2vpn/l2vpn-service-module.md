@@ -405,7 +405,8 @@ The purpose of this plugin is to mock functionality of the Network Element Plugi
 - When the L2VPN Provider calls the SPI which Mocks NEP implements, intead of configuration of real devices, the SPI DTOs are logged.
 
 ### Known Limitations
-- Implementation of L2VPN provider does not support all statements in ietf-l2vpn@2017-08-02.yang.   - All supported elements are listed in the Postman collection. 
+- Implementation of L2VPN provider does not support all statements in ietf-l2vpn@2017-08-02.yang.
+  - All supported elements are listed in the Postman collection. 
 - L2VPN Provider does not support reconciliation, therefore only L2VPNs created via L2VPN Provider are visible through the API.
 
 Other limitations:

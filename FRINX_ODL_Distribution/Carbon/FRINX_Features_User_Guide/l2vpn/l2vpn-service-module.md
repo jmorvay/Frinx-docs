@@ -225,6 +225,9 @@ We also provide a feature which can be used for testing the l2vpn feature:
 
     feature:install frinx-l2vpn-testing
 
+**Description:**  
+Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for testing and demonstration purposes where real PE devices are not available.
+
 ## L2VPN Provider
 L2VPN Provider is an implementation which automatically provisions L2VPN on PE routers based on intended L2VPN service. It exposes a domain specific API for L2VPN manipulation and declarative configuration “what vs how”. L2VPN Provider supports network wide transactions which are transactions on top of multiple devices. Rollback of a network wide transaction means rollback of configuration on each device which was a part of the conifiguration. The rollback of a network wide transaction is done automatically if there is failed configuration on at least one device.
 
@@ -373,10 +376,6 @@ Other limitations:
 *   only VLAN can be used between CE and PE for pseudo-wire selection
 *   pre-configured MPLS among PEs must exist
 
-**Description:**  
-Installs L2VPN Provider with Mock NEP and RESTCONF. This feature can be used for testing and demonstration purposes where real PE devices are not available.
-
-*The postman collection for the L2VPN service module can be downloaded from [here](https://github.com/FRINXio/Postman/releases).*
 
 | Feature Guide         |             |                                                                                                     |
 |-----------------------|-------------|-----------------------------------------------------------------------------------------------------|

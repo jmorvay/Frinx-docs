@@ -34,14 +34,12 @@
 
 ## Usage - setup
 ### Postman - Import collection
-1. To download and use FRINX pre-configured Postman REST calls with L2VPN - see [this page](../../API.md).  
-
+1. To download and use FRINX pre-configured Postman REST calls with L2VPN - see [this page](../../API.md). 
 2. Follow that guide to import the file `postman_collection_L2VPN_IOS-XRv.json` from the directory `L2VPN Service Module`.
-
 3. [Configure an environment in Postman](../../API.md) where you set a value for `odl_ip`.
 
 ### Frinx ODL - Install features
-1. First, [start Frinx ODL](../../Operations_Manual/running-frinx-odl-after-activation.md) 
+1. First, [start Frinx ODL](../../Operations_Manual/running-frinx-odl-after-activation.md). 
   - Wait for 3 minutes to ensure the start up process is complete.  
 2. Then, in the karaf terminal which will have started, install two features - RESTCONF and the l2vpn provider:  
 
@@ -56,10 +54,13 @@ feature:install odl-restconf frinx-l2vpn-iosxrv
 Your system is now ready. To provision L2VPN see the [Usage - Operations Guide](#usage---operations-guide) below.
 
 ## Introduction
-The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
+The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. 
+- This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. 
+- The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
 
 ### Problem definition and L2VPN
-Consider the scenario where a company needs to reconnect multiple sites with each other via an SP which provides L2 services to the company. The company's sites needs to see each other as directly connected on L3. L2VPN offers a solution for those requirements.
+Consider the scenario where a company needs to reconnect multiple sites with each other via an SP which provides L2 services to the company. 
+- The company's sites needs to see each other as directly connected on L3. - L2VPN offers a solution for those requirements.
 
 The company has two different sites and they are both connected to the Service Provider using an L2 connection. They need to interconnect two of their sites. ![Two company's sites connected to SP](problem.png)
 
@@ -311,17 +312,17 @@ L2VPN Provider is composed of multiple components. The high level architecture i
 
 ![Architecture](architecture.png)
 
-An external application modifies *ietf-l2vpn* in CONF DS. L2VPN can be configured on nodes which are read from *l2vpn-provider-edge-topology*.  
+An external application modifies ***ietf-l2vpn*** in CONF DS. L2VPN can be configured on nodes which are read from ***l2vpn-provider-edge-topology***.  
 
 - When all changes are done, the external application calls RPC *commit-l2vpn*. 
-- The RPC reads *ietf-l2vpn* from CONF DS (the intended state) and from OPER DS (the actual state). 
-- A diff is created based on intended and actual state. 
+- The RPC reads ***ietf-l2vpn*** from CONF DS (the intended state) and from OPER DS (the actual state). 
+- A diff is created based on intended vs actual state. 
 - This diff is configured inside network wide transaction on the necessary PE routers by using particular Network Element Plugins. 
-- If configuration of routers is successful then a new *ietf-l2vpn* is stored to OPER DS and RPC output is returned with status "complete". 
+- If configuration of routers is successful then a new ***ietf-l2vpn*** is stored to OPER DS and RPC output is returned with status "complete". 
 - If configuration fails on one of the devices, the rollback of the network wide transaction starts and if the rollback is successful then RPC output has status "commit-failed-rollback-complete", otherwise the status is "inconsistent". 
 - The architecture can be extended very easily because Network Element Plugin needs to implement only NEP SPI, rollback, and network element registration. -Note that IOS NEP from the image above is not yet implemented.
 
-As stated earlier, NEP registers network elements to L2VPN Provider. L2VPN Provider stores network elements as nodes to abstract topology *l2vpn-provider-edge-topology* and this topology is a source of nodes which can be used for L2VPN configuration.
+As stated earlier, NEP registers network elements to L2VPN Provider. L2VPN Provider stores network elements as nodes to abstract topology ***l2vpn-provider-edge-topology*** and this topology is a source of nodes which can be used for L2VPN configuration.
 
 #### API description
 The API is described using YANG modules. 
@@ -346,12 +347,12 @@ Network Element Plugin (NEP) is a unit which implements SPI from the L2VPN Provi
 - Rollback of configuration on a device
 
 #### IOS-XRv Network Element Plugin
-This plugin configures L2VPN on IOS-XRv using NETCONF. It listens on topology-netconf and announces PE capable devices to the L2VPN Provider. Rollback on a device is done automatically using the "Rollback-on-Error" capability.
+This plugin configures L2VPN on IOS-XRv using NETCONF. It listens on ***topology-netconf*** and announces PE capable devices to the L2VPN Provider. Rollback on a device is done automatically using the "Rollback-on-Error" capability.
 
 ![IOS-XRv NEP](nep_ios-xrv.png)
 
-- IOS-XRv NEP listens on nodes in *topology-netconf*. 
-- When a new IOS-XRv device is connected to Frinx ODL it appears as a new node in *topology-netconf* and IOS-XRv registers that node as PE to L2VPN Provider. - If L2VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
+- IOS-XRv NEP listens on nodes in ***topology-netconf***. 
+- When a new IOS-XRv device is connected to Frinx ODL it appears as a new node in ***topology-netconf*** and IOS-XRv registers that node as PE to L2VPN Provider. - If L2VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
 
 Here is an example of L2VPN configuration on IOS-XRv (parameters encapsulated in ** are specific for VPN or site):
 
@@ -385,7 +386,7 @@ l2vpn
 #### Mock Network Element Plugin
 The purpose of this plugin is to mock functionality of the Network Element Plugin. It is mainly use for testing when you do not need to connect real devices. ![Mock NEP](nep_mock.png)
 
-- The Mock NEP listens on nodes from *mock-pe-topology*. 
+- The Mock NEP listens on nodes from ***mock-pe-topology***. 
 - When a node is created, the NEP registers this node as a PE node to the L2VPN Provider. 
 - When the L2VPN Provider calls the SPI which Mocks NEP implements, intead of configuration of real devices, the SPI DTOs are logged.
 

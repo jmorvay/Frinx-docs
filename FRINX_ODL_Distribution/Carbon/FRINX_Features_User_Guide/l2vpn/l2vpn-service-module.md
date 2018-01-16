@@ -313,7 +313,7 @@ You can see the NETCONF capabilities under each node by calling (replacing odl_i
 ```
 GET http://odl_ip:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf
 ```
-A list of PE nodes can be obtained from:
+A list of PE nodes can be obtained from (replacing odl_ip with the IP of the system on which you're running FRINX ODL):
 ```
 GET http://odl_ip:8181/restconf/operational/network-topology:network-topology/topology/l2vpn-provider-edge-topology
 ```

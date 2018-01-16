@@ -28,7 +28,7 @@
         - [Network Element Plugin](#network-element-plugin)
             - [IOS-XRv Network Element Plugin](#ios-xrv-network-element-plugin)
             - [Mock Network Element Plugin](#mock-network-element-plugin)
-        - [Limitations](#limitations)
+        - [Known Limitations](#known-limitations)
 
 <!-- /TOC -->
 
@@ -286,11 +286,13 @@ L2VPN Provider works only with devices which have these capabilities:
 
 The capabilities are sent from XR to ODL automatically during device connection via NETCONF.
 You can see the NETCONF capabilities under each node by calling:
+```
 GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf
-
+```
 A list of PE nodes can be obtained from:
+```
 GET http://{{odl_ip}}:8181/restconf/operational/network-topology:network-topology/topology/l2vpn-provider-edge-topology
-
+```
 ### Architecture
 L2VPN Provider is composed of multiple components. The high level architecture is shown in the picture below.
 
@@ -362,8 +364,8 @@ The purpose of this plugin is to mock functionality of the Network Element Plugi
 
 The Mock NEP listens on nodes from *mock-pe-topology*. When a node is created, the NEP registers this node as a PE node to the L2VPN Provider. When the L2VPN Provider calls the SPI which Mocks NEP implements, intead of configuration of real devices, the SPI DTOs are logged.
 
-### Limitations
-Implementation of L2VPN provider does not support all statements in ietf-l2vpn@2017-08-02.yang. All supported elements are listen in the postman collection. L2VPN Provider does not support reconciliation, therefore only L2VPNs created via L2VPN Provider are visible through the API.
+### Known Limitations
+Implementation of L2VPN provider does not support all statements in ietf-l2vpn@2017-08-02.yang. All supported elements are listen in the Postman collection. L2VPN Provider does not support reconciliation, therefore only L2VPNs created via L2VPN Provider are visible through the API.
 
 Other limitations:
 

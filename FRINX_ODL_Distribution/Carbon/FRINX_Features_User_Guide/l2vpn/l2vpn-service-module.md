@@ -218,7 +218,7 @@ Use the Postman REST call: `L2VPN Service/create l2vpn instance ce1-ce2_vlan3001
 
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
-- We now need to commit by RPC: Issue the call `L2VPN Service/RPC commit-l2vpn`. In the Response body You should receive "status": "complete". This shows the setup has been competed successfully.
+- We now need to commit by RPC: Issue the call `L2VPN Service/RPC commit-l2vpn`. In the Response body you should receive "status": "complete". This shows the setup has been competed successfully.
 
 ### Delete the L2VPN connection
 If you want to remove the L2VPN connection:

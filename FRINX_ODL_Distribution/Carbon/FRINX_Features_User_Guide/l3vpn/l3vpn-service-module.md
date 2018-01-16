@@ -19,7 +19,7 @@
             - [2. Create VPN service](#2-create-vpn-service)
             - [3. Create sites](#3-create-sites)
         - [Delete the L3VPN connection](#delete-the-l3vpn-connection)
-        - [frinx-l3vpn-testing](#frinx-l3vpn-testing)
+        - [Testing](#testing)
         - [FRINX L3VPN demo video](#frinx-l3vpn-demo-video)
     - [L3VPN Provider](#l3vpn-provider)
         - [Use Case Specification](#use-case-specification)
@@ -251,7 +251,7 @@ If you want to remove the L3VPN connection:
     - commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn-svc`. There is no body to the call.  
       - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
 
-### frinx-l3vpn-testing
+### Testing
 **Karaf installation:**
 
     feature:install frinx-l3vpn-testing   

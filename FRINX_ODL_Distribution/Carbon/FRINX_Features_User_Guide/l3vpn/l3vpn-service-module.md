@@ -28,7 +28,7 @@
         - [Network Element Plugin](#network-element-plugin)
             - [IOS-XRv Network Element Plugin](#ios-xrv-network-element-plugin)
             - [Mock Network Element Plugin](#mock-network-element-plugin)
-        - [Limitations](#limitations)
+        - [Known Limitations](#known-limitations)
 
 <!-- /TOC -->
 
@@ -82,10 +82,14 @@ The following terms are often used in the L3VPN domain:
 Common topologies used in L3VPN.
 
 #### Any to Any
-Sites can forward traffic directly among each other in a VPN. Communication is restricted to a particular VPN so it is not possible to communicate with sites on different VPNs. ![Any to Any topology example](topo_any-to-any.png)
+Sites can forward traffic directly among each other in a VPN. Communication is restricted to a particular VPN so it is not possible to communicate with sites on different VPNs. 
+
+![Any to Any topology example](topo_any-to-any.png)
 
 #### Hub and Spoke
-Spoke sites in the VPN can communicate with each other only through the hub site. This is usually used when all sites must communicate through an access control device. ![Hub and Spoke topology example](topo_hub-and-spoke.png)
+Spoke sites in the VPN can communicate with each other only through the hub site. This is usually used when all sites must communicate through an access control device. 
+
+![Hub and Spoke topology example](topo_hub-and-spoke.png)
 
 ## Usage - Operations Guide
 To import the necessary Postman collection file see the section [Postman - Import collection](#postman---import-collection) at the top of this page.  
@@ -452,10 +456,12 @@ The purpose of this plugin is to mock functionality of the Network Element Plugi
 - When a node is created, the NEP registers this node as a PE node to the L3VPN Provider. 
 - When the L3VPN Provider calls the SPI which Mock NEP implements, instead of configuration of real devices, the SPI DTOs are stored under nodes in *mock-pe-topology* of OPER DS.
 
-### Limitations
-Implementation of L3VPN provider does not support all statements in ietf-l3vpn-svc@2017-05-02.yang. Unsupported statements can be found in YANG deviations.
+### Known Limitations
+- Implementation of L3VPN provider does not support all statements in ietf-l3vpn-svc@2017-05-02.yang. Unsupported statements can be found in YANG deviations.
 
-[Inheritance of Parameters Defined at Site Level and Site Network Access Level](https://tools.ietf.org/html/rfc8049#section-6.3.2.3) is not supported, therefore parameters must be defined at Site Network Access level. L3VPN Provider does not support reconciliation, therefore only L3VPN created via L3VPN Provider are visible through the API.
+- [Inheritance of Parameters Defined at Site Level and Site Network Access Level](https://tools.ietf.org/html/rfc8049#section-6.3.2.3) is not supported, therefore parameters must be defined at Site Network Access level. 
+
+- L3VPN Provider does not support reconciliation, therefore only L3VPN created via L3VPN Provider are visible through the API.
 
 Other limitations:
 

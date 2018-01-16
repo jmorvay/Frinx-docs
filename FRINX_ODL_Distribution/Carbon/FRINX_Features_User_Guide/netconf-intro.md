@@ -1,19 +1,19 @@
-[Documentation main page](https://frinxio.github.io/Frinx-docs/)
+[Documentation main page](https://frinxio.github.io/FRINX-docs/)
 [FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/user_guide.html)
-<!-- TOC START min:1 max:4 link:true update:true -->
+<!-- TOC -->
+
 - [NETCONF: Overview and use within the FRINX ODL Distribution](#netconf-overview-and-use-within-the-frinx-odl-distribution)
-  - [Overview](#overview)
-  - [Southbound (netconf-connector)](#southbound-netconf-connector)
-    - [Netconf-connector configuration](#netconf-connector-configuration)
-      - [Default configuration](#default-configuration)
-      - [Spawning additional netconf-connectors while the controller is running](#spawning-additional-netconf-connectors-while-the-controller-is-running)
-      - [Connecting to a device not supporting NETCONF monitoring](#connecting-to-a-device-not-supporting-netconf-monitoring)
-      - [Reconfiguring Netconf-Connector While the Controller is Running](#reconfiguring-netconf-connector-while-the-controller-is-running)
-      - [Destroying Netconf-Connector While the Controller is Running](#destroying-netconf-connector-while-the-controller-is-running)
-  - [How does the Frinx ODL Distribution use NETCONF?](#how-does-the-frinx-odl-distribution-use-netconf)
+    - [Overview](#overview)
+    - [Southbound (netconf-connector)](#southbound-netconf-connector)
+        - [Netconf-connector configuration](#netconf-connector-configuration)
+            - [Default configuration](#default-configuration)
+            - [Spawning additional netconf-connectors while the controller is running](#spawning-additional-netconf-connectors-while-the-controller-is-running)
+            - [Connecting to a device not supporting NETCONF monitoring](#connecting-to-a-device-not-supporting-netconf-monitoring)
+            - [Reconfiguring Netconf-Connector While the Controller is Running](#reconfiguring-netconf-connector-while-the-controller-is-running)
+            - [Destroying Netconf-Connector While the Controller is Running](#destroying-netconf-connector-while-the-controller-is-running)
+    - [How does the FRINX ODL Distribution use NETCONF?](#how-does-the-frinx-odl-distribution-use-netconf)
 
-<!-- TOC END -->
-
+<!-- /TOC -->
 # NETCONF: Overview and use within the FRINX ODL Distribution
 ## Overview
 NETCONF is an Internet Engineering Task Force (IETF) protocol used for configuration and monitoring devices in the network. It can be used to “create, recover, update, and delete configurations of network devices”. The base NETCONF protocol is described in [RFC-6241](https://tools.ietf.org/html/rfc6241).  
@@ -188,10 +188,10 @@ DELETE   http://localhost:8181/restconf/config/network-topology:network-topology
 ```
 The last element of the URL is the name of the instance and its predecessor is the type of that module (In our case the type is **sal-netconf-connector** and name **new-netconf-device**). The type and name are actually the keys of the module list.  
 
-## How does the Frinx ODL Distribution use NETCONF?
-The Frinx ODL Distribution's southbound APIs use a NETCONF connector to communicate with downstream devices. The northbound APIs expose the YANG models of connected devices. This makes it possible to examine the operational and config datastores and to configure devices using RPCs. RESTCONF maps a subset of these YANG models to a RESTful interface.
+## How does the FRINX ODL Distribution use NETCONF?
+The FRINX ODL Distribution's southbound APIs use a NETCONF connector to communicate with downstream devices. The northbound APIs expose the YANG models of connected devices. This makes it possible to examine the operational and config datastores and to configure devices using RPCs. RESTCONF maps a subset of these YANG models to a RESTful interface.
 
-**NETCONF – features used by the Frinx ODL Distribution include:**  
+**NETCONF – features used by the FRINX ODL Distribution include:**  
 
 | Feature name          | Port | Description                                                                | Protocol |
 |-----------------------|------|----------------------------------------------------------------------------|----------|

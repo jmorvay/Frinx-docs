@@ -5,9 +5,9 @@
 
 - [CLI Service Module User Guide](#cli-service-module-user-guide)
     - [How to use](#how-to-use)
-        - [Install required features into Frinx ODL](#install-required-features-into-frinx-odl)
+        - [Install required features into FRINX ODL](#install-required-features-into-frinx-odl)
         - [Optional - Change logging level](#optional---change-logging-level)
-        - [Using the Frinx API](#using-the-frinx-api)
+        - [Using the FRINX API](#using-the-frinx-api)
         - [Mounting a CLI device](#mounting-a-cli-device)
             - [How to mount and manage IOS devices over REST](#how-to-mount-and-manage-ios-devices-over-rest)
             - [How to mount and manage generic Linux VM devices over REST](#how-to-mount-and-manage-generic-linux-vm-devices-over-rest)
@@ -31,8 +31,8 @@
 <!-- /TOC -->
 
 ## How to use
-### Install required features into Frinx ODL
-Next [run Frinx ODL](../../Operations_Manual/running-frinx-odl-initial.html).
+### Install required features into FRINX ODL
+Next [run FRINX ODL](../../Operations_Manual/running-frinx-odl-initial.html).
 
 Then within karaf, install the required features:
 
@@ -45,10 +45,10 @@ If you require more detailed logging, then in the karaf terminal, run the follow
 
     log:set TRACE io.frinx.cli
     
-### Using the Frinx API 
-First follow the instructions [here](../../API.md) to download and use Frinx pre-configured Postman REST calls.
+### Using the FRINX API 
+First follow the instructions [here](../../API.md) to download and use FRINX pre-configured Postman REST calls.
 
-You'll be able to select the Frinx API version that maps to the version of Frinx ODL you are using. The `Uniconfig Framework` subdirectory contains the files needed to interact with the CLI.
+You'll be able to select the FRINX API version that maps to the version of FRINX ODL you are using. The `Uniconfig Framework` subdirectory contains the files needed to interact with the CLI.
 
 The sections below provide samples of how the CLI southbound plugin can be used to manage a particular device:
 
@@ -66,8 +66,8 @@ The following is an overview of the process by which a CLI device is rendered tr
 You can achieve this as follows:
 
 #### How to mount and manage IOS devices over REST
-The easiest way is to use one of the REST calls Frinx has already created and packaged in the [Frinx API](../../API.md).
-The **Frinx CLI** postman collection (`postman_collection_cli.json`) accessible via that link is contained within the `Uniconfig Framework` directory of the download. It can be imported into Postman and contains subfolders with collections for **IOS XR** and **IOS Classic**.  
+The easiest way is to use one of the REST calls FRINX has already created and packaged in the [FRINX API](../../API.md).
+The **FRINX CLI** postman collection (`postman_collection_cli.json`) accessible via that link is contained within the `Uniconfig Framework` directory of the download. It can be imported into Postman and contains subfolders with collections for **IOS XR** and **IOS Classic**.  
 
 These contain subfolders **XR Mount** and **Classic Mount** respectively, with pre-configured calls for mounting those devices. As explained [here](../../API.md) you will need to import the relevant environment file and update its variables - this is because the calls contains several of these variables (visible in double sets of curly braces in the following image)
 
@@ -80,12 +80,12 @@ IOS devices can also be mounted and managed from an application. For instruction
 #### How to mount and manage generic Linux VM devices over REST
 It is possible to mount any network device as a generic device. This allows invocation of any commands on the device using RPCs, which return the output back as freeform data and it is up to the user/application to make sense of them.
 
-In postman, open the folder **Linux** to access the Mount call. To configure the variable values, import the `linux_157_env.json` environment file from the `Uniconfig Framework` directory as explained in the [Frinx API guide](../../API.md)
+In postman, open the folder **Linux** to access the Mount call. To configure the variable values, import the `linux_157_env.json` environment file from the `Uniconfig Framework` directory as explained in the [FRINX API guide](../../API.md)
 
 ![linux mount](linux-mount.png)
 
 #### Pushing a config to a mounted node in dry run mode
-To operate in dry-run mode (useful for testing or demo purposes), you can use one of the Mount cli calls within the imported **Frinx CLI** postman collection (**IOS XR/XR Mount/Mount IOS XR cli** or **IOS Classic/Classic Mount/Mount IOS Classic**). 
+To operate in dry-run mode (useful for testing or demo purposes), you can use one of the Mount cli calls within the imported **FRINX CLI** postman collection (**IOS XR/XR Mount/Mount IOS XR cli** or **IOS Classic/Classic Mount/Mount IOS Classic**). 
 
 - First change the values of the following lines within the body of the call to the following:  
 
@@ -233,13 +233,13 @@ Please see [here](cli_supported_devices.md) for a structured list of device type
 *For more information, please contact us at info@frinx.io*
 
 ## Feature history guide
-The following table records the Frinx ODL versions in which particular CLI features and device support were introduced:  
+The following table records the FRINX ODL versions in which particular CLI features and device support were introduced:  
 
 | FEATURE GUIDE         |             |                                                                                                                                                                                                                                                                                |
 |-----------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | CLI plugin:           |             |                                                                                                                                                                                                                                                                                |
-| Feature introduced in | FRINX 3.1.1 | Safe-command-execution for CLI connections - the CLI session now waits for the device to echo back each command. So whenever a device takes longer to process a particular command, Frinx ODL waits before issuing the subsequent one                                          |
-| Feature introduced in | FRINX 3.1.1 | Reconciliation – CLI cache in Frinx ODL can now be also reconciled with 'read configuraton root' (in the case of RESTCONF it’s a GET operation to the entire configuration subtree of a mounted device)                                                                        |
+| Feature introduced in | FRINX 3.1.1 | Safe-command-execution for CLI connections - the CLI session now waits for the device to echo back each command. So whenever a device takes longer to process a particular command, FRINX ODL waits before issuing the subsequent one                                          |
+| Feature introduced in | FRINX 3.1.1 | Reconciliation – CLI cache in FRINX ODL can now be also reconciled with 'read configuraton root' (in the case of RESTCONF it’s a GET operation to the entire configuration subtree of a mounted device)                                                                        |
 | Feature introduced in | FRINX 2.3.1 | Keepalive settings of CLI connection extracted into CLI node configuration                                                                                                                                                                                                     |
 | Feature introduced in | FRINX 2.3.1 | Translate registry additional information: Actual YANG model nodes that are supported/implemented are listed for each YANG model                                                                                                                                               |
 | Feature introduced in | FRINX 2.3.1 | Dry-run and journaling capabilities for CLI mountpoint: Enables users to write/read configuration to/from device as a dry-run operation to check what commands will ODL execute. Journal captures all executed commands for a CLI mountpoint and makes them visible for users. |
@@ -249,11 +249,11 @@ The following table records the Frinx ODL versions in which particular CLI featu
 | Feature introduced in | FRINX 3.1.1 | IOS Classic:Dry-run                                                                                                                                                                                                                                                            |
 | Feature introduced in | FRINX 3.1.1 | IOS XR: LAG interfaces                                                                                                                                                                                                                                                         |
 | Feature introduced in | FRINX 3.1.1 | IOS XR: TenGigE interfaces                                                                                                                                                                                                                                                     |
-| Feature introduced in | Frinx 3.1.1 | IOS XR: MPLS TE, MPLS RSVP                                                                                                                                                                                                                                                     |
-| Feature introduced in | Frinx 3.1.1 | IOS XR: ACL                                                                                                                                                                                                                                                                    |
-| Feature introduced in | Frinx 3.1.1 | IOS XR: ACL                                                                                                                                                                                                                                                                    |
-| Feature introduced in | Frinx 3.1.1 | IOS XR: logging unit                                                                                                                                                                                                                                                           |
-| Feature introduced in | Frinx 3.1.1 | Brocade IronWare: network instance, CDP, IFC, essential, INIT units                                                                                                                                                                                                            |
+| Feature introduced in | FRINX 3.1.1 | IOS XR: MPLS TE, MPLS RSVP                                                                                                                                                                                                                                                     |
+| Feature introduced in | FRINX 3.1.1 | IOS XR: ACL                                                                                                                                                                                                                                                                    |
+| Feature introduced in | FRINX 3.1.1 | IOS XR: ACL                                                                                                                                                                                                                                                                    |
+| Feature introduced in | FRINX 3.1.1 | IOS XR: logging unit                                                                                                                                                                                                                                                           |
+| Feature introduced in | FRINX 3.1.1 | Brocade IronWare: network instance, CDP, IFC, essential, INIT units                                                                                                                                                                                                            |
 | Feature introduced in | FRINX 3.1.1 | Adds support for Brocade IronWare                                                                                                                                                                                                                                              |
 | Feature introduced in | FRINX 3.1.0 | Adds support for Cisco IOS XR                                                                                                                                                                                                                                                  |
 | Feature introduced in | FRINX 2.3.1 | Openconfig interface YANG models support: Interface Configuration and State read/write support                                                                                                                                                                                 |

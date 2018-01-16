@@ -41,10 +41,10 @@ For the Linuz-64 bit tar.gz download file, unpackage it with
 
 ## Configuration
 
-The base configuration is to use log4j socket listener for Logstash and the log4j socket appender in ODL Frinx.
+The base configuration is to use log4j socket listener for Logstash and the log4j socket appender in ODL FRINX.
 
 ### Configure Log4j
-Within the home directory of your Frinx ODL distribution, go to the **etc** directory.
+Within the home directory of your FRINX ODL distribution, go to the **etc** directory.
 Backup your old config file:  
 
     cp org.ops4j.pax.logging.cfg org.ops4j.pax.logging.cfg.bkp

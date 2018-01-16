@@ -3,7 +3,7 @@
 <!-- TOC -->
 
 - [How to use](#how-to-use)
-    - [Using via Frinx pre-configured REST calls](#using-via-frinx-pre-configured-rest-calls)
+    - [Using via FRINX pre-configured REST calls](#using-via-frinx-pre-configured-rest-calls)
     - [Show version](#show-version)
     - [Feature list](#feature-list)
     - [Monitor resources](#monitor-resources)
@@ -18,7 +18,7 @@ To use this functionality, run the following command in the karaf console:
 
 The bundle comprises four REST services which can be implemented using either CURL or Postman REST calls.  
 
-## Using via Frinx pre-configured REST calls
+## Using via FRINX pre-configured REST calls
 
 The easiest way to issue the REST calls detailed below is using Postman and our preconfigured REST calls - see our [usage guide](../API.md). Follow the guide to import the file `postman_collection_FRINX API Bundle.json` from within the directory `Infrastructure`.
 

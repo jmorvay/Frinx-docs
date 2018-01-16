@@ -1,7 +1,7 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 
 ## FRINX ODL Distribution: Carbon 
-[Frinx API](Carbon/API.md)  
+[FRINX API](Carbon/API.md)  
 [Operations Manual](Carbon/operations_manual.md)  
 [FRINX Features: User Guide](Carbon/user_guide.md)  
 [FRINX Features: Developer Guide](Carbon/developer_guide.md)  

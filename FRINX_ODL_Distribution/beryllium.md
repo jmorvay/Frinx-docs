@@ -1,7 +1,7 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 
 ## FRINX ODL Distribution: Beryllium
-[Frinx API](Beryllium/API.md)  
+[FRINX API](Beryllium/API.md)  
 [Operations Manual](Beryllium/operations_manual.md)  
 [FRINX Features: User Guide](Beryllium/user_guide.md)  
 [Troubleshooting Guide](Beryllium/Troubleshooting_Guide/troubleshooting_guide.md)  

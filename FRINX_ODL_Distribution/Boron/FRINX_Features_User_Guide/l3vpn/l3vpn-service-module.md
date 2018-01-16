@@ -40,7 +40,7 @@ Also see our [video on L3VPN](https://youtu.be/qxnMJG_Cz-c)
 ## Introduction
 The goal of this project is to automate provisioning of Layer 3 Virtual Private Network (L3VPN) on Service Provider (SP) routers.
 
-This is done by using the Frinx ODL controller which configures routers based on intent of the L3VPN service. The Frinx ODL controller translates the L3VPN service abstraction to network element configuration.  
+This is done by using the FRINX ODL controller which configures routers based on intent of the L3VPN service. The FRINX ODL controller translates the L3VPN service abstraction to network element configuration.  
 
 ![L3VPN Service](l3vpn_service.png)
 
@@ -188,7 +188,7 @@ This plugin configures L3VPN on IOS-XRv using NETCONF. It listens on topology-ne
 
 ![IOS-XRv NEP](nep_ios-xrv.png)
 
-IOS-XRv NEP listens on nodes in *topology-netconf*. When a new IOS-XRv device is connected to Frinx ODL it appears as a new node in *topology-netconf* and IOS-XRv registers that node as PE to L3VPN Provider. If L3VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
+IOS-XRv NEP listens on nodes in *topology-netconf*. When a new IOS-XRv device is connected to FRINX ODL it appears as a new node in *topology-netconf* and IOS-XRv registers that node as PE to L3VPN Provider. If L3VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
 
 Here is an example of L3VPN configuration on IOS-XRv (parameters encapsulated in ** are specific for VPN or site):
 

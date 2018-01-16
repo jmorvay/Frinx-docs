@@ -36,7 +36,7 @@ That file contains several REST calls for establishing a NETCONF connection and 
 See our usage [example video](https://youtu.be/UkHj9OgHHyo) on creating an L2VPN connection between two routers
 
 ## Introduction
-The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the Frinx ODL controller which configures routers based on intent of the L2VPN service. The Frinx ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
+The goal of this project is to automate provisioning of Layer 2 Virtual Private Networks (L2VPN) on Service Provider (SP) routers. This is done by using the FRINX ODL controller which configures routers based on intent of the L2VPN service. The FRINX ODL controller translates the L2VPN service abstraction to network element configuration. ![L2VPN Service](l2vpn_service.png)
 
 ## A bit about L2VPN
 ### Problem definition and L2VPN
@@ -61,7 +61,7 @@ There are two main types of L2VPN:
 *   point-to-point
 *   point-to-multipoint
 
-These types have many implementations. The Frinx ODL distribution supports Virtual Private Wire Service (VPWS) implementation.
+These types have many implementations. The FRINX ODL distribution supports Virtual Private Wire Service (VPWS) implementation.
 
 #### VPWS
 VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet services over MPLS. It is also known as ETHoMPLS (Ethernet over MPLS), or VLL (Virtual Leased Line). VPWS is point-to-point L2VPN which usually uses MPLS in core networks for signaling and creates pseudo-wires on PE routers for separation of L2 connections. L2 connections are identified by interface or VLAN. The picture below shows an MPLS core network with pseudo-wires on PEs for each VPN which are identified by VLAN.
@@ -169,7 +169,7 @@ This plugin configures L2VPN on IOS-XRv using NETCONF. It listens on topology-ne
 
 ![IOS-XRv NEP](nep_ios-xrv.png)
 
-IOS-XRv NEP listens on nodes in *topology-netconf*. When a new IOS-XRv device is connected to Frinx ODL it appears as a new node in *topology-netconf* and IOS-XRv registers that node as PE to L2VPN Provider. If L2VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
+IOS-XRv NEP listens on nodes in *topology-netconf*. When a new IOS-XRv device is connected to FRINX ODL it appears as a new node in *topology-netconf* and IOS-XRv registers that node as PE to L2VPN Provider. If L2VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
 
 Here is an example of L2VPN configuration on IOS-XRv (parameters encapsulated in ** are specific for VPN or site):
 

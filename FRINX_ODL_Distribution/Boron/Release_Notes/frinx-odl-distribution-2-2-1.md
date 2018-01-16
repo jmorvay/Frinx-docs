@@ -1,7 +1,7 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Boron Release Notes main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/release_notes.html)
     
-This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.  
+This document describes the latest changes, additions, known issues, and fixes for the FRINX ODL Distribution.  
 
 **Note that FRINX ODL distribution 2.2.1 requires Java 8**
 
@@ -23,8 +23,7 @@ This document describes the latest changes, additions, known issues, and fixes f
 2.  Netconf topology does not report connection issues – reports connected even if keepalive message is not received. Underlying connection reconnect functionality works as expected.
 
 #### Opendaylight Boron Release Notes
-
-The Frinx controller 2.2.1 is based on Opendaylight Boron.
+FRINX ODL distribution 2.2.1 is based on Opendaylight Boron.
 
 <https://wiki.opendaylight.org/view/Simultaneous_Release/Boron/Release_Notes>
 

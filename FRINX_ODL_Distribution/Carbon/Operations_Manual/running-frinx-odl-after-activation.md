@@ -80,11 +80,11 @@ or type
 
 (This connection can be local or remote.)
 
-When connected to the background process, you can logout (this closes only the ./bin/client process, but not the Frinx ODL server) by typing
+When connected to the background process, you can logout (this closes only the ./bin/client process, but not the FRINX ODL server) by typing
 ```
     logout
 ```
-When connected to the background process, you can shutdown the Frinx ODL server by typing  
+When connected to the background process, you can shutdown the FRINX ODL server by typing  
 ```
     shutdown
 ```
@@ -97,7 +97,7 @@ Type
 
 ## Operating in 'server' mode (karaf in the foreground, without the console)
 ### Starting 
-In your Frinx ODL Distribution directory, for example /home/username/distribution-karaf-3.1.0.frinx, type
+In your FRINX ODL Distribution directory, for example /home/username/distribution-karaf-3.1.0.frinx, type
 ```
     ./bin/karaf server &
 ```
@@ -121,7 +121,7 @@ To 'reset' your distribution to a clean state and delete any features previously
 ```
 
 ## Setting JAVA_HOME and other variables
-This is done by editing the 'setenv' file in the bin directory within your Frinx ODL Distribution directory. Uncomment the relevant line and set the variable as required e.g. to set the location of your Java home directory, uncomment the JAVA_HOME variable and point it to the appropriate folder depending on your Java installation:
+This is done by editing the 'setenv' file in the bin directory within your FRINX ODL Distribution directory. Uncomment the relevant line and set the variable as required e.g. to set the location of your Java home directory, uncomment the JAVA_HOME variable and point it to the appropriate folder depending on your Java installation:
 ```
     export JAVA_HOME=/opt/jdk1.8.0_151
 ```

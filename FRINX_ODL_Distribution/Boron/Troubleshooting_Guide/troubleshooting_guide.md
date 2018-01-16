@@ -1,6 +1,5 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 # FRINX ODL Distribution: Troubleshooting Guide
-
 The troubleshooting guide is based around a [flow chart][1].
 
 This guide can be used in two ways:
@@ -9,7 +8,7 @@ This guide can be used in two ways:
 
 In the flow chart, log excerpts are colored orange and placed towards the base of the flow chart. Search this text guide for "Log excerpt" text, then find the "Log excerpt" of the same number on the flow chart and navigate upwards until you come to a node which describes your situation. You will then see the suggested cause and actions.
 
-For example: If the log error is "SEVERE: Frinx License fatal error" then this maps to Log Excerpt 1 on the flow chart. Moving upwards from log excerpt 1 you arrive at "log contains SEVERE:Frinx license fatal error". We see that we take the path "Yes" and get to the next step: investigate if etc/frinx.license.cfg exists.
+For example: If the log error is "SEVERE: FRINX License fatal error" then this maps to Log Excerpt 1 on the flow chart. Moving upwards from log excerpt 1 you arrive at "log contains SEVERE:FRINX license fatal error". We see that we take the path "Yes" and get to the next step: investigate if etc/frinx.license.cfg exists.
 
 NOTE: log excerpts 16-23 are generated during tests, not during normal operations.
 
@@ -51,7 +50,7 @@ For example: If the API is not available and we are not sure if the API ports ar
 ### Log Excerpt 1:
 
 **Log Message:**  
-SEVERE: Frinx License fatal error:  
+SEVERE: FRINX License fatal error:  
 [see flow chart][2]
 
 **Description of the problem:**  
@@ -82,7 +81,7 @@ Contact support@frinx.io
 
 [see flow chart][2]  
 **Description of the problem:**  
-Frinx controller does not have large enough Java heap available.
+FRINX controller does not have large enough Java heap available.
 
 **Test Name:**  
 There are no automated tests but this error can be simulated by trying to start the controller with 124m available.
@@ -91,7 +90,7 @@ There are no automated tests but this error can be simulated by trying to start 
 Provision a VM and set the controller start-up to use a small heap. Edit the bin/karaf file by increasing the heap space, the -Xmx setting,
 
 **Objective of test:**  
-Verify the Frinx ODL controller will start.
+Verify the FRINX ODL controller will start.
 
 **Correction Steps:**  
 For normal use the recommended resources are:
@@ -320,7 +319,7 @@ csit/suites/netconf/single_node/netopeer.robot
 
 
 **Objective of test:**  
-Verify that a Frinx controller 3 member cluster can recover from an outage of one node.
+Verify that a FRINX controller 3 member cluster can recover from an outage of one node.
 
 **Correction Steps:**  
 If a member is down, in this example it is member-3 at '10.10.199.220' then use the troubleshooting chart to investigate (start at the top).
@@ -350,7 +349,7 @@ csit/suites/netconf/clustering
 
 
 **Objective of test:**  
-Verify that a netconf connection between a netopeer device a Frinx ODL controller 3 member cluster can recover from an outage of one node.
+Verify that a netconf connection between a netopeer device a FRINX ODL controller 3 member cluster can recover from an outage of one node.
 
 **Correction Steps:**  
 If a member was down and has recovered, investigate the system logs of the machine hosting OLD to confirm that the outage was intended.

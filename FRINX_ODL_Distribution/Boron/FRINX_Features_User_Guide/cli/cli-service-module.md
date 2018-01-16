@@ -5,9 +5,9 @@
 
 - [CLI Service Module User Guide](#cli-service-module-user-guide)
     - [How to use](#how-to-use)
-        - [Install required features into Frinx ODL](#install-required-features-into-frinx-odl)
+        - [Install required features into FRINX ODL](#install-required-features-into-frinx-odl)
         - [Optional - Change logging level](#optional---change-logging-level)
-        - [Using the Frinx API](#using-the-frinx-api)
+        - [Using the FRINX API](#using-the-frinx-api)
         - [Mounting a CLI device](#mounting-a-cli-device)
             - [How to mount and manage IOS devices over REST](#how-to-mount-and-manage-ios-devices-over-rest)
             - [How to mount and manage generic Linux VM devices over REST](#how-to-mount-and-manage-generic-linux-vm-devices-over-rest)
@@ -30,8 +30,8 @@
 <!-- /TOC -->
 
 ## How to use
-### Install required features into Frinx ODL
-Install the following features into a running FRINX OpenDaylight instance (For running Frinx OpenDaylight, please see our [guide](../../Operations_Manual/running-frinx-odl-initial.html)):
+### Install required features into FRINX ODL
+Install the following features into a running FRINX OpenDaylight instance (For running FRINX OpenDaylight, please see our [guide](../../Operations_Manual/running-frinx-odl-initial.html)):
 
     feature:install cli-topology cli-southbound-all-units odl-restconf
 
@@ -43,10 +43,10 @@ If you require more detailed logging, then in the karaf terminal, run the follow
 
     log:set TRACE io.frinx.cli
 
-### Using the Frinx API 
-First follow the instructions [here](../../API.md) to download and use Frinx pre-configured Postman REST calls.
+### Using the FRINX API 
+First follow the instructions [here](../../API.md) to download and use FRINX pre-configured Postman REST calls.
 
-You'll be able to select the Frinx API version that maps to the version of Frinx ODL you are using. The `Uniconfig Framework` subdirectory contains the files needed to interact with the CLI.
+You'll be able to select the FRINX API version that maps to the version of FRINX ODL you are using. The `Uniconfig Framework` subdirectory contains the files needed to interact with the CLI.
 
 The sections below provide samples of how the CLI southbound plugin can be used to manage a particular device:
 

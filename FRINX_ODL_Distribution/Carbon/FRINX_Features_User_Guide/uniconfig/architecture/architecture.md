@@ -80,7 +80,7 @@ an RPC for sending raw CLI commands and returning raw CLI output.
 ### CLI Translation Units
 A CLI translation unit defines a mapping between YANG models and the CLI.  
 
-It is used by the Frinx ODL controller to perform translation between
+It is used by the FRINX ODL controller to perform translation between
 device specific CLI data and standardized structured (OpenConfig YANG) data.  
 
 The translation unit can read and write configuration or read the state of a device.
@@ -184,14 +184,14 @@ Each topology contains nodes in the CONF and OPER datastores.
 ## CLI
 The cli topology contains nodes which are connected with ODL via the CLI.  
 
-A node in CONF DS contains information on how the Frinx ODL controller should connect
+A node in CONF DS contains information on how the FRINX ODL controller should connect
 to CLI devices (i.e. IP address, port, username, password, etc.) and a node in OPER DS contains the state of connection with available-capabilities.  
 
 CLI mountpoints are registered under these nodes. Configuration and state on the device can be obtained from the mountpoint.
 
 ## NETCONF
-The topology-netconf topology contains nodes which are connected with Frinx ODL through
-NETCONF. A node in CONF DS contains information on how the Frinx ODL controller should connect
+The topology-netconf topology contains nodes which are connected with FRINX ODL through
+NETCONF. A node in CONF DS contains information on how the FRINX ODL controller should connect
 to NETCONF devices (i.e. IP address, port, username, password, etc.) and a node in OPER DS contains the state of connection with available-capabilities.  
 
 NETCONF mountpoints are registered under these nodes. Configuration and state on the device can be obtained from a mountpoint.

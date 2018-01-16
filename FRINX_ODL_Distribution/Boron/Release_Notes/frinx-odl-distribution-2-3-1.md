@@ -1,7 +1,7 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Boron Release Notes main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/release_notes.html)
     
-This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.<!--more-->
+This document describes the latest changes, additions, known issues, and fixes for the FRINX ODL Distribution.<!--more-->
 
 **Note that FRINX ODL distribution 2.3.1 requires Java 8**
 
@@ -13,7 +13,7 @@ This document describes the latest changes, additions, known issues, and fixes f
 
 2.  L3VPN:
     
-    Karaf L3VPN features are renamed in Frinx ODL 2.3.1:
+    Karaf L3VPN features are renamed in FRINX ODL 2.3.1:
     
     *   from odl-l3vpn-api to frinx-l3vpn-api
     *   from odl-l3vpn to frinx-l3vpn
@@ -67,7 +67,6 @@ Error message:**
 org.opendaylight.netconf.sal.restconf.impl.RestconfDocumentedException: errors: [RestconfError [error-type: application, error-tag: operation-failed, error-message: name doesn't exist.]] at org.opendaylight.restconf.utils.mapping.RestconfMappingNodeUtil.findNodeInGroupings(RestconfMappingNodeUtil.java:369) at org.opendaylight.restconf.utils.mapping.RestconfMappingNodeUtil.addChildOfModuleBySpecificModule(RestconfMappingNodeUtil.java:350) at org.opendaylight.restconf.utils.mapping.RestconfMappingNodeUtil.addDeviationList(RestconfMappingNodeUtil.java:195) at org.opendaylight.restconf.utils.mapping.RestconfMappingNodeUtil.fillMapByModules(RestconfMappingNodeUtil.java:132) at org.opendaylight.restconf.utils.mapping.RestconfMappingNodeUtil.mapModulesByIetfYangLibraryYang(RestconfMappingNodeUtil.java:90) at org.opendaylight.restconf.handlers.SchemaContextHandler.onGlobalContextUpdated(SchemaContextHandler.java:63) at org.opendaylight.controller.sal.schema.service.impl.GlobalBundleScanningSchemaServiceImpl.notifyListeners(GlobalBundleScanningSchemaServiceImpl.java:156)
 
 #### Opendaylight Boron Release Notes
-
-The Frinx controller 2.3.1 is based on OpenDaylight Boron.
+FRINX ODL distribution 2.3.1 is based on OpenDaylight Boron.
 
 <https://wiki.opendaylight.org/view/Simultaneous_Release/Boron/Release_Notes>

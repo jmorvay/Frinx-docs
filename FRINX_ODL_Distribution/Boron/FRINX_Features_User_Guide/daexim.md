@@ -9,7 +9,7 @@
     - [Import](#import)
         - [org.opendaylight.daexim.cfg](#orgopendaylightdaeximcfg)
         - [Enabling automatic import during startup](#enabling-automatic-import-during-startup)
-        - [Karaf property files affected by the Frinx daexim changes](#karaf-property-files-affected-by-the-frinx-daexim-changes)
+        - [Karaf property files affected by the FRINX daexim changes](#karaf-property-files-affected-by-the-frinx-daexim-changes)
         - [Changing batch size](#changing-batch-size)
     - [Export](#export)
         - [Exporting from leader node](#exporting-from-leader-node)
@@ -21,7 +21,7 @@
 **daexim - datastore export import**
 ## Introduction
 
-Frinx daexim is a fork from ODL's daexim project. It contains several modifications aimed at improved import and export:
+FRINX daexim is a fork from ODL's daexim project. It contains several modifications aimed at improved import and export:
 
 ## Important files
 After daexim export, the following files and folders are created in the karaf folder:
@@ -38,7 +38,7 @@ Originally, import was done anytime during runtime. The drawback of this approac
 
 Another drawback is that the entire import ran as a single transaction. This created pressure on the underlying communication layer, causing intermittent failures in akka.
 
-Frinx daexim solves those problems by using many small transactions and triggering import during karaf startup. If import should be executed, the operator must set import flag in a property file on all nodes. When nodes form a cluster, they vote for one node to do the import.
+FRINX daexim solves those problems by using many small transactions and triggering import during karaf startup. If import should be executed, the operator must set import flag in a property file on all nodes. When nodes form a cluster, they vote for one node to do the import.
 
 Once import is done, karaf will continue booting other features. A consequence of running import before installing all bundles is that not all yang models are available. Thus, both import and export use the new folder:
 
@@ -72,9 +72,9 @@ and make sure org.opendaylight.daexim.cfg contains the following on all nodes:
     daexim.importOnInit=true
 
 
-### Karaf property files affected by the Frinx daexim changes
+### Karaf property files affected by the FRINX daexim changes
 
-The changes mentioned here are already in place in the official Frinx distribution. However, if you are building your own karaf, ensure that your etc folder has no unintended deviations from Frinx karaf.
+The changes mentioned here are already in place in the official FRINX distribution. However, if you are building your own karaf, ensure that your etc folder has no unintended deviations from FRINX karaf.
 
 Because frinx daexim needs to start before all other ODL features, the featuresBoot specified in
 

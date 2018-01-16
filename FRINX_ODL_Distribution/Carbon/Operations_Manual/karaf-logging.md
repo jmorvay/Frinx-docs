@@ -9,12 +9,12 @@
 <!-- /TOC -->
 # Configuring logging level within karaf
 
-It's possible to adjust the verbosity of logging for each Frinx ODL feature.
+It's possible to adjust the verbosity of logging for each FRINX ODL feature.
 The following levels are available (most verbose listed first) - TRACE, DEBUG, WARN, INFO, ERROR.
 INFO is less verbose and is a good compromise in terms of verbosity and effectiveness.
 
 ## Check logging level
-After [starting Frinx ODL](running-frinx-odl-after-activation), first check the logging level currently set for each feature: within the karaf console type
+After [starting FRINX ODL](running-frinx-odl-after-activation), first check the logging level currently set for each feature: within the karaf console type
 ```
 log:list
 ```
@@ -62,7 +62,7 @@ To begin viewing the log type
 ```
 log:tail
 ```
-Karaf logs are also written to the data/log directory within your main Frinx ODL distribution directory so can be viewed outside of karaf.
+Karaf logs are also written to the data/log directory within your main FRINX ODL distribution directory so can be viewed outside of karaf.
 
 Default settings for logging can be changed in etc/org.ops4j.pax.logging.cfg
-within your main Frinx ODL distribution directory.
+within your main FRINX ODL distribution directory.

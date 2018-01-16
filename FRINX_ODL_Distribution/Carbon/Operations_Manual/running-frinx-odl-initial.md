@@ -38,12 +38,12 @@ By downloading the file you accept the FRINX software agreement: [EULA](7793505-
 
 ## Activate your FRINX ODL Distribution  
 
-To activate your installation, unzip the file and open the directory. Enter the following commands in a terminal to start and activate Frinx ODL (the token is unique to your user account on frinx.io and cannot be shared with other users. It can be found [here](https://frinx.io/my-licenses-information) (you need to be logged in frinx.io to view your token)
+To activate your installation, unzip the file and open the directory. Enter the following commands in a terminal to start and activate FRINX ODL (the token is unique to your user account on frinx.io and cannot be shared with other users. It can be found [here](https://frinx.io/my-licenses-information) (you need to be logged in frinx.io to view your token)
 
     ./bin/karaf frinx.createtoken [frinx-license_secret-token]
 
-*Note that Frinx ODL needs approximately 3 minutes to startup and shutdown. To maintain system integrity, **please do not interrupt the startup and shutdown processes** within this time.*  
-*In the event of interruption, the initial state can be restored by entering the following commands from a terminal within your Frinx ODL main directory. The first command forcibly kills the Frinx ODL karaf process; the second command cleans certain directories:*
+*Note that FRINX ODL needs approximately 3 minutes to startup and shutdown. To maintain system integrity, **please do not interrupt the startup and shutdown processes** within this time.*  
+*In the event of interruption, the initial state can be restored by entering the following commands from a terminal within your FRINX ODL main directory. The first command forcibly kills the FRINX ODL karaf process; the second command cleans certain directories:*
 
 ```
 kill -9 $(pgrep  -o -f  karaf)

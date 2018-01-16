@@ -61,7 +61,6 @@ Open the browser and type the following link: http://localhost:8181/index.html#/
 If the credentials are correct, the RADIUS server sends \*AccessAccept\* and the user can access protected resources.
 
 ### Change RADIUS credentials
-
 Start the freeRADIUS docker image:
 ```bash
 docker exec -it <CONTAINER_ID> /bin/bash  

@@ -2,20 +2,19 @@
 [FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/user_guide.html)
 
 *This feature was deprecated in FRINX 2.3.1. For using Elasticsearch with FRINX ODL logs see [here][1]*
+<!-- TOC -->
 
-<!-- TOC START min:1 max:3 link:true update:true -->
-  - [Setting Up the environment](#setting-up-the-environment)
-  - [Creating a custom elasticsearch docker image](#creating-a-custom-elasticsearch-docker-image)
-  - [Running the custom elasticsearch plugin](#running-the-custom-elasticsearch-plugin)
-  - [Setting up the Frinx distribution](#setting-up-the-frinx-distribution)
-  - [Testing the setup](#testing-the-setup)
-  - [Installing the necessary features to the Frinx distribution](#installing-the-necessary-features-to-the-frinx-distribution)
-  - [Setting up mininet](#setting-up-mininet)
+- [Setting Up the environment](#setting-up-the-environment)
+- [Creating a custom elasticsearch docker image](#creating-a-custom-elasticsearch-docker-image)
+- [Running the custom elasticsearch plugin](#running-the-custom-elasticsearch-plugin)
+- [Setting up the FRINX distribution](#setting-up-the frinx distribution)
+- [Testing the setup](#testing-the-setup)
+- [Installing the necessary features to the FRINX distribution](#installing-the-necessary-features-to-the frinx distribution)
+- [Setting up mininet](#setting-up mininet)
 
-<!-- TOC END -->
-
+<!-- /TOC -->
 ## Setting Up the environment  
-To setup and run the Frinx TSDR data store elasticsearch plugin, you need to have an elasticsearch node (or a cluster of such nodes) running. We will use a customized elasticsearch docker image for this purpose.
+To setup and run the FRINX TSDR data store elasticsearch plugin, you need to have an elasticsearch node (or a cluster of such nodes) running. We will use a customized elasticsearch docker image for this purpose.
 
 Your elasticsearch setup must have the Delete By Query Plugin installed. Without this, some of the elk functionality won't work properly.
 
@@ -59,8 +58,8 @@ The output should include a row with elk-dd in the NAMES column. To chec
     docker logs elk-dd
 
 
-## Setting up the Frinx distribution  
-The next step is to install all the necessary dependencies in the running Frinx distribution. To do so, in the running distribution console type:
+## Setting up the FRINX distribution  
+The next step is to install all the necessary dependencies in the running FRINX distribution. To do so, in the running distribution console type:
 
     feature:install odl-tsdr-elasticsearch
 
@@ -74,7 +73,7 @@ All the configuration files are located int the FRINX ODL **etc** directory.
 ## Testing the setup  
 We can now test whether the setup is correct by downloading and installing mininet, which we use to send some data to the running elasticsearch instance.
 
-## Installing the necessary features to the Frinx distribution  
+## Installing the necessary features to the FRINX distribution  
 The distribution has to be able to process the data sent by the OpenFlow capable switch. In order to do so, we need to install two additional features:
 
     feature:install odl-tsdr-openflow-statistics-collector
@@ -95,7 +94,7 @@ After successfully booting up and running the mininet VM, run the following 
     sudo mn --topo single,3 --controller 'remote,ip=distro_ip,port=6653' --switch ovsk,protocols=OpenFlow13
 
 
-where the distro_ip is the IP address of the machine where the Frinx distribution is running. This command will create three hosts connected to one OpenFlow capable switch.
+where the distro_ip is the IP address of the machine where the FRINX distribution is running. This command will create three hosts connected to one OpenFlow capable switch.
 
 We can check whether some data was stored in the elasticsearch by running the following command in the distribution console:
 
@@ -141,7 +140,7 @@ The elasticseach_ip is the IP address of the server where the elasticsearch 
       </td>
 
       <td>
-        Frinx 1.4.0
+        FRINX 1.4.0
       </td>
 
       <td>
@@ -155,7 +154,7 @@ The elasticseach_ip is the IP address of the server where the elasticsearch 
       </td>
 
       <td>
-        Frinx 2.3.1
+        FRINX 2.3.1
       </td>
 
       <td>

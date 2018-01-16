@@ -1,17 +1,15 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Boron Release Notes main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/release_notes.html)
     
-This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.<!--more-->
+This document describes the latest changes, additions, known issues, and fixes for the FRINX ODL Distribution.<!--more-->
 
 **Note that FRINX ODL distribution 2.3.0 requires Java 8**
 
 #### New Features, Improvements
-
 1.  Added CLI service module to enable the controller to manage devices over a CLI 
 2.  Added L3VPN for automated provisioning of Layer 3 Virtual Private Networks (L3VPN) on Service Provider (SP) routers
 
 #### Known Issues
-
 1.  After node isolation netconf clustering does not function correctly
 2.  GBP-features odl-groupbasedpolicy-clustered and odl-groupbasedpolicy-noop does not function correctly
 
@@ -22,7 +20,6 @@ Error message:**
 org.opendaylight.netconf.sal.restconf.impl.RestconfDocumentedException: errors: [RestconfError [error-type: application, error-tag: operation-failed, error-message: name doesn't exist.]] at org.opendaylight.restconf.utils.mapping.RestconfMappingNodeUtil.findNodeInGroupings(RestconfMappingNodeUtil.java:369) at org.opendaylight.restconf.utils.mapping.RestconfMappingNodeUtil.addChildOfModuleBySpecificModule(RestconfMappingNodeUtil.java:350) at org.opendaylight.restconf.utils.mapping.RestconfMappingNodeUtil.addDeviationList(RestconfMappingNodeUtil.java:195) at org.opendaylight.restconf.utils.mapping.RestconfMappingNodeUtil.fillMapByModules(RestconfMappingNodeUtil.java:132) at org.opendaylight.restconf.utils.mapping.RestconfMappingNodeUtil.mapModulesByIetfYangLibraryYang(RestconfMappingNodeUtil.java:90) at org.opendaylight.restconf.handlers.SchemaContextHandler.onGlobalContextUpdated(SchemaContextHandler.java:63) at org.opendaylight.controller.sal.schema.service.impl.GlobalBundleScanningSchemaServiceImpl.notifyListeners(GlobalBundleScanningSchemaServiceImpl.java:156)
 
 #### Opendaylight Boron Release Notes
-
-The Frinx controller 2.3.0 is based on Opendaylight Boron.
+FRINX ODL distribution 2.3.0 is based on Opendaylight Boron.
 
 <https://wiki.opendaylight.org/view/Simultaneous_Release/Boron/Release_Notes>

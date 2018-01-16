@@ -238,12 +238,12 @@ If you want to remove the L2VPN connection:
 1. Delete the l3vpn service by:
   - using the Postman REST call: `L3VPN Service/delete vpn service cus1_vpn1`. There is no body to the call. 
   - commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn-svc`. There is no body to the call.  
-    - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
-2. Delete the sites by using the Postman REST calls: 
-  - `L3VPN Service/delete site cus1_ce1`. There is no body to the call. 
+    - In the Response body you should receive "status": "complete". This shows the deletion has   been competed successfully.
+2. Delete the sites by: 
+  - using the Postman REST call `L3VPN Service/delete site cus1_ce1`. There is no body to the call. 
     - commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn-svc`. There is no body to the call.  
       - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
-  - `L3VPN Service/delete site cus1_ce2`. There is no body to the call. 
+  - using the Postman REST call `L3VPN Service/delete site cus1_ce2`. There is no body to the call. 
     - commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn-svc`. There is no body to the call.  
       - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
 

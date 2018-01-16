@@ -61,7 +61,8 @@ The goal of this project is to automate provisioning of Layer 2 Virtual Private 
 
 ### Problem definition and L2VPN
 Consider the scenario where a company needs to reconnect multiple sites with each other via an SP which provides L2 services to the company. 
-- The company's sites needs to see each other as directly connected on L3. - L2VPN offers a solution for those requirements.
+- The company's sites needs to see each other as directly connected on L3. 
+- L2VPN offers a solution for those requirements.
 
 The company has two different sites and they are both connected to the Service Provider using an L2 connection. They need to interconnect two of their sites. 
 
@@ -90,7 +91,8 @@ These types have many implementations. The FRINX ODL distribution supports Virtu
 
 #### VPWS
 VPWS (Virtual Private Wire Service) is the simplest form for enabling Ethernet services over MPLS. 
- - Also known as ETHoMPLS (Ethernet over MPLS), or VLL (Virtual Leased Line). - VPWS is point-to-point L2VPN which usually uses MPLS in core networks for signaling and creates pseudo-wires on PE routers for separation of L2 connections. 
+ - Also known as ETHoMPLS (Ethernet over MPLS), or VLL (Virtual Leased Line). 
+ - VPWS is point-to-point L2VPN which usually uses MPLS in core networks for signaling and creates pseudo-wires on PE routers for separation of L2 connections. 
  - L2 connections are identified by interface or VLAN. 
  - The picture below shows an MPLS core network with pseudo-wires on PEs for each VPN which are identified by VLAN.
 
@@ -325,13 +327,15 @@ An external application modifies ***ietf-l2vpn*** in CONF DS. L2VPN can be confi
 - This diff is configured inside network wide transaction on the necessary PE routers by using particular Network Element Plugins. 
 - If configuration of routers is successful then a new ***ietf-l2vpn*** is stored to OPER DS and RPC output is returned with status "complete". 
 - If configuration fails on one of the devices, the **rollback** of the network wide transaction starts and if the rollback is successful then RPC output has status "commit-failed-rollback-complete", otherwise the status is "inconsistent". 
-- The architecture can be extended very easily because Network Element Plugin needs to implement only NEP SPI, rollback, and network element registration. -Note that IOS NEP from the image above is not yet implemented.
+- The architecture can be extended very easily because Network Element Plugin needs to implement only NEP SPI, rollback, and network element registration. 
+- Note that IOS NEP from the image above is not yet implemented.
 
 As stated earlier, NEP registers network elements to L2VPN Provider. L2VPN Provider stores network elements as nodes to abstract topology ***l2vpn-provider-edge-topology*** and this topology is a source of nodes which can be used for L2VPN configuration.
 
 #### API description
 The API is described using YANG modules. 
-- An external application can consume the API via RESTCONF, NETCONF, or JAVA. - The L2VPN service module provides domain specific abstraction where the abstraction describes attributes of VPNs and sites instead of configuration of network elements. 
+- An external application can consume the API via RESTCONF, NETCONF, or JAVA. 
+- The L2VPN service module provides domain specific abstraction where the abstraction describes attributes of VPNs and sites instead of configuration of network elements. 
 - The FRINX ODL Distribution translates the abstraction to network element configuration.
 
 ##### ietf-l2vpn@2017-08-02.yang
@@ -352,12 +356,15 @@ Network Element Plugin (NEP) is a unit which implements SPI from the L2VPN Provi
 - Rollback of configuration on a device
 
 #### IOS-XRv Network Element Plugin
-This plugin configures L2VPN on IOS-XRv using NETCONF. It listens on ***topology-netconf*** and announces PE capable devices to the L2VPN Provider. Rollback on a device is done automatically using the "Rollback-on-Error" capability.
+This plugin configures L2VPN on IOS-XRv using NETCONF. 
+- It listens on ***topology-netconf*** and announces PE capable devices to the L2VPN Provider. 
+- Rollback on a device is done automatically using the "Rollback-on-Error" capability.
 
 ![IOS-XRv NEP](nep_ios-xrv.png)
 
 - IOS-XRv NEP listens on nodes in ***topology-netconf***. 
-- When a new IOS-XRv device is connected to FRINX ODL it appears as a new node in ***topology-netconf*** and IOS-XRv registers that node as PE to L2VPN Provider. - If L2VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
+- When a new IOS-XRv device is connected to FRINX ODL it appears as a new node in ***topology-netconf*** and IOS-XRv registers that node as PE to L2VPN Provider. 
+- If L2VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
 
 Here is an example of L2VPN configuration on IOS-XRv (parameters encapsulated in ** are specific for VPN or site):
 

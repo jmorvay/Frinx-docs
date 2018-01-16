@@ -4,7 +4,7 @@
 <!-- TOC -->
 
 - [L2VPN Service Module User Guide](#l2vpn-service-module-user-guide)
-    - [Usage - setup](#usage---setup)
+    - [Usage - Setup](#usage---setup)
         - [Postman - Import collection](#postman---import-collection)
         - [Frinx ODL - Install features](#frinx-odl---install-features)
     - [Introduction](#introduction)
@@ -32,7 +32,7 @@
 
 <!-- /TOC -->
 
-## Usage - setup
+## Usage - Setup
 ### Postman - Import collection
 1. To download and use FRINX pre-configured Postman REST calls with L2VPN - see [this page](../../API.md). 
 2. Follow that guide to import the file `postman_collection_L2VPN_IOS-XRv.json` from the directory `L2VPN Service Module`.

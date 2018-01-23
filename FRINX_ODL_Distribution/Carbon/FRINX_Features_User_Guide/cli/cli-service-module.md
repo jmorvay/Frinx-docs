@@ -22,8 +22,7 @@
 <!-- TOC END -->
 ## Usage - Setup
 ### FRINX ODL - Install features
-[Run FRINX ODL](../../Operations_
-Next [run FRINX ODL](../../Operations_Manual/running-frinx-odl-initial.html).
+[Run FRINX ODL](../../Operations_Manual/running-frinx-odl-initial.html).
 
 Then within karaf, install the required features:
 

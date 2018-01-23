@@ -2,39 +2,42 @@
 [FRINX Features User Guide main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/user_guide.html)
 <!-- TOC -->
 
-- [How to use](#how-to-use)
-    - [Using via FRINX pre-configured REST calls](#using-via-frinx-pre-configured-rest-calls)
+- [Usage - Setup](#usage---setup)
+    - [FRINX ODL - Install features](#frinx-odl---install-features)
+    - [Postman - Import collection](#postman---import-collection)
+- [Usage - Operations Guide](#usage---operations-guide)
     - [Show version](#show-version)
     - [Feature list](#feature-list)
     - [Monitor resources](#monitor-resources)
     - [Upload a KAR file](#upload-a-kar-file)
 
 <!-- /TOC -->
-# How to use
-
+## Usage - Setup
+### FRINX ODL - Install features
 To use this functionality, run the following command in the karaf console:
 
     feature:install frinx-installer-backend
 
-The bundle comprises four REST services which can be implemented using either CURL or Postman REST calls.  
+The bundle comprises four REST services which can be implemented using either CURL or Postman REST calls:  
 
-## Using via FRINX pre-configured REST calls
+### Postman - Import collection
+1. To download and use FRINX pre-configured Postman REST calls - see [this page](../API.md). 
+2. Follow that guide to import the file `postman_collection_FRINX API Bundle.json` from the directory `Infrastructure`.
+3. [Configure an environment in Postman](../API.md) where you set a value for `odl_ip`.
 
-The easiest way to issue the REST calls detailed below is using Postman and our preconfigured REST calls - see our [usage guide](../API.md). Follow the guide to import the file `postman_collection_FRINX API Bundle.json` from within the directory `Infrastructure`.
-
-The value for odl_ip should be set in a Postman environment [guidance here](../../API.md) - that way it needs only be entered once and will be applied to each call.
-
-## Show version
-
+## Usage - Operations Guide
+### Show version
 This displays the current Karaf distribution version. 
 
 You can run either:  
-
-- By REST (as POST). (username: admin password: admin).  
+With Postman REST call `show-version` which is already set up as follows:  
+- POST. (username: admin password: admin).  
 ```
 http://[host]:[port]/restconf/operations/installer:show-version
 ```
-Example output from using our pre-configured Postman REST call available [via this guide](../API.md).  
+- Issue the call by hitting **Send**.
+
+Example output from using Postman REST call   
 ![show version example](show-version.JPG)  
 
 - Or by typing the following in a terminal window:
@@ -46,19 +49,20 @@ Whether using curl or Postman, the output will be in the following format:
 ```json
 {"output":{"versions":{"controller-version":"1.2.6.frinx-SNAPSHOT"}}}
 ```
-## Feature list
-
+### Feature list
 This allows a list of features to be extracted without starting up karaf. Each feature must have the following properties:
 
 name - version - repository - description - installed (boolean value, whether it is installed or not)
 
 You can run either:  
+With Postman REST call `features list` which is already set up as follows:  
+- GET. (username: admin password: admin).  
+- Issue the call by hitting **Send**.
 
-- By REST (as GET). (username: admin password: admin).  
 ```
 http://[host]:[port]/restconf/operational/installer:features
 ```
-Example output from using our pre-configured Postman REST call available [via this guide](../API.md).  
+Example output:     
 ![features list example](features-list.JPG)
 
 - Or by typing the following in a terminal window:
@@ -145,17 +149,19 @@ Whether using curl or Postman, output will be in the following format: (if using
    }
 }
 ```
-## Monitor resources
-
+### Monitor resources
 This displays base information about system, memory and disk management
 
 You can run either:  
 
-- By REST (as POST). (username: admin password: admin).  
+With Postman REST call `monitor-resources` which is already set up as follows:  
+- POST. (username: admin password: admin).  
+- Issue the call by hitting **Send**.
+
 ```
 http://[host]:[port]/restconf/operations/installer:monitor-resources
 ```
-Example output using our pre-configured Postman REST call available [via this guide](../API.md).  
+Example output:    
 ![monitor resources example](monitor-resources.JPG)
 
 - Or by typing the following in a terminal window:
@@ -245,8 +251,7 @@ In each case, output will be in the following format (if using curl, the output 
 }
 ```
 
-## Upload a KAR file
-
+### Upload a KAR file
 This function allows the user to easily upload any KAR file to the Karaf distribution. Before installing, the KAR file is validated. There is an HTTP servlet which listens on
 
     http://[host]:[port]/kar-uploader
@@ -276,5 +281,3 @@ This will give the following output which confirms that the file has been upload
 | Feature introduced in | FRINX 1.2.6 | API bundle module |
 
  [1]: https://tools.ietf.org/html/rfc6020#section-9.8.2
-
-

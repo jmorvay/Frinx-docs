@@ -1,7 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/operations_manual.html)
 # Elasticsearch
-
 <!-- TOC -->
 
 - [Elasticsearch](#elasticsearch)
@@ -13,7 +12,6 @@
     - [Other links](#other-links)
 
 ## Installation
-
 1\. If you have not already done so, [Download the FRINX ODL distribution][1] and [install it][2]  
 2\. [Install Elasticsearch][3]
 
@@ -40,7 +38,6 @@ For the Linuz-64 bit tar.gz download file, unpackage it with
 
 
 ## Configuration
-
 The base configuration is to use log4j socket listener for Logstash and the log4j socket appender in ODL FRINX.
 
 ### Configure Log4j
@@ -60,7 +57,7 @@ From your logstash directory(the directory created from unpackaging the download
 
 Copy this template [logstash.conf file](logstash.conf) into that config directory.
 
-Edit line 7 of logstash.conf to point to karaf_home/data/log/karaf.log (it is currently set to /mnt/karaf.log). 
+Edit line 7 of logstash.conf to point to karaf_home/data/log/karaf.log (it is currently set to /mnt/karaf.log).
 
 Put the [odl file](odl) in /mnt/patterns/ or whatever directory you choose to set in line 18 of logstash.conf. For more info on custom patterns please see <https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html#_custom_patterns>
 
@@ -79,7 +76,6 @@ The start logstash with
 
 
 ## Operation
-
 We have already started elasticsearch, kibana, and logstash. Now start karaf as normal by going to your FRINX ODL Distribution main directory for example distribution-karaf-2.3.0.frinx.
 
 Then type

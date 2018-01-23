@@ -1,6 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/operations_manual.html)
-
+# Operating the FRINX ODL Distribution
 <!-- TOC -->
 
 - [Operating the FRINX ODL Distribution](#operating-the-frinx-odl-distribution)
@@ -20,15 +20,13 @@
     - [Setting JAVA_HOME and other variables](#setting-java_home-and-other-variables)
 
 <!-- /TOC -->
-
-# Operating the FRINX ODL Distribution
 After running for the first time and generating a local license file, you no longer need to provide a token when starting karaf.
 
 This page describes how you can operate the Frinx ODL distribution in different modes. The commands have been tested in CentOS and Ubuntu 16.04.
 
 *Note that Frinx ODL needs approximately 3 minutes to startup and shutdown. To maintain system integrity, **please do not interrupt the startup and shutdown processes** within this time.*  
 *In the event of interruption, the initial state can be restored by entering the following commands from a terminal within your Frinx ODL main directory. The first command forcibly kills the Frinx ODL karaf process; the second command cleans certain directories:*
- 
+
 ```
 kill -9 $(pgrep  -o -f  karaf)
 rm  -rf  data/ snapshots/ journal/

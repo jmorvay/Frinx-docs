@@ -1,5 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/operations_manual.html)
+# Configuring logging level within karaf
 <!-- TOC -->
 
 - [Configuring logging level within karaf](#configuring-logging-level-within-karaf)
@@ -7,8 +8,6 @@
     - [Add or change logging level for a particular feature](#add-or-change-logging-level-for-a-particular-feature)
 
 <!-- /TOC -->
-# Configuring logging level within karaf
-
 It's possible to adjust the verbosity of logging for each FRINX ODL feature.
 The following levels are available (most verbose listed first) - TRACE, DEBUG, WARN, INFO, ERROR.
 INFO is less verbose and is a good compromise in terms of verbosity and effectiveness.

@@ -1,14 +1,12 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/operations_manual.html)
+# FRINX ODL Distribution: Features
 <!-- TOC -->
 
 - [FRINX ODL Distribution: Features](#frinx-odl-distribution-features)
     - [Managing features](#managing-features)
 
 <!-- /TOC -->
-
-# FRINX ODL Distribution: Features
-
 The FRINX distribution offers the following features:
 
      odlparent

@@ -1,7 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/operations_manual.html)
 # NETCONF: Overview and use within the FRINX ODL Distribution
-
 ## What is NETCONF?
 
 NETCONF is an Internet Engineering Task Force (IETF) protocol used to “create, recover, update, and delete configurations of network devices”.
@@ -13,7 +12,6 @@ An introduction to the IEFT working group and a summary of relevant RFCs and dra
 <http://www.netconfcentral.org/> and the white paper included.
 
 ## How does the Frinx ODL Distribution use NETCONF?
-
 The Frinx ODL Distribution's southbound APIs use a NETCONF connector to communicate with downstream devices. The northbound APIs expose the YANG models of connected devices. This makes it possible to examine the operational and config datastores and to configure devices using RPCs. RESTCONF maps a subset of these YANG models to a RESTful interface.
 
 **NETCONF – features used by the Frinx ODL Distribution include:**  

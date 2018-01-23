@@ -1,5 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/operations_manual.html)
+# Clustering: Overview
 <!-- TOC -->
 
 - [Clustering: Overview](#clustering-overview)
@@ -11,7 +12,6 @@
         - [b. Info on clustering functionality](#b-info-on-clustering-functionality)
 
 <!-- /TOC -->
-# Clustering: Overview
 Clustering enables multiple instances of the FRINX ODL Distribution to work together as one entity. Data from the in-memory MD-SAL tree is split into smaller sub-trees (inventory, topology, and default) and distributed across the machines (referred to as nodes) which are part of the cluster.
 
 This offers a number of benefits:
@@ -23,7 +23,7 @@ If you have multiple instances of FRINX ODL running as a cluster and one crashes
 You will not lose any data gathered by FRINX ODL after a manual restart or a crash. After restarting, you can use the persisted data to reinstate shards to their previous state.
 
 ## Scaling  
-If you have multiple FRINX ODL instances running as a cluster, you can potentially do more work or store more data. 
+If you have multiple FRINX ODL instances running as a cluster, you can potentially do more work or store more data.
 
 ## Multiple node clustering  
 ### a. Setting up    
@@ -34,7 +34,7 @@ To run the FRINX ODL distribution in a three node cluster (that is, on three mac
 1\. Determine the three machines ('nodes') that will make up the cluster and copy the FRINX ODL distribution to each of those machines.  
 
 2\. Unzip the controller distribution.  
- 
+
 3\. In the `{FRINX ODL main}/etc` directory, edit the file `org.apache.karaf.features.cfg`: Find the line that begins with '#odlFeaturesBoot'. Remove '#' and add the feature 'odl-mdsal-clustering' (you can keep any other features you currently have listed, just use a comma to separate features). The format of that line of the file should be as follows:
 
 odlFeaturesBoot=odl-mdsal-clustering
@@ -43,9 +43,9 @@ Save the file.
 
 4\. Run Karaf: In your main FRINX ODL directory, type
 
-    ./bin/karaf 
+    ./bin/karaf
 
-5\. Karaf will start up and will automatically install the odl-mdsal-clustering feature. This could take 3-4 minutes. 
+5\. Karaf will start up and will automatically install the odl-mdsal-clustering feature. This could take 3-4 minutes.
 
 To check whether odl-mdsal-clustering has finished installing, type the following within the karaf terminal
 
@@ -53,7 +53,7 @@ To check whether odl-mdsal-clustering has finished installing, type the followin
 
 Once installation is complete, an 'x' will be shown after the second column in the list.
 
-Three configuration files will have automatically be created in `{FRINX ODL main}/configuration/initial/`. 
+Three configuration files will have automatically be created in `{FRINX ODL main}/configuration/initial/`.
 
 You do not need to edit these files. We will use a script to automatically configure two of these files (`akka.conf` and `module-shards.conf`)
 
@@ -76,10 +76,10 @@ To restart from within the karaf terminal hold the 'CTRL' key and type the 'd' k
 Wait for three minutes. Then in the terminal window, still in the `{FRINX ODL main}/bin` directory, type
 
     ./karaf
-    
-Once karaf has fully started (which can take three minutes) you will be able to use any of the three member nodes (machines) to access the data residing in the datastore. 
 
-For example, if you want to view information about the shard designated as *member-1* on a node, query the shard’s data by making the following HTTP request (we recommend using Postman): 
+Once karaf has fully started (which can take three minutes) you will be able to use any of the three member nodes (machines) to access the data residing in the datastore.
+
+For example, if you want to view information about the shard designated as *member-1* on a node, query the shard’s data by making the following HTTP request (we recommend using Postman):
 
 *HTTP Method: GET*  
 
@@ -146,10 +146,10 @@ The request should return the following information:
    }
 }
 ```
- 
+
 *Data shards* are used to house all or a certain segment of various types of FRINX ODL data. For example, one shard may contain all of a particular module’s inventory data while another shard contains all of its topology data. Each shard has replicas configured, which means the same data is stored on different nodes, ensuring data persistence in the event that one node becomes unoperational.
 
-### b. Info on clustering functionality 
+### b. Info on clustering functionality
 After a cluster 'node' (sometimes referred to as a 'member') is started, it sends a message to each other node within the cluster, which are referred to as 'seed' nodes. The cluster node then sends a join command to the first seed node that responds. If none of its seed nodes reply, the cluster member repeats this process until it successfully establishes a connection or is shutdown.
 
-In the event that a node becomes unreachable, it remains down for a configurable period of time (10 seconds by default). Once a node goes down, you need to restart FRINX ODL on it so that it can rejoin the cluster. Once a restarted node joins a cluster, it will synchronize with the lead node automatically.  
+In the event that a node becomes unreachable, it remains down for a configurable period of time (10 seconds by default). Once a node goes down, you need to restart FRINX ODL on it so that it can rejoin the cluster. Once a restarted node joins a cluster, it will synchronize with the lead node automatically. 

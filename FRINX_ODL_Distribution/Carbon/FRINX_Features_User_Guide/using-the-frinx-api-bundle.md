@@ -30,12 +30,14 @@ The bundle comprises four REST services which can be implemented using either CU
 This displays the current Karaf distribution version. 
 
 You can run either:  
-
-- By REST (as POST). (username: admin password: admin).  
+With Postman REST call `show-version` which is already set up as follows:  
+- POST. (username: admin password: admin).  
 ```
 http://[host]:[port]/restconf/operations/installer:show-version
 ```
-Example output from using our pre-configured Postman REST call   
+- Issue the call by hitting **Send**.
+
+Example output from using Postman REST call   
 ![show version example](show-version.JPG)  
 
 - Or by typing the following in a terminal window:
@@ -55,6 +57,8 @@ name - version - repository - description - installed (boolean value, whether it
 You can run either:  
 With Postman REST call `features list` which is already set up as follows:  
 - GET. (username: admin password: admin).  
+- Issue the call by hitting **Send**.
+
 ```
 http://[host]:[port]/restconf/operational/installer:features
 ```
@@ -152,6 +156,8 @@ You can run either:
 
 With Postman REST call `monitor-resources` which is already set up as follows:  
 - POST. (username: admin password: admin).  
+- Issue the call by hitting **Send**.
+
 ```
 http://[host]:[port]/restconf/operations/installer:monitor-resources
 ```

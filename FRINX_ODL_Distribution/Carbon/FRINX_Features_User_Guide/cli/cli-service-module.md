@@ -30,8 +30,9 @@
 
 <!-- /TOC -->
 
-## How to use
-### Install required features into FRINX ODL
+## Usage - Setup
+### FRINX ODL - Install features
+[Run FRINX ODL](../../Operations_
 Next [run FRINX ODL](../../Operations_Manual/running-frinx-odl-initial.html).
 
 Then within karaf, install the required features:
@@ -44,14 +45,24 @@ This installs the CLI topology and all supported CLI translation units for vario
 If you require more detailed logging, then in the karaf terminal, run the following command to enable DEBUG/TRACE logging:
 
     log:set TRACE io.frinx.cli
-    
-### Using the FRINX API 
+
+### Postman - Import collection
 First follow the instructions [here](../../API.md) to download and use FRINX pre-configured Postman REST calls.
 
 You'll be able to select the FRINX API version that maps to the version of FRINX ODL you are using. The `Uniconfig Framework` subdirectory contains the files needed to interact with the CLI.
 
-The sections below provide samples of how the CLI southbound plugin can be used to manage a particular device:
+The sections below (after the Introduction) provide samples of how the CLI southbound plugin can be used to manage a particular device.
 
+## Introduction
+The CLI southbound plugin enables the FRINX Opendaylight distribution to communicate with CLI devices that do not speak NETCONF or any other programmatic API. The CLI service module uses YANG models and implements a translation logic to send and receive structured data to and from CLI devices. This allows applications to use a service model or unified device model to communicate with a broad range of network platforms and SW revisions from different vendors.
+
+Much like the NETCONF southbound plugin, the CLI southbound plugin enables fully model-driven, transactional device management for internal and external OpenDaylight applications. In fact, the applications are completely unaware of underlying transport and can manage devices over the CLI plugin in the same exact way as over NETCONF.
+
+Once we have mounted the device, we can present an abstract, model-based network device and service interface to applications and users. For example, we can parse the output of an IOS command and return structured data.
+
+![CLI southbound plugin](cliSouthPlugin.png)
+
+## Usage - Operations Guide
 ### Mounting a CLI device
 The following is an overview of the process by which a CLI device is rendered truly accessible for users and applications:
 
@@ -67,9 +78,9 @@ You can achieve this as follows:
 
 #### How to mount and manage IOS devices over REST
 The easiest way is to use one of the REST calls FRINX has already created and packaged in the [FRINX API](../../API.md).
-The **FRINX CLI** postman collection (`postman_collection_cli.json`) accessible via that link is contained within the `Uniconfig Framework` directory of the download. It can be imported into Postman and contains subfolders with collections for **IOS XR** and **IOS Classic**.  
+The **FRINX UNIFIED** postman collection (`postman_collection_unified.json`) accessible via that link is  contained within the `Uniconfig Framework` directory of the download. It can be imported into Postman and contains subfolders with collections for various devices e.g. **IOS XR**, **IOS Classic**, **Junos**.  
 
-These contain subfolders **XR Mount** and **Classic Mount** respectively, with pre-configured calls for mounting those devices. As explained [here](../../API.md) you will need to import the relevant environment file and update its variables - this is because the calls contains several of these variables (visible in double sets of curly braces in the following image)
+These contain subfolders **XR Mount**, **Classic Mount** and **Junos Mount** respectively, with pre-configured calls for mounting those devices. As explained [here](../../API.md) you will need to import the relevant environment file and update its variables - this is because the calls contains several of these variables (visible in double sets of curly braces in the following image)
 
 ![mount](mount.png)
 
@@ -85,7 +96,7 @@ In postman, open the folder **Linux** to access the Mount call. To configure the
 ![linux mount](linux-mount.png)
 
 #### Pushing a config to a mounted node in dry run mode
-To operate in dry-run mode (useful for testing or demo purposes), you can use one of the Mount cli calls within the imported **FRINX CLI** postman collection (**IOS XR/XR Mount/Mount IOS XR cli** or **IOS Classic/Classic Mount/Mount IOS Classic**). 
+To operate in dry-run mode (useful for testing or demo purposes), you can use one of the Mount cli calls within the imported **FRINX UNIFIED** postman collection (**IOS XR/XR Mount/Mount IOS XR cli** or **IOS Classic/Classic Mount/Mount IOS Classic**).
 
 - First change the values of the following lines within the body of the call to the following:  
 
@@ -112,15 +123,6 @@ To operate in dry-run mode (useful for testing or demo purposes), you can use on
 ~~~~
 
 -  Now issue the call, but in the URL instead of using node id, use node-id-dryrun e.g. IOS1-dryrun.
-
-## Introduction
-The CLI southbound plugin enables the FRINX Opendaylight distribution to communicate with CLI devices that do not speak NETCONF or any other programmatic API. The CLI service module uses YANG models and implements a translation logic to send and receive structured data to and from CLI devices. This allows applications to use a service model or unified device model to communicate with a broad range of network platforms and SW revisions from different vendors.
-
-Much like the NETCONF southbound plugin, the CLI southbound plugin enables fully model-driven, transactional device management for internal and external OpenDaylight applications. In fact, the applications are completely unaware of underlying transport and can manage devices over the CLI plugin in the same exact way as over NETCONF.
-
-Once we have mounted the device, we can present an abstract, model-based network device and service interface to applications and users. For example, we can parse the output of an IOS command and return structured data.
-
-![CLI southbound plugin](cliSouthPlugin.png)
 
 ## Architecture
 This section provides an architectural overview of the plugin, focusing on the main conponents.

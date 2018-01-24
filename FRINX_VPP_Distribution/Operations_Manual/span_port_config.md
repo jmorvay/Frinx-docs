@@ -186,7 +186,7 @@ chmod 755 collect_stats.pl ./collect_stats.pl
 ```
 
 ## VPP CLIs for SPAN feature
-You can investigate the [tap_monitoring.sh](tap_monitoring.sh) script to see which VPP clis were used. There are a few in particular which are unique to this usecase:
+You can investigate the tap_monitoring.sh script [click here to download](tap_monitoring.sh) to see which VPP clis were used. There are a few in particular which are unique to this usecase:
 ```
 vppctl set int span <source interface name> l2 destination <destination interface name>
 vppctl show int #shows interface names and counters

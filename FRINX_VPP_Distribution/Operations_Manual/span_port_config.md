@@ -165,7 +165,7 @@ We don’t have to go through the whole installation process, because we can jus
 ```
 cp /var/lib/libvirt/images/centos-client.img /var/lib/libvirt/images/centos-server.img
 ```
-2. (Click [here](centos_server.xml) to download centos_server.xml)
+2. (Click [here](centos_server.xml) to access the centos_server.xml file)
 ```
 virsh define centos_server.xml 
 virsh start centos_server

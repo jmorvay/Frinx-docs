@@ -98,62 +98,61 @@ The script will create vhost-user interfaces for VMs and also create two Linux n
 qemu-img create -f qcow2 /var/lib/libvirt/images/centos-client.img 5G
 ```
 
-3. Download the Centos image mentioned above to `/var/lib/libvirt/images/`: (you can change the following URL to a mirror that’s closer to you)
+2. Download the Centos image mentioned above to `/var/lib/libvirt/images/`: (you can change the following URL to a mirror that’s closer to you)
 ```
 wget -P /var/lib/libvirt/images/ http://ftp.upjs.sk/pub/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso
 ```
-4. Create Vhost user socket in VPP:
+3. Create Vhost user socket in VPP:
 ```
 vppctl create vhost socket /tmp/centos_client.sock server
 ```
-5. The VM accepts VNC connections on port 5900, but we need to configure the firewall to allow connection to VNC ports: 
+4. The VM accepts VNC connections on port 5900, but we need to configure the firewall to allow connection to VNC ports: 
 ```
 firewall-cmd --permanent --zone=public --add-port=5900-5901/tcp firewall-cmd –reload
 ```
-6. Make sure you have a VNC client installed before starting the VM
+5. Make sure you have a VNC client installed before starting the VM
 
-7. Start the VM (Click [here](centos_client.xml) to access the centos_client.xml file)
+6. Start the VM (Click [here](centos_client.xml) to access the centos_client.xml file)
 ```
 virsh define centos_client.xml
 virsh start centos_client
 ```
 
-8. Connect to the VNC server running on the host: 
+7. Connect to the VNC server running on the host: 
 ```
 <host-ip>:5900
 ```
-9. Install the operating system
+8. Install the operating system
 
-    - Make sure you configure the network to use the non-vhost interface (its mac should start with 52:54:00)
+- Make sure you configure the network to use the non-vhost interface (its mac should start with 52:54:00)
 
-    - Also ensure you configure a root password
+- Also ensure you configure a root password
 
-10. After the VM reboots, log in with user root and the password you set up
+9. After the VM reboots, log in with user root and the password you set up
 
-11. Bring the non-vhost interface 
+10. Bring the non-vhost interface 
 ```
 up ifup ens6
 ```
-12. Connect to the on ens6 from the host
+11. Connect to the on ens6 from the host
 
-13. Modify the `/etc/sysconfig/network-scripts/ifcfg-ens6` script by changing ONBOOT to yes
+12. Modify the `/etc/sysconfig/network-scripts/ifcfg-ens6` script by changing ONBOOT to yes
 
-14. Configure the vhost port: 
+13. Configure the vhost port: 
 ```
 cat > /etc/sysconfig/network-scripts/ifcfg-eth0 << EOF TYPE=Ethernet PROXY_METHOD=none BROWSER_ONLY=no BOOTPROTO=static DEFROUTE=yes IPV4_FAILURE_FATAL=no NM_CONTROLLED=no NAME=eth0 UUID=b8f1a263-9495-43db-9ef1-0393225e4faf DEVICE=eth0 ONBOOT=yes IPADDR=10.0.0.21 NETMASK=255.255.255.0 GATEWAY=10.0.0.1 EOF
 ```
+14. Make sure that the interface names correspond with the script filenames
 
-15. Make sure that the interface names correspond with the script filenames
-
-16. Enable the vhost-user interface 
+15. Enable the vhost-user interface 
 ```
 ifup eth0
 ```
-17. Install Iperf3 
+16. Install Iperf3 
 ```
 yum -y install iperf3
 ```
-18. Disable firewall 
+17. Disable firewall 
 ```
 service firewalld stop 
 chkconfig firewalld off

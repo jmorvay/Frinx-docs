@@ -7,7 +7,7 @@
     - [Install virtualization packages](#install-virtualization-packages)
     - [Update qemu to 2.9.0](#update-qemu-to-290)
     - [Update packages and install other tools](#update-packages-and-install-other-tools)
-    - [Install vpp](#install-vpp)
+    - [Install VPP](#install-vpp)
     - [Set selinux to permissive](#set-selinux-to-permissive)
     - [Reboot the host to apply changes and boot with updated kernel](#reboot-the-host-to-apply-changes-and-boot-with-updated-kernel)
     - [Run vpp script](#run-vpp-script)
@@ -44,9 +44,10 @@ yum -y install http://mirror.centos.org/centos/7/virt/x86_64/kVM-common/qemu-img
 yum –y update
 yum -y install vim #optional
 ```
-## Install vpp
+## Install VPP
 1. First we need to set up the fdio repository: 
-```cat >> /etc/yum.repos.d/fdio-stable1801.repo << EOF [fdio-1801] name=fd.io stable 1801 branch latest merge baseurl=https://nexus.fd.io/content/repositories/fd.io.stable.1801.centos7/ enabled=1 gpgcheck=0 EOF
+```
+cat >> /etc/yum.repos.d/fdio-stable1801.repo << EOF [fdio-1801] name=fd.io stable 1801 branch latest merge baseurl=https://nexus.fd.io/content/repositories/fd.io.stable.1801.centos7/ enabled=1 gpgcheck=0 EOF
 ```
 2. 
 ```
@@ -67,7 +68,7 @@ grep HugePages /proc/meminfo
 - HugePages_Total should be 1024, if it isn’t, reboot and start VPP after reboot
 
 ## Set selinux to permissive
-1. 
+1. Enter the following:
 ```
 setenforce 0
 ```
@@ -80,12 +81,12 @@ reboot
 ## Run vpp script
 0. VPP must be running
 
-1. 
+1. Enter the following:
 ```
 chmod 755 tap_monitoring.sh
 ```
 
-2. 
+2. Enter the following:
 ```
 ./tap_monitoring.sh
 ```
@@ -97,12 +98,10 @@ The script will create vhost-user interfaces for VMs and also create two Linux n
 qemu-img create -f qcow2 /var/lib/libvirt/images/centos-client.img 5G
 ```
 
-3. Download the Centos image mentioned above to /var/lib/libvirt/images/: (you can change the following URL to a mirror that’s closer to you)
+3. Download the Centos image mentioned above to `/var/lib/libvirt/images/`: (you can change the following URL to a mirror that’s closer to you)
 ```
 wget -P /var/lib/libvirt/images/ http://ftp.upjs.sk/pub/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso
 ```
-    
-
 4. Create Vhost user socket in VPP:
 ```
 vppctl create vhost socket /tmp/centos_client.sock server
@@ -111,7 +110,7 @@ vppctl create vhost socket /tmp/centos_client.sock server
 ```
 firewall-cmd --permanent --zone=public --add-port=5900-5901/tcp firewall-cmd –reload
 ```
-6. Make sure you have a vnc client installed before starting the VM
+6. Make sure you have a VNC client installed before starting the VM
 
 7. Start the VM (Click [here](centos_client.xml) to download centos_client.xml)
 ```
@@ -161,7 +160,7 @@ chkconfig firewalld off
 ## Prepare server VM
 We don’t have to go through the whole installation process, because we can just copy the disk and change the IP of the vhost-user port:
 
-1. 
+1. Enter the following:
 ```
 cp /var/lib/libvirt/images/centos-client.img /var/lib/libvirt/images/centos-server.img
 ```

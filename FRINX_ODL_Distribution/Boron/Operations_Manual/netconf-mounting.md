@@ -1,7 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Boron/operations_manual.html)
 # NETCONF: Mounting a device
-
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [NETCONF: Mounting a device](#netconf-mounting-a-device)
   - [Step 1 Install features](#step-1-install-features)
@@ -11,7 +10,6 @@
   - [Step 3 Verify that connection was successful](#step-3-verify-that-connection-was-successful)
 
 <!-- TOC END -->
-
 In this example we connect the controller to itself to verify that that NETCONF features were installed correctly. It is similar to loopback but done over a NETCONF session. After mounting itself, the YANG model of the Frinx ODL Distribution is exposed by RESTCONF and is an interesting point to begin exploring.
 
 ## Step 1 Install features

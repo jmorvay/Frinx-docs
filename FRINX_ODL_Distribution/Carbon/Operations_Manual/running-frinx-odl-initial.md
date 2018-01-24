@@ -1,5 +1,6 @@
 [Documentation main page](https://frinxio.github.io/Frinx-docs/)
 [Operations Manual main page](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/operations_manual.html)
+# Activating the FRINX ODL Distribution
 <!-- TOC -->
 
 - [Activating the FRINX ODL Distribution](#activating-the-frinx-odl-distribution)
@@ -10,8 +11,6 @@
         - [Activating the FRINX ODL Distribution on a server without Internet access](#activating-the-frinx-odl-distribution-on-a-server-without-internet-access)
 
 <!-- /TOC -->
-# Activating the FRINX ODL Distribution
-
 This guide explains how to run the distribution for the first time. If you have run it previously, please see [this guide](running-frinx-odl-after-activation.md)
 
 ***System requirements***  

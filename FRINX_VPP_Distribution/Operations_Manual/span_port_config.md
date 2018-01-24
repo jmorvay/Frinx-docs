@@ -18,7 +18,8 @@
 
 <!-- /TOC -->
 # VPP Distribution: Configuring a Span Port on VPP
-This guide assumes a freshly installed system with CentOS-7-x86_64-Minimal-1708.iso. You can get it at http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso - choose your own mirror.
+This guide assumes a freshly installed system with CentOS-7-x86_64-Minimal-1708.iso. 
+You can access it [here](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso) - choose your own mirror.
 
 ## Install epel-release
 ```

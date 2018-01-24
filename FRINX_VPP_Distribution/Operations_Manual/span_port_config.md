@@ -25,11 +25,13 @@ You can access it [here](http://isoredirect.centos.org/centos/7/isos/x86_64/Cent
 ```
 yum install epel-release -y
 ```
+
 ## Install virtualization packages
 ```
 yum group install "Virtualization Host" –y
 yum install virt-manager libvirt libvirt-python python-virtinst libvirt-client –y
 ```
+
 ## Update QEMU to 2.9.0
 1. Install: 
 ```
@@ -43,6 +45,7 @@ yum -y install http://mirror.centos.org/centos/7/virt/x86_64/kVM-common/qemu-img
 yum –y update
 yum -y install vim #optional
 ```
+
 ## Install VPP
 1. First we need to set up the fdio repository: 
 ```
@@ -77,6 +80,7 @@ setenforce 0
 ```
 reboot
 ```
+
 ## Run VPP script
 1. VPP must be running
 2. Enter the following:
@@ -142,8 +146,10 @@ yum -y install iperf3
 service firewalld stop 
 chkconfig firewalld off
 ```
+
 ## Prepare server VM
 We don’t have to go through the whole installation process, because we can just copy the disk and change the IP of the vhost-user port:
+
 1. Enter the following:
 ```
 cp /var/lib/libvirt/images/centos-client.img /var/lib/libvirt/images/centos-server.img
@@ -162,6 +168,7 @@ arp –a ? (192.168.122.118) at 52:54:00:c2:13:f9 [ether] on virbr0
 ```
 ifdown eth0 && ifup eth0
 ```
+
 ## Run some traffic
 When both VMs are running we just need to set up Iperf:
 1. On the server VM: 
@@ -177,6 +184,7 @@ iperf –c 10.0.0.22
 ```
 chmod 755 collect_stats.pl ./collect_stats.pl
 ```
+
 ## VPP CLIs for SPAN feature
 You can investigate the [tap_monitoring.sh](tap_monitoring.sh) script to see which VPP clis were used. There are a few in particular which are unique to this usecase:
 ```

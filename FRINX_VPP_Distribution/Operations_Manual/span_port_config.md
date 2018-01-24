@@ -5,7 +5,7 @@
 - [VPP Distribution: Configuring a Span Port on VPP](#vpp-distribution-configuring-a-span-port-on-vpp)
     - [Install epel-release](#install-epel-release)
     - [Install virtualization packages](#install-virtualization-packages)
-    - [Update qemu to 2.9.0](#update-qemu-to-290)
+    - [Update QEMU to 2.9.0](#update-qemu-to-290)
     - [Update packages and install other tools](#update-packages-and-install-other-tools)
     - [Install VPP](#install-vpp)
     - [Set selinux to permissive](#set-selinux-to-permissive)
@@ -30,7 +30,7 @@ yum install epel-release -y
 yum group install "Virtualization Host" –y
 yum install virt-manager libvirt libvirt-python python-virtinst libvirt-client –y
 ```
-## Update qemu to 2.9.0
+## Update QEMU to 2.9.0
 1. Install: 
 ```
 yum -y install http://mirror.centos.org/centos/7/virt/x86_64/kVM-common/qemu-img-ev-2.9.0-16.el7_4.13.1.x86_64.rpm http://mirror.centos.org/centos/7/virt/x86_64/kVM-common/qemu-kVM-common-ev-2.9.0-16.el7_4.13.1.x86_64.rpm http://mirror.centos.org/centos/7/virt/x86_64/kVM-common/qemu-kVM-ev-2.9.0-16.el7_4.13.1.x86_64.rpm http://mirror.centos.org/centos/7/virt/x86_64/kVM-common/qemu-kVM-tools-ev-2.9.0-16.el7_4.13.1.x86_64.rpm
@@ -112,11 +112,12 @@ firewall-cmd --permanent --zone=public --add-port=5900-5901/tcp firewall-cmd –
 ```
 6. Make sure you have a VNC client installed before starting the VM
 
-7. Start the VM (Click [here](centos_client.xml) to download centos_client.xml)
+7. Start the VM (Click [here](centos_client.xml) to access the centos_client.xml file)
 ```
 virsh define centos_client.xml
 virsh start centos_client
 ```
+
 8. Connect to the VNC server running on the host: 
 ```
 <host-ip>:5900

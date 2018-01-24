@@ -10,7 +10,7 @@
     - [Install VPP](#install-vpp)
     - [Set selinux to permissive](#set-selinux-to-permissive)
     - [Reboot the host to apply changes and boot with updated kernel](#reboot-the-host-to-apply-changes-and-boot-with-updated-kernel)
-    - [Run vpp script](#run-vpp-script)
+    - [Run VPP script](#run-vpp-script)
     - [Prepare client VM](#prepare-client-vm)
     - [Prepare server VM](#prepare-server-vm)
     - [Run some traffic](#run-some-traffic)
@@ -78,7 +78,7 @@ setenforce 0
 ```
 reboot
 ```
-## Run vpp script
+## Run VPP script
 0. VPP must be running
 
 1. Enter the following:

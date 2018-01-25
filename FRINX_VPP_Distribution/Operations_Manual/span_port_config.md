@@ -180,7 +180,7 @@ iperf –s
 iperf –c 10.0.0.22
 ```
 3. This will sent packets from client VM to server VM through VPP. VPP will mirror packet from client’s vhost-user interface (vpp0 in linux)
-4. Various statistics can be gathered from `/sys/class/net/vpp0/statistics/`, or you can use the script collect_stats.pl (the script from Internet): 
+4. Various statistics can be gathered from `/sys/class/net/vpp0/statistics/`, or you can use the script collect_stats.pl ([click here](collect_stats.pl) to access): 
 ```
 chmod 755 collect_stats.pl ./collect_stats.pl
 ```

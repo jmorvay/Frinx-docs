@@ -24,7 +24,6 @@ After daexim export, the following files and folders are created in the karaf fo
 
 * daexim/
     * odl_backup_config.json - snapshot of config datastore
-    * odl_backup_models.json - name, version, namespace of each yang file
     * odl_backup_operational.json - snapshot of operational datastore
 * etc/org.opendaylight.daexim.cfg - property file discussed below
 * schemas/ - contains all yang files which were loaded in ODL when export was executed
@@ -41,7 +40,7 @@ Once import is done, karaf will continue booting other features. A consequence o
 
 > ${karaf.home}/schemas
 
-where all yang files are backed up (during export) and loaded (during karaf startup). Json files that contain actual data are stored and read from the following folder:
+where all yang files are extracted from karaf's system folder and loaded during karaf startup. Json files that contain actual data are stored and read from the following folder:
 
 > ${karaf.home}/daexim
 
@@ -192,7 +191,7 @@ When RPC schedule-export is invoked, the scheduled export is stored to OPER DS. 
 DataExportImportAppProvider, on each cluster node, receives a modification event about the scheduled export and schedules ExportTask which executes datastore export. Therefore, RPC for schedule export can be invoked on any cluster node and datastore is exported on each cluster node.
 
 **Import data to datastore**  
-Data import is done by calling RPC immediate-import. Data is imported from JSON files to CONF and OPER datastore in one transaction. In a cluster deployment, data import is executed only on a cluster node where RPC is invoked and data is replicated to other nodes within the transaction.
+Data import is done on startup when daexim.importOnInit is set to true. Data is imported from JSON files to CONF and OPER datastore in one transaction. In a cluster deployment, data import is executed only on a cluster node where RPC is invoked and data is replicated to other nodes within the transaction.
 
  [1]: https://wiki.opendaylight.org/view/Daexim:Main
  [2]: https://www.youtube.com/watch?v=fCWuuS-_xy4

@@ -85,35 +85,21 @@ curl -X PUT \
     }
   }'
 ```
-**Description of parameters:**
+**Description of parameters:**  
 "network-topology:node-id" : "IOSXR_F",  // name of node representing device  
-
 "cli-topology:host" : "10.0.0.203",  // IP address of device  
-
 "cli-topology:port" : "22",  // port on device  
-
 "cli-topology:transport-type" : "ssh",  // transport for CLI - "ssh" or "telnet"  
-
 "cli-topology:device-type" : "ios xr", // device type: "ios xr" "junos" "ios"  
-
 "cli-topology:device-version" : "*",  // version of device. Only "*" is supported now  
-
 "cli-topology:username" : "ios",  // username for CLI  
-
 "cli-topology:password" : "ios",  // password for CLI, also used for entering privileged mode on cisco devices  
-
 "cli-topology:secret" : "cisco", // used for entering privileged mode on cisco devices  
-
 "safe-command-execution": false, // wait until echo of the command is received from device  
-
 "cli-topology:keepalive-delay": 30, // send keepalive every 30 seconds  
-
 "cli-topology:keepalive-timeout": 30, // close connection if keepalive response is not received within 30 seconds  
-
 "node-extension:reconcile": false,  // read device configuration after connection is created  
-
 "cli-topology:journal-size": 150,  // number of commands in command history  
-
 "cli-topology:dry-run-journal-size": 150 // creates dry-run mountpoint and defines number of commands in command history for dry-run mountpoint  
 
 [Further examples in postman collection](https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Uniconfig%20Framework/postman_collection_uniconfig.json)

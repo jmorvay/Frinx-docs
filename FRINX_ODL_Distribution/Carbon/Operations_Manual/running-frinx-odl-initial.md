@@ -32,7 +32,6 @@ Please click on the following link to download a zip archive of the latest Carbo
 
 *Carbon*: [distribution-karaf-3.1.2.frinx.zip](https://license.frinx.io/download/distribution-karaf-3.1.2.frinx.zip)   
 
-Older distributions can be downloaded from our [archive](https://frinx.io/archive).
 By downloading the file you accept the FRINX software agreement: [EULA](7793505-v7-Frinx-ODL-Distribution-Software-End-User-License-Agreement.pdf)
 
 ## Activate your FRINX ODL Distribution  

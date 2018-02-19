@@ -3,11 +3,7 @@
 
 This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.<!--more-->
 
-**Note: Frinx CLI plugin safe command execution - Frinx ODL distribution 3.1.1 introduces safe command execution to the [Frinx CLI plugin](../FRINX_Features_User_Guide/cli/cli-service-module.md). This forces the cli session to wait for the device to echo back each command before issuing another command. To implement safe command execution, remove the following line (boxed in red in the image below) when issuing the Mount IOS XR cli REST call within Postman. For more info on using the Frinx API and Postman see [our guide](../API.md)**
-
-![safe command execution](safe-command-execution.png)
-
-**Note that FRINX ODL distribution 3.1.1 requires Java 8**  
+**Note that FRINX ODL distribution 3.1.2 requires Java 8**  
 To install Java:  
 Ubuntu: In a terminal type
 
@@ -18,36 +14,32 @@ CentOS: In a terminal type
     sudo yum install java-1.8.0-openjdk
 
 #### New Features, Improvements
-1. UniConfig framework has been added.
-2. Switches to G1 garbage collector.
-3. Uses 4GB heap by default.
-4. Enables crash on out of memory JVM flag.
+* CLI plugin
+    - Added clustering - tested with 3 node cluster
+    - Added option for disabling reconciliation
+    - Added caching of command outputs when root element is read
+* Unified layer and unitopo-units
+    - Implemented translation units for Junos 17.3 using NETCONF
+    - Added connection status to unified node in OPER DS
+    - Added clustering - tested with 3 node cluster
+* UniConfig framework
+    - Fixed removing of UniConfig node when CLI/NETCONF node is removed from CONF DS
+    - Added clustering - tested with 3 node cluster
+    - Dry-run node manager – A “dry run” only counterpart to UniConfig node manager that allows users and apps to verify configuration updates across network before pushing the actual configuration. Dry run produces a list of CLI commands to be executed per device for review. All additional validation implemented by the translation units is also triggered. Works only for CLI devices.
 
 #### Known Issues
 1. odl-netconf-clustered-topology:
-    * Contains critical bugs and is not intended for production use, so odl-netconf-topology was modified FRINX so that it can work in cluster. FRINX recommends to use odl-netconf-topology in production environments.
+    - Contains critical bugs and is not intended for production use, so odl-netconf-topology was modified by FRINX so that it can work in cluster. FRINX recommends using odl-netconf-topology in production environments.
 2. restconf/operational/entity-owners:
-    * entity-owners contains no data as entity ownership service was rewritten. Entity owners are assigned to the same node that hosts shard leaders.
+    - entity-owners contains no data as entity ownership service was rewritten. Entity owners are assigned to the same node that hosts shard leaders.
 3. CLI telnet connectivity with reverse telnet on Cisco devices is not supported in this release.
-4. CLI, UniConfig framework, and L2/3VPN service modules are supported on single node ODL.
+4. L2/3VPN service modules are supported on single node ODL.
 5. Readers returning default data for non-existent instances.
-    * When a specific query is issued for some child reader e.g. AreaReader in OSPF for XR, it will return default data back instead of a 404 response.
-6. UniConfig:
-    * Connection status is not shown under unified node
-    * *Workaround is to check connection status under CLI/NETCONF node*
-    * Uniconfig node is not removed from CONF DS when CLI/NETCONF node is unmount
-    * *Workaround is to remove uniconfig node manually e.g.:*
-```
-  curl -X DELETE \
-    http://192.168.56.11:8181/restconf/config/network-topology:network-topology/topology/uniconfig/node/IOSXR \
-    -H 'content-type: application/json'
-```    
-    * Create/update/delete of BFD attributes on LAG does not work
-    * Create/read/update/delete of ACL does not work properly
-    * Create/read/update/delete of SNMP does not work properly
+    - When a specific query is issued for a child readers e.g. AreaReader in OSPF for XR, it will return default data back instead of a 404 response.
+6.  Update in CLI translation units does not work properly - it invokes delete and create operations by default
 
 #### Opendaylight Carbon Release Notes
-The Frinx controller 3.1.1 is based on OpenDaylight Carbon.
+The Frinx controller 3.1.2 is based on OpenDaylight Carbon.
 
 <https://wiki.opendaylight.org/view/Simultaneous_Release/Carbon/Release_Notes>
 <https://wiki.opendaylight.org/view/Simultaneous_Release:Carbon_Release_Plan>

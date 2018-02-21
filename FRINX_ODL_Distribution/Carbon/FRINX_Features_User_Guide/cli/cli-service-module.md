@@ -204,7 +204,7 @@ Just as there are 2 types of data, there are 2 streams of data in the CLI southb
 
 *   **Config**  
     *   user/application intended configuration for the device
-    *   translation plugins/units need to handle this configuration in data handlers as C(reate), U(pdate) and D(elete) operations - these data flow only towards the device - these data are cached in the mountpoint so when application performs read Config, it gets the cached version
+    *   translation plugins/units need to handle this configuration in data handlers as C(reate), U(pdate) and D(elete) operations. R(ead) pulls this config data from the device and updates the cache on its way back.
 
 ![Config data](readCfg.png)
 

@@ -33,7 +33,7 @@ This installs the CLI topology and all supported CLI translation units for vario
 ### Optional - Change logging level
 If you require more detailed logging, then in the karaf terminal, run the following command to enable DEBUG/TRACE logging:
 
-    log:set TRACE io.frinx.cli
+    log:set DEBUG io.frinx.cli
 
 ### Postman - Import collection
 First follow the instructions [here](../../API.md) to download and use FRINX pre-configured Postman REST calls.

@@ -79,7 +79,7 @@ Once mounted, several other operations can be undertaken using the calls contain
 When you mount a device, you can also specify its password/secret which is used (mostly on Cisco devices) to access privileged mode. This can be done by including the following additional parameter to the REST call when mounting a device: 
 
 ~~~~
-"secret": "cisco" 
+"cli-topology:secret": "cisco" 
 ~~~~
 
 By default, if a Cisco device is not in privileged mode when connected to, the secret is used to enter privileged mode. If there is no secret set, the "password" will be used.

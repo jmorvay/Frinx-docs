@@ -35,7 +35,6 @@ REST calls used in examples can be downloaded as [uniconfig example postman coll
 [More about OpenDaylight controller and its concepts](http://docs.opendaylight.org/en/stable-carbon/developer-guide/controller.html?highlight=restconf)
 
 # UniConfig framework
-
 [Overview and architecture](../architecture/architecture.md)
 
 ## Mounting CLI or NETCONF network element
@@ -102,10 +101,9 @@ curl -X PUT \
 "cli-topology:journal-size": 150,  // number of commands in command history  
 "cli-topology:dry-run-journal-size": 150 // creates dry-run mountpoint and defines number of commands in command history for dry-run mountpoint  
 
-[Further examples in postman collection](https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Uniconfig%20Framework/postman_collection_uniconfig.json)
+[Further examples in Postman collection](https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Uniconfig%20Framework/postman_collection_uniconfig.json)
 
 ## UniConfig API description
-
 [uniconfig-manager.yang](yang/uniconfig-manager.yang)
 
 *NOTE: mouse hover on elements in tree representation shows description*

@@ -75,6 +75,16 @@ These contain subfolders **XR Mount**, **Classic Mount** and **Junos Mount** res
 
 Once mounted, several other operations can be undertaken using the calls contained within the other Postman collection subfolders e.g. *General Information, Interface, static route*.
 
+**Privileged mode**
+When you mount a device, you can also specify its password/secret which is used (mostly on Cisco devices) to access privileged mode. This can be done by including the following additional parameter to the REST call when mounting a device: 
+
+~~~~
+"secret": "cisco" 
+~~~~
+
+By default, if a Cisco device is not in privileged mode when connected to, the secret is used to enter privileged mode. If there is no secret set, the "password" will be used.
+
+**Mounting from an application**
 IOS devices can also be mounted and managed from an application. For instructions, please see the end of the [Developer Guide](../../FRINX_Features_Developer_Guide/cli/cli-service-module-devguide.html)
 
 #### How to mount and manage generic Linux VM devices over REST

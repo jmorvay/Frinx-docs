@@ -73,12 +73,15 @@ These contain subfolders **XR Mount**, **Classic Mount** and **Junos Mount** res
 
 Once mounted, several other operations can be undertaken using the calls contained within the other Postman collection subfolders e.g. *General Information, Interface, static route*.
 
-![mount](mount.png)
-
 **Example**
 Mounting of CISCO IOS-XR device as CLI node.
 
-RPC request:
+*Using Postman:*  
+![mount](mount.png)
+
+*Using Curl:*  
+RPC request:  
+
 ```
 curl -X PUT \
   http://192.168.56.11:8181/restconf/config/network-topology:network-topology/topology/cli/node/IOSXR \

@@ -6,23 +6,22 @@
     - [Mounting CLI or NETCONF network element](#mounting-cli-or-netconf-network-element)
         - [CLI](#cli)
         - [NETCONF](#netconf)
-        - [Example](#example)
     - [UniConfig API description](#uniconfig-api-description)
         - [Config initialization](#config-initialization)
         - [RPC sync-from-network](#rpc-sync-from-network)
-            - [Example](#example-1)
+            - [Example](#example)
         - [RPC commit](#rpc-commit)
-            - [Example](#example-2)
+            - [Example](#example-1)
         - [RPC create-snapshot](#rpc-create-snapshot)
-            - [Example](#example-3)
+            - [Example](#example-2)
         - [RPC delete-snapshot](#rpc-delete-snapshot)
-            - [Example](#example-4)
+            - [Example](#example-3)
         - [RPC calculate-diff](#rpc-calculate-diff)
-            - [Example](#example-5)
+            - [Example](#example-4)
         - [RPC replace-config-with-operational](#rpc-replace-config-with-operational)
-            - [Example](#example-6)
+            - [Example](#example-5)
         - [RPC replace-config-with-snapshot](#rpc-replace-config-with-snapshot)
-            - [Example](#example-7)
+            - [Example](#example-6)
 
 <!-- /TOC -->
 This document describes API and use cases how UniConfig framework can be used by
@@ -56,52 +55,7 @@ More information about NETCONF mounting can be found [here](http://docs.opendayl
 
 [Tree representation of netconf-node-topology.yang](yang/netconf-node-topology.html)
 
-### Example
-Mounting of CISCO IOS-XR device as CLI node.
-
-RPC request:
-```
-curl -X PUT \
-  http://192.168.56.11:8181/restconf/config/network-topology:network-topology/topology/cli/node/IOSXR \
-  -H 'content-type: application/json' \
-  -d '{
-    "network-topology:node" :
-    {
-      "network-topology:node-id" : "IOSXR",
-      "cli-topology:host" : "192.168.1.211",
-      "cli-topology:port" : "22",
-      "cli-topology:transport-type" : "ssh",
-      "cli-topology:device-type" : "ios xr",
-      "cli-topology:device-version" : "*",
-      "cli-topology:username" : "cisco",
-      "cli-topology:password" : "cisco",
-      "secret" : "cisco",
-      "safe-command-execution": false,
-      "cli-topology:keepalive-delay": 30,
-      "cli-topology:keepalive-timeout": 30,
-      "cli-topology:journal-size": 150,
-      "cli-topology:dry-run-journal-size": 150
-    }
-  }'
-```
-**Description of parameters:**  
-"network-topology:node-id" : "IOSXR_F",  // name of node representing device  
-"cli-topology:host" : "10.0.0.203",  // IP address of device  
-"cli-topology:port" : "22",  // port on device  
-"cli-topology:transport-type" : "ssh",  // transport for CLI - "ssh" or "telnet"  
-"cli-topology:device-type" : "ios xr", // device type: "ios xr" "junos" "ios"  
-"cli-topology:device-version" : "*",  // version of device. Only "*" is supported now  
-"cli-topology:username" : "ios",  // username for CLI  
-"cli-topology:password" : "ios",  // password for CLI, also used for entering privileged mode on cisco devices  
-"cli-topology:secret" : "cisco", // used for entering privileged mode on cisco devices  
-"safe-command-execution": false, // wait until echo of the command is received from device  
-"cli-topology:keepalive-delay": 30, // send keepalive every 30 seconds  
-"cli-topology:keepalive-timeout": 30, // close connection if keepalive response is not received within 30 seconds  
-"node-extension:reconcile": false,  // read device configuration after connection is created  
-"cli-topology:journal-size": 150,  // number of commands in command history  
-"cli-topology:dry-run-journal-size": 150 // creates dry-run mountpoint and defines number of commands in command history for dry-run mountpoint  
-
-[Further examples in Postman collection](https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Uniconfig%20Framework/postman_collection_uniconfig.json)
+[Examples in Postman collection](https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Uniconfig%20Framework/postman_collection_uniconfig.json)
 
 ## UniConfig API description
 [uniconfig-manager.yang](yang/uniconfig-manager.yang)

@@ -71,9 +71,54 @@ The **FRINX UNIFIED** postman collection (`postman_collection_unified.json`) acc
 
 These contain subfolders **XR Mount**, **Classic Mount** and **Junos Mount** respectively, with pre-configured calls for mounting those devices. As explained [here](../../API.md) you will need to import the relevant environment file and update its variables - this is because the calls contains several of these variables (visible in double sets of curly braces in the following image)
 
+Once mounted, several other operations can be undertaken using the calls contained within the other Postman collection subfolders e.g. *General Information, Interface, static route*.
+
 ![mount](mount.png)
 
-Once mounted, several other operations can be undertaken using the calls contained within the other Postman collection subfolders e.g. *General Information, Interface, static route*.
+**Example**
+Mounting of CISCO IOS-XR device as CLI node.
+
+RPC request:
+```
+curl -X PUT \
+  http://192.168.56.11:8181/restconf/config/network-topology:network-topology/topology/cli/node/IOSXR \
+  -H 'content-type: application/json' \
+  -d '{
+    "network-topology:node" :
+    {
+      "network-topology:node-id" : "IOSXR",
+      "cli-topology:host" : "192.168.1.211",
+      "cli-topology:port" : "22",
+      "cli-topology:transport-type" : "ssh",
+      "cli-topology:device-type" : "ios xr",
+      "cli-topology:device-version" : "*",
+      "cli-topology:username" : "cisco",
+      "cli-topology:password" : "cisco",
+      "secret" : "cisco",
+      "safe-command-execution": false,
+      "cli-topology:keepalive-delay": 30,
+      "cli-topology:keepalive-timeout": 30,
+      "cli-topology:journal-size": 150,
+      "cli-topology:dry-run-journal-size": 150
+    }
+  }'
+```
+**Description of parameters:**  
+"network-topology:node-id" : "IOSXR_F",  // name of node representing device  
+"cli-topology:host" : "10.0.0.203",  // IP address of device  
+"cli-topology:port" : "22",  // port on device  
+"cli-topology:transport-type" : "ssh",  // transport for CLI - "ssh" or "telnet"  
+"cli-topology:device-type" : "ios xr", // device type: "ios xr" "junos" "ios"  
+"cli-topology:device-version" : "*",  // version of device. Only "*" is supported now  
+"cli-topology:username" : "ios",  // username for CLI  
+"cli-topology:password" : "ios",  // password for CLI, also used for entering privileged mode on cisco devices  
+"cli-topology:secret" : "cisco", // used for entering privileged mode on cisco devices  
+"safe-command-execution": false, // wait until echo of the command is received from device  
+"cli-topology:keepalive-delay": 30, // send keepalive every 30 seconds  
+"cli-topology:keepalive-timeout": 30, // close connection if keepalive response is not received within 30 seconds  
+"node-extension:reconcile": false,  // read device configuration after connection is created  
+"cli-topology:journal-size": 150,  // number of commands in command history  
+"cli-topology:dry-run-journal-size": 150 // creates dry-run mountpoint and defines number of commands in command history for dry-run mountpoint  
 
 **Privileged mode**  
 When you mount a device, you can also specify its password/secret which is used (mostly on Cisco devices) to access privileged mode. This can be done by including the following additional parameter to the REST call when mounting a device: 

@@ -28,7 +28,7 @@ Then within karaf, install the required features:
 
     feature:install cli-topology cli-southbound-all-units odl-restconf
 
-This installs the CLI topology and all supported CLI translation units for various platforms e.g. IOS and IOS-XR.
+This installs the CLI topology and all supported CLI translation units for various platforms e.g. IOS, IOS-XR, Huawei VRP, and Brocade Ironware.
 
 ### Optional - Change logging level
 If you require more detailed logging, then in the karaf terminal, run the following command to enable DEBUG/TRACE logging:
@@ -94,11 +94,10 @@ curl -X PUT \
       "cli-topology:port" : "22",
       "cli-topology:transport-type" : "ssh",
       "cli-topology:device-type" : "ios xr",
-      "cli-topology:device-version" : "*",
+      "cli-topology:device-version" : "5.3.4",
       "cli-topology:username" : "cisco",
       "cli-topology:password" : "cisco",
-      "secret" : "cisco",
-      "safe-command-execution": false,
+      "cli-topology:secret" : "cisco",
       "cli-topology:keepalive-delay": 30,
       "cli-topology:keepalive-timeout": 30,
       "cli-topology:journal-size": 150,
@@ -112,14 +111,13 @@ curl -X PUT \
 "cli-topology:port" : "22",  // port on device  
 "cli-topology:transport-type" : "ssh",  // transport for CLI - "ssh" or "telnet"  
 "cli-topology:device-type" : "ios xr", // device type: "ios xr" "junos" "ios"  
-"cli-topology:device-version" : "*",  // version of device. Only "*" is supported now  
+"cli-topology:device-version" : "5.3.4",  // version of device. Use a specific version or "*" for a generic one. "*" enables only basic read and write management without the support of openconfig models
 "cli-topology:username" : "ios",  // username for CLI  
 "cli-topology:password" : "ios",  // password for CLI, also used for entering privileged mode on cisco devices  
 "cli-topology:secret" : "cisco", // used for entering privileged mode on cisco devices  
-"safe-command-execution": false, // wait until echo of the command is received from device  
 "cli-topology:keepalive-delay": 30, // send keepalive every 30 seconds  
 "cli-topology:keepalive-timeout": 30, // close connection if keepalive response is not received within 30 seconds  
-"node-extension:reconcile": false,  // read device configuration after connection is created  
+"node-extension:reconcile": false,  // read device configuration after connection is created to fill in the cache  
 "cli-topology:journal-size": 150,  // number of commands in command history  
 "cli-topology:dry-run-journal-size": 150 // creates dry-run mountpoint and defines number of commands in command history for dry-run mountpoint  
 
@@ -158,7 +156,7 @@ To operate in dry-run mode (useful for testing or demo purposes), you can use on
       "cli-topology:transport-type" : "ssh",
 
       "cli-topology:device-type" : "ios",
-      "cli-topology:device-version" : "*",
+      "cli-topology:device-version" : "15.2",
 
       "cli-topology:username" : "cisco",
       "cli-topology:password" : "cisco",
@@ -212,7 +210,9 @@ These are the basic APIs every mountpoint in MD-SAL needs to provide. The actual
 The CLI southbound plugin is as generic as possible. However, the device-specific translation code (from YANG data -> CLI commands and vice versa), needs to be encapsulated in a device-specific translation plugin. E.g. Cisco IOS specific translation code needs to be implemented by Cisco IOS translation plugin before Opendaylight can manage IOS devices. These translation plugins in conjunction with the generic translation layer allow for a CLI mountpoint to be created.
 
 ##### Device specific translation plugin
-Device specific translation plugin is a set of: - YANG models  
+Device specific translation plugin is a set of: 
+
+- YANG models  
 - Data handlers  
 - RPC implementations
 
@@ -274,6 +274,12 @@ There might be situations where there are inconsistencies between actual configu
 *   Allow the mountpoint to sync its state when first connecting to the device
 *   Allow apps/users to request synchronization when an inconsistent state is expected e.g. manual configuration of the device
 
+Reconciliation is performed when issuing any READ operation. If the data coming from device is different compared to mountpoint cache, the cache will be updated automatically.
+
+Initial reconciliation (after connection has been established) takes place automatically on the CLI layer. However it can be disabled with attribute "node-extension:reconcile" set to false when mounting a device. 
+This is useful when Uniconfig framework is installed in Opendaylight. Uniconfig framework performs its own reconciliation when devices are connected so if both the Uniconfig and CLI layer reconcile, the mount process is unnecessarily prolonged.
+That's why it is advised to turn off reconciliation on the CLI layer when using Uniconfig framework.
+
 ## Supported devices
 Please see [here](cli_supported_devices.md) for a structured list of device types currently supported by the CLI southbound plugin and configuration aspects implemented for them.
 
@@ -287,6 +293,21 @@ The following table records the FRINX ODL versions in which particular CLI featu
 | FEATURE GUIDE         |             |                                                                                                                                                                                                                                                                                |
 |-----------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | CLI plugin:           |             |                                                                                                                                                                                                                                                                                |
+| Feature introduced in | FRINX 3.1.3 | Removed “safe-command-execution” from mount request |
+| Feature introduced in | FRINX 3.1.3 | Do not return default data for non existing nodes |
+| Feature introduced in | FRINX 3.1.3 | Fix IO issues causing multiple network connections to device after reconnect |
+| Feature introduced in | FRINX 3.1.3 | IOS Classic & XR: Define supported versions for IOS and IOS XR devices for cli management: IOS [12.*, 15.*], IOS XR [4.*, 5.*, 6.*] |
+| Feature introduced in | FRINX 3.1.3 | IOS XR: Call “configure terminal” and “commit” commands only once per transaction for IOS XR |
+| Feature introduced in | FRINX 3.1.3 | IOS Classic & XR: Rely on device command validation instead of validation on ODL side for cli devices: IOS, IOS XE and IOS XR |
+| Feature introduced in | FRINX 3.1.3 | IOS Classic: Use only show running-config commands to pull configuration from IOS classic and XE |
+| Feature introduced in | FRINX 3.1.3 | IOS XR: Routing protocol enhancements for IOS XR |
+| Feature introduced in | FRINX 3.1.3 | IOS XR: LAG interface management enhancements for IOS XR |
+| Feature introduced in | FRINX 3.1.3 | IOS XR: Interface management enhancements for IOS XR |
+| Feature introduced in | FRINX 3.1.3 | IOS XR: Route policy management added for IOS XR |
+| Feature introduced in | FRINX 3.1.3 | IOS XR: ACL management added for IOS XR |
+| Feature introduced in | FRINX 3.1.3 | IOS XR: QOS management added for IOS XR |
+| Feature introduced in | FRINX 3.1.3 | IOS Classic: BGP peer group management added for IOS classic and IOS XE|
+| Feature introduced in | FRINX 3.1.3 | Configuration metadata (last commit fingerprint) exposed for devices                                                                                                                                                                                                           |
 | Feature introduced in | FRINX 3.1.2 | Added caching of command outputs when root element is read - We now provide intelligent caching/preprocessing of commands when e.g. sh run interface Loopback1 is invoked, while reading all configuration from the device, we split the commands, execute just a single sh run and parse the output modifiers internally.                                          |
 | Feature introduced in | FRINX 3.1.1 | Safe-command-execution for CLI connections - the CLI session now waits for the device to echo back each command. So whenever a device takes longer to process a particular command, FRINX ODL waits before issuing the subsequent one                                          |
 | Feature introduced in | FRINX 3.1.1 | Support for 'secret' parameter when mounting a device (normally a Cisco device) for accessing privileged mode                                          |

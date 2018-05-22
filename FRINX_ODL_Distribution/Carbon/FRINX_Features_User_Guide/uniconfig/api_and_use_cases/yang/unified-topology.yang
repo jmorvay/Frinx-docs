@@ -15,9 +15,8 @@ module unified-topology {
         leaf connection-status {
             config false;
             type enumeration {
-                enum connecting;
+                enum disconnected;
                 enum connected;
-                enum unable-to-connect;
             }
         }
         container available-capabilities {
@@ -33,13 +32,14 @@ module unified-topology {
     }
 
     augment "/nt:network-topology/nt:topology/nt:topology-types" {
+        ext:augment-identifier "unified-topo";
         container unified {
         }
     }
 
     augment "/nt:network-topology/nt:topology/nt:node" {
       when "../../nt:topology-types/unified";
-      ext:augment-identifier "unified-node";
+      ext:augment-identifier "unitopo-node";
 
       uses unified-node-fields;
     }

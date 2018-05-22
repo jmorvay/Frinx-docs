@@ -219,6 +219,38 @@ is returned in RPC output.">commit</abbr>
                     <td>current</td>
                     <td nowrap>/um:commit/um:input</td>
                     </tr> 
+<tr id="2-1-1-1" class="a">
+                       <td nowrap id="p4000">
+                          <div id="p5000" class="tier4">
+                             <a href="#" id="p6000"
+                                onclick="toggleRows(this);return false"
+                                class="folder">&nbsp;
+                             </a>
+                             <abbr title="No description">target-nodes</abbr>
+                          </div>
+                       </td> 
+<td nowrap>container</td>
+                    <td nowrap></td>
+                    <td nowrap>no config</td>
+                    <td></td>
+                    <td>current</td>
+                    <td nowrap>/um:commit/um:input/um:target-nodes</td>
+                    </tr> 
+<tr id="2-1-1-1-1" class="a">
+                       <td nowrap>
+                          <div id=9999 class=tier5>
+                             <a class="leaf-list">&nbsp;</a>
+                             <abbr title="No description">  node </abbr>
+                          </div>
+                       </td>
+                       <td>leaf-list</td>
+                       <td nowrap><abbr title="nt:node-id
+inet:uri
+">nt:node-id</abbr></td>
+                       <td nowrap>no config</td>
+                       <td>*</td>
+                       <td>current</td>
+                       <td nowrap>/um:commit/um:input/um:target-nodes/um:node</td</tr> 
 <tr id="2-1-2" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier3">
@@ -236,7 +268,7 @@ is returned in RPC output.">commit</abbr>
                     <td>current</td>
                     <td nowrap>/um:commit/um:output</td>
                     </tr> 
-<tr id="2-1-2-1" class="a">
+<tr id="2-1-2-2" class="a">
                        <td nowrap>
                           <div id=9999 class=tier4>
                              <a class="leaf">&nbsp;</a>
@@ -247,12 +279,12 @@ Fail otherwise."> <em> overall-configuration-status </em></abbr>
                        <td>leaf</td>
                        <td nowrap><abbr title="operation-result-type
 enumeration
- : {complete,fail,}">operation-result-type</abbr></td>
+ : {complete,fail,ignored,}">operation-result-type</abbr></td>
                        <td nowrap>no config</td>
                        <td>?</td>
                        <td>current</td>
                        <td nowrap>/um:commit/um:output/um:overall-configuration-status</td</tr> 
-<tr id="2-1-2-2" class="a">
+<tr id="2-1-2-3" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier4">
                              <a href="#" id="p6000"
@@ -269,7 +301,7 @@ enumeration
                     <td>current</td>
                     <td nowrap>/um:commit/um:output/um:node-config-results</td>
                     </tr> 
-<tr id="2-1-2-2-1" class="a">
+<tr id="2-1-2-3-2" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier5">
                              <a href="#" id="p6000"
@@ -287,7 +319,7 @@ Rollback status is empty if rollback was not executed.">node-config-result[nodeI
                     <td>current</td>
                     <td nowrap>/um:commit/um:output/um:node-config-results/um:node-config-result</td>
                     </tr> 
-<tr id="2-1-2-2-1-1" class="a">
+<tr id="2-1-2-3-2-1" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -302,7 +334,7 @@ inet:uri
                        <td></td>
                        <td>current</td>
                        <td nowrap>/um:commit/um:output/um:node-config-results/um:node-config-result/um:nodeId</td</tr> 
-<tr id="2-1-2-2-1-2" class="a">
+<tr id="2-1-2-3-2-2" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -312,12 +344,12 @@ inet:uri
                        <td>leaf</td>
                        <td nowrap><abbr title="operation-result-type
 enumeration
- : {complete,fail,}">operation-result-type</abbr></td>
+ : {complete,fail,ignored,}">operation-result-type</abbr></td>
                        <td nowrap>no config</td>
                        <td>?</td>
                        <td>current</td>
                        <td nowrap>/um:commit/um:output/um:node-config-results/um:node-config-result/um:configuration-status</td</tr> 
-<tr id="2-1-2-2-1-3" class="a">
+<tr id="2-1-2-3-2-3" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -327,12 +359,12 @@ enumeration
                        <td>leaf</td>
                        <td nowrap><abbr title="operation-result-type
 enumeration
- : {complete,fail,}">operation-result-type</abbr></td>
+ : {complete,fail,ignored,}">operation-result-type</abbr></td>
                        <td nowrap>no config</td>
                        <td>?</td>
                        <td>current</td>
                        <td nowrap>/um:commit/um:output/um:node-config-results/um:node-config-result/um:rollback-status</td</tr> 
-<tr id="2-1-2-2-1-4" class="a">
+<tr id="2-1-2-3-2-4" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -347,7 +379,7 @@ enumeration
                        <td>?</td>
                        <td>current</td>
                        <td nowrap>/um:commit/um:output/um:node-config-results/um:node-config-result/um:error-type</td</tr> 
-<tr id="2-1-2-2-1-5" class="a">
+<tr id="2-1-2-3-2-5" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -361,6 +393,21 @@ enumeration
                        <td>?</td>
                        <td>current</td>
                        <td nowrap>/um:commit/um:output/um:node-config-results/um:node-config-result/um:error-message</td</tr> 
+<tr id="2-1-2-3-2-6" class="a">
+                       <td nowrap>
+                          <div id=9999 class=tier6>
+                             <a class="leaf">&nbsp;</a>
+                             <abbr title="Cli commands that needs to be executed on node to reach intended
+configuration state"> <em> cli-configuration </em></abbr>
+                          </div>
+                       </td>
+                       <td>leaf</td>
+                       <td nowrap><abbr title="string
+">string</abbr></td>
+                       <td nowrap>no config</td>
+                       <td>?</td>
+                       <td>current</td>
+                       <td nowrap>/um:commit/um:output/um:node-config-results/um:node-config-result/um:cli-configuration</td</tr> 
 <tr id="2-2" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier2">
@@ -395,6 +442,38 @@ enumeration
                     <td>current</td>
                     <td nowrap>/um:replace-config-with-operational/um:input</td>
                     </tr> 
+<tr id="2-2-3-4" class="a">
+                       <td nowrap id="p4000">
+                          <div id="p5000" class="tier4">
+                             <a href="#" id="p6000"
+                                onclick="toggleRows(this);return false"
+                                class="folder">&nbsp;
+                             </a>
+                             <abbr title="No description">target-nodes</abbr>
+                          </div>
+                       </td> 
+<td nowrap>container</td>
+                    <td nowrap></td>
+                    <td nowrap>no config</td>
+                    <td></td>
+                    <td>current</td>
+                    <td nowrap>/um:replace-config-with-operational/um:input/um:target-nodes</td>
+                    </tr> 
+<tr id="2-2-3-4-3" class="a">
+                       <td nowrap>
+                          <div id=9999 class=tier5>
+                             <a class="leaf-list">&nbsp;</a>
+                             <abbr title="No description">  node </abbr>
+                          </div>
+                       </td>
+                       <td>leaf-list</td>
+                       <td nowrap><abbr title="nt:node-id
+inet:uri
+">nt:node-id</abbr></td>
+                       <td nowrap>no config</td>
+                       <td>*</td>
+                       <td>current</td>
+                       <td nowrap>/um:replace-config-with-operational/um:input/um:target-nodes/um:node</td</tr> 
 <tr id="2-2-4" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier3">
@@ -412,7 +491,7 @@ enumeration
                     <td>current</td>
                     <td nowrap>/um:replace-config-with-operational/um:output</td>
                     </tr> 
-<tr id="2-2-4-3" class="a">
+<tr id="2-2-4-5" class="a">
                        <td nowrap>
                           <div id=9999 class=tier4>
                              <a class="leaf">&nbsp;</a>
@@ -422,12 +501,12 @@ enumeration
                        <td>leaf</td>
                        <td nowrap><abbr title="operation-result-type
 enumeration
- : {complete,fail,}">operation-result-type</abbr></td>
+ : {complete,fail,ignored,}">operation-result-type</abbr></td>
                        <td nowrap>no config</td>
                        <td>?</td>
                        <td>current</td>
                        <td nowrap>/um:replace-config-with-operational/um:output/um:result</td</tr> 
-<tr id="2-2-4-4" class="a">
+<tr id="2-2-4-6" class="a">
                        <td nowrap>
                           <div id=9999 class=tier4>
                              <a class="leaf">&nbsp;</a>
@@ -475,38 +554,38 @@ enumeration
                     <td>current</td>
                     <td nowrap>/um:sync-from-network/um:input</td>
                     </tr> 
-<tr id="2-3-5-5" class="a">
+<tr id="2-3-5-7" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier4">
                              <a href="#" id="p6000"
                                 onclick="toggleRows(this);return false"
                                 class="folder">&nbsp;
                              </a>
-                             <abbr title="Uniconfig node to sync from network element.">node-to-sync[node-id]</abbr>
+                             <abbr title="No description">target-nodes</abbr>
                           </div>
                        </td> 
-<td nowrap>list</td>
+<td nowrap>container</td>
                     <td nowrap></td>
                     <td nowrap>no config</td>
                     <td></td>
                     <td>current</td>
-                    <td nowrap>/um:sync-from-network/um:input/um:node-to-sync</td>
+                    <td nowrap>/um:sync-from-network/um:input/um:target-nodes</td>
                     </tr> 
-<tr id="2-3-5-5-2" class="a">
+<tr id="2-3-5-7-4" class="a">
                        <td nowrap>
                           <div id=9999 class=tier5>
-                             <a class="leaf">&nbsp;</a>
-                             <abbr title="No description">  node-id </abbr>
+                             <a class="leaf-list">&nbsp;</a>
+                             <abbr title="No description">  node </abbr>
                           </div>
                        </td>
-                       <td>leaf</td>
+                       <td>leaf-list</td>
                        <td nowrap><abbr title="nt:node-id
 inet:uri
 ">nt:node-id</abbr></td>
                        <td nowrap>no config</td>
-                       <td></td>
+                       <td>*</td>
                        <td>current</td>
-                       <td nowrap>/um:sync-from-network/um:input/um:node-to-sync/um:node-id</td</tr> 
+                       <td nowrap>/um:sync-from-network/um:input/um:target-nodes/um:node</td</tr> 
 <tr id="2-3-6" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier3">
@@ -524,7 +603,7 @@ inet:uri
                     <td>current</td>
                     <td nowrap>/um:sync-from-network/um:output</td>
                     </tr> 
-<tr id="2-3-6-6" class="a">
+<tr id="2-3-6-8" class="a">
                        <td nowrap>
                           <div id=9999 class=tier4>
                              <a class="leaf">&nbsp;</a>
@@ -535,12 +614,12 @@ Fail otherwise."> <em> overall-sync-status </em></abbr>
                        <td>leaf</td>
                        <td nowrap><abbr title="operation-result-type
 enumeration
- : {complete,fail,}">operation-result-type</abbr></td>
+ : {complete,fail,ignored,}">operation-result-type</abbr></td>
                        <td nowrap>no config</td>
                        <td>?</td>
                        <td>current</td>
                        <td nowrap>/um:sync-from-network/um:output/um:overall-sync-status</td</tr> 
-<tr id="2-3-6-7" class="a">
+<tr id="2-3-6-9" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier4">
                              <a href="#" id="p6000"
@@ -557,7 +636,7 @@ enumeration
                     <td>current</td>
                     <td nowrap>/um:sync-from-network/um:output/um:node-sync-status-results</td>
                     </tr> 
-<tr id="2-3-6-7-3" class="a">
+<tr id="2-3-6-9-5" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier5">
                              <a href="#" id="p6000"
@@ -575,7 +654,7 @@ to actual uniconfig node.">node-sync-status-result[nodeId]</abbr>
                     <td>current</td>
                     <td nowrap>/um:sync-from-network/um:output/um:node-sync-status-results/um:node-sync-status-result</td>
                     </tr> 
-<tr id="2-3-6-7-3-6" class="a">
+<tr id="2-3-6-9-5-7" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -590,7 +669,7 @@ inet:uri
                        <td></td>
                        <td>current</td>
                        <td nowrap>/um:sync-from-network/um:output/um:node-sync-status-results/um:node-sync-status-result/um:nodeId</td</tr> 
-<tr id="2-3-6-7-3-7" class="a">
+<tr id="2-3-6-9-5-8" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -605,7 +684,7 @@ enumeration
                        <td>?</td>
                        <td>current</td>
                        <td nowrap>/um:sync-from-network/um:output/um:node-sync-status-results/um:node-sync-status-result/um:error-type</td</tr> 
-<tr id="2-3-6-7-3-8" class="a">
+<tr id="2-3-6-9-5-9" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -653,6 +732,38 @@ enumeration
                     <td>current</td>
                     <td nowrap>/um:calculate-diff/um:input</td>
                     </tr> 
+<tr id="2-4-7-10" class="a">
+                       <td nowrap id="p4000">
+                          <div id="p5000" class="tier4">
+                             <a href="#" id="p6000"
+                                onclick="toggleRows(this);return false"
+                                class="folder">&nbsp;
+                             </a>
+                             <abbr title="No description">target-nodes</abbr>
+                          </div>
+                       </td> 
+<td nowrap>container</td>
+                    <td nowrap></td>
+                    <td nowrap>no config</td>
+                    <td></td>
+                    <td>current</td>
+                    <td nowrap>/um:calculate-diff/um:input/um:target-nodes</td>
+                    </tr> 
+<tr id="2-4-7-10-6" class="a">
+                       <td nowrap>
+                          <div id=9999 class=tier5>
+                             <a class="leaf-list">&nbsp;</a>
+                             <abbr title="No description">  node </abbr>
+                          </div>
+                       </td>
+                       <td>leaf-list</td>
+                       <td nowrap><abbr title="nt:node-id
+inet:uri
+">nt:node-id</abbr></td>
+                       <td nowrap>no config</td>
+                       <td>*</td>
+                       <td>current</td>
+                       <td nowrap>/um:calculate-diff/um:input/um:target-nodes/um:node</td</tr> 
 <tr id="2-4-8" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier3">
@@ -670,7 +781,7 @@ enumeration
                     <td>current</td>
                     <td nowrap>/um:calculate-diff/um:output</td>
                     </tr> 
-<tr id="2-4-8-8" class="a">
+<tr id="2-4-8-11" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier4">
                              <a href="#" id="p6000"
@@ -687,7 +798,7 @@ enumeration
                     <td>current</td>
                     <td nowrap>/um:calculate-diff/um:output/um:node-with-diff</td>
                     </tr> 
-<tr id="2-4-8-8-4" class="a">
+<tr id="2-4-8-11-7" class="a">
                        <td nowrap>
                           <div id=9999 class=tier5>
                              <a class="leaf">&nbsp;</a>
@@ -702,7 +813,7 @@ inet:uri
                        <td></td>
                        <td>current</td>
                        <td nowrap>/um:calculate-diff/um:output/um:node-with-diff/um:node-id</td</tr> 
-<tr id="2-4-8-8-5" class="a">
+<tr id="2-4-8-11-8" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier5">
                              <a href="#" id="p6000"
@@ -719,7 +830,7 @@ inet:uri
                     <td>current</td>
                     <td nowrap>/um:calculate-diff/um:output/um:node-with-diff/um:created-data</td>
                     </tr> 
-<tr id="2-4-8-8-5-9" class="a">
+<tr id="2-4-8-11-8-10" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -733,7 +844,7 @@ inet:uri
                        <td></td>
                        <td>current</td>
                        <td nowrap>/um:calculate-diff/um:output/um:node-with-diff/um:created-data/um:path</td</tr> 
-<tr id="2-4-8-8-5-10" class="a">
+<tr id="2-4-8-11-8-11" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -747,7 +858,7 @@ inet:uri
                        <td>?</td>
                        <td>current</td>
                        <td nowrap>/um:calculate-diff/um:output/um:node-with-diff/um:created-data/um:data</td</tr> 
-<tr id="2-4-8-8-6" class="a">
+<tr id="2-4-8-11-9" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier5">
                              <a href="#" id="p6000"
@@ -764,7 +875,7 @@ inet:uri
                     <td>current</td>
                     <td nowrap>/um:calculate-diff/um:output/um:node-with-diff/um:deleted-data</td>
                     </tr> 
-<tr id="2-4-8-8-6-11" class="a">
+<tr id="2-4-8-11-9-12" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -778,7 +889,7 @@ inet:uri
                        <td></td>
                        <td>current</td>
                        <td nowrap>/um:calculate-diff/um:output/um:node-with-diff/um:deleted-data/um:path</td</tr> 
-<tr id="2-4-8-8-6-12" class="a">
+<tr id="2-4-8-11-9-13" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -792,7 +903,7 @@ inet:uri
                        <td>?</td>
                        <td>current</td>
                        <td nowrap>/um:calculate-diff/um:output/um:node-with-diff/um:deleted-data/um:data</td</tr> 
-<tr id="2-4-8-8-7" class="a">
+<tr id="2-4-8-11-10" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier5">
                              <a href="#" id="p6000"
@@ -809,7 +920,7 @@ inet:uri
                     <td>current</td>
                     <td nowrap>/um:calculate-diff/um:output/um:node-with-diff/um:updated-data</td>
                     </tr> 
-<tr id="2-4-8-8-7-13" class="a">
+<tr id="2-4-8-11-10-14" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -823,7 +934,7 @@ inet:uri
                        <td></td>
                        <td>current</td>
                        <td nowrap>/um:calculate-diff/um:output/um:node-with-diff/um:updated-data/um:path</td</tr> 
-<tr id="2-4-8-8-7-14" class="a">
+<tr id="2-4-8-11-10-15" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -837,7 +948,7 @@ inet:uri
                        <td>?</td>
                        <td>current</td>
                        <td nowrap>/um:calculate-diff/um:output/um:node-with-diff/um:updated-data/um:data-actual</td</tr> 
-<tr id="2-4-8-8-7-15" class="a">
+<tr id="2-4-8-11-10-16" class="a">
                        <td nowrap>
                           <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
@@ -858,8 +969,11 @@ inet:uri
                                 onclick="toggleRows(this);return false"
                                 class="folder">&nbsp;
                              </a>
-                             <abbr title="Creates new network-topology with the given name
-as a snapshot of actual uniconfig topology.">create-snapshot</abbr>
+                             <abbr title="Executes configuration of network elements based on
+diff between actual configuration and intended configuration.
+Before execution a fingerprint check is executed. If an error occurs,
+automatic rollback is executed. Result of execution
+is returned in RPC output.">checked-commit</abbr>
                           </div>
                        </td> 
 <td nowrap>rpc</td>
@@ -867,7 +981,7 @@ as a snapshot of actual uniconfig topology.">create-snapshot</abbr>
                     <td nowrap></td>
                     <td></td>
                     <td>current</td>
-                    <td nowrap>/um:create-snapshot</td>
+                    <td nowrap>/um:checked-commit</td>
                     </tr> 
 <tr id="2-5-9" class="a">
                        <td nowrap id="p4000">
@@ -884,22 +998,40 @@ as a snapshot of actual uniconfig topology.">create-snapshot</abbr>
                     <td nowrap>no config</td>
                     <td></td>
                     <td>current</td>
-                    <td nowrap>/um:create-snapshot/um:input</td>
+                    <td nowrap>/um:checked-commit/um:input</td>
                     </tr> 
-<tr id="2-5-9-9" class="a">
+<tr id="2-5-9-12" class="a">
+                       <td nowrap id="p4000">
+                          <div id="p5000" class="tier4">
+                             <a href="#" id="p6000"
+                                onclick="toggleRows(this);return false"
+                                class="folder">&nbsp;
+                             </a>
+                             <abbr title="No description">target-nodes</abbr>
+                          </div>
+                       </td> 
+<td nowrap>container</td>
+                    <td nowrap></td>
+                    <td nowrap>no config</td>
+                    <td></td>
+                    <td>current</td>
+                    <td nowrap>/um:checked-commit/um:input/um:target-nodes</td>
+                    </tr> 
+<tr id="2-5-9-12-11" class="a">
                        <td nowrap>
-                          <div id=9999 class=tier4>
-                             <a class="leaf">&nbsp;</a>
-                             <abbr title="Name of snapshot."> <em> name </em></abbr>
+                          <div id=9999 class=tier5>
+                             <a class="leaf-list">&nbsp;</a>
+                             <abbr title="No description">  node </abbr>
                           </div>
                        </td>
-                       <td>leaf</td>
-                       <td nowrap><abbr title="string
-">string</abbr></td>
+                       <td>leaf-list</td>
+                       <td nowrap><abbr title="nt:node-id
+inet:uri
+">nt:node-id</abbr></td>
                        <td nowrap>no config</td>
-                       <td>?</td>
+                       <td>*</td>
                        <td>current</td>
-                       <td nowrap>/um:create-snapshot/um:input/um:name</td</tr> 
+                       <td nowrap>/um:checked-commit/um:input/um:target-nodes/um:node</td</tr> 
 <tr id="2-5-10" class="a">
                        <td nowrap id="p4000">
                           <div id="p5000" class="tier3">
@@ -915,217 +1047,124 @@ as a snapshot of actual uniconfig topology.">create-snapshot</abbr>
                     <td nowrap>no config</td>
                     <td></td>
                     <td>current</td>
-                    <td nowrap>/um:create-snapshot/um:output</td>
+                    <td nowrap>/um:checked-commit/um:output</td>
                     </tr> 
-<tr id="2-5-10-10" class="a">
+<tr id="2-5-10-13" class="a">
                        <td nowrap>
                           <div id=9999 class=tier4>
                              <a class="leaf">&nbsp;</a>
-                             <abbr title="Result of operation."> <em> result </em></abbr>
+                             <abbr title="If configuration on all network elements is successful returns Complete,
+Fail otherwise."> <em> overall-configuration-status </em></abbr>
                           </div>
                        </td>
                        <td>leaf</td>
                        <td nowrap><abbr title="operation-result-type
 enumeration
- : {complete,fail,}">operation-result-type</abbr></td>
+ : {complete,fail,ignored,}">operation-result-type</abbr></td>
                        <td nowrap>no config</td>
                        <td>?</td>
                        <td>current</td>
-                       <td nowrap>/um:create-snapshot/um:output/um:result</td</tr> 
-<tr id="2-5-10-11" class="a">
-                       <td nowrap>
-                          <div id=9999 class=tier4>
-                             <a class="leaf">&nbsp;</a>
-                             <abbr title="Error message describing operation failure."> <em> error-message </em></abbr>
-                          </div>
-                       </td>
-                       <td>leaf</td>
-                       <td nowrap><abbr title="string
-">string</abbr></td>
-                       <td nowrap>no config</td>
-                       <td>?</td>
-                       <td>current</td>
-                       <td nowrap>/um:create-snapshot/um:output/um:error-message</td</tr> 
-<tr id="2-6" class="a">
+                       <td nowrap>/um:checked-commit/um:output/um:overall-configuration-status</td</tr> 
+<tr id="2-5-10-14" class="a">
                        <td nowrap id="p4000">
-                          <div id="p5000" class="tier2">
+                          <div id="p5000" class="tier4">
                              <a href="#" id="p6000"
                                 onclick="toggleRows(this);return false"
                                 class="folder">&nbsp;
                              </a>
-                             <abbr title="Deletes existing network-topology with the given name
-as a snapshot.">delete-snapshot</abbr>
+                             <abbr title="Result of configuration and rollback on each configured network element.">node-config-results</abbr>
                           </div>
                        </td> 
-<td nowrap>rpc</td>
-                    <td nowrap></td>
-                    <td nowrap></td>
-                    <td></td>
-                    <td>current</td>
-                    <td nowrap>/um:delete-snapshot</td>
-                    </tr> 
-<tr id="2-6-11" class="a">
-                       <td nowrap id="p4000">
-                          <div id="p5000" class="tier3">
-                             <a href="#" id="p6000"
-                                onclick="toggleRows(this);return false"
-                                class="folder">&nbsp;
-                             </a>
-                             <abbr title="No description">input</abbr>
-                          </div>
-                       </td> 
-<td nowrap>input</td>
+<td nowrap>container</td>
                     <td nowrap></td>
                     <td nowrap>no config</td>
                     <td></td>
                     <td>current</td>
-                    <td nowrap>/um:delete-snapshot/um:input</td>
+                    <td nowrap>/um:checked-commit/um:output/um:node-config-results</td>
                     </tr> 
-<tr id="2-6-11-12" class="a">
-                       <td nowrap>
-                          <div id=9999 class=tier4>
-                             <a class="leaf">&nbsp;</a>
-                             <abbr title="Name of snapshot."> <em> name </em></abbr>
-                          </div>
-                       </td>
-                       <td>leaf</td>
-                       <td nowrap><abbr title="string
-">string</abbr></td>
-                       <td nowrap>no config</td>
-                       <td>?</td>
-                       <td>current</td>
-                       <td nowrap>/um:delete-snapshot/um:input/um:name</td</tr> 
-<tr id="2-6-12" class="a">
+<tr id="2-5-10-14-12" class="a">
                        <td nowrap id="p4000">
-                          <div id="p5000" class="tier3">
+                          <div id="p5000" class="tier5">
                              <a href="#" id="p6000"
                                 onclick="toggleRows(this);return false"
                                 class="folder">&nbsp;
                              </a>
-                             <abbr title="No description">output</abbr>
+                             <abbr title="Result of configuration and rollback on the given node.
+Rollback status is empty if rollback was not executed.">node-config-result[nodeId]</abbr>
                           </div>
                        </td> 
-<td nowrap>output</td>
+<td nowrap>list</td>
                     <td nowrap></td>
                     <td nowrap>no config</td>
                     <td></td>
                     <td>current</td>
-                    <td nowrap>/um:delete-snapshot/um:output</td>
+                    <td nowrap>/um:checked-commit/um:output/um:node-config-results/um:node-config-result</td>
                     </tr> 
-<tr id="2-6-12-13" class="a">
+<tr id="2-5-10-14-12-17" class="a">
                        <td nowrap>
-                          <div id=9999 class=tier4>
+                          <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
-                             <abbr title="Result of operation."> <em> result </em></abbr>
+                             <abbr title="No description">  nodeId </abbr>
+                          </div>
+                       </td>
+                       <td>leaf</td>
+                       <td nowrap><abbr title="nt:node-id
+inet:uri
+">nt:node-id</abbr></td>
+                       <td nowrap>no config</td>
+                       <td></td>
+                       <td>current</td>
+                       <td nowrap>/um:checked-commit/um:output/um:node-config-results/um:node-config-result/um:nodeId</td</tr> 
+<tr id="2-5-10-14-12-18" class="a">
+                       <td nowrap>
+                          <div id=9999 class=tier6>
+                             <a class="leaf">&nbsp;</a>
+                             <abbr title="Status of configuration."> <em> configuration-status </em></abbr>
                           </div>
                        </td>
                        <td>leaf</td>
                        <td nowrap><abbr title="operation-result-type
 enumeration
- : {complete,fail,}">operation-result-type</abbr></td>
+ : {complete,fail,ignored,}">operation-result-type</abbr></td>
                        <td nowrap>no config</td>
                        <td>?</td>
                        <td>current</td>
-                       <td nowrap>/um:delete-snapshot/um:output/um:result</td</tr> 
-<tr id="2-6-12-14" class="a">
+                       <td nowrap>/um:checked-commit/um:output/um:node-config-results/um:node-config-result/um:configuration-status</td</tr> 
+<tr id="2-5-10-14-12-19" class="a">
                        <td nowrap>
-                          <div id=9999 class=tier4>
+                          <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
-                             <abbr title="Error message describing operation failure."> <em> error-message </em></abbr>
-                          </div>
-                       </td>
-                       <td>leaf</td>
-                       <td nowrap><abbr title="string
-">string</abbr></td>
-                       <td nowrap>no config</td>
-                       <td>?</td>
-                       <td>current</td>
-                       <td nowrap>/um:delete-snapshot/um:output/um:error-message</td</tr> 
-<tr id="2-7" class="a">
-                       <td nowrap id="p4000">
-                          <div id="p5000" class="tier2">
-                             <a href="#" id="p6000"
-                                onclick="toggleRows(this);return false"
-                                class="folder">&nbsp;
-                             </a>
-                             <abbr title="Replaces intended uniconfig topology with a snapshot.">replace-config-with-snapshot</abbr>
-                          </div>
-                       </td> 
-<td nowrap>rpc</td>
-                    <td nowrap></td>
-                    <td nowrap></td>
-                    <td></td>
-                    <td>current</td>
-                    <td nowrap>/um:replace-config-with-snapshot</td>
-                    </tr> 
-<tr id="2-7-13" class="a">
-                       <td nowrap id="p4000">
-                          <div id="p5000" class="tier3">
-                             <a href="#" id="p6000"
-                                onclick="toggleRows(this);return false"
-                                class="folder">&nbsp;
-                             </a>
-                             <abbr title="No description">input</abbr>
-                          </div>
-                       </td> 
-<td nowrap>input</td>
-                    <td nowrap></td>
-                    <td nowrap>no config</td>
-                    <td></td>
-                    <td>current</td>
-                    <td nowrap>/um:replace-config-with-snapshot/um:input</td>
-                    </tr> 
-<tr id="2-7-13-15" class="a">
-                       <td nowrap>
-                          <div id=9999 class=tier4>
-                             <a class="leaf">&nbsp;</a>
-                             <abbr title="Name of snapshot."> <em> name </em></abbr>
-                          </div>
-                       </td>
-                       <td>leaf</td>
-                       <td nowrap><abbr title="string
-">string</abbr></td>
-                       <td nowrap>no config</td>
-                       <td>?</td>
-                       <td>current</td>
-                       <td nowrap>/um:replace-config-with-snapshot/um:input/um:name</td</tr> 
-<tr id="2-7-14" class="a">
-                       <td nowrap id="p4000">
-                          <div id="p5000" class="tier3">
-                             <a href="#" id="p6000"
-                                onclick="toggleRows(this);return false"
-                                class="folder">&nbsp;
-                             </a>
-                             <abbr title="No description">output</abbr>
-                          </div>
-                       </td> 
-<td nowrap>output</td>
-                    <td nowrap></td>
-                    <td nowrap>no config</td>
-                    <td></td>
-                    <td>current</td>
-                    <td nowrap>/um:replace-config-with-snapshot/um:output</td>
-                    </tr> 
-<tr id="2-7-14-16" class="a">
-                       <td nowrap>
-                          <div id=9999 class=tier4>
-                             <a class="leaf">&nbsp;</a>
-                             <abbr title="Result of operation."> <em> result </em></abbr>
+                             <abbr title="Status of rollback."> <em> rollback-status </em></abbr>
                           </div>
                        </td>
                        <td>leaf</td>
                        <td nowrap><abbr title="operation-result-type
 enumeration
- : {complete,fail,}">operation-result-type</abbr></td>
+ : {complete,fail,ignored,}">operation-result-type</abbr></td>
                        <td nowrap>no config</td>
                        <td>?</td>
                        <td>current</td>
-                       <td nowrap>/um:replace-config-with-snapshot/um:output/um:result</td</tr> 
-<tr id="2-7-14-17" class="a">
+                       <td nowrap>/um:checked-commit/um:output/um:node-config-results/um:node-config-result/um:rollback-status</td</tr> 
+<tr id="2-5-10-14-12-20" class="a">
                        <td nowrap>
-                          <div id=9999 class=tier4>
+                          <div id=9999 class=tier6>
                              <a class="leaf">&nbsp;</a>
-                             <abbr title="Error message describing operation failure."> <em> error-message </em></abbr>
+                             <abbr title="Type of error."> <em> error-type </em></abbr>
+                          </div>
+                       </td>
+                       <td>leaf</td>
+                       <td nowrap><abbr title="error-type
+enumeration
+ : {no-connection,processing-error,}">error-type</abbr></td>
+                       <td nowrap>no config</td>
+                       <td>?</td>
+                       <td>current</td>
+                       <td nowrap>/um:checked-commit/um:output/um:node-config-results/um:node-config-result/um:error-type</td</tr> 
+<tr id="2-5-10-14-12-21" class="a">
+                       <td nowrap>
+                          <div id=9999 class=tier6>
+                             <a class="leaf">&nbsp;</a>
+                             <abbr title="Error message describing cause of error."> <em> error-message </em></abbr>
                           </div>
                        </td>
                        <td>leaf</td>
@@ -1134,7 +1173,22 @@ enumeration
                        <td nowrap>no config</td>
                        <td>?</td>
                        <td>current</td>
-                       <td nowrap>/um:replace-config-with-snapshot/um:output/um:error-message</td</tr> 
+                       <td nowrap>/um:checked-commit/um:output/um:node-config-results/um:node-config-result/um:error-message</td</tr> 
+<tr id="2-5-10-14-12-22" class="a">
+                       <td nowrap>
+                          <div id=9999 class=tier6>
+                             <a class="leaf">&nbsp;</a>
+                             <abbr title="Cli commands that needs to be executed on node to reach intended
+configuration state"> <em> cli-configuration </em></abbr>
+                          </div>
+                       </td>
+                       <td>leaf</td>
+                       <td nowrap><abbr title="string
+">string</abbr></td>
+                       <td nowrap>no config</td>
+                       <td>?</td>
+                       <td>current</td>
+                       <td nowrap>/um:checked-commit/um:output/um:node-config-results/um:node-config-result/um:cli-configuration</td</tr> 
 
 </table>
 </div>

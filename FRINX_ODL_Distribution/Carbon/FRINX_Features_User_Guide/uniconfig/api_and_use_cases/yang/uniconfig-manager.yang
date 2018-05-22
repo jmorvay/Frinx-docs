@@ -21,6 +21,10 @@ module uniconfig-manager {
           value -1;
           description "Operation did not complete successfully.";
         }
+        enum ignored {
+          value -2;
+          description "Operating node entry was skipped.";
+        }
       }
   }
 
@@ -61,6 +65,15 @@ module uniconfig-manager {
     uses error-fields;
   }
 
+  grouping journal-fields {
+    leaf cli-configuration {
+      type string;
+      description "Cli commands that needs to be executed on node to reach intended
+       configuration state";
+       default "";
+    }
+  }
+
   grouping node-config-results {
     list node-config-result {
       key nodeId;
@@ -70,6 +83,7 @@ module uniconfig-manager {
         type nt:node-id;
       }
       uses config-status-fields;
+      uses journal-fields;
     }
   }
 
@@ -103,27 +117,48 @@ module uniconfig-manager {
     }
   }
 
+  grouping target-nodes-fields {
+    container target-nodes {
+      leaf-list node {
+        type nt:node-id;
+      }
+    }
+  }
+
+  grouping commit-output-fields {
+    leaf overall-configuration-status {
+      type operation-result-type;
+      description "If configuration on all network elements is successful returns Complete,
+      Fail otherwise.";
+    }
+    container node-config-results {
+      description "Result of configuration and rollback on each configured network element.";
+      uses node-config-results;
+    }
+  }
+
   rpc commit {
     description "Executes configuration of network elements based on
       diff between actual configuration and intended configuration.
       If an error occurs, automatic rollback is executed. Result of execution
       is returned in RPC output.";
 
+    input {
+      uses target-nodes-fields;
+    }
+
     output {
-      leaf overall-configuration-status {
-        type operation-result-type;
-        description "If configuration on all network elements is successful returns Complete,
-        Fail otherwise.";
-      }
-      container node-config-results {
-        description "Result of configuration and rollback on each configured network element.";
-        uses node-config-results;
-      }
+      uses commit-output-fields;
     }
   }
 
   rpc replace-config-with-operational {
     description "Replaces intended uniconfig topology with actual uniconfig topology.";
+
+    input {
+      uses target-nodes-fields;
+    }
+
     output {
       uses operation-result;
     }
@@ -132,14 +167,9 @@ module uniconfig-manager {
   rpc sync-from-network {
     description "Synchronises configuration from network element to given uniconfig node.";
     input {
-      list node-to-sync {
-        description "Uniconfig node to sync from network element.";
-        key node-id;
-        leaf node-id {
-          type nt:node-id;
-        }
-      }
+      uses target-nodes-fields;
     }
+
     output {
       leaf overall-sync-status {
         type operation-result-type;
@@ -155,6 +185,11 @@ module uniconfig-manager {
 
   rpc calculate-diff {
     description "Calculates differences between intended and actual uniconfig topology.";
+
+    input {
+      uses target-nodes-fields;
+    }
+
     output {
       list node-with-diff {
         key node-id;
@@ -199,35 +234,17 @@ module uniconfig-manager {
     }
   }
 
-  rpc create-snapshot {
-    description "Creates new network-topology with the given name
-      as a snapshot of actual uniconfig topology.";
+  rpc checked-commit {
+    description "Executes configuration of network elements based on
+      diff between actual configuration and intended configuration.
+      Before execution a fingerprint check is executed. If an error occurs,
+      automatic rollback is executed. Result of execution
+      is returned in RPC output.";
     input {
-      uses snapshot-fields;
+        uses target-nodes-fields;
     }
     output {
-      uses operation-result;
-    }
-  }
-
-  rpc delete-snapshot {
-    description "Deletes existing network-topology with the given name
-      as a snapshot.";
-    input {
-      uses snapshot-fields;
-    }
-    output {
-      uses operation-result;
-    }
-  }
-
-  rpc replace-config-with-snapshot {
-    description "Replaces intended uniconfig topology with a snapshot.";
-    input {
-      uses snapshot-fields;
-    }
-    output {
-      uses operation-result;
+        uses commit-output-fields;
     }
   }
 

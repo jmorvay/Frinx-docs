@@ -12,6 +12,7 @@
         - [Direct Translation Unit](#direct-translation-unit)
         - [NETCONF Translation Unit](#netconf-translation-unit)
     - [Uniconfig Node Manager (UNM)](#uniconfig-node-manager-unm)
+    - [Snapshot Manager](#snapshot-manager)
     - [Dry-run Manager](#dry-run-manager)
 - [Components interactions](#components-interactions)
     - [NETCONF device configuration](#netconf-device-configuration)
@@ -64,27 +65,27 @@ Components are described from bottom to top.
 ## CLI Mountpoint
 The CLI mountpoint provides a management API for a network device over the CLI.
 OpenConfig models are used for structured data describing the device
-configuration and state.  
+configuration and state.
 
 The CLI mounpoint uses CLI translation units for translation between OpenConfig
-data and CLI data.  
+data and CLI data.
 
 The CLI mountpoint API supports device transactions and automatic
 rollback functionality (in case an error occurs during device configuration
 in device transaction). CLI mountpoint is registered under a node in cli
-topology.  
+topology.
 
 Each CLI mountpoint always includes a generic CLI translation unit which provides
 an RPC for sending raw CLI commands and returning raw CLI output.
 
 ### CLI Translation Units
-A CLI translation unit defines a mapping between YANG models and the CLI.  
+A CLI translation unit defines a mapping between YANG models and the CLI.
 
 It is used by the FRINX ODL controller to perform translation between
-device specific CLI data and standardized structured (OpenConfig YANG) data.  
+device specific CLI data and standardized structured (OpenConfig YANG) data.
 
 The translation unit can read and write configuration or read the state of a device.
-It uses the CLI over SSH or telnet for communication with the CLI device.  
+It uses the CLI over SSH or telnet for communication with the CLI device.
 
 Junos and IOS-XR translation units are just simplified examples.
 The CLI translation unit is usually created for a combination of device type
@@ -92,7 +93,7 @@ and OpenConfig main section (folder) e.g. xr-6-network-instance,
 xr-6-ospf, ios-local-routing, ios-ospf, etc.
 
 ## CLI dry-run Mountpoint
-the CLI dry-run mountpoint mocks the management API for a network device over CLI.
+The CLI dry-run mountpoint mocks the management API for a network device over CLI.
 It uses the CLI dry-run journal for storing to-be-executed CLI commands instead
 of configuring the network device directly. Just as with a regular CLI mountpoint,
 it uses the same set of CLI translation units and the same set of OpenConfig
@@ -126,7 +127,7 @@ OpenConfig available-capabilities.
 The NETCONF translation unit translates OpenConfig data to data described by
 device specific YANG models. It uses the NETCONF mountpoint for communication
 with a NETCONF device, and also implements device transaction
-with automatic rollback if it is not provided by the device.  
+with automatic rollback if it is not provided by the device.
 
 The Junos NETCONF translation unit is a simplified example. The NETCONF translation unit is
 usually created for a combination of device type and OpenConfig main
@@ -138,25 +139,32 @@ The responsibility of this component is to maintain configuration on devices
 based on intended configuration. Each device and its configuration is
 represented as a node in the uniconfig topology and the configuration of this node
 is described by using OpenConfig YANG models. The Northbound API of UNM is
-RPC driven and provides functionality for commit with automatic rollback,
-manual rollback and synchronization of configuration from the network.
+RPC driven and provides functionality for commit with automatic rollback
+and synchronization of configuration from the network.
 
 When a commit is called, the UNM creates a diff based on intended state from
 CONFIG DS and actual state from OPER DS. This Diff is used as the basis for device configuration.
-UNM prepares a network wide transaction which uses Unified mountpoints for communication with different types of devices.  
+UNM prepares a network wide transaction which uses Unified mountpoints for communication with different types of devices.
 
 In the case where the configuration of one device fails, the UNM executes automatic rollback
 where the previous configuration is restored on all modified devices.
 
-Manual rollback enables simple reconfiguration of the entire network
-using one of the previous states saved in the UNM.
-
 Synchronization from the network reads configuration from devices and stores
 it as an actual state to the OPER DS.
 
+## Snapshot Manager
+The snapshot manager creates and deletes uniconfig snapshots of
+actual uniconfig topology. Multiple snapshots can be created
+in the system.
+
+Snapshots may be used for manual rollback. Manual rollback enables simple
+reconfiguration of the entire network using one of the previous states
+saved in snapshots. That means that uniconfig nodes in config datastore
+are replaced with uniconfig snapshot nodes.
+
 ## Dry-run Manager
 The dry-run manager provides functionality for mock configuration of CLI devices where CLI
-commands are sent to the CLI dry-run journal instead of the device.  
+commands are sent to the CLI dry-run journal instead of the device.
 
 The dry-run manager uses Uniconfig Node Manager for getting the diff of the intended configuration and uses the CLI dry-run mounpoint for sending CLI commands to the dry-run journal.
 
@@ -164,9 +172,9 @@ The dry-run manager uses Uniconfig Node Manager for getting the diff of the inte
 The figures below show the interactions in UniConfig triggered by an external application.
 
 ## NETCONF device configuration
-UniConfig uses NETCONF for device configuration. An external application can also use the CLI RPC from the Generic CLI translation unit for direct communication.  
+UniConfig uses NETCONF for device configuration. An external application can also use the CLI RPC from the Generic CLI translation unit for direct communication.
 
-The device is firstly mounted as a node to *topology-netconf* and then to topology *cli*.  
+The device is firstly mounted as a node to *topology-netconf* and then to topology *cli*.
 
 ![unitopo_netconf-config](drawing/unitopo_netconf-config.png)
 
@@ -176,23 +184,23 @@ UniConfig uses CLI for device configuration. An external application can also us
 ![unitopo_cli-config](drawing/unitopo_cli-config.png)
 
 # Topologies
-The UniConfig framework uses various topologies on different layers.  
-Each topology contains nodes in the CONF and OPER datastores.  
+The UniConfig framework uses various topologies on different layers.
+Each topology contains nodes in the CONF and OPER datastores.
 
 ![topologies](drawing/topologies.png)
 
 ## CLI
-The cli topology contains nodes which are connected with ODL via the CLI.  
+The cli topology contains nodes which are connected with ODL via the CLI.
 
 A node in CONF DS contains information on how the FRINX ODL controller should connect
-to CLI devices (i.e. IP address, port, username, password, etc.) and a node in OPER DS contains the state of connection with available-capabilities.  
+to CLI devices (i.e. IP address, port, username, password, etc.) and a node in OPER DS contains the state of connection with available-capabilities.
 
 CLI mountpoints are registered under these nodes. Configuration and state on the device can be obtained from the mountpoint.
 
 ## NETCONF
 The topology-netconf topology contains nodes which are connected with FRINX ODL through
 NETCONF. A node in CONF DS contains information on how the FRINX ODL controller should connect
-to NETCONF devices (i.e. IP address, port, username, password, etc.) and a node in OPER DS contains the state of connection with available-capabilities.  
+to NETCONF devices (i.e. IP address, port, username, password, etc.) and a node in OPER DS contains the state of connection with available-capabilities.
 
 NETCONF mountpoints are registered under these nodes. Configuration and state on the device can be obtained from a mountpoint.
 
@@ -211,7 +219,7 @@ In the most simple deployment case, all applications run on a single node. This 
 
 ## Clustering
 Clustered deployment usually use 3 nodes. This deployment provides high availability
-(HA) because data is replicated on each node. 
+(HA) because data is replicated on each node.
 
 The UniConfig framework runs on all nodes but is only in active state on one and is in standby state on the other nodes. When an active node goes down or becomes unreachable to other
 nodes, one of the standby nodes becomes active. This deployment can handle only

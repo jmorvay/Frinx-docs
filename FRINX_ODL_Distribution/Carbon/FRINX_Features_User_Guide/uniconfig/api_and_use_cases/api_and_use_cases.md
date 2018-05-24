@@ -40,7 +40,7 @@ an external or OpenDaylight application.
 [RESTCONF](https://frinxio.github.io/Frinx-docs/FRINX_ODL_Distribution/Carbon/FRINX_Features_User_Guide/restconf.html)
 is used for API description and REST call examples in this document.
 
-UniConfig reference REST calls can be downloaded as [uniconfig demo postman collection](https://github.com/FRINXio/Postman/blob/carbon/development/Uniconfig%20Framework/uniconfig_demo_postman_collection.json).
+UniConfig reference REST calls can be downloaded as [uniconfig demo postman collection](https://github.com/FRINXio/Postman/blob/carbon/development/Uniconfig%20Framework/postman_collection_uniconfig_demo.json).
 
 [More about OpenDaylight controller and its concepts](http://docs.opendaylight.org/en/stable-carbon/developer-guide/controller.html?highlight=restconf)
 
@@ -59,7 +59,7 @@ More information about CLI mounting can be found [here](https://frinxio.github.i
 
 [Tree representation of cli-topology.yang](yang/cli-topology.html)
 
-[Examples in Postman collection](https://github.com/FRINXio/Postman/blob/carbon/development/Uniconfig%20Framework/uniconfig_demo_postman_collection.json)
+[Examples in Postman collection](https://github.com/FRINXio/Postman/blob/carbon/development/Uniconfig%20Framework/postman_collection_uniconfig_demo.json)
 
 ### NETCONF
 More information about NETCONF mounting can be found [here](http://docs.opendaylight.org/en/stable-carbon/user-guide/netconf-user-guide.html#southbound-netconf-connector)
@@ -68,7 +68,7 @@ More information about NETCONF mounting can be found [here](http://docs.opendayl
 
 [Tree representation of netconf-node-topology.yang](yang/netconf-node-topology.html)
 
-[Examples in Postman collection](https://github.com/FRINXio/Postman/blob/carbon/development/Uniconfig%20Framework/uniconfig_demo_postman_collection.json)
+[Examples in Postman collection](https://github.com/FRINXio/Postman/blob/carbon/development/Uniconfig%20Framework/postman_collection_uniconfig_demo.json)
 
 ## UniConfig API description
 [uniconfig-manager.yang](yang/uniconfig-manager.yang)

@@ -3,7 +3,7 @@
 
 This document describes the latest changes, additions, known issues, and fixes for the Frinx ODL Distribution.<!--more-->
 
-**Note that FRINX ODL distribution 3.1.3 requires Java 8**  
+**Note that FRINX ODL distribution 3.1.4 requires Java 8**  
 To install Java:  
 Ubuntu: In a terminal type
 
@@ -15,19 +15,13 @@ CentOS: In a terminal type
 
 #### New Features, Improvements
 * CLI plugin
-    - Fix IO issues causing multiple network connections to device after reconnect
-    - Do not return default data for non existing nodes - When reading a non-existing interface via RESTCONF, ODL returned http code 200 with default data in payload, now it returns code 404, as expected
-    - Removed “safe-command-execution” from mount request - mount request cannot contain parameter “safe-command-execution” anymore. Behaviour enabled by safe-command-execution is default behaviour now.
+    - Speed up cli mount process by changing prompt resolution strategy - Instead of a default wait of 5 seconds for prompt to be received from device, use a different strategy where wait time is gradually increased starting from 1 second to 10 seconds. This speeds up mount time significantly.
+    - Speed up command execution when changing prompt - When executing a command and also switching prompt, use the new prompt resolution strategy to speed up the process. This speeds up transactions for devices such as XR.
+    - Do not check output of “execute-and-read” RPC against device specific error patterns - Just propagate the errors as rpc output
 * Unified layer and unitopo-units
-    - Translate layer caching added to improve mount speed for Unified mountpoints - Subsequent mounts of similar devices are now slightly faster and consume less memory as translate contexts are reused.
-    - Do not return default data for non existing nodes - When reading a non-existing interface via RESTCONF, ODL returned http code 200 with default data in payload, now it returns code 404, as expected
-    - Add commit-per-update mode for devices managed over netconf - Typically a single transaction in Unified mountpoint is mapped to a single netconf transaction on a device, but due to violations of NETCONF RFC some devices have to be treated in a special way, where 1 transaction in Unified is mapped to N transactions in NETCONF and each change is submitted with a dedicated commit.
+    - Speed up cli mount process by caching AST representation of YANG models - Yang text to AST parsing was performed multiple times when mounting each device. The process took around 50% of time spent while mounting a netconf device. Now with a cache, the parsing happens only once
 * UniConfig framework
-    - Configuration metadata (last commit fingerprint) in actual uniconfig node (OPER DS) - Operational data containing configuration fingerprint (timestamp of last configuration obtained from device). This feature can be used to check whether configuration has been updated on a device.
-    - Optimized sync-from-network operation thanks to configuration metadata caching - If a device and its units expose last commit fingerprint information, uniconfig will store that information and use it to verify that configuration has been updated on a device, before issuing a full sync-from-network operation. This process speeds up sync-from-network significantly since it only has to issue a full sync-from-network on devices which configuration has really been updated.
-    - Snapshot manager - New component in UniConfig to manage snapshots and enforce a limit on their number
-    - Operation checked-commit - similar to commit operation but with addition that configuration metadata between device and UniConfig state are compared first. If they are different the checked-commit fails and UniConfig does not configure network elements.
-    - Added “target-nodes” to input of RPCs - UniConfig RPCs take “target-nodes” containing list of nodes for which an operation should be executed.
+    - Make rollback on a failed node more robust - When rolling back a node from unified topology which failed during transaction, make sure to check whether rollback is necessary. If it is necessary (native rollback failed), read current state before pushing previous state. 
 
 #### Known Issues
 1. odl-netconf-clustered-topology:
@@ -41,7 +35,7 @@ CentOS: In a terminal type
 6.  Update in CLI translation units does not work properly - it invokes delete and create operations by default
 
 #### Opendaylight Carbon Release Notes
-The Frinx controller 3.1.3 is based on OpenDaylight Carbon.
+The Frinx controller 3.1.4 is based on OpenDaylight Carbon.
 
 <https://wiki.opendaylight.org/view/Simultaneous_Release/Carbon/Release_Notes>
 <https://wiki.opendaylight.org/view/Simultaneous_Release:Carbon_Release_Plan>

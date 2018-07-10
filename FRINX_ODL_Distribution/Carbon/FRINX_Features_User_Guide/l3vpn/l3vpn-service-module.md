@@ -15,12 +15,10 @@
             - [Hub and Spoke](#hub-and-spoke)
     - [Usage - Operations Guide](#usage---operations-guide)
         - [Set up an L3VPN connection](#set-up-an-l3vpn-connection)
-            - [1. Establish a NETCONF connection](#1-establish-a-netconf-connection)
+            - [1. Establish PE-routers connection](#1-establish-pe-routers-connection)
             - [2. Create VPN service](#2-create-vpn-service)
             - [3. Create sites](#3-create-sites)
         - [Delete the L3VPN connection](#delete-the-l3vpn-connection)
-        - [Testing](#testing)
-        - [FRINX L3VPN demo video](#frinx-l3vpn-demo-video)
     - [L3VPN Provider](#l3vpn-provider)
         - [Use Case Specification](#use-case-specification)
         - [Architecture](#architecture)
@@ -36,14 +34,14 @@
 ### FRINX ODL - Install features
 1. First, [start FRINX ODL](../../Operations_Manual/running-frinx-odl-after-activation.md). 
   - Wait for 3 minutes to ensure the start up process is complete.  
-2. Then, in the karaf terminal which will have started, install two features - RESTCONF and the l3vpn provider:  
+2. Then, in the karaf terminal which will have started, install the following features:  
 
 ```
-feature:install odl-restconf frinx-l3vpn-iosxrv 
+feature:install frinx-l3vpn-app cli-southbound-all-units unified-topology-all-units
 ```
 ### Postman - Import collection
 1. To download and use FRINX pre-configured Postman REST calls with L3VPN - see [this page](../../API.md). 
-2. Follow that guide to import the file `postman_collection_L3VPN_IOS-XRv.json` from the directory `L3VPN Service Module`.
+2. Follow that guide to import the file `postman_collection_L3VPN_service.json` from the directory `L3VPN Service Module`.
 3. [Configure an environment in Postman](../../API.md) where you set a value for `odl_ip`.
 
 Your system is now ready. To provision L3VPN see the [Usage - Operations Guide](#usage---operations-guide) below.
@@ -97,69 +95,90 @@ To import the necessary Postman collection file see the section [Postman - Impor
 That file contains several REST calls for establishing a NETCONF connection and creating or deleting L3VPN instances, for which we provide guidance below:
 
 ### Set up an L3VPN connection
-Three steps are required to create an l3vpn connection between two routers (we perform these steps in our [video](https://youtu.be/qxnMJG_Cz-c) by commandline. Below we will make it easier by using Postman collections):  
+Three steps are required to create an l3vpn connection between two routers (we demonstrate this on Huawei NE5000E router connected to FRINX ODL via cli interface and on Cisco XR6 router connected via NETCONF). We will configure l3vpn service using Postman collection:  
 
-#### 1. Establish a NETCONF connection 
+#### 1. Establish PE-routers connection
 This is between FRINX ODL and each of the two routers which we'll use for the L3VPN. 
 
-- Use Postman REST calls: `NETCONF connection/connect pe1` (for router 1) and `NETCONF connection/connect pe2` (for router 2):  
+- Use Postman REST calls: `PE-routers connection/connect xr6-pe` (for Cisco XR6 router) and `PE-routers connection/connect huawei-pe` (for Huawei NE5000E router):
 
-- First edit the body of the call `NETCONF connection/connect pe1` according to your setup for router 1:  
+- First edit the body of the call `PE-routers connection/connect xr6-pe` according to your setup for Cisco XR6 router:  
     
 ```json
 {
   "node": [
     {
-      "node-id": "pe1",
-      "netconf-node-topology:host": "192.168.1.211",//Edit this according to your setup
+      "node-id": "xr6-pe",
+      "netconf-node-topology:host": "192.168.1.212",//Edit according to your setup
       "netconf-node-topology:port": 830,
       "netconf-node-topology:keepalive-delay": 0,
       "netconf-node-topology:tcp-only": false,
-      "netconf-node-topology:username": "cisco",//Edit this according to your setup
-      "netconf-node-topology:password": "cisco"//Edit this according to your setup
+      "netconf-node-topology:username": "cisco",//Edit according to your setup
+      "netconf-node-topology:password": "cisco",//Edit according to your setup
+
+      "node-extension:reconcile": false
+
     }
   ]
 }
 ```
-![connect pe1](connect-pe1.PNG)
+![connect xr6](connect-xr6.PNG)
 
 - Issue the call by hitting **Send**. You should receive the Response: Status **201 Created**
 
-- Now configure the call `NETCONF connection/connect pe2` in the same way, but this time editing the body according to your setup for router 2  
+- Now configure the call `PE-routers connection/connect huawei-pe` in the similiar way, but this time editing the body according to your setup for Huawei NE5000E router:
+
+```json
+{
+  "network-topology:node":{
+    "network-topology:node-id":"huawei-pe",
+
+    "cli-topology:host":"192.168.1.213",//Edit according to your setup
+    "cli-topology:port":"22",
+    "cli-topology:transport-type":"ssh",
+
+    "cli-topology:device-type":"vrp",
+    "cli-topology:device-version":"*",
+
+    "cli-topology:username":"huawei",//Edit according to your setup
+    "cli-topology:password":"huawei",//Edit according to your setup
+
+    "cli-topology:journal-size":150,
+    "cli-topology:dry-run-journal-size":180,
+
+    "node-extension:reconcile":false
+  }
+}
+```
+![connect huawei](connect-huawei.PNG)
 
 - Again, issue the call by hitting **Send**, ensuring you receive the Response: Status **201 Created**
 
-- It can take a few minutes before the connections are formed. We can check if they're ready by issuing the call `NETCONF connection/topology-netconf OPER`
+- It can take a few minutes before the connections are formed. We can check if they're ready by issuing the call `PE-routers connection/topology-netconf OPER` and `PE-routers connection/topology-cli OPER` respectively
   - You should receive the Response: Status **200 OK**
-  - When you scroll through the Response body you should see a list **"available-capability"** for both **"node-id": "pe1"** and **"node-id": "pe2"**. If these are not listed, wait another minute and issue the call again.
+  - When you scroll through the Response body you should see a list **"available-capability"** for both PE-routers. If these are not listed, wait another minute and issue the call again.
+- Both PE nodes should also appear in uniconig topology. We can check that by issuing the call `PE-routers connection/uniconfig-nodes`
+  - You should receive the Response: Status **200 OK**
+  - When you scroll through the Response body you should see both PE nodes in the **"node"** list. If they are not listed, wait another minute and issue the call again.
 
 #### 2. Create VPN service 
 This will be used in the next step when we create the L3VPN sites.  
 - Use the Postman REST call: `L3VPN Service/create vpn-service cus1_vpn1`. You don't need to change any of the fields of the call body. You can change **customer-name** if you wish.
 
 ```json
-{  
-  "vpn-service":[  
-    {  
+{
+  "vpn-service":[
+    {
       "vpn-id":"cus1_vpn1",
       "customer-name":"customer1",
       "vpn-service-topology":"any-to-any",
       "l3vpn-param:vrf-name":"cus1_vpn1",
-      "l3vpn-param:route-distinguisher":{  
-        "as":11,
-        "as-index":11
+      "l3vpn-param:route-distinguisher":"300:60",
+      "l3vpn-param:import-route-targets":{
+        "route-target":"11:11"
       },
-      "l3vpn-param:import-route-targets":{  
-        "route-target":{  
-          "as":11,
-          "as-index":11
-        }
-      },
-      "l3vpn-param:export-route-targets":{  
-        "route-target":{  
-          "as":11,
-          "as-index":11
-        }
+      "l3vpn-param:export-route-targets":{
+        "route-target":"11:11"
       }
     }
   ]
@@ -173,49 +192,51 @@ This will be used in the next step when we create the L3VPN sites.
 Use the Postman REST calls: `L3VPN Service/create site cus1_ce1` and `L3VPN Service/create site cus1_ce2`  
 - First edit the body of the call `L3VPN Service/create site cus1_ce1` according to your setup. Only the fields with comments below should be edited:
 ```json
-{  
-  "site":[  
-    {  
+{
+  "site":[
+    {
       "site-id":"cus1_ce1",
       "site-vpn-flavor":"site-vpn-flavor-single",
-      "management":{  
+      "management":{
         "type":"customer-managed"
       },
-      "site-network-accesses":{  
-        "site-network-access":[  
-          {  
-            "site-network-access-id":"cus1_ce1-pe1",
+      "site-network-accesses":{
+        "site-network-access":[
+          {
+            "site-network-access-id":"cus1_ce2-pe2",
             "site-network-access-type":"multipoint",
-            "vpn-attachment":{  
+            "bearer": {
+                "bearer-reference": "xr6-pe/GigabitEthernet0/0/0/2"
+            },
+            "vpn-attachment":{
               "vpn-id":"cus1_vpn1",
               "site-role":"any-to-any-role"
             },
-            "routing-protocols":{  
-              "routing-protocol":[  
-                {  
+            "routing-protocols":{
+              "routing-protocol":[
+                {
                   "type":"bgp",
-                  "bgp":{  
-                    "autonomous-system":65101,
-                    "address-family":[  
+                  "bgp":{
+                    "autonomous-system":65102,
+                    "address-family":[
                       "ipv4"
                     ]
                   }
                 }
               ]
             },
-            "ip-connection":{  
-              "ipv4":{  
+            "ip-connection":{
+              "ipv4":{
                 "address-allocation-type":"static-address",
-                "addresses":{  
-                  "provider-address":"10.1.11.1",//Edit according to your setup
-                  "customer-address":"10.1.11.10",//Edit according to your setup
-                  "mask":24
+                "addresses":{
+                  "provider-address":"10.3.22.1",//Edit according to your setup
+                  "customer-address":"10.3.22.20",//Edit according to your setup
+                  "prefix-length":24
                 }
               }
             },
-            "l3vpn-param:pe-node-id":"pe1",
-            "l3vpn-param:pe-2-ce-tp-id":"GigabitEthernet0/0/0/2",
-            "l3vpn-param:pe-bgp-as":65000,
+            "l3vpn-param:pe-bgp-as":100,
+            "l3vpn-param:pe-bgp-router-id":"1.2.3.4",
             "l3vpn-param:route-policy-in":"RPL_PASS_ALL",
             "l3vpn-param:route-policy-out":"RPL_PASS_ALL"
           }
@@ -241,25 +262,12 @@ Use the Postman REST calls: `L3VPN Service/create site cus1_ce1` and `L3VPN Serv
 If you want to remove the L3VPN connection:
 1. Delete the L3VPN service by:
   - using the Postman REST call: `L3VPN Service/delete vpn service cus1_vpn1`. There is no body to the call. 
-    - commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn-svc`. There is no body to the call.  
-      - In the Response body you should receive "status": "complete". This shows the deletion has   been competed successfully.
 2. Delete the sites by: 
   - using the Postman REST call `L3VPN Service/delete site cus1_ce1`. There is no body to the call. 
-    - commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn-svc`. There is no body to the call.  
-      - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.  
+  - repeat this for the second site using the REST call`L3VPN Service/delete site cus1_ce2`.
   
-  Repeat Step 2. for  `L3VPN Service/delete site cus1_ce2`.
-
-### Testing
-**Karaf installation:**
-
-    feature:install frinx-l3vpn-testing   
-
-**Description:**  
-Installs L3VPN Provider with Mock NEP and RESTCONF. This feature can be used for testing and demonstration purposes where real PE devices are not available.
-
-### FRINX L3VPN demo video 
-See our [video](https://youtu.be/qxnMJG_Cz-c)  
+3. Commit by RPC: Issue the Postman REST call: `L3VPN Service/RPC commit-l3vpn-svc`. There is no body to the call.  
+  - In the Response body you should receive "status": "complete". This shows the deletion has been competed successfully.
 
 ## L3VPN Provider
 L3VPN Provider is an implementation which automatically provisions L3VPN on PE routers based on intended L3VPN service. 
@@ -276,9 +284,10 @@ L3VPN Provider can be used on a network where:
 
 ![Use case example](use-case.png)
 
-L3VPN Provider works only with devices which have these capabilities:
+L3VPN Provider sits on top of the uniconfig and thus unified topology layers. L3VPN provider works only with the devices that have translation units for following frinx-openconfig modules available:
+
 <table>
-  <thead>
+  <thead
     <tr>
       <th>
         Name
@@ -291,173 +300,94 @@ L3VPN Provider works only with devices which have these capabilities:
   <tbody>
     <tr>
       <td>
-        Cisco-IOS-XR-infra-rsi-cfg
+        frinx-openconfig-interfaces
       </td>
       <td>
-        2015-07-30
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Cisco-IOS-XR-ifmgr-cfg
-      </td>
-      <td>
-        2015-07-30
+        2016-12-22
       </td>
     </tr>
     <tr>
       <td>
-        Cisco-IOS-XR-ipv4-bgp-cfg
+        frinx-openconfig-if-ip
       </td>
       <td>
-        2015-08-27
+        2016-12-22
       </td>
     </tr>
     <tr>
       <td>
-        rollback-on-error
+        frinx-openconfig-network-instance
       </td>
       <td>
+        2017-02-28
+      </td>
+    </tr>
+    <tr>
+      <td>
+        frinx-openconfig-bgp
+      </td>
+      <td>
+        2017-02-02
+      </td>
+    </tr>
+    <tr>
+      <td>
+        frinx-openconfig-routing-policy
+      </td>
+      <td>
+        2017-07-14
       </td>
     </tr>
   </tbody>
 </table>
 
-The capabilities are sent from XR to ODL automatically during device connection via NETCONF.
-You can see the NETCONF capabilities under each node by calling (replacing odl_ip with the IP of the system on which you're running FRINX ODL):
+The avalaible translation units for a device are resolved by unified topology during device connection.
+
+A list of potential PE nodes can be obtained from (replacing odl_ip with the IP of the system on which you're running FRINX ODL):
 ```
-GET http://odl_ip:8181/restconf/operational/network-topology:network-topology/topology/topology-netconf
-```
-A list of PE nodes can be obtained from (replacing odl_ip with the IP of the system on which you're running FRINX ODL):
-```
-GET http://odl_ip:8181/restconf/operational/network-topology:network-topology/topology/l3vpn-provider-edge-topology
+GET http://odl_ip:8181/restconf/config/network-topology:network-topology/topology/uniconfig/
 ```
 
+You can see the if the particular node is suitable as PE router by calling (replacing odl_ip with the IP of the system on which you're running FRINX ODL and node_id with id of the particular PE node):
+```
+GET http://odl_ip:8181/restconf/operational/network-topology:network-topology/topology/unified/node_id
+```
+You should see the above mentioned modules in the node's **"capability"** list.
+
 ### Architecture
-L3VPN Provider is composed of multiple components. The high level architecture is shown in the picture below.
+L3VPN Provider is composed of multiple components and takes andvantage of uniconfig framework. The high level architecture is shown in the picture below.
 
 ![Architecture](architecture.png)
 
-- An external application modifies ***l3vpn-svc*** in CONF DS. L3VPN can be configured on nodes which are read from ***l3vpn-provider-edge-topology***. 
+- L3VPN provider takes the same apporach as Uniconfig Node Manager, ***l3vpn-svc*** in CONF DS contains intended L3VPN service configuration and ***l3vpn-svc*** in OPER DS conatins actual L3VPN service caonfiguration.
+- An external application modifies ***l3vpn-svc*** in CONF DS. L3VPN can be configured on nodes which are present in uniconfig topology and support necessary capabilites. 
 - When all changes are done, the external application calls RPC *commit-l3vpn-svc*. 
-- The RPC reads the intended state from CONF DS, schedules processing, stores ***status-l3vpn-provider*** with "in-progress" status to OPER DS and then returns RPC output. 
-- L3VPN Provider creates a diff between ***configured-l3vpn-svc*** and ***l3vpn-svc***. 
-- This diff is configured inside the network-wide transaction on the necessary PE routers by using particular Network Element Plugins.
+- The RPC reads the intended state from CONF DS, schedules processing, calculates diff between intended and actual configuration.
+- This diff is configured inside the network-wide transaction on the necessary PE routers by translating the diff into the openconfig data and pushed into the uniconfig layer.
 
-- If configuration of routers is successful then a new ***configured-l3vpn-svc*** is stored to OPER DS and status in ***status-l3vpn-provider*** is set to "complete". 
-- If configuration on one of the devices fails, the rollback of the network-wide transaction starts and ***status-l3vpn-provider*** is set to "rollback-in-progress".
-
-- If rollback is successful then ***status-l3vpn-provider*** has status "failed", otherwise the status is "inconsistent". 
-- The architecture can be extended very easily because Network Element Plugin needs to implement only NEP SPI, rollback, and network element registration. 
-- Note that IOS NEP in the image above is not yet implemented.
-
-As mentioned above, NEP registers network elements to L3VPN Provider. L3VPN Provider stores network elements as nodes to abstract topology ***provider-edge-topology*** and this topology is a source of nodes which can be used for L3VPN configuration.
+- If configuration of routers is successful then OPERD DS ***l3vpn-svc*** is updated with intended state. 
+- If configuration on one of the devices fails, the uniconfig layer will rollback configuration on each affected PE node.
 
 #### API description
 The API is described using YANG modules. An external application can consume the API via RESTCONF, NETCONF, or JAVA. 
 - The L3VPN service module provides domain-specific abstraction where the abstraction describes attributes of VPNs and sites instead of configuration of network elements. 
 - The FRINX ODL controller translates the abstraction to network element configuration.
 
-[ietf-l3vpn-svc@2017-05-02.yang](ietf-l3vpn-svc@2017-05-02.yang) (Click link to download)
+[ietf-l3vpn-svc@2018-01-19.yang](ietf-l3vpn-svc@2018-01-19.yang) (Click link to download)
 
-The original YANG is from [RFC 8049](https://tools.ietf.org/html/rfc8049). Supported statements are shown in [generated UML from the original YANG](ietf-l3vpn-svc_uml.png). This YANG module is modified in order to reuse its parts and is extended with L3VPN Provider elements.
+The original YANG is from [RFC 8299](https://tools.ietf.org/html/rfc8299). Supported statements are shown in [generated UML from the original YANG](ietf-l3vpn-svc_uml.png). This YANG module is modified in order to reuse its parts and is extended with L3VPN Provider elements.
 
 The YANG module contains 3 root statements and one RPC:
 
- - **container l3vpn-svc** – represents intended state which is stored in CONF DS.
- - **container status-l3vpn-provider** – describes state of processing of L3VPN service which is processed or was processed by the L3VPN Provider. This state of processing is stored in OPER DS.
- - **container configured-l3vpn-svc** – shows last successfully configured L3VPN service.
- - **rpc commit-l3vpn-svc** – starts processing intent of L3VPN service. An output of RPC is the version which was assigned to the intent. The output is returned immediately after processing starts.
+ - **container l3vpn-svc** – represents intended state which is stored in CONF DS and actual state stored in OPER DS
+ - **rpc commit-l3vpn-svc** – starts processing intent of L3VPN service.
 
-[l3vpn-svc-aug@2017-05-02.yang](l3vpn-svc-aug@2017-05-02.yang) (Click link to download)
+[l3vpn-svc-aug@2018-04-04.yang](l3vpn-svc-aug@2018-04-04.png) (Click link to download)
 
 Augments ietf-l3vpn-svc module with statements which are needed for configuration of L3VPN.
 
-### Network Element Plugin
-The Network Element Plugin (NEP) is a unit which implements SPI from the L3VPN Provider. The NEP is device API specific and is responsible for:
-
- - Announcement of discovered device (PE) to the L3VPN Provider
- - Translation between SPI Data Transfer Objects (DTO) and device configuration
- - Rollback of configuration on a device
-
-#### IOS-XRv Network Element Plugin
-This plugin configures L3VPN on IOS-XRv using NETCONF. 
-- It listens on topology-netconf and announces PE capable devices to the L3VPN Provider. 
-- Rollback on a device is done automatically using the "Rollback-on-Error" capability.
-
-![IOS-XRv NEP](nep_ios-xrv.png)
-
-- IOS-XRv NEP listens on nodes in ***topology-netconf***. 
-- When a new IOS-XRv device is connected to FRINX ODL it appears as a new node in ***topology-netconf*** and IOS-XRv registers that node as PE to L3VPN Provider. 
-- If L3VPN Provider calls SPI in order to configure PEs via the IOS-XRv NEP, NETCONF is used for device configuration.
-
-Here is an example of L3VPN configuration on IOS-XRv (parameters encapsulated in ** are specific for VPN or site):
-
-    vrf **CE1**
-     address-family ipv4 unicast
-      import route-target
-       **1:1**
-      !
-      export route-target
-       **1:1**
-      !
-     !
-    !
-
-
-    interface **GigabitEthernet0/0/0/1**
-     vrf **CE1**
-     ipv4 address **192.168.1.1 255.255.255.0**
-     no shut
-    !
-
-
-    router bgp **65000**
-     !
-     vrf **CE1**
-      rd **1:1**
-      address-family ipv4 unicast
-       network **192.168.1.0/24**
-      !
-      neighbor **192.168.1.10**
-       remote-as **65111**
-       address-family ipv4 unicast
-        route-policy **RPL_PASS_ALL** in
-        route-policy **RPL_PASS_ALL** out
-       !
-      !
-    !
-
-
-NETCONF session configuration in IOS XR to allow ODL to connect:
-
-    crypto key generate dsa
-    crypto key generate rsa
-    conf
-    (config)#ssh server v2
-    (config)#
-    (config)#ssh server netconf port 830
-    (config)#
-    (config)#ssh timeout 120
-    (config)#
-    (config)#netconf-yang agent ssh
-    (config)#
-    (config)#ssh server netconf vrf default
-    end
-
-
-#### Mock Network Element Plugin
-The purpose of this plugin is to mock functionality of the Network Element Plugin. It is used mainly for testing when you do not need to connect real devices. 
-
-![Mock NEP](nep_mock.png)
-
-- The Mock NEP listens on nodes from *mock-pe-topology*. 
-- When a node is created, the NEP registers this node as a PE node to the L3VPN Provider. 
-- When the L3VPN Provider calls the SPI which Mock NEP implements, instead of configuration of real devices, the SPI DTOs are stored under nodes in *mock-pe-topology* of OPER DS.
-
 ### Known Limitations
-- Implementation of L3VPN provider does not support all statements in ietf-l3vpn-svc@2017-05-02.yang. Unsupported statements can be found in YANG deviations.
-- [Inheritance of Parameters Defined at Site Level and Site Network Access Level](https://tools.ietf.org/html/rfc8049#section-6.3.2.3) is not supported, therefore parameters must be defined at Site Network Access level. 
+- Implementation of L3VPN provider does not support all statements in ietf-l3vpn-svc@2018-01-19.yang. Unsupported statements can be found in YANG deviations.
 - L3VPN Provider does not support reconciliation, therefore only L3VPN created via L3VPN Provider are visible through the API.
 
 Other limitations:
@@ -472,3 +402,4 @@ Other limitations:
 | Feature Guide         |             |                                                                                                     |
 |-----------------------|-------------|-----------------------------------------------------------------------------------------------------|
 | Feature introduced in | FRINX 2.3.0 | VPN service module implementation with support for L3VPN and IOS XR (Version 6.1.2) NEP via NETCONF |
+
